@@ -1,0 +1,51 @@
+---
+permalink: api/reference_element_api_network_all_interfaces.html
+sidebar: sidebar
+keywords: object,objects,network
+summary: 'The network \(all interfaces\) object collects information about network interface configuration for a storage node. You can use the GetConfig and GetNetworkConfig methods to obtain this information for a storage node.'
+---
+
+= network (all interfaces)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The network (all interfaces) object collects information about network interface configuration for a storage node. You can use the `GetConfig` and `GetNetworkConfig` methods to obtain this information for a storage node.
+
+== Object members
+
+This object contains the following members:
+
+|===
+|Name |Description |Type
+a|
+Bond10G
+a|
+Configuration information for the Bond10G bonded interface.
+a|
+xref:reference_element_api_network_bonded_interfaces.adoc[network (bonded interfaces)]
+a|
+Bond1G
+a|
+Configuration information for the Bond1G bonded interface.
+a|
+xref:reference_element_api_network_bonded_interfaces.adoc[network (bonded interfaces)]
+a|
+eth0-5
+a|
+One object for each Ethernet interface in the storage node, describing configuration information for the interface. These objects are numbered 0 through 5 to match the interface name.
+a|
+xref:reference_element_api_network_ethernet_interfaces.adoc[network (Ethernet interfaces)]
+a|
+lo
+a|
+Configuration information for the loopback interface.
+a|
+xref:reference_element_api_network_local_interfaces.adoc[network (local interfaces)]
+|===
+
+
+== Find more information
+
+* xref:reference_element_api_getconfig.adoc[GetConfig]
+* xref:reference_element_api_getnetworkconfig.adoc[GetNetworkConfig]

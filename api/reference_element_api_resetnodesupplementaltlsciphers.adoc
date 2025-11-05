@@ -1,0 +1,50 @@
+---
+permalink: api/reference_element_api_resetnodesupplementaltlsciphers.html
+sidebar: sidebar
+keywords: tls,cipher,reset,supplemental,resetnodesupplementaltlsciphers,restore,restoring,node,supplemental
+summary: 'You can use the ResetNodeSupplementalTlsCiphers method to restore the list of supplemental TLS ciphers to the default. You can use this command on management nodes.'
+---
+
+= ResetNodeSupplementalTlsCiphers
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ResetNodeSupplementalTlsCiphers` method to restore the list of supplemental TLS ciphers to the default. You can use this command on management nodes.
+
+== Parameter
+
+NOTE: You must call this method against the management node. For example:
+
+----
+https://<management node IP>:442/json-rpc/10.0
+----
+
+This method has no input parameters.
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ResetNodeSupplementalTlsCiphers",
+  "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {}
+}
+----

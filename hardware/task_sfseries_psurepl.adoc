@@ -1,0 +1,62 @@
+---
+permalink: hardware/task_sfseries_psurepl.html
+sidebar: sidebar
+keywords: solidfire chassis, power supply replacement, sf-series nodes
+summary: Each SolidFire chassis includes two power supply units for power redundancy. If a power supply unit fails, you should replace it as soon as possible to ensure that the chassis has a redundant power source.
+---
+
+= Replace a power supply unit
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Each SolidFire chassis includes two power supply units for power redundancy. If a power supply unit fails, you should replace it as soon as possible to ensure that the chassis has a redundant power source.
+
+.What you'll need
+
+* You have determined that the power supply unit needs to be replaced.
+* You have a replacement power supply unit.
+* You have verified that the second power supply unit is operating.
+* You have an electrostatic discharge (ESD) wristband, or you have taken other antistatic precautions.
+
+.About this task
+
+The instructions apply if you have a one-rack unit (1U) chassis with any of the following nodes:
+
+* SF2405
+* SF4805
+* SF9605
+* SF9608
+* SF19210
+* SF38410
+* SF-FCN-01
+* FC0025
+
+[NOTE]
+====
+Depending on your Element software version, the following nodes are not supported:
+
+* Beginning with Element 12.8, SF4805, SF9605, SF19210, and SF38410 storage nodes.
+* Beginning with Element 12.7, SF2405 and SF9608 storage nodes, and FC0025 and SF-FCN-01 FC nodes.
+* Beginning with Element 12.0, SF3010, SF6010, and SF9010 storage nodes.
+====
+
+.Steps
+
+. Unplug the power cord from the power supply unit that you are replacing.
+. Press the release button to slide the power supply unit out of the chassis.
++
+IMPORTANT: Ensure that you use both hands to support the weight of the power supply unit.
+
+. Using both hands, align the edges of the replacement power supply unit with the opening in the chassis, and gently push the unit into the chassis.
++
+IMPORTANT: Do not use excessive force when sliding the power supply unit into the chassis to prevent damage to the hardware.
+
+. Plug in the power cord.
+. Return the failed unit to NetApp by following the instructions in the box that was shipped to you.
++
+You can contact NetApp Support for help with the replacement procedure.
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

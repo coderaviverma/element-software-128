@@ -1,0 +1,23 @@
+---
+permalink: storage/concept_system_manage_solidfire_storage_cluster_administrator_account_types.html
+sidebar: sidebar
+keywords: user types, account, cluster, access active nodes, per-node UI
+summary: 'There are two types of administrator accounts that can exist in a storage cluster running NetApp Element software: the primary cluster administrator account and a cluster administrator account.'
+---
+
+= Storage cluster administrator account types
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+There are two types of administrator accounts that can exist in a storage cluster running NetApp Element software: the primary cluster administrator account and a cluster administrator account.
+
+* *Primary cluster administrator account*
++
+This administrator account is created when the cluster is created. This account is the primary administrative account with the highest level of access to the cluster. This account is analogous to a root user in a Linux system. You can change the password for this administrator account.
+
+* *Cluster administrator account*
++
+You can give a cluster administrator account a limited range of administrative access to perform specific tasks within a cluster. The credentials assigned to each cluster administrator account are used to authenticate API and Element UI requests within the storage system.
+
+NOTE: A local (non-LDAP) cluster administrator account is required to access active nodes in a cluster via the per-node UI. Account credentials are not required to access a node that is not yet part of a cluster.

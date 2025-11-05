@@ -1,0 +1,117 @@
+---
+permalink: api/reference_element_api_bulkvolumejob.html
+sidebar: sidebar
+keywords: bulkVolumeJob,object,objects,read,write,clones,snapshots,clone,snapshot
+summary: 'The bulkVolumeJob object contains information about bulk volume read or write operations, such as cloning or snapshot creation.'
+---
+
+= bulkVolumeJob
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `bulkVolumeJob` object contains information about bulk volume read or write operations, such as cloning or snapshot creation.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+`attributes`
+a|
+JSON attribute of the bulk volume job.
+a|
+JSON object
+a|
+`bulkVolumeID`
+a|
+The internal bulk volume job ID.
+a|
+integer
+a|
+`createTime`
+a|
+Timestamp created for the bulk volume job in UTC+0 format.
+a|
+ISO 8601 date string
+a|
+`elapsedTime`
+a|
+The number of seconds since the job began.
+a|
+string
+a|
+`format`
+a|
+The format of the bulk volume operation. Possible values:
+
+* native
+* uncompressed
+
+a|
+string
+a|
+`key`
+a|
+The unique key created by the bulk volume session.
+a|
+string
+a|
+`percentComplete`
+a|
+The completed percentage reported by the operation.
+a|
+integer
+a|
+`remainingTime`
+a|
+The estimated time remaining in seconds.
+a|
+integer
+a|
+`srcVolumeID`
+a|
+The source volume ID.
+a|
+integer
+a|
+`status`
+a|
+The status of the operation. Possible values:
+
+* preparing
+* running
+* complete
+* failed
+
+a|
+string
+a|
+`script`
+a|
+The name of the script if one is provided.
+a|
+string
+a|
+`snapshotID`
+a|
+The ID of the snapshot if a snapshot is in the source of the bulk volume job.
+a|
+integer
+a|
+`type`
+a|
+The type of bulk operation. Possible values:
+
+* read
+* write
+
+a|
+string
+|===
+
+// 2025 JAN 28, DOC-4778
+// 2023 SEP 4, DOC-4707

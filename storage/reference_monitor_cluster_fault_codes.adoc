@@ -1,0 +1,19 @@
+---
+permalink: storage/reference_monitor_cluster_fault_codes.html
+sidebar: sidebar
+keywords: cluster fault codes, alerts, error codes, view
+summary: 'The system reports an error or a state that might be of interest by generating a fault code, which is listed on the Alerts page. These codes help you determine what component of the system experienced the alert and why the alert was generated.'
+---
+
+= Cluster fault codes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The system reports an error or a state that might be of interest by generating a fault code, which is listed on the Alerts page. These codes help you determine what component of the system experienced the alert and why the alert was generated.
+
+The following list outlines the different types of codes:
+
+include::../_include/reference_monitor_cluster_fault_codes.adoc[]
+
+// 2022 FEB 7, DOC-4671

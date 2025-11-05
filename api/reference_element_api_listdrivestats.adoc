@@ -1,0 +1,115 @@
+---
+permalink: api/reference_element_api_listdrivestats.html
+sidebar: sidebar
+keywords: cluster,list,listing,drive,drives,stats,statistics,listdrivestats
+summary: 'You can use the ListDriveStats method to list high-level activity measurements for multiple drives in the cluster. By default, this method returns statistics for all drives in the cluster, and these measurements are cumulative from the addition of the drive to the cluster. Some values this method returns are specific to block drives, and some are specific to metadata drives.'
+---
+
+= ListDriveStats
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListDriveStats` method to list high-level activity measurements for multiple drives in the cluster. By default, this method returns statistics for all drives in the cluster, and these measurements are cumulative from the addition of the drive to the cluster. Some values this method returns are specific to block drives, and some are specific to metadata drives.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+drives
+a|
+List of drive IDs (driveID) for which to return drive statistics. If you omit this parameter, measurements for all drives are returned.
+a|
+integer array
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+driveStats
+a|
+List of drive activity information for each drive.
+a|
+xref:reference_element_api_drivestats.adoc[driveStats] array
+a|
+errors
+a|
+This list contains the driveID and associated error message. It is always present, and empty if there are no errors.
+a|
+JSON object array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "id": 1,
+  "method": "ListDriveStats",
+  "params": {
+    "drives":[22,23]
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "driveStats": [
+      {
+        "driveID": 22,
+        "failedDieCount": 0,
+        "lifeRemainingPercent": 84,
+        "lifetimeReadBytes": 30171004403712,
+        "lifetimeWriteBytes": 103464755527680,
+        "powerOnHours": 17736,
+        "readBytes": 14656542,
+         "readOps": 3624,
+        "reallocatedSectors": 0,
+        "reserveCapacityPercent": 100,
+        "timestamp": "2016-03-01T00:19:24.782735Z",
+        "totalCapacity": 300069052416,
+        "usedCapacity": 1783735635,
+        "usedMemory": 879165440,
+        "writeBytes": 2462169894,
+        "writeOps": 608802
+      }
+    ],
+    "errors": [
+      {
+        "driveID": 23,
+        "exception": {
+          "message": "xStatCheckpointDoesNotExist",
+          "name": "xStatCheckpointDoesNotExist"
+        }
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_getdrivestats.adoc[GetDriveStats]

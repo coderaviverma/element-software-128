@@ -1,0 +1,75 @@
+---
+permalink: api/reference_element_api_volumepair.html
+sidebar: sidebar
+keywords: object,objects,volumePair
+summary: 'The volumePair object contains information about a volume that is paired with another volume on a different cluster. If the volume is not paired, this object is empty. You can use the ListActivePairedVolumes and ListActiveVolumes API methods to return information about paired volumes.'
+---
+
+= volumePair
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The volumePair object contains information about a volume that is paired with another volume on a different cluster. If the volume is not paired, this object is empty. You can use the `ListActivePairedVolumes` and `ListActiveVolumes` API methods to return information about paired volumes.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+clusterPairID
+a|
+The cluster on which the volume is paired.
+a|
+integer
+a|
+remoteReplication
+a|
+Details on volume replication. Members:
+
+* mode: (string) One of "Async", "Sync", or "SnapshotsOnly".
+* pauseLimit: (integer) Internal use only.
+* remoteServiceID: (integer) The remote slice service ID.
+* resumeDetails: (string) Reserved for future use.
+* snapshotReplication (JSON object)
+ ** state: (string) The state of the ongoing snapshot replication, if one is in progress.
+ ** stateDetails: (string) Reserved for future use.
+* state: (string) The state of the volume replication.
+* stateDetails: (string) Reserved for future use.
+
+a|
+JSON object
+a|
+remoteSliceID
+a|
+The cluster-defined slice ID on the remote cluster.
+a|
+integer
+a|
+remoteVolumeID
+a|
+The ID of the volume on the remote cluster that the local volume is paired with.
+a|
+integer
+a|
+remoteVolumeName
+a|
+The name of the remote volume.
+a|
+string
+a|
+volumePairUUID
+a|
+A universally unique, cluster-defined identifier for this pairing in a canonical format.
+a|
+string
+|===
+
+
+== Find more information
+
+* xref:reference_element_api_listactivepairedvolumes.adoc[ListActivePairedVolumes]
+* xref:reference_element_api_listactivevolumes.adoc[ListActiveVolumes]

@@ -1,0 +1,72 @@
+---
+permalink: api/reference_element_api_getntpinfo.html
+sidebar: sidebar
+keywords: ntp,info,get,getting,getntpinfo
+summary: 'You can use the GetNtpInfo method to get the current network time protocol \(NTP\) configuration information.'
+---
+
+= GetNtpInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetNtpInfo` method to get the current network time protocol (NTP) configuration information.
+
+== Parameter
+
+This method has no input parameter.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+servers
+a|
+List of NTP servers.
+a|
+string array
+a|
+broadcastclient
+a|
+Indicates whether or not the nodes in the cluster are listening for broadcast NTP messages. Possible values:
+
+* true
+* false
+
+a|
+boolean
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetNtpInfo",
+  "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {
+    "broadcastclient" : false,
+    "servers" : [ "us.pool.ntp.org" ]
+   }
+}
+----
+
+== New since version
+
+9.6

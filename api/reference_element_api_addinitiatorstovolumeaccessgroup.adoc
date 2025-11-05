@@ -1,0 +1,121 @@
+---
+permalink: api/reference_element_api_addinitiatorstovolumeaccessgroup.html
+sidebar: sidebar
+keywords: addinitiatorstovolumeaccessgroup,add,adding,initiators,initiator,volume,access,group
+summary: 'You can use the AddInitiatorsToVolumeAccessGroup method to add initiators to a specified volume access group.'
+---
+
+= AddInitiatorsToVolumeAccessGroup
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `AddInitiatorsToVolumeAccessGroup` method to add initiators to a specified volume access group.
+
+The accepted format of an initiator IQN is iqn.yyyy-mm, where y and m are digits, followed by text which must only contain digits, lower-case alphabetic characters, a period (.), colon (:) or dash (-). See the following example:
+
+----
+iqn.2010-01.com.solidfire:17oi.solidfire-0.1
+----
+
+The accepted format of a Fibre Channel initiator WWPN is Aa:bB:CC:dd:11:22:33:44, or AabBCCdd11223344. See the following example:
+
+----
+21:00:00:0e:1e:11:f1:81
+----
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+initiators
+a|
+List of initiator IDs or names (IQNs and WWPNs) to include in the volume access group. If you pass a list of initiator names, the initiators are created if they do not already exist. If you pass a list of initiator IDs, the method returns an error if any of the initiators does not already exist.
+
+Passing initiator names is deprecated; you should use initiator IDs whenever possible.
+
+a|
+integer array or string array (deprecated)
+a|
+[]
+a|
+Yes
+a|
+volumeAccessGroupID
+a|
+The ID of the volume access group to add the initiator.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+volumeAccessGroup
+a|
+An object containing information about the newly modified volume access group.
+a|
+xref:reference_element_api_volumeaccessgroup.adoc[volumeAccessGroup]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "id": 13171,
+  "method": "AddInitiatorsToVolumeAccessGroup",
+  "params": {
+    "initiators": [116,117],
+    "volumeAccessGroupID": 96
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 13171,
+  "result": {
+    "volumeAccessGroup": {
+      "attributes": {},
+      "deletedVolumes": [
+        327
+      ],
+      "initiatorIDs": [
+        116,
+        117
+      ],
+      "initiators": [
+        "iqn.1993-08.org.debian:01:181324777",
+        "iqn.1993-08.org.debian:01:181324888"
+      ],
+      "name": "northbanktest",
+      "volumeAccessGroupID": 96,
+      "volumes": [
+        346
+      ]
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

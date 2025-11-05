@@ -1,0 +1,14 @@
+---
+permalink: hardware/task_rtfi_deployment_and_install_options.html
+sidebar: sidebar
+keywords: rtfi, return, factory, image, deploy, deployment, install, installation, media
+summary: Download the RTFI ISO image specific to your Element software version from the NetApp support site and deploy it using a bootable and installable media.
+---
+= RTFI deployment and installation options
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+include::../_include/task_rtfi_deploy_and_install_options.adoc[]
+
+// 2022 FEB 2, DOC-4281

@@ -1,0 +1,104 @@
+---
+permalink: api/reference_element_api_getbackuptarget.html
+sidebar: sidebar
+keywords: backup,target,targets,get,getting,GetBackupTarget
+summary: 'You can use the GetBackupTarget method to return information about a specific backup target that you have created.'
+---
+
+= GetBackupTarget
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetBackupTarget` method to return information about a specific backup target that you have created.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+backupTargetID
+a|
+Unique identifier assigned to the backup target.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+name
+a|
+Name of the backup target.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+backupTarget
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "id": 1,
+  "method": "GetBackupTarget",
+  "params": {
+      "backupTargetID": 1
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+     "backupTarget": {
+     "attributes" : {
+        "size" : 100
+     },
+     "backupTargetID" : 1,
+     "name" : "mytargetbackup"
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

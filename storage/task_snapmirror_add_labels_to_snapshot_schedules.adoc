@@ -1,0 +1,47 @@
+---
+permalink: storage/task_snapmirror_add_labels_to_snapshot_schedules.html
+sidebar: sidebar
+keywords: element, ui, snapmirror, labels, schedules, policies
+summary: 'You can add SnapMirror labels to snapshot schedules to ensure that a SnapMirror policy is applied. You can view available labels from an existing SnapMirror relationship dialog box or the NetAppONTAP System Manager.'
+---
+
+= Add SnapMirror labels to snapshot schedules
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can add SnapMirror labels to snapshot schedules to ensure that a SnapMirror policy is applied. You can view available labels from an existing SnapMirror relationship dialog box or the NetAppONTAP System Manager.
+
+.What you'll need
+* SnapMirror must be enabled at the cluster level.
+* The label you want to add already exists in ONTAP.
+
+.Steps
+. Click *Data Protection* > *Schedules*.
+. Add a SnapMirror label to a schedule in one of the following ways:
++
+[cols=2*,options="header",cols="25,75"]
+|===
+| Option| Steps
+a|
+Creating a new schedule
+a|
+
+ .. Select *Create Schedule*.
+ .. Enter all other relevant details.
+ .. Select *Create Schedule*.
+
+a|
+Modifying existing schedule
+a|
+
+ .. Click the *Actions* icon for the schedule you want to add a label to and select *Edit*.
+ .. In the resulting dialog box, enter text in the *SnapMirror Label* field.
+ .. Select *Save Changes*.
+
++
+|===
+
+== Find more information
+
+xref:task_data_protection_create_a_snapshot_schedule.adoc[Create a snapshot schedule]

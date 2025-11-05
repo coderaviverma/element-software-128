@@ -1,0 +1,88 @@
+---
+permalink: api/reference_element_api_liststoragecontainers.html
+sidebar: sidebar
+keywords: virtual,volume,storage,container,containers,list,listing,liststoragecontainers
+summary: 'You can use the ListStorageContainers method to retrieve information about all virtual volume storage containers known to the system.'
+---
+
+= ListStorageContainers
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListStorageContainers` method to retrieve information about all virtual volume storage containers known to the system.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+storageContainerIDs
+a|
+A list of storage container IDs for which to retrieve information. If you omit this parameter, the method returns information about all storage containers in the system.
+a|
+UUID array
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+storageContainers
+a|
+List of objects containing information about all storage containers in the system.
+a|
+xref:reference_element_api_storagecontainer.adoc[storageContainer] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListStorageContainers",
+   "params": {
+      "storageContainerIDs": ["efda8307-b916-4424-979e-658a3f16894d"]
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 6395,
+  "result": {
+    "storageContainers": [
+      {
+        "accountID": 64,
+        "initiatorSecret": "EJ:08An1MyNQmL!7",
+        "name": "VvolContainer",
+        "protocolEndpointType": "SCSI",
+        "status": "active",
+        "storageContainerID": "efda8307-b916-4424-979e-658a3f16894d",
+        "targetSecret": "g38}zWBK%206jQr~",
+        "virtualVolumes": []
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

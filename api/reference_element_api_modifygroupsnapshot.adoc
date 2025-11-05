@@ -1,0 +1,149 @@
+---
+permalink: api/reference_element_api_modifygroupsnapshot.html
+sidebar: sidebar
+keywords: modify,modifying,edit,editing,change,changing,group,snapshot,modifygroupsnapshot
+summary: 'You can use ModifyGroupSnapshot to change the attributes of a group of snapshots. You can also use this method to enable snapshots created on the read/write \(source\) volume to be remotely replicated to a target storage system.'
+---
+
+= ModifyGroupSnapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `ModifyGroupSnapshot` to change the attributes of a group of snapshots. You can also use this method to enable snapshots created on the read/write (source) volume to be remotely replicated to a target storage system.
+
+== Parameters
+
+This method has the following input parameters:
+
+|===
+|Name |Description |Type |Default value |Required
+a|
+enableRemoteReplication
+a|
+Use to enable the snapshot created to be replicated to a remote cluster. Possible values:
+
+* `true`: The snapshot will be replicated to remote storage.
+* `false`: The snapshot will not be replicated to remote storage.
+
+a|
+boolean
+a|
+false
+a|
+No
+a|
+expirationTime
+a|
+Specify the time after which the snapshot can be removed. Cannot be used with retention.
+If neither expirationTime, or retention on the original snapshot, are specified, the snapshot will not expire. The time format is an ISO 8601 date string for time based expiration, otherwise it will not expire. A value of `null` causes the snapshot to be retained permanently. A value of fifo causes the snapshot to be preserved on a First-In-First-Out (FIFO) basis, relative to other FIFO snapshots on the volume. The API will fail if no FIFO space is available.
+a|
+ISO 8601 date string
+a|
+None
+a|
+No
+a|name
+a|
+The name of the group snapshot. If no name is entered, the date and time the group snapshot was taken is used. The maximum name length allowed is 255 characters.
+a|
+string
+a|
+None
+a|
+No
+a|
+groupSnapshotID
+a|
+The ID of the group of snapshots.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+snapMirrorLabel
+a|
+The label used by SnapMirror software to specify the snapshot retention policy on a SnapMirror endpoint.
+a|
+string
+a|
+None
+a|
+No
+
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+groupSnapshot
+a|
+Object containing information about the newly modified group snapshot.
+a|
+xref:reference_element_api_groupsnapshot.adoc[groupSnapshot]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "id": 695,
+  "method": "ModifyGroupSnapshot",
+  "params": {
+    "groupSnapshotID": 3,
+    "enableRemoteReplication": true,
+    "expirationTime": "2016-04-08T22:46:25Z"
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 695,
+  "result": {
+    "groupSnapshot": {
+      "attributes": {},
+      "createTime": "2016-04-06T17:31:41Z",
+      "groupSnapshotID": 3,
+      "groupSnapshotUUID": "8b2e101d-c5ab-4a72-9671-6f239de49171",
+      "members": [
+        {
+          "attributes": {},
+          "checksum": "0x0",
+          "createTime": "2016-04-06T17:31:41Z",
+          "enableRemoteReplication": true,
+          "expirationReason": "None",
+          "expirationTime": "2016-04-08T22:46:25Z",
+          "groupID": 3,
+          "groupSnapshotUUID": "8b2e101d-c5ab-4a72-9671-6f239de49171",
+          "name": "grpsnap1-2",
+          "snapshotID": 2,
+          "snapshotUUID": "719b162c-e170-4d80-b4c7-1282ed88f4e1",
+          "status": "done",
+          "totalSize": 1000341504,
+          "virtualVolumeID": null,
+          "volumeID": 2
+        }
+      ],
+      "name": "grpsnap1",
+      "status": "done"
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

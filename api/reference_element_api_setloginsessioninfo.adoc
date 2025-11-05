@@ -1,0 +1,65 @@
+---
+permalink: api/reference_element_api_setloginsessioninfo.html
+sidebar: sidebar
+keywords: authentication,login,session,info,timeout,setloginsessioninfo
+summary: 'You can use the SetLoginSessionInfo method to set the period of time that a login authentication for a session is valid. After the login period elapses without activity on the system, the authentication expires. New login credentials are required for continued access to the cluster after the login period has elapsed.'
+---
+
+= SetLoginSessionInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `SetLoginSessionInfo` method to set the period of time that a login authentication for a session is valid. After the login period elapses without activity on the system, the authentication expires. New login credentials are required for continued access to the cluster after the login period has elapsed.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+timeout
+a|
+Cluster authentication expiration period. Formatted in HH:mm:ss. For example: 01:30:00, 00:90:00, and 00:00:5400 can all be used to equal a 90 minute timeout period. The minimum timeout value is 1 minute. When a value is not provided, or is set to zero, the login session has no timeout value.
+a|
+string
+a|
+30 minutes
+a|
+No
+|===
+
+== Return value
+
+This method has no return value.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "SetLoginSessionInfo",
+  "params": {
+    "timeout" : "01:30:00"
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {}
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,69 @@
+---
+permalink: api/reference_element_api_binding_vvols.html
+sidebar: sidebar
+keywords: binding,object,objects,volume,volumes,virtual
+summary: 'The binding object contains information about the binding for a virtual volume. You can retrieve a list of this information for all virtual volumes using the ListVirtualVolumeBindings API method.'
+---
+
+= binding (virtual volumes)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The binding object contains information about the binding for a virtual volume. You can retrieve a list of this information for all virtual volumes using the `ListVirtualVolumeBindings` API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+`protocolEndpointID`
+a|
+The unique ID of the protocol endpoint.
+a|
+UUID
+a|
+`protocolEndpointInBandID`
+a|
+The scsiNAADeviceID of the protocol endpoint.
+a|
+string
+a|
+`protocolEndpointType`
+a|
+The type of protocol endpoint. SCSI is the only value returned for the protocol endpoint type.
+a|
+string
+a|
+`virtualVolumeBindingID`
+a|
+The unique ID of the virtual volume binding object.
+a|
+integer
+a|
+`virtualVolumeHostID`
+a|
+The unique ID of the virtual volume host.
+a|
+UUID
+a|
+`virtualVolumeID`
+a|
+The unique ID of the virtual volume.
+a|
+UUID
+a|
+`virtualVolumeSecondaryID`
+a|
+The secondary ID of the virtual volume.
+a|
+string
+|===
+
+== Find more information
+
+* xref:reference_element_api_listvirtualvolumebindings.adoc[ListVirtualVolumeBindings]
+* xref:reference_element_api_protocolendpoint.adoc[protocolEndpoint]

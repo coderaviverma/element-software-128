@@ -1,0 +1,20 @@
+---
+permalink: storage/concept_intro_fibre_channel_nodes.html
+sidebar: sidebar
+keywords: fibre channel nodes, fibre channel switch, clients, protcols, iSCSi protocols, clusters, interconnections, fc, FC, connectivity, fibre channel connectivity, fibre channel nodes, fibre channel protocol
+summary: 'SolidFire Fibre Channel nodes provide connectivity to a Fibre Channel switch, which you can connect to Fibre Channel clients. Fibre Channel nodes act as a protocol converter between the Fibre Channel and iSCSI protocols; this enables you to add Fibre Channel connectivity to any new or existing SolidFire cluster.'
+---
+
+= Fibre Channel nodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+SolidFire Fibre Channel nodes provide connectivity to a Fibre Channel switch, which you can connect to Fibre Channel clients. Fibre Channel nodes act as a protocol converter between the Fibre Channel and iSCSI protocols; this enables you to add Fibre Channel connectivity to any new or existing SolidFire cluster.
+
+Fibre Channel nodes have the following characteristics:
+
+* Fibre Channel switches manage the state of the fabric, providing optimized interconnections.
+* The traffic between two ports flows through the switches only; it is not transmitted to any other port.
+* Failure of a port is isolated and does not affect operation of other ports.
+* Multiple pairs of ports can communicate simultaneously in a fabric.

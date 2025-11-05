@@ -1,0 +1,20 @@
+---
+permalink: storage/task_system_manage_fips_avoid_mixing_nodes_for_fips_drives.html
+sidebar: sidebar
+keywords: fips, security, federal information processing standards, 140-2, nodes, drives, ear
+summary: 'To prepare for enabling the FIPS drives feature, you should avoid mixing nodes where some are FIPS drives capable and some are not.'
+---
+
+= Avoid mixing nodes for FIPS drives
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+To prepare for enabling the FIPS drives feature, you should avoid mixing nodes where some are FIPS drives capable and some are not.
+
+A cluster is considered FIPS drives compliant based on the following conditions:
+
+* All drives are certified as FIPS drives.
+* All nodes are FIPS drives nodes.
+* Encryption at Rest (EAR) is enabled.
+* The FIPS drives feature is enabled. All drives and nodes must be FIPS capable and Encryption at Rest must be enabled in order to enable the FIPS drive feature.

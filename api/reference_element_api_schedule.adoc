@@ -1,0 +1,176 @@
+---
+permalink: api/reference_element_api_schedule.html
+sidebar: sidebar
+keywords: object,objects,schedule
+summary: 'The schedule object contains information about a schedule created to autonomously make a snapshot of a volume. You can retrieve schedule information for all schedules with the ListSchedules API method.'
+---
+
+= schedule
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The schedule object contains information about a schedule created to autonomously make a snapshot of a volume. You can retrieve schedule information for all schedules with the `ListSchedules` API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+attributes
+a|
+Indicates the frequency of the schedule occurrence. Possible values:
+
+* Day of Week
+* Day of Month
+* Time Interval
+
+a|
+JSON object
+a|
+hasError
+a|
+Indicates whether or not the schedule has errors. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+hours
+a|
+Shows the hours that will elapse before the next snapshot is created. Possible values are 0 through 24.
+a|
+integer
+a|
+lastRunStatus
+a|
+Indicates the status of the last scheduled snapshot. Possible values:
+
+* Success
+* Failed
+
+a|
+string
+a|
+lastRunTimeStart
+a|
+Indicates the last time the schedule started.
+a|
+ISO 8601 date string
+a|
+minutes
+a|
+Shows the minutes that will elapse before the next snapshot is created. Possible values are 0 through 59.
+a|
+integer
+a|
+monthdays
+a|
+Indicates the days of the month that a snapshot will be made.
+a|
+array
+a|
+paused
+a|
+Indicates whether or not the schedule is paused. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+recurring
+a|
+Indicates whether or not the schedule is recurring. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+runNextInterval
+a|
+Indicates whether or not the schedule will run the next time the scheduler is active. When true, the schedule will run the next time the scheduler is active and then this value is set back to false. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+scheduleID
+a|
+The unique ID of the schedule.
+a|
+integer
+a|
+scheduleInfo
+a|
+Includes the unique name given to the schedule, the retention period for the snapshot that was created, and the volume ID of the volume from which the snapshot was created. Valid values:
+
+* `enableRemoteReplication`: Indicates if the snapshot should be included in remote replication. (boolean)
+* `ensureSerialCreation`: Specifies whether a new snapshot creation should be allowed if a previous snapshot replication is in progress. (boolean)
+* `name`: The snapshot name to be used. (string)
+* `retention`: The amount of time the snapshot is retained. Depending on the time, it displays in one of the following formats:
+** `fifo`: The snapshot is retained on a First-In-First-Out (FIFO) basis. If empty, the snapshot is retained forever. (string)
+** HH:mm:ss 
+* `volumeID`: The ID of the volume to be included in the snapshot. (integer)
+* `volumes`: A list of volume IDs to be included in the group snapshot. (integer array)
+
+a|
+JSON object
+a|
+scheduleName
+a|
+The unique name assigned to the schedule.
+a|
+string
+a|
+scheduleType
+a|
+Only schedule types of snapshot are supported at this time.
+a|
+string
+a|
+snapMirrorLabel
+a|
+The snapMirrorLabel to be applied to the created Snapshot or Group Snapshot, contained in the scheduleInfo. If not set, this value is null.
+a|
+string
+a|
+startingDate
+a|
+Indicates the date the first time the schedule began or will begin; formatted in UTC time.
+a|
+ISO 8601 date string
+a|
+toBeDeleted
+a|
+Indicates if the schedule is marked for deletion. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+weekdays
+a|
+Indicates the days of the week that a snapshot will be made.
+a|
+array
+|===
+
+
+== Find more information
+
+xref:reference_element_api_listschedules.adoc[ListSchedules]
+
+// 2025-JAN-6, DOC-4778

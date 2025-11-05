@@ -1,0 +1,57 @@
+---
+permalink: storage/task_monitor_information_about_system_events.html
+sidebar: sidebar
+keywords: system events, monitor, view event log
+summary: 'You can view information about various events detected in the system. The system refreshes the event messages every 30 seconds. The event log displays key events for the cluster.'
+---
+
+= View information about system events
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can view information about various events detected in the system. The system refreshes the event messages every 30 seconds. The event log displays key events for the cluster.
+
+. In the Element UI, select *Reporting* > *Event Log*.
++
+For every event, you see the following information:
++
+|===
+| Item| Description
+a|
+ID
+a|
+Unique ID associated with each event.
+a|
+Event Type
+a|
+The type of event being logged, for example, API events or clone events.
+a|
+Message
+a|
+Message associated with the event.
+a|
+Details
+a|
+Information that helps identify why the event occurred.
+a|
+Service ID
+a|
+The service that reported the event (if applicable).
+a|
+Node
+a|
+The node that reported the event (if applicable).
+a|
+Drive ID
+a|
+The drive that reported the event (if applicable).
+a|
+Event Time
+a|
+The time the event occurred.
+|===
+
+== Find more information
+
+xref:reference_monitor_event_types.adoc[Event types]

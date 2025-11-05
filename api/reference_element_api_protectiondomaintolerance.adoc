@@ -1,0 +1,34 @@
+---
+permalink: api/reference_element_api_protectiondomaintolerance.html
+sidebar: sidebar
+keywords: object,objects,protectionDomainTolerance
+summary: 'The protectionDomainTolerance object contains information about the ability of the storage cluster to continue reading and writing data in the event of one or more failures all within a single protection domain of its associated protection domain type.'
+---
+
+= protectionDomainTolerance
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The protectionDomainTolerance object contains information about the ability of the storage cluster to continue reading and writing data in the event of one or more failures all within a single protection domain of its associated protection domain type.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+protectionSchemeTolerances
+a|
+A list of objects (one for each protection scheme) containing failure tolerance information for the associated type of protection domain.
+a|
+xref:reference_element_api_protectionschemetolerance.adoc[protectionSchemeTolerance] array
+a|
+sustainableFailuresForEnsemble
+a|
+The number of simultaneous failures within the associated type of protection domain that can occur without losing the ensemble quorum.
+a|
+integer
+|===

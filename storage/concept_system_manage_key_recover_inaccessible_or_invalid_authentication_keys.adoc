@@ -1,0 +1,26 @@
+---
+permalink: storage/concept_system_manage_key_recover_inaccessible_or_invalid_authentication_keys.html
+sidebar: sidebar
+keywords: slice drive error, cluster fault, authentication keys
+summary: 'Occasionally, an error can occur that requires user intervention. In the event of an error, a cluster fault will be generated. The two most likely cases are described here.'
+---
+
+= Recover inaccessible or invalid authentication keys
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Occasionally, an error can occur that requires user intervention. In the event of an error, a cluster fault (referred to as a cluster fault code) will be generated. The two most likely cases are described here.
+
+== The cluster is unable to unlock the drives due to a KmipServerFault cluster fault.
+This can occur when the cluster first boots up and the key server is inaccessible or the required key is unavailable.
+
+. Follow the recovery steps in the cluster fault codes (if any).
+
+== A sliceServiceUnhealthy fault might be set because the metadata drives have been marked as failed and placed into the "Available" state.
+Steps to clear:
+
+. Add the drives again.
+. After 3 to 4 minutes, check that the `sliceServiceUnhealthy` fault has cleared.
+
+See link:reference_monitor_cluster_fault_codes.html[cluster fault codes] for more information.

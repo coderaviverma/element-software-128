@@ -1,0 +1,22 @@
+---
+permalink: storage/task_replication_pause_replication.html
+sidebar: sidebar
+keywords: replication, pause, volume pairs
+summary: 'You can manually pause replication if you need to stop I/O processing for a short time. You might want to pause replication if there is a surge in I/O processing and you want to reduce the processing load.'
+---
+
+= Pause replication
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can manually pause replication if you need to stop I/O processing for a short time. You might want to pause replication if there is a surge in I/O processing and you want to reduce the processing load.
+
+. Select *Data Protection* > *Volume Pairs*.
+. Click the Actions icon for the volume pair.
+. Click *Edit*.
+. In the *Edit Volume Pair* pane, manually pause the replication process.
++
+IMPORTANT: Pausing or resuming volume replication manually causes the transmission of data to cease or resume. Be sure that you have coordinated these changes at both sites.
+
+. Click *Save Changes*.

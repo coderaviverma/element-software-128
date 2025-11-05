@@ -1,0 +1,113 @@
+---
+permalink: hardware/task_sfseries_chassisrepl.html
+sidebar: sidebar
+keywords: solidfire chassis, chassis replacement, sf-series nodes
+summary: You might need to replace the chassis if the fan, central processing unit (CPU), or dual inline memory module (DIMM) fails, or to fix overheating issues or problems with the boot process. Cluster faults in the NetApp Element software user interface (UI) and the blinking amber light in the front of the chassis are indications of a possible need for chassis replacement. You should contact NetApp Support before you proceed.
+---
+
+= Replace a chassis
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You might need to replace the chassis if the fan, central processing unit (CPU), or dual inline memory module (DIMM) fails, or to fix overheating issues or problems with the boot process. Cluster faults in the NetApp Element software user interface (UI) and the blinking amber light in the front of the chassis are indications of a possible need for chassis replacement. You should contact NetApp Support before you proceed.
+
+.What you'll need
+
+* You have contacted NetApp Support.
++
+If you are ordering a replacement, you must have a case opened with NetApp Support.
+* You have obtained the replacement chassis.
+* You have an electrostatic discharge (ESD) wristband, or you have taken other antistatic protection.
+* If you need to perform the Return to Factory Image (RTFI) process, you have obtained the USB key.
++
+NetApp Support will help you decide if RTFI is needed. See https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_create_an_RTFI_key_to_re-image_a_SolidFire_storage_node[this KB article (login required)].
+
+* You have a keyboard and monitor.
+
+.About this task
+
+The instructions in this document apply if you have a one-rack unit (1U) chassis with any of the following nodes:
+
+* SF2405
+* SF4805
+* SF9605
+* SF9608
+* SF19210
+* SF38410
+* SF-FCN-01
+* FC0025
+
+[NOTE]
+====
+Depending on your Element software version, the following nodes aren't supported:
+
+* Beginning with Element 12.8, SF4805, SF9605, SF19210, and SF38410 storage nodes.
+* Beginning with Element 12.7, SF2405 and SF9608 storage nodes and FC0025 and SF-FCN-01 FC nodes. 
+* Beginning with Element 12.0, SF3010, SF6010, and SF9010 storage nodes.
+====
+
+.Steps
+
+. Locate the service tag of the failed chassis and verify that the serial number matches the number on the case you opened with NetApp Support when you ordered the replacement.
++
+You can locate the service tag from the front of the chassis.
++
+The following figure is an example of the service tag:
++
+image::../media/sf_series_chassis_service_tag.gif[This figure shows the service tag in a SolidFire chassis.]
++
+NOTE: The above figure is an example. The exact location of the service tag might vary depending on your hardware model.
+
+. Plug in the keyboard and monitor to the back of the failed chassis.
+. Verify chassis information with NetApp Support.
+. Power down the chassis.
+. Label the drives in the front of the chassis and cables at the back.
++
+NOTE: Fibre Channel nodes do not have drives in the front.
+
+. Remove the power supply units and cables.
+. Remove the drives carefully, and place them on an antistatic, level surface.
++
+NOTE: If you have a Fibre Channel node, you can skip this step.
+
+. Remove the chassis by pressing the latch or unscrewing the thumbscrew, based on your hardware model.
++
+You should package and return the failed chassis to NetApp.
+
+. *Optional*: Remove the rails and install the new rails that were shipped with your replacement chassis.
++
+You can choose to reuse the existing rails. If you are reusing the existing rails, you can skip this step.
+
+. Slide the replacement chassis on to the rails.
+. For storage nodes, insert the drives from the failed chassis to the replacement chassis.
++
+NOTE: You should insert the drives in the same slots as they were in the failed chassis.
+
+. Install the power supply units.
+. Insert the power supply cables, and the 1GbE and 10GbE cables in their original ports.
++
+Small form-factor pluggable (SFP) transceivers might be inserted in the 10GbE ports of the replacement chassis. You should remove them before you cable the 10GbE ports.
+
+. If you have determined that you do not need to perform the RTFI process on the node, boot the node, and wait until the terminal user interface (TUI) appears. Proceed to step 16 and allow the cluster to re-image the node automatically when you add it by using the UI.
+. *Optional*: If NetApp Support recommends re-imaging the node with a USB key, perform the following substeps:
+.. Power on the chassis. It boots with the RTFI key image.
+.. At the first prompt, type *Y* to image the storage node.
+.. At the second prompt, type *N* for hardware health checks.
++
+If the RTFI script detects a problem with a hardware component, it displays an error in the console. If you see an error, contact NetApp Support. After the RTFI process completes, the node shuts down.
+
+.. Remove the USB key from the USB slot.
+.. Boot the newly imaged node, and wait for the TUI to appear.
+. Configure the network and cluster information from the TUI.
++
+You can contact NetApp Support for assistance.
+
+. Add the new node to the cluster using the cluster TUI.
+. Pack and return the failed chassis.
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]
+
+// 2024 DEC 18, DOC-4759

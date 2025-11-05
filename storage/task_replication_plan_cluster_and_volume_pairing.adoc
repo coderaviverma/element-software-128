@@ -1,0 +1,28 @@
+---
+permalink: storage/task_replication_plan_cluster_and_volume_pairing.html
+sidebar: sidebar
+keywords: cluster, volume pairing, plan for, real-time replication
+summary: 'Real-time remote replication requires that you pair two storage clusters running Element software, pair volumes on each cluster, and validate replication. After replication completes, you should delete the volume relationship.'
+---
+
+= Plan cluster and volume pairing for real-time replication
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Real-time remote replication requires that you pair two storage clusters running Element software, pair volumes on each cluster, and validate replication. After replication completes, you should delete the volume relationship.
+
+.What you'll need
+* You must have cluster administrator privileges to one or both clusters being paired.
+* All node IP addresses on both management and storage networks for paired clusters are routed to each other.
+* MTU of all paired nodes must be the same and be supported end-to-end between clusters.
+* Both storage clusters should have unique cluster names, MVIPs, SVIPs., and all node IP addresses.
+* The difference between Element software versions on the clusters is no greater than one major version. If the difference is greater, one of the clusters must be upgraded to perform data replication.
+
+NOTE: WAN Accelerator appliances have not been qualified by NetApp for use when replicating data. These appliances can interfere with compression and deduplication if deployed between two clusters that are replicating data. Be sure to fully qualify the effects of any WAN Accelerator appliance before you deploy it in a production environment.
+
+== Find more information
+
+* xref:task_replication_pair_clusters.adoc[Pair clusters for replication]
+* xref:task_replication_pair_volumes.adoc[Pair volumes]
+* xref:task_replication_assign_replication_source_and_target_to_paired_volumes.adoc[Assign a replication source and target to paired volumes]

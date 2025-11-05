@@ -1,0 +1,58 @@
+---
+permalink: storage/task_per_node_run_system_tests.html
+sidebar: sidebar
+keywords: storage nodes, running system tests,s ystem tests, network settings, testing changes
+summary: 'You can test changes to the network settings after you commit them to the network configuration. You can run the tests to ensure that the storage node is stable and can be brought online without any issues.'
+---
+
+= Run system tests using the per-node UI
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can test changes to the network settings after you commit them to the network configuration. You can run the tests to ensure that the storage node is stable and can be brought online without any issues.
+
+You have logged in to the per-node UI for the storage node.
+
+. Click *System Tests*.
+. Click *Run Test* next to the test you want to run or select *Run All Tests*.
++
+NOTE: Running all test operations can be time consuming and should be done only at the direction of NetApp Support.
+
+ ** *Test Connected Ensemble*
++
+Tests and verifies the connectivity to a database ensemble. By default, the test uses the ensemble for the cluster the node is associated with. Alternatively you can provide a different ensemble to test connectivity.
+
+ ** *Test Connect Mvip*
++
+Pings the specified management virtual IP (MVIP) address and then executes a simple API call to the MVIP to verify connectivity. By default, the test uses the MVIP for the cluster the node is associated with.
+
+ ** *Test Connect Svip*
++
+Pings the specified storage virtual IP (SVIP) address using Internet Control Message Protocol (ICMP) packets that match the Maximum Transmission Unit (MTU) size set on the network adapter. It then connects to the SVIP as an iSCSI initiator. By default, the test uses the SVIP for the cluster the node is associated with.
+
+ ** *Test Hardware Config*
++
+Tests that all hardware configurations are correct, validates firmware versions are correct, and confirms all drives are installed and running properly. This is the same as factory testing.
++
+NOTE: This test is resource intensive and should only be run if requested by NetApp Support.
+
+ ** *Test Local Connectivity*
++
+Tests the connectivity to all of the other nodes in the cluster by pinging the cluster IP (CIP) on each node. This test will only be displayed on a node if the node is part of an active cluster.
+
+ ** *Test Locate Cluster*
++
+Validates that the node can locate the cluster specified in the cluster configuration.
+
+ ** *Test Network Config*
++
+Verifies that the configured network settings match the network settings being used on the system. This test is not intended to detect hardware failures when a node is actively participating in a cluster.
+
+ ** *Test Ping*
++
+Pings a specified list of hosts or, if none are specified, dynamically builds a list of all registered nodes in the cluster and pings each for simple connectivity.
+
+ ** *Test Remote Connectivity*
++
+Tests the connectivity to all nodes in remotely paired clusters by pinging the cluster IP (CIP) on each node. This test will only be displayed on a node if the node is part of an active cluster.

@@ -1,0 +1,236 @@
+---
+permalink: api/reference_element_api_response_example_testhardwareconfig.html
+sidebar: sidebar
+keywords: response,example,testhardwareconfig
+summary: 'The TestHardwareConfig method returns a response similar to the following example.'
+---
+
+= TestHardwareConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `TestHardwareConfig` method returns a response similar to the following example.
+
+----
+{
+"id": 1,
+"result": {
+    "nodes": [
+        {
+            "nodeID": 1,
+            "result": {
+                "details": {
+                    "BIOS_REVISION": {
+                        "Passed": true,
+                        "actual": "2.0",
+                        "comparator": ">=",
+                        "expected": "1.0.0.0"
+                    },
+                    "BIOS_VENDOR": {
+                        "Passed": true,
+                        "actual": "SolidFire",
+                        "comparator": "==",
+                        "expected": "SolidFire"
+                    },
+                    "BIOS_VERSION": {
+                        "Passed": true,
+                        "actual": "2.0.19",
+                        "comparator": ">=",
+                        "expected": "2.0.19"
+                    },
+                    "CPU_CORES_00": {
+                        "Passed": true,
+                        "actual": "6",
+                        "comparator": "==",
+                        "expected": "6"
+                    },
+                    "CPU_CORES_01": {
+                        "Passed": true,
+                        "actual": "6",
+                        "comparator": "==",
+                        "expected": "6"
+                    },
+                    "CPU_CORES_ENABLED_00": {
+                        "Passed": true,
+                        "actual": "6",
+                        "comparator": "==",
+                        "expected": "6"
+                    },
+                    "CPU_CORES_ENABLED_01": {
+                        "Passed": true,
+                        "actual": "6",
+                        "comparator": "==",
+                        "expected": "6"
+                    },
+                    "CPU_MODEL_00": {
+                        "Passed": true,
+                        "actual": "Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz",
+                        "comparator": "==",
+                        "expected": "Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz"
+                    },
+                    "CPU_MODEL_01": {
+                        "Passed": true,
+                        "actual": "Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz",
+                        "comparator": "==",
+                        "expected": "Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz"
+                    },
+                    "CPU_THREADS_00": {
+                        "Passed": true,
+                        "actual": "12",
+                        "comparator": "==",
+                        "expected": "12"
+                    },
+                    "CPU_THREADS_01": {
+                        "Passed": true,
+                        "actual": "12",
+                        "comparator": "==",
+                        "expected": "12"
+                    },
+                    "CPU_THREADS_ENABLED": {
+                        "Passed": true,
+                        "actual": "24",
+                        "comparator": "==",
+                        "expected": "24"
+                    },
+                    "IDRAC_VERSION": {
+                        "Passed": true,
+                        "actual": "2.41.40.40",
+                        "comparator": ">=",
+                        "expected": "1.06.06"
+                    },
+                    "MEMORY_GB": {
+                        "Passed": true,
+                        "actual": "64",
+                        "comparator": ">=",
+                        "expected": "64"
+                    },
+                    "MEMORY_MHZ_00": {
+                        "Passed": true,
+                        "actual": "1600",
+                        "comparator": ">=",
+                        "expected": "1333"
+                    },
+                    "MEMORY_MHZ_01": {
+                        "Passed": true,
+                        "actual": "1600",
+                        "comparator": ">=",
+                        "expected": "1333"
+                    },
+                    "MEMORY_MHZ_02": {
+                        "Passed": true,
+                        "actual": "1600",
+                        "comparator": ">=",
+                        "expected": "1333"
+                    },
+                    "MEMORY_MHZ_03": {
+                        "Passed": true,
+                        "actual": "1600",
+                        "comparator": ">=",
+                        "expected": "1333"
+                    },
+                    "MEMORY_MHZ_04": {
+                        "Passed": true,
+                        "actual": "1600",
+                        "comparator": ">=",
+                        "expected": "1333"
+                    },
+                    "MEMORY_MHZ_05": {
+                        "Passed": true,
+                        "actual": "1600",
+                        "comparator": ">=",
+                        "expected": "1333"
+                    },
+                    "MEMORY_MHZ_06": {
+                        "Passed": true,
+                        "actual": "1600",
+                        "comparator": ">=",
+                        "expected": "1333"
+                    },
+                    "MEMORY_MHZ_07": {
+                        "Passed": true,
+                        "actual": "1600",
+                        "comparator": ">=",
+                        "expected": "1333"
+                    },
+                    "MPTSAS_BIOS_VERSION": {
+                        "Passed": true,
+                        "actual": "07.24.01.00",
+                        "comparator": "ANY",
+                        "expected": "7.25.0.0"
+                    },
+                    "MPTSAS_FIRMWARE_VERSION": {
+                        "Passed": true,
+                        "actual": "13.00.57.00",
+                        "comparator": "==",
+                        "expected": "13.0.57.0"
+                    },
+                    "NETWORK_DRIVER_ETH0": {
+                        "Passed": true,
+                        "actual": "bnx2x",
+                        "comparator": "==",
+                        "expected": "bnx2x"
+                    },
+                    "NETWORK_DRIVER_ETH1": {
+                        "Passed": true,
+                        "actual": "bnx2x",
+                        "comparator": "==",
+                        "expected": "bnx2x"
+                    },
+                    "NETWORK_DRIVER_ETH2": {
+                        "Passed": true,
+                        "actual": "bnx2x",
+                        "comparator": "==",
+                        "expected": "bnx2x"
+                    },
+                    "NETWORK_DRIVER_ETH3": {
+                        "Passed": true,
+                        "actual": "bnx2x",
+                        "comparator": "==",
+                        "expected": "bnx2x"
+                    },
+                    "NETWORK_FIRMWARE_VERSION_ETH0": {
+                        "Passed": true,
+                        "actual": "7.10.18-solidfire-5f3ccbc781d53",
+                        "comparator": "==",
+                        "expected": "7.10.18-solidfire-5f3ccbc781d53"
+                    },
+                    "NETWORK_FIRMWARE_VERSION_ETH1": {
+                        "Passed": true,
+                        "actual": "7.10.18-solidfire-5f3ccbc781d53",
+                        "comparator": "==",
+                        "expected": "7.10.18-solidfire-5f3ccbc781d53"
+                    },
+                    "NETWORK_FIRMWARE_VERSION_ETH2": {
+                        "Passed": true,
+                        "actual": "7.10.18-solidfire-5f3ccbc781d53",
+                        "comparator": "==",
+                        "expected": "7.10.18-solidfire-5f3ccbc781d53"
+                    },
+                    "NETWORK_FIRMWARE_VERSION_ETH3": {
+                        "Passed": true,
+                        "actual": "7.10.18-solidfire-5f3ccbc781d53",
+                        "comparator": "==",
+                        "expected": "7.10.18-solidfire-5f3ccbc781d53"
+                    },
+                    "NUM_CPU": {
+                        "Passed": true,
+                        "actual": "2",
+                        "comparator": "==",
+                        "expected": "2"
+                    },
+                    "Parse failure in /var/log/sf-bios.info": {
+                        "Passed": true,
+                        "actual": "false",
+                        "comparator": "==",
+                        "expected": "false"
+                    }
+                },
+                "duration": "00:00:00.195067",
+                "result": "Passed"
+            }
+        }
+    ]
+}
+}
+----

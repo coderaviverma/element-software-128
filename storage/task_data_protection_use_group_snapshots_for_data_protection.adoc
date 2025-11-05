@@ -1,0 +1,23 @@
+---
+permalink: storage/task_data_protection_use_group_snapshots_for_data_protection.html
+sidebar: sidebar
+keywords: group snapshots, data protection, set of volumes, backup, rollback
+summary: 'You can create a group snapshot of a related set of volumes to preserve a point-in-time copy of the metadata for each volume. You can use the group snapshot in the future as a backup or rollback to restore the state of the group of volumes to a previous state.'
+---
+
+= Using group snapshots for data protection task
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can create a group snapshot of a related set of volumes to preserve a point-in-time copy of the metadata for each volume. You can use the group snapshot in the future as a backup or rollback to restore the state of the group of volumes to a previous state.
+
+== Find more information
+
+* xref:task_data_protection_create_a_group_snapshot.adoc[Create a group snapshot]
+* xref:task_data_protection_edit_group_snapshots.adoc[Edit group snapshots]
+* xref:task_data_protection_edit_members_of_group_snapshot.adoc[Edit members of group snapshot]
+* xref:task_data_protection_delete_a_group_snapshot.adoc[Delete a group snapshot]
+* xref:task_data_protection_roll_back_volumes_to_a_group_snapshot.adoc[Roll back volumes to a group snapshot]
+* xref:task_data_protection_clone_multiple_volumes.adoc[Clone multiple volumes]
+* xref:task_data_protection_clone_multiple_volumes_from_a_group_snapshot.adoc[Clone multiple volumes from a group snapshot]

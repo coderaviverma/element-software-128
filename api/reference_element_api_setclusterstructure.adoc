@@ -1,0 +1,72 @@
+---
+permalink: api/reference_element_api_setclusterstructure.html
+sidebar: sidebar
+keywords: storage,cluster,configuration,info,restore,set,setting,setclusterstructure
+summary: 'You can use the SetClusterStructure method to restore the storage cluster configuration information from a backup. When you call the method, you pass the clusterStructure object containing the configuration information you want to restore as the params parameter.'
+---
+
+= SetClusterStructure
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `SetClusterStructure` method to restore the storage cluster configuration information from a backup. When you call the method, you pass the clusterStructure object containing the configuration information you want to restore as the params parameter.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+params
+a|
+A JSON object containing the current storage cluster configuration information.
+a|
+xref:reference_element_api_clusterstructure.adoc[clusterStructure]
+|===
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+result
+a|
+Asynchronous result handle.
+a|
+asyncHandle
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "SetClusterStructure",
+  "params": <insert clusterStructure object here>,
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": 1,
+	"result" : {
+	"asyncHandle": 1
+	}
+}
+----
+
+== New since version
+
+10.3

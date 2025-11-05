@@ -1,0 +1,39 @@
+---
+permalink: storage/task_data_protection_back_up_volume_to_solidfire.html
+sidebar: sidebar
+keywords: volume backup, solidfire storage cluster
+summary: 'You can back up volumes residing on a cluster to a remote cluster for storage clusters running Element software.'
+---
+
+= Back up a volume to a SolidFire storage cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can back up volumes residing on a cluster to a remote cluster for storage clusters running Element software.
+
+Ensure that the source and target clusters are paired.
+
+See link:task_replication_pair_clusters.html[Pair clusters for replication].
+
+When backing up or restoring from one cluster to another, the system generates a key to be used as authentication between the clusters. This bulk volume write key allows the source cluster to authenticate with the destination cluster, providing a level of security when writing to the destination volume. As part of the backup or restore process, you need to generate a bulk volume write key from the destination volume before starting the operation.
+
+. On the destination cluster, *Management* > *Volumes*.
+. Click the Actions icon for the destination volume.
+. In the resulting menu, click *Restore from*.
+. In the *Integrated Restore* dialog box, under *Restore from*, select *SolidFire*.
+. Select an option under *Data Format*:
+ ** *Native*: A compressed format readable only by SolidFire storage systems.
+ ** *Uncompressed*: An uncompressed format compatible with other systems.
+. Click *Generate Key*.
+. Copy the key from the *Bulk Volume Write Key* box to your clipboard.
+. On the source cluster, go to *Management* > *Volumes*.
+. Click the Actions icon for the volume to back up.
+. In the resulting menu, click *Backup to*.
+. In the *Integrated Backup* dialog box under *Backup to*, select *SolidFire*.
+. Select the same option you selected earlier in the *Data Format* field.
+. Enter the management virtual IP address of the destination volume's cluster in the *Remote Cluster MVIP* field.
+. Enter the remote cluster user name in the *Remote Cluster Username* field.
+. Enter the remote cluster password in the *Remote Cluster Password* field.
+. In the *Bulk Volume Write Key* field, paste the key you generated on the destination cluster earlier.
+. Click *Start Read*.

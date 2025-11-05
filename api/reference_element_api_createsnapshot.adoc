@@ -1,0 +1,206 @@
+---
+permalink: api/reference_element_api_createsnapshot.html
+sidebar: sidebar
+keywords: volume,volumes,create,creating,snapshot,snapshots,CreateSnapshot
+summary: 'You can use CreateSnapshot to create a point-in-time copy of a volume. You can create a snapshot from any volume or from an existing snapshot.'
+---
+
+= CreateSnapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `CreateSnapshot` to create a point-in-time copy of a volume. You can create a snapshot from any volume or from an existing snapshot.
+
+If you do not provide a SnapshotID with this API method, a snapshot is created from the volume's active branch. If the volume from which the snapshot is created is being replicated to a remote cluster, the snapshot can also be replicated to the same target. Use the enableRemoteReplication parameter to enable snapshot replication.
+
+NOTE: You can create snapshots if cluster fullness is at stage 1, 2, or 3. You cannot create snapshots when cluster fullness reaches stage 4 or 5.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+
+a|
+`attributes`
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+
+a|
+`enableRemoteReplication`
+a|
+Specifies whether the snapshot will be replicated to remote storage or not. Possible values:
+
+* `true`: The snapshot will be replicated to remote storage.
+* `false`: The snapshot will not be replicated to remote storage.
+
+a|
+boolean
+a|
+false
+a|
+No
+
+|`ensureSerialCreation`
+a|Specifies that the snapshot should not be created if a previous snapshot replication is in progress. Possible values are:
+
+* `true`: This ensures that only one snapshot is being replicated at a time. The creation of a new snapshot will fail if a previous snapshot replication is still in progress.
+* `false`: Default. This snapshot creation is allowed if another snapshot replication is still in progress.
+
+|boolean
+|`false`
+|No
+
+|expirationTime
+a|Specify the time after which the snapshot can be removed. Cannot be used with `retention`.
+If neither expirationTime or retention are specified the snapshot will not expire.
+The time format is an ISO 8601 date string for time based expiration, otherwise it will not expire. A value of `null` causes the snapshot to be retained permanently. A value of `fifo` causes the snapshot to be preserved on a First-In-First-Out basis, relative to other FIFO
+snapshots on the volume. The API will fail if no FIFO space is available.
+|string
+|None
+|No
+
+a|
+`name`
+a|
+The name of the snapshot. If no name is entered, the date and time the snapshot was taken is used. The maximum name length allowed is 255 characters.
+a|
+string
+a|
+None
+a|
+No
+
+a|
+`retention`
+a|
+This parameter is same as the `expirationTime` parameter, except the time format is HH:mm:ss. If neither `expirationTime` nor `retention` are specified, the snapshot will not expire.
+a|
+string
+a|
+None
+a|
+No
+
+a|
+`snapMirrorLabel`
+a|
+The label used by SnapMirror software to specify the snapshot retention policy on a SnapMirror endpoint.
+a|
+string
+a|
+None
+a|
+No
+
+a|
+`snapshotID`
+a|
+Unique ID of a snapshot from which the new snapshot is made. The snapshotID passed must be a snapshot on the given volume.
+a|
+integer
+a|
+None
+a|
+No
+
+a|
+`volumeID`
+a|
+Unique ID of the volume image from which to copy.
+a|
+integer
+a|
+None
+a|
+Yes
+
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+checksum
+a|
+A string that represents the correct digits in the stored snapshot. This checksum can be used later to compare other snapshots to detect errors in the data.
+a|
+string
+a|
+snapshotID
+a|
+Unique ID of the new snapshot.
+a|
+Snapshot ID
+a|
+snapshot
+a|
+An object containing information about the newly created snapshot.
+a|
+xref:reference_element_api_snapshot.adoc[snapshot]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "CreateSnapshot",
+   "params": {
+      "volumeID": 1
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "checksum": "0x0",
+      "snapshot": {
+        "attributes": {},
+        "checksum": "0x0",
+        "createTime": "2016-04-04T17:14:03Z",
+        "enableRemoteReplication": false,
+        "expirationReason": "None",
+        "expirationTime": null,
+        "groupID": 0,
+        "groupSnapshotUUID": "00000000-0000-0000-0000-000000000000",
+        "name": "2016-04-04T17:14:03Z",
+        "snapshotID": 3110,
+        "snapshotUUID": "6f773939-c239-44ca-9415-1567eae79646",
+        "status": "done",
+        "totalSize": 5000658944,
+        "virtualVolumeID": null,
+        "volumeID": 1
+      },
+        "snapshotID": 3110
+  }
+}
+----
+
+== Exception
+
+An xNotPrimary exception is displayed when the `CreateSnapshot` API is called and the snapshot fails to get created. This is expected behavior. Retry the `CreateSnapshot` API call.
+
+== New since version
+
+9.6

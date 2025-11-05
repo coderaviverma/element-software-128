@@ -1,0 +1,67 @@
+---
+permalink: api/reference_element_api_removeclusterpair.html
+sidebar: sidebar
+keywords: cluster,clusters,pair,remove,removing,removeclusterpair
+summary: 'You can use the RemoveClusterPair method to close the open connections between two paired clusters.'
+---
+
+= RemoveClusterPair
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RemoveClusterPair` method to close the open connections between two paired clusters.
+
+== Parameter
+
+NOTE: Before you remove a cluster pair, you must first remove all volume pairing to the clusters with the RemoveVolumePair API method.
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+clusterPairID
+a|
+Unique identifier used to pair two clusters.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has no return value.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "RemoveClusterPair",
+   "params": {
+              "clusterPairID": 1
+      },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {}
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,76 @@
+---
+permalink: api/reference_element_api_getnodehardwareinfo.html
+sidebar: sidebar
+keywords: node,hardware,info,get,getting,getnodehardwareinfo
+summary: 'You can use the GetNodeHardwareInfo method to return all the hardware information and status for the node specified. This generally includes manufacturers, vendors, versions, and other associated hardware identification information.'
+---
+
+= GetNodeHardwareInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetNodeHardwareInfo` method to return all the hardware information and status for the node specified. This generally includes manufacturers, vendors, versions, and other associated hardware identification information.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+nodeID
+a|
+The ID of the node for which hardware information is being requested. Information about a Fibre Channel node is returned if a Fibre Channel node is specified.
+
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+nodeHardwareInfo
+a|
+Hardware information for the specified nodeID. Each object in this output is labeled with the nodeID of the given node.
+a|
+xref:reference_element_api_hardwareinfo.adoc[hardwareInfo]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetNodeHardwareInfo",
+   "params": {
+     "nodeID": 1
+   },
+"id" : 1
+}
+----
+
+== Response example
+
+Due to the length of this response example, it is documented in a supplementary topic.
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_response_example_getnodehardwareinfo_fibre_channel.adoc[GetNodeHardwareInfo (output for Fibre Channel nodes)]
+
+xref:reference_element_api_response_example_getnodehardwareinfo.adoc[GetNodeHardwareInfo (output for iSCSI)]

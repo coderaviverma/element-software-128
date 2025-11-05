@@ -1,0 +1,12 @@
+---
+permalink: hardware/task_psu_repl.html
+sidebar: sidebar
+keywords: power supply, replacement, h610s, h410s, maintenance, psu, chassis
+summary: Each chassis includes two power supply units for power redundancy. If a power supply unit is faulty, you should replace it as soon as possible to ensure that the chassis has a redundant power source.
+---
+= Replace a power supply unit
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+include::../_include/task_hseries_psurepl.adoc[]

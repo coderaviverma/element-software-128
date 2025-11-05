@@ -1,0 +1,133 @@
+---
+permalink: api/reference_element_api_createkeyserverkmip.html
+sidebar: sidebar
+keywords: KMIP,key server,creating,create
+summary: 'You can use the CreateKeyServerKmip method to create a Key Management Interoperability Protocol \(KMIP\) key server with the specified attributes. During creation, the server is not contacted; it does not need to exist before you use this method. For clustered key server configurations, you must provide the hostnames or IP addresses of all server nodes in the kmipKeyServerHostnames parameter. You can use the TestKeyServerKmip method to test a key server.'
+---
+
+= CreateKeyServerKmip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CreateKeyServerKmip` method to create a Key Management Interoperability Protocol (KMIP) key server with the specified attributes. During creation, the server is not contacted; it does not need to exist before you use this method. For clustered key server configurations, you must provide the hostnames or IP addresses of all server nodes in the kmipKeyServerHostnames parameter. You can use the `TestKeyServerKmip` method to test a key server.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+kmipCaCertificate
+a|
+The public key certificate of the external key server's root CA. This will be used to verify the certificate presented by external key server in the TLS communication. For key server clusters where individual servers use different CAs, provide a concatenated string containing the root certificates of all the CAs.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+kmipClientCertificate
+a|
+A PEM format Base64 encoded PKCS#10 X.509 certificate used by the Solidfire KMIP client.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+kmipKeyServerHostnames
+a|
+Array of the hostnames or IP addresses associated with this KMIP key server. Multiple hostnames or IP addresses must only be provided if the key servers are in a clustered configuration.
+a|
+string array
+a|
+None
+a|
+Yes
+a|
+kmipKeyServerName
+a|
+The name of the KMIP key server. This name is only used for display purposes and does not need to be unique.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+kmipKeyServerPort
+a|
+The port number associated with this KMIP key server (typically 5696).
+a|
+integer
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+kmipKeyServer
+a|
+An object containing details about the newly created key server.
+a|
+link:reference_element_api_keyserverkmip.html[KeyServerKmip]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "CreateKeyServerKmip",
+  "params": {
+    "kmipCaCertificate": "MIICPDCCAaUCEDyRMcsf9tAbDpq40ES/E...",
+    "kmipClientCertificate": "dKkkirWmnWXbj9T/UWZYB2oK0z5...",
+    "kmipKeyServerHostnames" : ["server1.hostname.com", "server2.hostname.com"],
+    "kmipKeyServerName" : "keyserverName",
+    "kmipKeyServerPort" : 5696
+  },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result":
+      {
+        "kmipKeyServer": {
+            "kmipCaCertificate":"MIICPDCCAaUCEDyRMcsf9tAbDpq40ES/E...",
+            "kmipKeyServerHostnames":[
+                "server1.hostname.com", "server2.hostname.com"
+            ],
+            "keyProviderID":1,
+            "kmipKeyServerName":"keyserverName",
+            "keyServerID":1
+            "kmipKeyServerPort":1,
+            "kmipClientCertificate":"dKkkirWmnWXbj9T/UWZYB2oK0z5...",
+            "kmipAssignedProviderIsActive":true
+        }
+    }
+}
+----
+
+== New since version
+
+11.7

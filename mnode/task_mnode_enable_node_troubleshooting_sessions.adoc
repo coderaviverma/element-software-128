@@ -1,0 +1,205 @@
+---
+sidebar: sidebar
+permalink: mnode/task_mnode_enable_node_troubleshooting_sessions.html
+summary: Beginning with Element 12.5, you can enable the sfreadonly user account on the management node to troubleshoot system components without help from NetApp Support. You can also enable and open remote support tunnel access for NetApp Support for advanced troubleshooting.
+keywords: netapp, sfreadonly, connect to support, support tunnel, rst, mnode, management node
+---
+
+= Accessing storage nodes using SSH for basic troubleshooting
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Beginning with Element 12.5, you can use the sfreadonly system account on the storage nodes for basic troubleshooting. You can also enable and open remote support tunnel access for NetApp Support for advanced troubleshooting.
+
+The sfreadonly system account enables access to run basic Linux system and network troubleshooting commands, including `ping`.
+
+WARNING: Unless advised by NetApp Support, any alterations to this system are unsupported, voiding your support contract, and might result in instability or inaccessibility of data.
+
+.Before you begin
+* *Write permissions*: Verify that you have write permissions to the current working directory.
+* *(Optional) Generate your own key pair*: Run `ssh-keygen` from Windows 10, MacOS, or Linux distribution. This is a one-time action to create a user key pair and can be reused for future troubleshooting sessions. You might want to use certificates associated with employee accounts, which would also work in this model.
+* *Enable SSH capability on the management node*: To enable remote access functionality on the management mode, see link:task_mnode_ssh_management.html[this topic]. For management services 2.18 and later, the capability for remote access is disabled on the management node by default.
+* *Enable SSH capability on the storage cluster*: To enable remote access functionality on the storage cluster nodes, see link:https://docs.netapp.com/us-en/element-software/storage/task_system_manage_cluster_enable_and_disable_support_access.html[this topic].
+* *Firewall configuration*: If your management node is behind a proxy server, the following TCP ports are required in the sshd.config file:
++
+[cols=3*,options="header",cols="15,25,60"]
+|===
+| TCP port
+| Description
+| Connection direction
+| 443 | API calls/HTTPS for reverse port forwarding via open support tunnel to the web UI | Management node to storage nodes
+| 22 | SSH login access | Management node to storage nodes or from storage nodes to management node
+|===
+
+.Troubleshooting options
+* <<Troubleshoot a cluster node>>
+* <<Troubleshoot a cluster node with NetApp Support>>
+* <<Troubleshoot a node that is not part of cluster>>
+
+== Troubleshoot a cluster node
+
+You can perform basic troubleshooting using the sfreadonly system account:
+
+.Steps
+. SSH to the management node using your account login credentials you selected when installing the management node VM.
+. On the management node, go to `/sf/bin`.
+. Find the appropriate script for your system:
+
+* SignSshKeys.ps1
+* SignSshKeys.py
+* SignSshKeys.sh
++
+[NOTE]
+====
+SignSshKeys.ps1 is dependent on PowerShell 7 or later and SignSshKeys.py is dependent on Python 3.6.0 or later and the https://docs.python-requests.org/[requests module^].
+
+//* For management node versions 12.3 or earlier, you can run the Bash script provided by NetApp Support.
+The `SignSshKeys` script writes `user`, `user.pub`, and `user-cert.pub` files into the current working directory, which are later used by the `ssh` command. However, when a public key file is provided to the script, only a `<public_key>` file (with `<public_key>` replaced with the prefix of the public key file passed into the script) is written out to the directory.
+
+====
+//Need NSS/GH/KB location for GA???
+
+. Run the script on the management node to generate the SSH keychain. The script enables SSH access using the sfreadonly system account across all nodes in the cluster.
++
+----
+SignSshKeys --ip [ip address] --user [username] --duration [hours] --publickey [public key path]
+----
+
+.. Replace the value in [ ] brackets (including the brackets) for each of the following parameters:
++
+NOTE: You can use either the abbreviated or full form parameter.
+
+* *--ip | -i [ip address]*: IP address of the target node for the API to run against.
+
+* *--user | -u [username]*: Cluster user used to run the API call.
+
+* *(Optional) --duration | -d [hours]*: The duration a signed key should remain valid as an integer in hours. The default is 24 hours.
+
+* *(Optional) --publickey | -k [public key path]*: The path to a public key, if the user chooses to provide one.
+
+..  Compare your input against the following sample command. In this example, `10.116.139.195` is the IP of the storage node, `admin` is the cluster username, and the duration of key validity is two hours:
++
+----
+sh /sf/bin/SignSshKeys.sh --ip 10.116.139.195 --user admin --duration 2
+----
+.. Run the command.
+
+. SSH to the node IPs:
++
+----
+ssh -i user sfreadonly@[node_ip]
+----
++
+You will be able to run basic Linux system and network troubleshooting commands, such as `ping`, and other read-only commands.
+
+. (Optional) Disable link:task_mnode_ssh_management.html[remote access functionality] again after troubleshooting is complete.
++
+NOTE: SSH remains enabled on the management node if you do not disable it. SSH enabled configuration persists on the management node through updates and upgrades until it is manually disabled.
+
+
+== Troubleshoot a cluster node with NetApp Support
+
+NetApp Support can perform advanced troubleshooting with a system account that allows a technician to run deeper Element diagnostics.
+
+.Steps
+. SSH to the management node using your account login credentials you selected when installing the management node VM.
+. Run the rst command with the port number sent by NetApp Support to open the support tunnel:
++
+`rst -r  sfsupport.solidfire.com -u element -p <port_number>`
++
+NetApp Support will log in to your management node using the support tunnel.
+
+. On the management node, go to `/sf/bin`.
+. Find the appropriate script for your system:
+
+* SignSshKeys.ps1
+* SignSshKeys.py
+* SignSshKeys.sh
++
+[NOTE]
+====
+SignSshKeys.ps1 is dependent on PowerShell 7 or later and SignSshKeys.py is dependent on Python 3.6.0 or later and the https://docs.python-requests.org/[requests module^].
+
+//* For management node versions 12.3 or earlier, you can run the Bash script provided by NetApp Support.
+The `SignSshKeys` script writes `user`, `user.pub`, and `user-cert.pub` files into the current working directory, which are later used by the `ssh` command. However, when a public key file is provided to the script, only a `<public_key>` file (with `<public_key>` replaced with the prefix of the public key file passed into the script) is written out to the directory.
+====
+//Need NSS/GH/KB location for GA???
+
+. Run the script to generate the SSH keychain with the `--sfadmin` flag. The script enables SSH across all nodes.
++
+----
+SignSshKeys --ip [ip address] --user [username] --duration [hours] --sfadmin
+----
++
+[NOTE]
+====
+To SSH as `--sfadmin` to a clustered node, you must generate the SSH keychain using a `--user` with `supportAdmin` access on the cluster.
+
+To configure `supportAdmin` access for cluster administrator accounts, you can use the Element UI or APIs:
+
+* link:../storage/concept_system_manage_manage_cluster_administrator_users.html#view-cluster-admin-details[Configure "supportAdmin" access using the Element UI]
+* Configure `supportAdmin` access by using APIs and adding `"supportAdmin"` as the `"access"` type in the API request:
+** link:../api/reference_element_api_addclusteradmin.html[Configure "supportAdmin" access for a new account]
+** link:../api/reference_element_api_modifyclusteradmin.html[Configure "supportAdmin" access for an existing account]
++
+To get the `clusterAdminID`, you can use the link:../api/reference_element_api_listclusteradmins.html[ListClusterAdmins] API.
+
+To add `supportAdmin` access, you must have cluster administrator or administrator privileges.
+====
+
+.. Replace the value in [ ] brackets (including the brackets) for each of the following parameters:
++
+NOTE: You can use either the abbreviated or full form parameter.
+
+* *--ip | -i [ip address]*: IP address of the target node for the API to run against.
+
+* *--user | -u [username]*: Cluster user used to run the API call.
+
+* *(Optional) --duration | -d [hours]*: The duration a signed key should remain valid as an integer in hours. The default is 24 hours.
+
+
+.. Compare your input against the following sample command. In this example, `192.168.0.1` is the IP of the storage node, `admin` is the cluster username, duration of key validity is two hours, and `--sfadmin` allows NetApp Support node access for troubleshooting:
++
+----
+sh /sf/bin/SignSshKeys.sh --ip 192.168.0.1 --user admin --duration 2 --sfadmin
+----
+
+.. Run the command.
+. SSH to the node IPs:
++
+----
+ssh -i user sfadmin@[node_ip]
+----
+
+. To close the remote support tunnel, enter the following:
++
+`rst --killall`
+
+. (Optional) Disable link:task_mnode_ssh_management.html[remote access functionality] again after troubleshooting is complete.
++
+NOTE: SSH remains enabled on the management node if you do not disable it. SSH enabled configuration persists on the management node through updates and upgrades until it is manually disabled.
+
+
+== Troubleshoot a node that is not part of cluster
+You can perform basic troubleshooting of a node that has not yet been added to a cluster. You can use the sfreadonly system account for this purpose with or without the help of NetApp Support. If you have a management node set up, you can use it for SSH and run the script provided for this task.
+
+. From a Windows, Linux, or Mac machine that has an SSH client installed, run the appropriate script for your system provided by NetApp Support.
+//Need NSS/GH/KB location for GA???
+. SSH to the node IP:
++
+----
+ssh -i user sfreadonly@[node_ip]
+----
+
+. (Optional) Disable link:task_mnode_ssh_management.html[remote access functionality] again after troubleshooting is complete.
++
+NOTE: SSH remains enabled on the management node if you do not disable it. SSH enabled configuration persists on the management node through updates and upgrades until it is manually disabled.
+
+[discrete]
+== Find more information
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/hci/index.html[NetApp HCI Documentation^]

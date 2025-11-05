@@ -1,0 +1,117 @@
+---
+permalink: api/reference_element_api_testnetworkconfig.html
+sidebar: sidebar
+keywords: test,testing,network,config,configuration,testnetworkconfig
+summary: 'You can use the TestNetworkConfig method to test that the configured network settings match the network settings being used on the system.'
+---
+
+= TestNetworkConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `TestNetworkConfig` method to test that the configured network settings match the network settings being used on the system.
+
+== Parameters
+
+When you configure a node with the SetNetworkConfig method, in the UI or TUI, the configuration is validated and stored. The TestNetworkConfig API test uses the stored configuration for post-validation logic. For example, in the event of a power outage or network failure, you can use this API method to ensure a node is running with the most currently stored network configuration. This validates that there are no errors in the configuration and that the current configuration is in use.
+
+This test is designed to only show failures in the response output. If there are no errors, this test does not return any output. See the following response examples.
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+details
+a|
+Contains any errors found when validating the currently stored network settings with the running network configuration.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "TestNetworkConfig",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example 1
+
+If no errors are detected, then no responses are returned.
+
+----
+{
+   "id" : 1,
+   "result": {
+   "details": {
+   "network": {...}
+  },
+   "duration": "00:00:00.144514",
+   "result": "Passed"
+  }
+}
+----
+
+== Response example 2
+
+Example of an MTU Mismatch.
+
+----
+{
+  "id" : 1,
+  "result":
+  {
+	 "details" :
+	 {
+		"error":
+		{
+		   "message" : "Network configuration mismatch on Bond10G: Incorrect MTU expectedMTU=[1500]  actualMTU=[9600]", name: "xAssertionFailure"
+		}
+	 },
+	 "duration": "0.125213sec",
+	 "result": "Failed"
+  }
+}
+----
+
+== Response example 3
+
+Example of a missing static route.
+
+----
+{
+  "id": 1,
+  "result":
+  {
+	 "details" :
+	 {
+	 "error":
+		{
+		"message" : "Network configuration mismatch on Bond1G: Routing table missing route=[192.168.137.2 via 192.168.159.254 dev Bond1G]", name: "xAssertionFailure"
+		}
+	 },
+	 "duration" : "0.128547sec",
+	 "result" : "Failed"
+  }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_setnetworkconfig.adoc[SetNetworkConfig]

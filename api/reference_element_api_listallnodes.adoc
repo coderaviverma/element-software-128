@@ -1,0 +1,102 @@
+---
+permalink: api/reference_element_api_listallnodes.html
+sidebar: sidebar
+keywords: cluster,list,listing,node,nodes,all,listallnodes
+summary: 'You can use the ListAllNodes method to list active and pending nodes in the cluster.'
+---
+
+= ListAllNodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListAllNodes` method to list active and pending nodes in the cluster.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+nodes
+a|
+List of objects describing active nodes in the cluster.
+a|
+xref:reference_element_api_node.adoc[node]
+a|
+pendingActiveNodes
+a|
+List of objects describing pending active nodes for the cluster.
+a|
+xref:reference_element_api_pendingactivenode.adoc[pendingActiveNode] array
+a|
+pendingNodes
+a|
+List of objects describing pending nodes for the cluster.
+a|
+xref:reference_element_api_pendingnode.adoc[pendingNode] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListAllNodes",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": 1,
+	"result": {
+		"nodes": [
+			{
+				"associatedFServiceID": 0,
+				"associatedMasterServiceID": 1,
+				"attributes": {},
+				"chassisName": "CT5TV12",
+				"cip": "10.1.1.1",
+				"cipi": "Bond10G",
+				"fibreChannelTargetPortGroup": null,
+				"mip": "10.1.1.1",
+				"mipi": "Bond1G",
+				"name": "NLABP0704",
+				"nodeID": 1,
+				"nodeSlot": "",
+				"platformInfo": {
+					"chassisType": "R620",
+					"cpuModel": "Intel",
+					"nodeMemoryGB": 72,
+					"nodeType": "SF3010",
+					"platformConfigVersion": "0.0.0.0"
+				},
+				"sip": "10.1.1.1",
+				"sipi": "Bond10G",
+				"softwareVersion": "11.0",
+				"uuid": "4C4C4544-0054",
+				"virtualNetworks": []
+			}
+		],
+		"pendingActiveNodes": [],
+		"pendingNodes": []
+	}
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,490 @@
+---
+permalink: api/reference_element_api_createschedule.html
+sidebar: sidebar
+keywords: CreateSchedule,create,creating,schedule,schedules,snapshot,snapshots,scheduling,automatic,volume,volumes
+summary: 'You can use CreateSchedule to schedule an automatic snapshot of a volume at a defined interval.'
+---
+
+= CreateSchedule
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `CreateSchedule` to schedule an automatic snapshot of a volume at a defined interval.
+
+You can use the created snapshot later as a backup or rollback to ensure the data on a volume or group of volumes is consistent for the point in time in which the snapshot was created. If you schedule a snapshot to run at a time period that is not divisible by 5 minutes, the snapshot will run at the next time period that is divisible by 5 minutes. For example, if you schedule a snapshot to run at 12:42:00 UTC, it will run at 12:45:00 UTC. You cannot schedule a snapshot to run at intervals of less than 5 minutes.
+
+NOTE: You can create snapshots if cluster fullness is at stage 1, 2, or 3. You cannot create snapshots when cluster fullness reaches stage 4 or 5.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+`attributes`
+a|
+Use the "`frequency`" string to indicate the frequency of the snapshot. Possible values:
+
+* `Days of Week`
+* `Days of Month`
+* `Time Interval`
+
+a|
+JSON object
+a|
+None
+a|
+No
+
+|`hasError`
+|*Help with description needed*
+|boolean
+|`false`
+|No
+
+
+a|
+`hours`
+a|
+Number of hours between recurring snapshots or hour in GMT time that the snapshot will occur in Days of Week or Days of Month mode. Valid values are 0 through 23.
+a|
+integer
+a|
+None
+a|
+No
+
+|`lastRunStatus`
+|The result or status of the last scheduled snapshot creation.
+|string
+|None
+|No
+
+a|
+`name`
+a|
+The name of the snapshot. If no name is entered, the date and time the group snapshot was taken is used. The maximum name length allowed is 244 characters.
+a|
+string
+a|
+None
+a|
+No
+a|
+`minutes`
+a|
+Number of minutes between recurring snapshots or the minute in GMT time that the snapshot will occur in Days of Week or Days of Month mode. Valid values are 5 through 59.
+a|
+integer
+a|
+None
+a|
+No
+
+a|
+`paused`
+a|
+Indicates if the schedule should be paused or not. Valid values:
+
+* `true`
+* `false`
+
+a|
+boolean
+a|
+None
+a|
+No
+a|
+`recurring`
+a|
+Indicates if the schedule will be recurring or not. Valid values are:
+
+* `true`
+* `false`
+
+a|
+boolean
+a|
+None
+a|
+No
+
+|`runNextInterval`
+a|Specifies whether or not to run the snapshot the next time the scheduler is active. When set to true, the scheduled snapshot runs the next time the scheduler is active and resets back to false.
+Valid values are:
+
+* `true`
+* `false`
+
+|boolean
+|`false`
+|No
+
+a|
+`scheduleName`
+a|
+Unique name for the schedule. The maximum schedule name length allowed is 244 characters.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+`scheduleType`
+a|
+Indicates the type of schedule to create. Valid value is snapshot.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+`scheduleInfo`
+a|
+The unique name given to the schedule, the retention period for the snapshot that was created, and the volume ID of the volume from which the snapshot was created. Valid values:
+
+* `volumeID`: The ID of the volume to be included in the snapshot. (integer)
+* `volumes`: A list of volume IDs to be included in the group snapshot. (integer array)
+* `name`: The snapshot name to be used. (string)
+* `enableRemoteReplication`: Indicates if the snapshot should be included in remote replication. (boolean)
+* `retention`: The amount of time the snapshot will be retained in HH:mm:ss. If empty, the snapshot is retained forever. (string)
+* `fifo`: The snapshot is retained on a First-In-First-Out (FIFO) basis. (string)
+* `ensureSerialCreation`: Specify if a new snapshot creation should be allowed if a previous snapshot replication is in progress. (boolean)
+
+a|
+JSON object
+a|
+None
+a|
+Yes
+a|
+`snapMirrorLabel`
+a|
+The label used by SnapMirror software to specify the snapshot retention policy on a SnapMirror endpoint.
+a|
+string
+a|
+None
+a|
+No
+a|
+`startingDate`
+a|
+Time after which the schedule will be run. If not set, the schedule starts immediately. Formatted in UTC time.
+a|
+ISO 8601 date string
+a|
+None
+a|
+No
+
+|`toBeDeleted`
+|Specifies that this snapshot schedule should be deleted after snapshot creation is completed.
+|boolean
+|`false`
+|No
+
+
+a|
+`monthdays`
+a|
+The days of the month that a snapshot will be made. Valid values are 1 through 31.
+a|
+integer array
+a|
+None
+a|
+Yes (if scheduling for days of the month)
+a|
+`weekdays`
+a|
+Day of the week the snapshot is to be created. Required values (if used):
+
+* `Day`: 0 through 6 (Sunday through Saturday)
+* `Offset`: for each possible week in a month, 1 through 6 (If greater than 1, only matched on the Nth-1 day of the week. For example, offset:3 for Sunday means the third Sunday of the month, while offset:4 for Wednesday means the fourth Wednesday of the month. Offset:0 means no action is taken. Offset:1 (default) means that the snapshot is created for this day of the week, regardless of where it falls in the month)
+
+a|
+JSON object array
+a|
+None
+a|
+Yes (if scheduling for days of the week)
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+scheduleID
+a|
+ID of the schedule created.
+a|
+integer
+a|
+schedule
+a|
+An object containing information about the newly created schedule.
+a|
+xref:reference_element_api_schedule.adoc[schedule]
+|===
+
+== Request example 1
+
+The following example schedule has the following parameters:
+
+* No start hours or minutes are specified so the schedule starts as closely as possible to midnight (00:00:00Z).
+* It is not recurring (will only run once).
+* It runs once on either the first Sunday or Wednesday following June 1, 2015, UTC 19:17:15Z (whichever day comes first).
+* It includes only one volume (volumeID = 1).
+
+----
+{
+  "method":"CreateSchedule",
+  "params":{
+    "hours":0,
+    "minutes":0,
+    "paused":false,
+    "recurring":false,
+    "scheduleName":"MCAsnapshot1",
+    "scheduleType":"snapshot",
+    "attributes":{
+      "frequency":"Days Of Week"
+    },
+    "scheduleInfo":{
+      "volumeID":"1",
+      "name":"MCA1"
+    },
+    "monthdays":[],
+    "weekdays":[
+      {
+        "day":0,
+        "offset":1
+      },
+      {
+        "day":3,
+        "offset":1
+      }
+    ],
+    "startingDate":"2015-06-01T19:17:54Z"
+  },
+   "id":1
+}
+}
+}
+----
+
+== Response example 1
+
+The above request returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "schedule": {
+      "attributes": {
+        "frequency": "Days Of Week"
+      },
+      "hasError": false,
+      "hours": 0,
+      "lastRunStatus": "Success",
+      "lastRunTimeStarted": null,
+      "minutes": 0,
+      "monthdays": [],
+      "paused": false,
+      "recurring": false,
+      "runNextInterval": false,
+      "scheduleID": 4,
+      "scheduleInfo": {
+        "name": "MCA1",
+        "volumeID": "1"
+      },
+      "scheduleName": "MCAsnapshot1",
+      "scheduleType": "Snapshot",
+      "startingDate": "2015-06-01T19:17:54Z",
+      "toBeDeleted": false,
+      "weekdays": [
+        {
+          "day": 0,
+          "offset": 1
+        },
+        {
+          "day": 3,
+          "offset": 1
+        }
+      ]
+    },
+    "scheduleID": 4
+  }
+}
+----
+
+== Request example 2
+
+The following example schedule has the following parameters:
+
+* It is recurring (will run at each scheduled interval of the month at the specified time).
+* It runs on the 1st, 10th, 15th and 30th of each month following the starting date.
+* It runs at 12:15 PM on each day it is scheduled to occur.
+* It includes only one volume (volumeID = 1).
+
+----
+{
+  "method":"CreateSchedule",
+    "params":{
+      "hours":12,
+      "minutes":15,
+      "paused":false,
+      "recurring":true,
+      "scheduleName":"MCASnapshot1",
+      "scheduleType":"snapshot",
+      "attributes":{
+        "frequency":"Days Of Month"
+      },
+      "scheduleInfo":{
+        "volumeID":"1"
+      },
+      "weekdays":[
+      ],
+      "monthdays":[
+        1,
+        10,
+        15,
+        30
+      ],
+      "startingDate":"2015-04-02T18:03:15Z"
+    },
+    "id":1
+}
+----
+
+== Response example 2
+
+The above request returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "schedule": {
+      "attributes": {
+        "frequency": "Days Of Month"
+      },
+      "hasError": false,
+      "hours": 12,
+      "lastRunStatus": "Success",
+      "lastRunTimeStarted": null,
+      "minutes": 15,
+      "monthdays": [
+        1,
+        10,
+        15,
+        30
+      ],
+      "paused": false,
+      "recurring": true,
+      "runNextInterval": false,
+      "scheduleID": 5,
+      "scheduleInfo": {
+        "volumeID": "1"
+      },
+      "scheduleName": "MCASnapshot1",
+      "scheduleType": "Snapshot",
+      "startingDate": "2015-04-02T18:03:15Z",
+      "toBeDeleted": false,
+      "weekdays": []
+    },
+      "scheduleID": 5
+  }
+}
+----
+
+== Request example 3
+
+The following example schedule has the following parameters:
+
+* It starts within 5 minutes of the scheduled interval on April 2, 2015.
+* It is recurring (will run at each scheduled interval of the month at the specified time).
+* It runs on the second, third, and fourth of each month following the starting date.
+* It runs at 14:45 PM on each day it is scheduled to occur.
+* It includes a group of volumes (volumes = 1 and 2).
+
+----
+{
+  "method":"CreateSchedule",
+  "params":{
+    "hours":14,
+    "minutes":45,
+    "paused":false,
+    "recurring":true,
+    "scheduleName":"MCASnapUser1",
+    "scheduleType":"snapshot",
+    "attributes":{
+      "frequency":"Days Of Month"
+    },
+    "scheduleInfo":{
+      "volumes":[1,2]
+    },
+    "weekdays":[],
+    "monthdays":[2,3,4],
+    "startingDate":"2015-04-02T20:38:23Z"
+  },
+  "id":1
+}
+----
+
+== Response example 3
+
+The above request returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "schedule": {
+      "attributes": {
+        "frequency": "Days Of Month"
+      },
+      "hasError": false,
+      "hours": 14,
+      "lastRunStatus": "Success",
+      "lastRunTimeStarted": null,
+      "minutes": 45,
+      "monthdays": [
+        2,
+        3,
+        4
+      ],
+      "paused": false,
+      "recurring": true,
+      "runNextInterval": false,
+      "scheduleID": 6,
+      "scheduleInfo": {
+        "volumes": [
+          1,
+          2
+        ]
+      },
+      "scheduleName": "MCASnapUser1",
+      "scheduleType": "Snapshot",
+      "startingDate": "2015-04-02T20:38:23Z",
+      "toBeDeleted": false,
+      "weekdays": []
+    },
+    "scheduleID": 6
+  }
+}
+----
+
+== New since version
+
+9.6

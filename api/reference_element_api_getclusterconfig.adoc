@@ -1,0 +1,78 @@
+---
+permalink: api/reference_element_api_getclusterconfig.html
+sidebar: sidebar
+keywords: cluster,configuration,get,getting,config,getclusterconfig
+summary: 'You can use the GetClusterConfig API method to return information about the cluster configuration the node uses to communicate with its cluster.'
+---
+
+= GetClusterConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetClusterConfig` API method to return information about the cluster configuration the node uses to communicate with its cluster.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+cluster
+a|
+Cluster configuration information the node uses to communicate with the cluster.
+a|
+xref:reference_element_api_cluster.adoc[cluster]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetClusterConfig",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "cluster": {
+      "cipi": "Bond10G",
+      "cluster": "ClusterName",
+      "ensemble": [
+        "1:10.30.65.139",
+        "2:10.30.65.140",
+        "3:10.30.65.141"
+      ],
+      "fipsDriveConfiguration": true,
+      "mipi": "Bond1G",
+      "name": "xxx-en142",
+      "nodeID": 4,
+      "pendingNodeID": 0,
+      "role": "Storage",
+      "sipi": "Bond10G",
+      "state": "Active",
+      "version": "9.1.0"
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,79 @@
+---
+permalink: api/reference_element_api_getclustersshinfo.html
+sidebar: sidebar
+keywords: ssh,service,status,get,getting,cluster,info,getclustersshinfo
+summary: 'You can use the GetClusterSshInfo method to query the status of the SSH service for the entire storage cluster.'
+---
+
+= GetClusterSshInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetClusterSshInfo` method to query the status of the SSH service for the entire storage cluster.
+
+== Parameter
+
+This method has no input parameter.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+result
+a|
+A JSON object containing the status of the SSH service for the storage cluster, the time remaining until SSH is disabled, and the SSH service status for each node.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetClusterSshInfo",
+  "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": 1,
+	"result" : {
+    “enabled”: “true”,
+    “timeRemaining”: "00:43:21",
+    "nodes": [
+    {
+        "nodeID": 1,
+        "enabled": true
+    },
+    {
+        "nodeID": 2,
+        "enabled": true
+    },
+    {
+        "nodeID": 3,
+        "enabled": false
+    },
+    {
+        "nodeID": 4,
+        "enabled": false
+    } ]
+			}
+	}
+----
+
+== New since version
+
+10.3

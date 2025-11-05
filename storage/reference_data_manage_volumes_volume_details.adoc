@@ -1,0 +1,81 @@
+---
+permalink: storage/reference_data_manage_volumes_volume_details.html
+sidebar: sidebar
+keywords: volume, size of volume
+summary: 'The Volumes page on the Management tab provides information about the active volumes such as name, account, access groups associated with the volume, and size of the volume.'
+---
+
+= Volume details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Volumes page on the Management tab provides information about the active volumes such as name, account, access groups associated with the volume, and size of the volume.
+
+* *ID*
++
+The system-generated ID for the volume.
+
+* *Name*
++
+The name given to the volume when it was created.
+
+* *Account*
++
+The name of the account assigned to the volume.
+
+* *Access Groups*
++
+The name of the volume access group or groups to which the volume belongs.
+
+* *Access*
++
+The type of access assigned to the volume when it was created. Possible values:
+
+ ** Read / Write: All reads and writes are accepted.
+ ** Read Only: All read activity allowed; no writes allowed.
+ ** Locked: Only Administrator access allowed.
+ ** ReplicationTarget: Designated as a target volume in a replicated volume pair.
+
+* *Used*
++
+The percentage of used space in the volume.
+
+* *Size*
++
+The total size (in GB) of the volume.
+
+* *Snapshots*
++
+The number of snapshots created for the volume.
+
+* *QoS Policy*
++
+The name and link to the user-defined QoS policy.
+
+* *Min IOPS*
++
+The minimum number of IOPS guaranteed for the volume.
+
+* *Max IOPS*
++
+The maximum number of IOPS allowed for the volume.
+
+* *Burst IOPS*
++
+The maximum number of IOPS allowed over a short period of time for the volume. Default = 15,000.
+
+* *Attributes*
++
+Attributes that have been assigned to the volume as a key/value pair through an API method.
+
+* *512e*
++
+Indication of whether 512e is enabled on a volume. Possible values:
+
+ ** Yes
+ ** No
+
+* *Created On*
++
+The date and time that the volume was created.

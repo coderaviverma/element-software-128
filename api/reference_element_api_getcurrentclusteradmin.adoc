@@ -1,0 +1,68 @@
+---
+permalink: api/reference_element_api_getcurrentclusteradmin.html
+sidebar: sidebar
+keywords: cluster,admin,get,getting,current,getcurrentclusteradmin
+summary: 'You can use the GetCurrentClusterAdmin method to return information for the current primary Cluster Admin. The primary Cluster Admin was created when the cluster was created.'
+---
+
+= GetCurrentClusterAdmin
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetCurrentClusterAdmin` method to return information for the current primary Cluster Admin. The primary Cluster Admin was created when the cluster was created.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+clusterAdmin
+a|
+Information about the cluster admin.
+a|
+xref:reference_element_api_clusteradmin.adoc[clusterAdmin]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+"method": "GetCurrentClusterAdmin",
+"id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+"id": 1,
+"result": {
+    "clusterAdmin":
+        "access": [
+           "administrator"
+        ],
+         "attributes": null,
+         "authMethod": "Cluster"
+         "clusterAdminID": 1,
+         "username": "admin"
+     }
+   }
+}
+----
+
+== New since version
+
+10.0

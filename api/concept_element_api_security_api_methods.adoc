@@ -1,0 +1,36 @@
+---
+permalink: api/concept_element_api_security_api_methods.html
+sidebar: sidebar
+keywords: security,key management,encryption
+summary: 'You can integrate Element software with external security-related services, such as an external key management server. These security-related methods enable you to configure Element security features such as external key management for Encryption at Rest.'
+---
+
+= Security API methods
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can integrate Element software with external security-related services, such as an external key management server. These security-related methods enable you to configure Element security features such as external key management for Encryption at Rest.
+
+* xref:reference_element_api_addkeyservertoproviderkmip.adoc[AddKeyServerToProviderKmip]
+* xref:reference_element_api_createkeyproviderkmip.adoc[CreateKeyProviderKmip]
+* xref:reference_element_api_createkeyserverkmip.adoc[CreateKeyServerKmip]
+* xref:reference_element_api_createpublicprivatekeypair.adoc[CreatePublicPrivateKeyPair]
+* xref:reference_element_api_deletekeyproviderkmip.adoc[DeleteKeyProviderKmip]
+* xref:reference_element_api_deletekeyserverkmip.adoc[DeleteKeyServerKmip]
+* xref:reference_element_api_disableencryptionatrest.adoc[DisableEncryptionAtRest]
+* xref:reference_element_api_enableencryptionatrest.adoc[EnableEncryptionAtRest]
+* xref:reference_element_api_getclientcertificatesignrequest.adoc[GetClientCertificateSignRequest]
+* xref:reference_element_api_getkeyproviderkmip.adoc[GetKeyProviderKmip]
+* xref:reference_element_api_getkeyserverkmip.adoc[GetKeyServerKmip]
+* xref:reference_element_api_listkeyproviderskmip.adoc[ListKeyProvidersKmip]
+* xref:reference_element_api_listkeyserverskmip.adoc[ListKeyServersKmip]
+* xref:reference_element_api_modifykeyserverkmip.adoc[ModifyKeyServerKmip]
+* xref:reference_element_api_removekeyserverfromproviderkmip.adoc[RemoveKeyServerFromProviderKmip]
+* xref:reference_element_api_signsshkeys.adoc[SignSshKeys]
+* xref:reference_element_api_testkeyproviderkmip.adoc[TestKeyProviderKmip]
+* xref:reference_element_api_testkeyserverkmip.adoc[TestKeyServerKmip]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

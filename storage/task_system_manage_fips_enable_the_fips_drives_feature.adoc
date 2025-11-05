@@ -1,0 +1,27 @@
+---
+permalink: storage/task_system_manage_fips_enable_the_fips_drives_feature.html
+sidebar: sidebar
+keywords: fips, security, federal information processing standards, 140-2, enable, ear
+summary: 'You can enable the FIPS drives feature by using the NetApp Element software EnableFeature API method.'
+---
+
+= Enable the FIPS drives feature
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can enable the FIPS drives feature by using the NetApp Element software `EnableFeature` API method.
+
+Encryption at Rest must be enabled on the cluster and all nodes and drives must be FIPS capable, as indicated when the GetFipsReport displays a Ready status for all nodes.
+
+.Step
+. Using the Element API, enable FIPS on all drives by entering:
++
+`EnableFeature params: FipsDrives`
+
+
+
+== Find more information
+* link:../api/index.html[Manage storage with the Element API]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

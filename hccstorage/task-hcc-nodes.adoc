@@ -1,0 +1,51 @@
+---
+sidebar: sidebar
+permalink: hccstorage/task-hcc-nodes.html
+summary: You can view your storage assets in your system by using the Hybrid Cloud Control Nodes page.
+keywords: netapp, element, cluster, inventory, nodes, storage
+---
+
+= View your inventory on the Nodes page
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+You can view your storage assets in your system and determine their IP addresses, names, and software versions.
+
+You can view storage information for your multiple node systems. If link:../concepts/concept_solidfire_concepts_data_protection.html#custom_pd[custom protection domains] are assigned, you can see which protection domains are assigned to specific nodes.
+
+.Steps
+
+. Open the IP address of the management node in a web browser. For example:
++
+----
+https://[management node IP address]
+----
+. Log in to NetApp Hybrid Cloud Control by providing the SolidFire all-flash storage cluster administrator credentials.
+
+. In the left navigation, select *Nodes*.
++
+image::hcc_nodes_storage_2nodes.png[Hybrid Cloud Control Nodes page image]
++
+NOTE: When you launch a new NetApp Hybrid Cloud Control session for the first time, there might be a delay with loading the NetApp Hybrid Cloud Control Nodes page when the management node is managing many clusters. The loading time varies depending on the number of clusters being actively managed by the management node. For subsequent launches, you will experience faster loading times.
+
+. On the *Storage* tab of the Nodes page, review the following information:
+.. Two-node clusters: A “two-node” label appears on the Storage tab and the associated Witness Nodes are listed.
+.. Three-node clusters: The storage nodes and associated Witness Nodes are listed. Three-node clusters have a Witness Node deployed on standby to maintain high availability in the case of node failure.
+.. Clusters with four nodes or more: Information for clusters with four or more nodes appears. Witness Nodes do not apply. If you started with two or three storage nodes and added more nodes, the Witness Nodes still appear. Otherwise, the Witness Nodes table does not appear.
+.. The firmware bundle version: Starting with management services version 2.14, if you have clusters running Element 12.0 or later, you can see the firmware bundle version for these clusters. If the nodes in a cluster have different firmware versions on them, you can see *Multiple* in the *Firmware Bundle Version* column.
+.. Custom protection domains: If custom protection domains are in use on the cluster, you can see custom protection domain assignments for each node in the cluster. If custom protection domains are not enabled, this column does not appear.
+. You can manipulate the information on these pages in several ways:
+.. To filter the list of items in the results, select the *Filter* icon and select the filters. You can also enter text for the filter.
+.. To show or hide columns, select the *Show/Hide Columns* icon.
+.. To download the table, select the *Download* icon.
+
+TIP: To view the number of storage, look at the NetApp Hybrid Cloud Control (HCC) Dashboard. See link:task-hcc-dashboard.html[Monitor storage resources with the HCC Dashboard].
+
+[discrete]
+== Find more information
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

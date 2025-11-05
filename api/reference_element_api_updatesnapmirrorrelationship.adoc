@@ -1,0 +1,70 @@
+---
+permalink: api/reference_element_api_updatesnapmirrorrelationship.html
+sidebar: sidebar
+keywords: SnapMirror,relationship,relationships,update,updating,destination,volume,updatesnapmirrorrelationship
+summary: 'The Element software web UI uses the UpdateSnapMirrorRelationship method to make the destination volume in a SnapMirror relationship an up-to-date mirror of the source volume.'
+---
+
+= UpdateSnapMirrorRelationship
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element software web UI uses the `UpdateSnapMirrorRelationship` method to make the destination volume in a SnapMirror relationship an up-to-date mirror of the source volume.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+snapMirrorEndpointID
+a|
+The endpoint ID of the remote ONTAP storage system communicating with the Element storage cluster.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+destinationVolume
+a|
+The destination volume in the SnapMirror relationship.
+a|
+xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeinfo]
+a|
+None
+a|
+Yes
+a|
+maxTransferRate
+a|
+Specifies the maximum data transfer rate between the volumes in kilobytes per second. The default value, 0, is unlimited and permits the SnapMirror relationship to fully utilize the available network bandwidth.
+a|
+integer
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+snapMirrorRelationship
+a|
+An object containing information about the updated SnapMirror relationship.
+a|
+xref:reference_element_api_snapmirrorrelationship.adoc[snapMirrorRelationship]
+|===
+
+== New since version
+
+10.1

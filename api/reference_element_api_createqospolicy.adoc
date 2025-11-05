@@ -1,0 +1,113 @@
+---
+permalink: api/reference_element_api_createqospolicy.html
+sidebar: sidebar
+keywords: QoS,policy,policies,create,creating
+summary: 'You can use the CreateQoSPolicy method to create a QoSPolicy object that you can later apply to a volume upon creation or modification. A QoS policy has a unique ID, a name, and QoS settings.'
+---
+
+= CreateQoSPolicy
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CreateQoSPolicy` method to create a QoSPolicy object that you can later apply to a volume upon creation or modification. A QoS policy has a unique ID, a name, and QoS settings.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+name
+a|
+The name of the QoS policy; for example, gold, platinum, or silver.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+qos
+a|
+The QoS settings that this policy represents.
+a|
+xref:reference_element_api_qos.adoc[QoS]
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+qosPolicy
+a|
+The newly created QoSPolicy object.
+a|
+xref:reference_element_api_qospolicy.adoc[QoSPolicy]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "id": 68,
+  "method": "CreateQoSPolicy",
+  "params": {
+    "name": "bronze",
+    "qos": {
+      "minIOPS": 50,
+      "maxIOPS": 15000,
+      "burstIOPS": 15000
+    }
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 68,
+  "result": {
+    "qosPolicy": {
+      "name": "bronze",
+      "qos": {
+        "burstIOPS": 15000,
+        "burstTime": 60,
+        "curve": {
+          "4096": 100,
+          "8192": 160,
+          "16384": 270,
+          "32768": 500,
+          "65536": 1000,
+          "131072": 1950,
+          "262144": 3900,
+          "524288": 7600,
+          "1048576": 15000
+        },
+        "maxIOPS": 15000,
+        "minIOPS": 50
+      },
+      "qosPolicyID": 2,
+      "volumeIDs": []
+    }
+  }
+}
+----
+
+== New since version
+
+10.0

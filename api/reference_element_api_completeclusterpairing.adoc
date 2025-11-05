@@ -1,0 +1,81 @@
+---
+permalink: api/reference_element_api_completeclusterpairing.html
+sidebar: sidebar
+keywords: CompleteClusterPairing,cluster,pair,pairing,complete,completing
+summary: 'The CompleteClusterPairing method is the second step in the cluster pairing process. Use this method with the encoded key received from the StartClusterPairing method to complete the cluster pairing process.'
+---
+
+= CompleteClusterPairing
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `CompleteClusterPairing` method is the second step in the cluster pairing process. Use this method with the encoded key received from the `StartClusterPairing` method to complete the cluster pairing process.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+clusterPairingKey
+a|
+A string of characters that is returned from the xref:reference_element_api_startclusterpairing.adoc[StartClusterPairing] API method.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+clusterPairID
+a|
+Unique identifier for the cluster pair.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "CompleteClusterPairing",
+   "params": {
+        "clusterPairingKey" : "7b22636c7573746572506169724944223a312c22636c75737465725061697255554944223a2231636561313336322d346338662d343631612d626537322d373435363661393533643266222c22636c7573746572556e697175654944223a2278736d36222c226d766970223a223139322e3136382e3133392e313232222c226e616d65223a224175746f54657374322d63307552222c2270617373776f7264223a22695e59686f20492d64774d7d4c67614b222c22727063436f6e6e656374696f6e4944223a3931333134323634392c22757365726e616d65223a225f5f53465f706169725f50597a796647704c7246564432444a42227d"
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result" : {
+       "clusterPairID" : 1
+   }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_startclusterpairing.adoc[StartClusterPairing]

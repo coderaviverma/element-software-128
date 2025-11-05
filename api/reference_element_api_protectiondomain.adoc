@@ -1,0 +1,38 @@
+---
+permalink: api/reference_element_api_protectiondomain.html
+sidebar: sidebar
+keywords: object,objects,protection domains
+summary: 'The protectionDomain object contains the name and type details for a protection domain.'
+---
+
+= protectionDomain
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The protectionDomain object contains the name and type details for a protection domain.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+protectionDomainName
+a|
+The name of the protection domain.
+a|
+string
+a|
+protectionDomainType
+a|
+The type of the protection domain. Possible values:
+
+* chassis: All storage nodes in a single chassis.
+* custom: All storage nodes in a single customer-defined protection domain.
+
+a|
+string
+|===

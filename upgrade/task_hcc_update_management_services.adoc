@@ -1,0 +1,131 @@
+---
+sidebar: sidebar
+permalink: upgrade/task_hcc_update_management_services.html
+summary: As part of a NetApp SolidFire storage system upgrade, you should update management services.
+keywords: netapp, solidfire, cluster, management services, hcc, update management services
+---
+= Update management services
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+You can update your management services to the latest bundle version after you have installed management node 11.3 or later.
+
+Beginning with the Element 11.3 management node release, the management node design has been changed based on a new modular architecture that provides individual services. These modular services provide central and extended management functionality for a SolidFire all-flash storage system. Management services include system telemetry, logging, and update services, the QoSSIOC service for Element Plug-in for vCenter Server, NetApp Hybrid Cloud Control, and more.
+
+.About this task
+
+The management services 2.27 bundle includes Element Plug-in for vCenter Server 5.5, which is only compatible with management node 12.8. When you update to management services 2.27, you must change the upgrade sequence and update the management services bundle _after_ upgrading to Element 12.8 to have compatibility between the management node and management services. 
+
+If you're updating to management services 2.21.61 through 2.26.40, you must update the management services bundle _before_ upgrading to Element 12.8.
+
+[NOTE]
+====
+* Management services 2.22.7 includes Element Plug-in for vCenter Server 5.0 which contains the remote plug-in. If you use the Element plug-in, you should upgrade to management services 2.22.7 or later to comply with the VMware directive that removes support for local plug-ins. https://kb.vmware.com/s/article/87880[Learn more^].
+* For the latest management services release notes describing major services, new features, bug fixes, and workarounds for each service bundle, see https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes[the management services release notes^]
+====
+
+.What you'll need
+
+Beginning with management services 2.20.69, you must accept and save the End User License Agreement (EULA) before using the NetApp Hybrid Cloud Control UI or API to upgrade management services:
+
+. Open the IP address of the management node in a web browser:
++
+----
+https://<ManagementNodeIP>
+----
+. Log in to NetApp Hybrid Cloud Control by providing the storage cluster administrator credentials.
+. Select *Upgrade* near the top right of the interface.
+. The EULA pops up. Scroll down, select *I accept for current and all future updates*, and select *Save*.
+
+.Update options
+
+You can update management services using the NetApp Hybrid Cloud Control UI or the management node REST API:
+
+* <<Update management services using Hybrid Cloud Control>> (Recommended method)
+* <<Update management services using the management node API>>
+
+== Update management services using Hybrid Cloud Control
+
+You can update your NetApp management services using NetApp Hybrid Cloud Control.
+
+Management service bundles provide enhanced functionality and fixes to your installation outside of major releases.
+
+.Before you begin
+
+* You are running management node 11.3 or later.
+* If you are updating management services to version 2.16 or later and you are running a management node 11.3 to 11.8, you will need to increase your management node VM's RAM prior to updating management services:
+.. Power off the management node VM.
+.. Change the RAM of the management node VM from 12GB to 24GB RAM.
+.. Power on the management node VM.
+* Your cluster version is running NetApp Element software 11.3 or later.
+* You have upgraded your management services to at least version 2.1.326. NetApp Hybrid Cloud Control upgrades are not available in earlier service bundles.
+
+NOTE: For a list of available services for each service bundle version, see the https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes[Management Services Release Notes^].
+
+.Steps
+. Open the IP address of the management node in a web browser:
++
+----
+https://<ManagementNodeIP>
+----
+. Log in to NetApp Hybrid Cloud Control by providing the storage cluster administrator credentials.
+. Select *Upgrade* near the top right of the interface.
+. On the Upgrades page, select the *Management Services* tab.
+. Follow the instructions on the page to download and save a management services upgrade package to your computer.
+. Select *Browse* to locate the package you saved and upload it.
++
+After you upload the package, the upgrade starts automatically.
++
+After the upgrade begins, you can see the upgrade status on this page. During the upgrade, you might lose connection with NetApp Hybrid Cloud Control and have to log back in to see the results of the upgrade.
+
+== Update management services using the management node API
+
+Users should ideally perform management services updates from NetApp Hybrid Cloud Control. You can however manually upload, extract, and deploy a service bundle update for management services to the management node using the REST API. You can run each command from the REST API UI for the management node.
+
+.Before you begin
+* You have deployed a NetApp Element software management node 11.3 or later.
+* If you are updating management services to version 2.16 or later and you are running a management node 11.3 to 11.8, you will need to increase your management node VM's RAM prior to updating management services:
+.. Power off the management node VM.
+.. Change the RAM of the management node VM from 12GB to 24GB RAM.
+.. Power on the management node VM.
+
+* Your cluster version is running NetApp Element software 11.3 or later.
+* You have upgraded your management services to at least version 2.1.326. NetApp Hybrid Cloud Control upgrades are not available in earlier service bundles.
++
+NOTE: For a list of available services for each service bundle version, see the https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes[Management Services Release Notes^].
+
+.Steps
+. Open the REST API UI on the management node: `https://<ManagementNodeIP>/mnode`
+. Select *Authorize* and complete the following:
+.. Enter the cluster user name and password.
+.. Enter the client ID as `mnode-client` if the value is not already populated.
+.. Select *Authorize* to begin a session.
+.. Close the window.
+. Upload and extract the service bundle on the management node using this command: `PUT /services/upload`
+. Deploy the management services on the management node: `PUT /services/deploy`
+. Monitor the status of the update: `GET /services/update/status`
++
+A successful update returns a result similar to the following example:
++
+----
+{
+"current_version": "2.10.29",
+"details": "Updated to version 2.17.52",
+"status": "success"
+}
+----
+
+[discrete]
+== Find more information
+
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+
+// 2025 APR 4, DOC-4765
+// 2022 FEB 03, DOC-4651
+// 10 MAR 2023, DOC-4652
+// 2023 FEB 23, DOC-4667

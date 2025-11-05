@@ -1,0 +1,102 @@
+---
+permalink: api/reference_element_api_checkproposednodeadditions.html
+sidebar: sidebar
+keywords: proposed,node,additions,CheckProposedNodeAdditions,storage,checking
+summary: 'You can use the CheckProposedNodeAdditions method to test a set of storage nodes to see if you can add them to a storage cluster without errors or best practice violations.'
+---
+
+= CheckProposedNodeAdditions
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CheckProposedNodeAdditions` method to test a set of storage nodes to see if you can add them to a storage cluster without errors or best practice violations.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+nodes
+a|
+A list of storage IP addresses of storage nodes that are ready to be added to a storage cluster.
+a|
+string array
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+proposedClusterValid
+a|
+Indicates whether or not the proposed storage nodes would make up a valid storage cluster. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+proposedClusterErrors
+a|
+Errors that would occur if a storage cluster was created using the proposed storage nodes. Possible error codes:
+
+* `nodesNoCapacity`: Nodes did not have any useable capacity.
+* `nodesTooLarge`: Nodes constitute too large a portion of cluster capacity for the active protection scheme.
+* `nodesConnectFailed`: Could not connect to nodes to query hardware configuration.
+* `nodesQueryFailed`: Could not query nodes for hardware configuration.
+* `nodesClusterMember`: IP addresses for nodes are already in use in the cluster.
+* `nonFipsNodeCapable`: Unable to add a non-FIPS capable node to the storage cluster while the FIPS 140-2 drive encryption feature is enabled.
+* `nonFipsDrivesCapable`: Unable to add a node with non-FIPS-capable drives to the cluster while the FIPS 140-2 drive encryption feature is enabled.
+
+a|
+string array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+	"method": "CheckProposedNodeAdditions",
+	"params": {
+	"nodes": [
+		"192.168.1.11",
+		"192.168.1.12",
+		"192.168.1.13",
+		"192.168.1.14"
+	]
+},
+	"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": 1,
+	"result": {
+		"proposedClusterValid": true,
+		"proposedClusterErrors": [ ]
+	}
+}
+----
+
+== New since version
+
+11.0

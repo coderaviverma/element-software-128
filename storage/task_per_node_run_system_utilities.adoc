@@ -1,0 +1,77 @@
+---
+permalink: storage/task_per_node_run_system_utilities.html
+sidebar: sidebar
+keywords: storage nodes, running system utilities, system utilities, network settings, testing changes, reboot the node, power cycle, shuts down the node
+summary: 'You can use the per-node UI for the storage node to create or delete support bundles, reset configuration settings for drives, and restart network or cluster services.'
+---
+
+= Run system utilities using the per-node UI
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the per-node UI for the storage node to create or delete support bundles, reset configuration settings for drives, and restart network or cluster services.
+
+You have logged in to the per-node UI for the storage node.
+
+. Click *System Utilities*.
+. Click the button for the system utility that you want to run.
+ ** *Control Power*
++
+Reboots, power cycles, or shuts down the node.
++
+IMPORTANT: This operation causes temporary loss of networking connectivity.
++
+Specify the following parameters:
+
+  *** Action: Options include Restart and Halt (power off).
+  *** Wakeup Delay: Any additional time before the node comes back online.
+
+ ** *Collect Node Logs*
++
+Creates a support bundle under the node's /tmp/bundles directory.
++
+Specify the following parameters:
+
+  *** Bundle Name: Unique name for each support bundle created. If no name is provided, then "supportbundle" and the node name are used as the file name.
+  *** Extra Args: This parameter is fed to the sf_make_support_bundle script. This parameter should be used only at the request of NetApp Support.
+  *** Timeout Sec: Specify the number of seconds to wait for each individual ping response.
+
+ ** *Delete Node Logs*
++
+Deletes any current support bundles on the node that were created using *Create Cluster Support Bundle* or the CreateSupportBundle API method.
+
+ ** *Reset Drives*
++
+Initializes drives and removes all data currently residing on the drive. You can reuse the drive in an existing node or in an upgraded node.
++
+Specify the following parameter:
+
+  *** Drives: List of device names (not driveIDs) to reset.
+
+ ** *Reset Network Config*
++
+Helps resolve network configuration issues for an individual node and resets an individual node's network configuration to the factory default settings.
+
+ ** *Reset Node*
++
+Resets a node to the factory settings. All data is removed but network settings for the node are preserved during this operation. Nodes can only be reset if they are unassigned to a cluster and in Available state.
++
+IMPORTANT: All data, packages (software upgrades), configurations, and log files are deleted from the node when you use this option.
+
+ ** *Restart Networking*
++
+Restarts all networking services on a node.
++
+IMPORTANT: This operation can cause temporary loss of network connectivity.
+
+ ** *Restart Services*
++
+Restarts Element software services on a node.
++
+IMPORTANT: This operation can cause temporary node service interruption. You should perform this operation only at the direction of NetApp Support.
++
+Specify the following parameters:
+
+  *** Service: Service name to be restarted.
+  *** Action: Action to perform on the service. Options include start, stop and restart.

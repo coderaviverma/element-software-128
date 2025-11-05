@@ -1,0 +1,87 @@
+---
+permalink: api/reference_element_api_networkinterface.html
+sidebar: sidebar
+keywords: object,objects,networkInterface
+summary: 'The networkInterface object contains configuration information for individual network interfaces on a storage node.'
+---
+
+= networkInterface
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The networkInterface object contains configuration information for individual network interfaces on a storage node.
+
+== Object members
+
+This object contains the following members:
+
+|===
+|Name |Description |Type
+a|
+address
+a|
+The IPv4 management address of the interface.
+a|
+string
+a|
+addressV6
+a|
+The IPv6 management address of the interface.
+a|
+string
+a|
+broadcast
+a|
+The broadcast address of the interface.
+a|
+string
+a|
+macAddress
+a|
+The MAC address of the interface.
+a|
+string
+a|
+mtu
+a|
+The Maximum Transfer Unit, in bytes, of the interface.
+a|
+integer
+a|
+name
+a|
+The name of the interface.
+a|
+string
+a|
+namespace
+a|
+Whether or not this interface is assigned a virtual network namespace.
+a|
+boolean
+a|
+netmask
+a|
+The subnet mask of the interface.
+a|
+string
+a|
+status
+a|
+The operational status of the interface.
+a|
+string
+a|
+type
+a|
+The type of interface (bond master, bond slave, etc).
+a|
+string
+a|
+virtualNetworkTag
+a|
+The VLAN ID assigned to the interface on the virtual network.
+a|
+integer
+|===

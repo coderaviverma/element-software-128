@@ -1,0 +1,89 @@
+---
+permalink: api/reference_element_api_account.html
+sidebar: sidebar
+keywords: account,object,accounts
+summary: 'The account object contains information about an account. This object includes only "configured" information about the account, not any runtime or usage information.'
+---
+
+= account
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `account` object contains information about an account. This object includes only "configured" information about the account, not any runtime or usage information.
+
+== Object members
+
+This object contains the following members:
+
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+`accountID`
+a|
+The unique account ID for the account.
+a|
+integer
+a|
+`attributes`
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+`enableChap`
+a|
+Specifies whether CHAP account credentials can be used by an initiator to access volumes.
+a|
+boolean
+a|
+`initiatorSecret`
+a|
+The initiator CHAP secret.
+a|
+string
+a|
+`status`
+a|
+The current status of the account. Possible values:
+
+* active: An active account.
+* locked: A locked account.
+* removed: An account that has been deleted and purged.
+
+a|
+string
+a|
+`storageContainerID`
+a|
+The unique ID of the virtual volume storage container associated with this account.
+a|
+UUID
+a|
+`targetSecret`
+a|
+The target CHAP secret.
+a|
+string
+a|
+`username`
+a|
+The username for the account.
+a|
+string
+a|
+`volumes`
+a|
+A list of volume IDs for volumes owned by this account.
+a|
+integer array
+|===
+
+== Find more information
+
+* xref:reference_element_api_addaccount.adoc[AddAccount]
+* xref:reference_element_api_getaccountbyid.adoc[GetAccountByID]
+* xref:reference_element_api_getaccountbyname.adoc[GetAccountByName]
+* xref:reference_element_api_listaccounts.adoc[ListAccounts]

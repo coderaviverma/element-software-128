@@ -1,0 +1,106 @@
+---
+permalink: storage/task_data_manage_accounts_work_with_accounts_task.html
+sidebar: sidebar
+keywords: element, solidfire, accounts, create, delete, change, chap, view, edit
+summary: 'In SolidFire storage systems, tenants can use accounts to enable clients to connect to volumes on a node. An account contains the CHAP authentication required to access the volumes assigned to it. When you create a volume, it is assigned to a specific account.'
+---
+
+= Work with accounts using CHAP
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+In SolidFire storage systems, tenants can use accounts to enable clients to connect to volumes on a cluster. An account contains the Challenge-Handshake Authentication Protocol (CHAP) authentication required to access the volumes assigned to it. When you create a volume, it is assigned to a specific account.
+
+An account can have up to two-thousand volumes assigned to it, but a volume can belong to only one account.
+
+== CHAP algorithms
+Beginning with Element 12.7, secure FIPS compliant CHAP algorithms SHA1, SHA-256, and SHA3-256 are supported. When a host iSCSI initiator is creating an iSCSI session with an Element iSCSI target, it requests a list of CHAP algorithms to use. The Element iSCSI target chooses the first algorithm that it supports from the list requested by the host iSCSI initiator. To confirm that the Element iSCSI target chooses the most secure algorithm, you must configure the host iSCSI initiator to send a list of algorithms ordered from most secure, for example, SHA3-256, to least secure, for example, SHA1 or MD5. When SHA algorithms are not requested by the host iSCSI initiator, the Element iSCSI target chooses MD5, assuming the proposed algorithm list from the host contains MD5. You might need to update the host iSCSI initiator configuration to enable support for the secure algorithms.
+
+During an Element 12.7 or later upgrade, if you have already updated the host iSCSI initiator configuration to send a session request with a list that includes SHA algorithms, as the storage nodes reboot, the new secure algorithms are activated and new or reconnected iSCSI sessions are established using the most secure protocol. All existing iSCSI sessions transition from MD5 to SHA during the upgrade. If you do not update the host iSCSI initiator configuration to request SHA, the existing iSCSI sessions will continue to use MD5. At a later date, after you update the host iSCSI initiator CHAP algorithms, the iSCSI sessions should transition gradually from MD5 to SHA over time based on maintenance activities that result in iSCSI session reconnects.
+
+For example, the default host iSCSI initiator in Red Hat Enterprise Linux (RHEL) 8.3 has the `node.session.auth.chap_algs = SHA3-256,SHA256,SHA1,MD5` setting commented out which results in the iSCSI initiator only using MD5. Uncommenting this setting on the host and restarting the iSCSI initiator triggers iSCSI sessions from that host to start using SHA3-256.
+
+If required, you can use the https://docs.netapp.com/us-en/element-software/api/reference_element_api_listiscsisessions.html[ListISCSISessions] API method to see the CHAP algorithms being used for each session.
+
+== Create an account
+
+You can create an account to allow access to volumes.
+ 
+Each account name in the system must be unique.
+
+. Select *Management* > *Accounts*.
+. Click *Create Account*.
+. Enter a *Username*.
+. In the *CHAP Settings* section, enter the following information:
++
+NOTE: Leave the credential fields blank to auto-generate either password.
+
++
+ ** *Initiator Secret* for CHAP node session authentication.
+ ** *Target Secret* for CHAP node session authentication.
+
+. Click *Create Account*.
+
+== View account details
+
+You can view performance activity for individual accounts in a graphical format.
+
+The graph information provides I/O and throughput information for the account. The Average and Peak activity levels are shown in increments of 10-second reporting periods. These statistics include activity for all volumes assigned to the account.
+
+. Select *Management* > *Accounts*.
+. Click the Actions icon for an account.
+. Click *View Details*.
+
+Here are some of the details:
+
+* *Status*: The status of the account. Possible values:
+ ** active: An active account.
+ ** locked: A locked account.
+ ** removed: An account that has been deleted and purged.
+
+* *Active Volumes*: The number of active volumes assigned to the account.
+* *Compression*: The compression efficiency score for the volumes assigned to the account.
+* *Deduplication*: The deduplication efficiency score for the volumes assigned to the account.
+* *Thin Provisioning*: The thin provisioning efficiency score for the volumes assigned to the account.
+* *Overall Efficiency*: The overall efficiency score for the volumes assigned to the account.
+
+
+== Edit an account
+
+You can edit an account to change the status, change the CHAP secrets, or modify the account name.
+
+Modifying CHAP settings in an account or removing initiators or volumes from an access group can cause initiators to lose access to volumes unexpectedly. To verify that volume access will not be lost unexpectedly, always log out iSCSI sessions that will be affected by an account or access group change, and verify that initiators can reconnect to volumes after any changes to initiator settings and cluster settings have been completed.
+
+IMPORTANT: Persistent volumes that are associated with management services are assigned to a new account that is created during installation or upgrade. If you are using persistent volumes, do not modify or delete their associated account.
+
+. Select *Management* > *Accounts*.
+. Click the Actions icon for an account.
+. In the resulting menu, select *Edit*.
+. *Optional:* Edit the *Username*.
+. *Optional:* Click the *Status* drop-down list and select a different status.
++
+IMPORTANT: Changing the status to *locked* terminates all iSCSI connections to the account, and the account is no longer accessible. Volumes associated with the account are maintained; however, the volumes are not iSCSI discoverable.
+
+. *Optional:* Under *CHAP Settings*, edit the *Initiator Secret* and *Target Secret* credentials used for node session authentication.
++
+NOTE: If you do not change the *CHAP Settings* credentials, they remain the same. If you make the credentials fields blank, the system generates new passwords.
+
+. Click *Save Changes*.
+
+== Delete an account
+
+You can delete an account when it is no longer needed.
+
+Delete and purge any volumes associated with the account before you delete the account.
+
+IMPORTANT: Persistent volumes that are associated with management services are assigned to a new account that is created during installation or upgrade. If you are using persistent volumes, do not modify or delete their associated account.
+
+. Select *Management* > *Accounts*.
+. Click the Actions icon for the account you want to delete.
+. In the resulting menu, select *Delete*.
+. Confirm the action.
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

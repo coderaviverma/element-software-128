@@ -1,0 +1,106 @@
+---
+permalink: api/reference_element_api_adddrives.html
+sidebar: sidebar
+keywords: drives,adding,cluster,drive,add,adddrives
+summary: 'You can use the AddDrives method to add one or more available drives to the cluster, enabling the drives to host a portion of the data for the cluster.'
+---
+
+= AddDrives
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `AddDrives` method to add one or more available drives to the cluster, enabling the drives to host a portion of the data for the cluster.
+
+When you add a storage node to the cluster or install new drives in an existing node, the new drives are marked as available and must be added via AddDrives before they can be utilized. Use the xref:reference_element_api_listdrives.adoc[ListDrives] method to display drives that are available to be added. When you add a drive, the system automatically determines the type of drive it should be.
+
+The method is asynchronous and returns as soon as the processes for rebalancing the drives in the cluster are started. However, it might take more time for the data in the cluster to be rebalanced using the newly added drives; the rebalancing continues even after the AddDrives method call is complete. You can use the xref:reference_element_api_getasyncresult.adoc[GetAsyncResult] method to query the method's returned asyncHandle. After the AddDrives method returns, you can use the xref:reference_element_api_listsyncjobs.adoc[ListSyncJobs] method to see the progress of the rebalancing of data with the new drives.
+
+NOTE: When you add multiple drives, it is more efficient to add them in a single AddDrives method call rather than multiple individual methods with a single drive each. This reduces the amount of data balancing that must occur to stabilize the storage load on the cluster.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+drives
+a|
+Information about each drive to be added to the cluster. Possible values:
+
+* driveID: The ID of the drive to add (integer).
+* type: The type of drive to add (string). Valid values are "slice", "block", or "volume". If omitted, the system assigns the correct type.
+
+a|
+JSON object array
+a|
+None
+a|
+Yes (type is optional)
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+asyncHandle
+a|
+Handle value used to obtain the operation result.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "id": 1,
+  "method": "AddDrives",
+  "params": {
+    "drives": [
+      {
+        "driveID": 1,
+        "type": "slice"
+      },
+      {
+        "driveID": 2,
+        "type": "block"
+      },
+      {
+        "driveID": 3,
+        "type": "block"
+      }
+    ]
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result" : {
+    "asyncHandle": 1
+  }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+* xref:reference_element_api_getasyncresult.adoc[GetAsyncResult]
+* xref:reference_element_api_listdrives.adoc[ListDrives]
+* xref:reference_element_api_listsyncjobs.adoc[ListSyncJobs]

@@ -1,0 +1,24 @@
+---
+permalink: storage/task_data_manage_vol_access_group_edit_an_initiator.html
+sidebar: sidebar
+keywords: initiator, edit, change alias, chap, credentials
+summary: 'You can change the alias of an existing initiator or add an alias if one does not already exist.'
+---
+
+= Edit an initiator
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can change the alias of an existing initiator or add an alias if one does not already exist.
+
+To add a CHAP account name and credentials per initiator, you must use the `ModifyInitiator` API call to remove and add CHAP access and attributes.
+
+See link:../api/index.html[Manage storage with the Element API].
+
+.Steps
+. Click *Management* > *Initiators*.
+. Click the Actions icon for the initiator you want to edit.
+. Click *Edit*.
+. Enter a new alias for the initiator in the *Alias* field.
+. Click *Save Changes*.

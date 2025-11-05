@@ -1,0 +1,171 @@
+---
+permalink: api/reference_element_api_rollbacktosnapshot.html
+sidebar: sidebar
+keywords: rollbacktosnapshot,snapshot,creating,create,roll,back,rollback,roll back,existing
+summary: 'You can use the RollbackToSnapshot method to make an existing snapshot of the active volume image. This method creates a new snapshot from an existing snapshot.'
+---
+
+= RollbackToSnapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RollbackToSnapshot` method to make an existing snapshot of the active volume image. This method creates a new snapshot from an existing snapshot.
+
+The new snapshot becomes active and the existing snapshot is preserved until it is manually deleted. The previously active snapshot is deleted unless you set the saveCurrentState parameter to true.
+
+*CLUSTER_FULLNESS*
+
+[NOTE]
+====
+* You can create snapshots if cluster fullness is at stage 1, 2, or 3. You cannot create snapshots when cluster fullness reaches stage 4 or 5.
+* Rolling back a volume to a snapshot might fail when slice synchronization is in progress. Retry `RollbackToSnapshot` after syncing completes.
+====
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeID
+a|
+VolumeID for the volume.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON attributes
+a|
+None
+a|
+No
+a|
+name
+a|
+Name for the snapshot. If no name is given, the name of the snapshot being rolled back to is used with "- copy" appended to the end of the name.
+a|
+string
+a|
+None
+a|
+No
+a|
+snapshotID
+a|
+ID of a previously created snapshot on the given volume.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+saveCurrentState
+a|
+Specifies whether to save previous active volume image or not. Valid values:
+
+* true: The previous active volume image is kept.
+* false: The previous active volume image is deleted.
+
+a|
+boolean
+a|
+false
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+checksum
+a|
+A small string representation of the data in the stored snapshot.
+a|
+string
+a|
+snapshotID
+a|
+If saveCurrentState was set to false, this value is null.
+
+If saveCurrentState was set to true, the unique ID of the newly created snapshot.
+
+a|
+integer
+a|
+snapshot
+a|
+If saveCurrentState was set to false, this value is null.
+
+If saveCurrentState was set to true, an object containing information about the newly created snapshot.
+
+a|
+xref:reference_element_api_snapshot.adoc[snapshot]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+ "method": "RollbackToSnapshot",
+ "params": {
+    "volumeID": 1,
+    "snapshotID": 3114,
+    "saveCurrentState": true
+  },
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "checksum": "0x0",
+    "snapshot": {
+      "attributes": {},
+      "checksum": "0x0",
+      "createTime": "2016-04-04T17:27:32Z",
+      "enableRemoteReplication": false,
+      "expirationReason": "None",
+      "expirationTime": null,
+      "groupID": 0,
+      "groupSnapshotUUID": "00000000-0000-0000-0000-000000000000",
+      "name": "test1-copy",
+      "snapshotID": 1,
+      "snapshotUUID": "30d7e3fe-0570-4d94-a8d5-3cc8097a6bfb",
+      "status": "done",
+      "totalSize": 5000658944,
+      "virtualVolumeID": null,
+      "volumeID": 1
+    },
+    "snapshotID": 1
+  }
+}
+----
+
+== New since version
+
+9.6
+
+// 2023 MAY 18, DOC-3779

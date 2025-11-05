@@ -1,0 +1,56 @@
+---
+sidebar: sidebar
+permalink: mnode/task_mnode_api_get_authorizationtouse.html
+summary: You must authorize before you can use APIs for management services in the REST API UI.
+keywords: netapp, Element, management node, mnode, api, token
+---
+
+= Get authorization to use REST APIs
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+You must authorize before you can use APIs for management services in the REST API UI. You do this by obtaining an access token.
+
+To obtain a token, you provide cluster admin credentials and a client ID. Each token lasts approximately ten minutes. After a token expires, you can authorize again for a new access token.
+
+Authorization functionality is set up for you during management node installation and deployment. The token service is based on the storage cluster you defined during setup.
+
+.Before you begin
+
+* Your cluster version should be running NetApp Element software 11.3 or later.
+* You should have deployed a management node running version 11.3 or later.
+
+.API command
+----
+TOKEN=`curl -k -X POST https://MVIP/auth/connect/token -F client_id=mnode-client -F grant_type=password -F username=CLUSTER_ADMIN -F password=CLUSTER_PASSWORD|awk -F':' '{print $2}'|awk -F',' '{print $1}'|sed s/\"//g`
+----
+
+.REST API UI steps
+
+. Access the REST API UI for the service by entering the management node IP address followed by the service name, for example `/mnode/`:
++
+----
+https://<ManagementNodeIP>/mnode/
+----
+
+. Select *Authorize*.
++
+NOTE: Alternately, you can select on a lock icon next to any service API.
+
+. Complete the following:
+.. Enter the cluster user name and password.
+.. Enter the client ID as `mnode-client`.
+.. Do not enter a value for the client secret.
+.. Select *Authorize* to begin a session.
+. Close the *Available authorizations* dialog box.
++
+NOTE: If you try to run a command after the token expires, a `401 Error: UNAUTHORIZED` message appears. If you see this, authorize again.
+
+[discrete]
+== Find more information
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

@@ -1,0 +1,70 @@
+---
+permalink: api/reference_element_api_keyserverkmip.html
+sidebar: sidebar
+keywords: KMIP,key server,keys
+summary: 'The keyServerKmip object describes a Key Management Interoperability Protocol \(KMIP\) key server, which is a location for retrieving authentication keys for use with cluster features such as Encryption at Rest.'
+---
+
+= keyServerKmip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The keyServerKmip object describes a Key Management Interoperability Protocol (KMIP) key server, which is a location for retrieving authentication keys for use with cluster features such as Encryption at Rest.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+keyProviderID
+a|
+If this KMIP key server is assigned to a provider, this member contains the ID of the KMIP key provider it is assigned to. Otherwise this member is null.
+a|
+integer
+a|
+keyServerID
+a|
+The ID of the KMIP key server. This is a unique value assigned by the cluster during key server creation. This value cannot be changed.
+a|
+integer
+a|
+kmipAssignedProviderIsActive
+a|
+If this KMIP key server is assigned to a provider (keyProviderID is not null), this member indicates whether that provider is active (providing keys which are currently in use). Otherwise, this member is null.
+a|
+boolean
+a|
+kmipCaCertificate
+a|
+The public key certificate of the external key server's root CA. This is used to verify the certificate presented by the external key server in the TLS communication. For key server clusters where individual servers use different CAs, this member contains a concatenated string of the root certificates of all the CAs.
+a|
+string
+a|
+kmipClientCertificate
+a|
+A PEM format Base64 encoded PKCS#10 X.509 certificate used by the Element storage KMIP client.
+a|
+string
+a|
+kmipKeyServerHostnames
+a|
+The hostnames or IP addresses associated with this KMIP key server.
+a|
+string array
+a|
+kmipKeyServerName
+a|
+The name of the KMIP key server. This name is only used for display purposes and does not need to be unique.
+a|
+string
+a|
+kmipKeyServerPort
+a|
+The port number associated with this KMIP key server (typically 5696).
+a|
+integer
+|===

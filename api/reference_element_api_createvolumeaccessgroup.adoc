@@ -1,0 +1,147 @@
+---
+permalink: api/reference_element_api_createvolumeaccessgroup.html
+sidebar: sidebar
+keywords: volume,access,groups,group,create,creating,CreateVolumeAccessGroup
+summary: 'You can use CreateVolumeAccessGroup to create a new volume access group. When you create the volume access group, you need to give it a name, and you can optionally enter initiators and volumes.'
+---
+
+= CreateVolumeAccessGroup
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `CreateVolumeAccessGroup` to create a new volume access group. When you create the volume access group, you need to give it a name, and you can optionally enter initiators and volumes.
+
+Any initiator IQN that you add to the volume access group is able to access any volume in the group without CHAP authentication.
+
+NOTE: Cloned volumes do not inherit volume access group membership from the source volume.
+
+Consider the following when you create volume access groups:
+
+* A volume access group can contain up to 64 initiator IQNs.
+* An initiator can only belong to one volume access group.
+* A volume access group can contain up to 2000 volumes.
+* Each volume access group can belong to a maximum of four volume access groups.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+initiators
+a|
+List of initiator IDs or names (IQNs and WWPNs) to include in the volume access group. If you pass a list of initiator names, the initiators are created if they do not already exist. If you pass a list of initiator IDs, the method returns an error if any of the initiators does not already exist. Passing initiator names is deprecated; you should use initiator IDs whenever possible.
+a|
+integer array or string array (deprecated)
+a|
+[]
+a|
+No
+a|
+name
+a|
+Name of the volume access group. Not required to be unique, but recommended. Must be 1 to 64 characters in length.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+volumes
+a|
+List of volumeIDs to include in the volume access group.
+a|
+integer array
+a|
+[]
+a|
+No
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+{}
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+volumeAccessGroup
+a|
+An object containing information about the newly created volume access group.
+a|
+xref:reference_element_api_volumeaccessgroup.adoc[volumeAccessGroup]
+a|
+volumeAccessGroupID
+a|
+The ID of the newly created volume access group.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "CreateVolumeAccessGroup",
+   "params": {
+      "name": "myaccessgroup",
+      "initiators": ["iqn.1993-08.org.debian: 01: a31b1d799d5c"],
+      "volumes": [327],
+      "attributes": {}
+   }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": null,
+  "result": {
+    "volumeAccessGroup": {
+      "attributes": {},
+      "deletedVolumes": [],
+      "initiatorIDs": [
+        95
+      ],
+      "initiators": [
+        "iqn.1993-08.org.debian: 01: a31b1d799d5c"
+      ],
+      "name": "myaccessgroup",
+      "volumeAccessGroupID": 96,
+      "volumes": [
+        327
+      ]
+    },
+    "volumeAccessGroupID": 96
+  }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+* xref:reference_element_api_getasyncresult.adoc[GetAsyncResult]
+* xref:reference_element_api_listsyncjobs.adoc[ListSyncJobs]
+* xref:reference_element_api_modifyvolume.adoc[ModifyVolume]

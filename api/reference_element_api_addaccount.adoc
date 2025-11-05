@@ -1,0 +1,141 @@
+---
+permalink: api/reference_element_api_addaccount.html
+sidebar: sidebar
+keywords: addaccount,add,adding,account,accounts
+summary: 'You can use AddAccount to add a new account to the system. You can also use this method to create new volumes under the new account as the account is created. The Challenge-Handshake Authentication Protocol \(CHAP\) settings you specify for the account apply to all volumes owned by the account.'
+---
+
+= AddAccount
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `AddAccount` to add a new account to the system. You can also use this method to create new volumes under the new account as the account is created. The Challenge-Handshake Authentication Protocol (CHAP) settings you specify for the account apply to all volumes owned by the account.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+`attributes`
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+`enableChap`
+a|
+Specifies whether CHAP account credentials can be used by an initiator to access volumes.
+a|
+boolean
+a|
+true
+a|
+No
+a|
+`initiatorSecret`
+a|
+The CHAP secret to use for the initiator. This secret must be 12 to 16 characters in length and should be impenetrable. The initiator CHAP secret must be unique and cannot be the same as the target CHAP secret. If not specified, a random secret is created.
+a|
+string
+a|
+None
+a|
+No
+a|
+`targetSecret`
+a|
+The CHAP secret to use for the target (mutual CHAP authentication). This secret must be 12 to 16 characters in length and should be impenetrable. The target CHAP secret must be unique and cannot be the same as the initiator CHAP secret. If not specified, a random secret is created.
+a|
+string
+a|
+None
+a|
+No
+a|
+`username`
+a|
+The unique username for this account. (Must be 1 to 64 characters in length).
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+account
+a|
+An object containing information about the newly created account.
+a|
+xref:reference_element_api_account.adoc[account]
+a|
+accountID
+a|
+The ID of the newly created account object.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+	"method": "AddAccount",
+    "params": {
+     "username"  : "bobsmith",
+     "initiatorSecret" : "168[#5A757ru268)",
+     "targetSecret" : "tlt&lt;,8TUYa7bC",
+     "attributes" : {
+       "billingcode" : 2345
+     }
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "account": {
+      "accountID": 90,
+      "attributes": {
+        "billingcode": 2345
+      },
+      "initiatorSecret": "168[#5A757ru268)",
+      "status": "active",
+      "storageContainerID": "00000000-0000-0000-0000-000000000000",
+      "targetSecret": "tlt&lt;,8TUYa7bC",
+      "username": "bobsmith",
+      "volumes": [],
+      "enableChap": true
+    },
+    "accountID": 90
+  }
+}
+----
+
+== New since version
+
+9.6

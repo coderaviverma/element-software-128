@@ -1,0 +1,46 @@
+---
+permalink: storage/task_system_manage_key_set_up_external_key_management.html
+sidebar: sidebar
+keywords: sign request, certificate authority, software encryption at rest, ear, eks, csr
+summary: 'You can follow these steps and use the Element API methods listed to set up your external key management feature.'
+---
+
+= Set up external key management
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can follow these steps and use the Element API methods listed to set up your external key management feature.
+
+.What you'll need
+* If you are setting up external key management in combination with software encryption at rest, you have enabled software encryption at rest using the link:../api/reference_element_api_createcluster.html[CreateCluster] method on a new cluster that does not contain volumes.
+
+.Steps
+. Establish a trust relationship with the External Key Server (EKS).
+ .. Create a public/private key pair for the Element cluster that is used to establish a trust relationship with the key server by calling the following API method: link:../api/reference_element_api_createpublicprivatekeypair.html[CreatePublicPrivateKeyPair]
+ .. Get the certificate sign request (CSR) which the Certification Authority needs to sign. The CSR enables the key server to verify that the Element cluster that will be accessing the keys is authenticated as the Element cluster. Call the following API method: link:../api/reference_element_api_getclientcertificatesignrequest.html[GetClientCertificateSignRequest]
+ .. Use the EKS/Certificate Authority to sign the retrieved CSR. See third-party documentation for more information.
+. Create a server and provider on the cluster to communicate with the EKS. A key provider defines where a key should be obtained, and a server defines the specific attributes of the EKS that will be communicated with.
+ .. Create a key provider where the key server details will reside by calling the following API method: link:../api/reference_element_api_createkeyproviderkmip.html[CreateKeyProviderKmip]
+ .. Create a key server providing the signed certificate and the public key certificate of the Certification Authority by calling the following API methods: link:../api/reference_element_api_createkeyserverkmip.html[CreateKeyServerKmip]
+ link:../api/reference_element_api_testkeyserverkmip.html[TestKeyServerKmip]
++
+If the test fails, verify your server connectivity and configuration. Then repeat the test.
+
+ .. Add the key server into the key provider container by calling the following API methods:
+ link:../api/reference_element_api_addkeyservertoproviderkmip.html[AddKeyServerToProviderKmip]
+link:../api/reference_element_api_testkeyproviderkmip.html[TestKeyProviderKmip]
++
+If the test fails, verify your server connectivity and configuration. Then repeat the test.
+. Do one of the following as a next step for encryption at rest:
+.. (For hardware encryption at rest) Enable link:../concepts/concept_solidfire_concepts_security.html[hardware encryption at rest] by providing the ID of the key provider that contains the key server used for storing the keys by calling the link:../api/reference_element_api_enableencryptionatrest.html[EnableEncryptionAtRest] API method.
++
+NOTE: You must enable encryption at rest via the link:../api/reference_element_api_enableencryptionatrest.html[API]. Enabling encryption at rest using the existing Element UI button will cause the feature to revert to using internally generated keys.
+
+.. (For software encryption at rest) In order for link:../concepts/concept_solidfire_concepts_security.html[software encryption at rest] to utilize the newly created key provider, pass the key provider ID to the link:../api/reference_element_api_rekeysoftwareencryptionatrestmasterkey.html[RekeySoftwareEncryptionAtRestMasterKey] API method.
+
+[discrete]
+== Find more information
+* link:task_system_manage_cluster_enable_and_disable_encryption_for_a_cluster.html[Enable and disable encryption for a cluster]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

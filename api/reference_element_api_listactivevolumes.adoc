@@ -1,0 +1,89 @@
+---
+permalink: api/reference_element_api_listactivevolumes.html
+sidebar: sidebar
+keywords: active,volume,volumes,list,listing,listactivevolumes,cluster
+summary: 'You can use the ListActiveVolumes method to get the list of active volumes currently in the system. The list of volumes is sorted in VolumeID order and can be returned in multiple parts \(pages\).'
+---
+
+= ListActiveVolumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListActiveVolumes` method to get the list of active volumes currently in the system. The list of volumes is sorted in VolumeID order and can be returned in multiple parts (pages).
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+includeVirtualVolumes
+a|
+Virtual volumes are included in the response, by default. To exclude virtual volumes, set to false.
+a|
+boolean
+a|
+true
+a|
+No
+a|
+startVolumeID
+a|
+Starting VolumeID to return. If no volume exists with this VolumeID, the next volume by VolumeID order is used as the start of the list. To page through the list, pass the VolumeID of the last volume in the previous response + 1.
+a|
+integer
+a|
+0
+a|
+No
+a|
+limit
+a|
+Maximum number of volume info objects to return. 0 (zero) returns all volumes (unlimited).
+a|
+integer
+a|
+(unlimited)
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+volumes
+a|
+List of active volumes.
+a|
+xref:reference_element_api_volume.adoc[volume] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListActiveVolumes",
+   "params": {
+      "startVolumeID"  : 0,
+      "limit" : 1000
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+Due to the length of this response example, it is documented in a supplementary topic.
+
+== New since version
+
+9.6

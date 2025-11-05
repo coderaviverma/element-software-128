@@ -1,0 +1,167 @@
+---
+permalink: api/reference_element_api_addvirtualnetwork.html
+sidebar: sidebar
+keywords: addvirtualnetwork,cluster,add,adding,virtual,network
+summary: 'You can use the AddVirtualNetwork method to add a new virtual network to a cluster configuration.'
+---
+
+= AddVirtualNetwork
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `AddVirtualNetwork` method to add a new virtual network to a cluster configuration.
+
+When you add a virtual network, an interface for each node is created and each interface requires a virtual network IP address. The number of IP addresses you specify as a parameter for this API method must be equal to or greater than the number of nodes in the cluster. The system bulk provisions virtual network addresses and assigns them to individual nodes automatically. You do not need to assign virtual network addresses to nodes manually.
+
+NOTE: The AddVirtualNetwork method is used only to create a new virtual network. If you want to make changes to an existing virtual network, use the xref:reference_element_api_modifyvirtualnetwork.adoc[ModifyVirtualNetwork] method.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+addressBlocks
+a|
+Unique range of IP addresses to include in the virtual network. Required members for the object:
+
+* start: The start of the IP address range. (string)
+* size: The number of IP addresses to include in the block. (integer)
+
+a|
+JSON object array
+a|
+None
+a|
+Yes
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+gateway
+a|
+The IP address of a gateway of the virtual network. This parameter is valid only if the namespace parameter is set to true.
+a|
+string
+a|
+None
+a|
+No
+a|
+name
+a|
+A user-defined name for the new virtual network.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+namespace
+a|
+When set to true, enables the Routable Storage VLANs functionality by creating and configuring a namespace and the virtual network contained by it.
+a|
+boolean
+a|
+None
+a|
+No
+a|
+netmask
+a|
+Unique network mask for the virtual network being created.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+svip
+a|
+Unique storage IP address for the virtual network being created.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+virtualNetworkTag
+a|
+A unique virtual network (VLAN) tag. Supported values are 1 through 4094.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+*Note:* Virtual network parameters must be unique to each virtual network when you set namespace to false.
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+virtualNetworkID
+a|
+The virtual network ID of the new virtual network.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "AddVirtualNetwork",
+  "params": {
+    "virtualNetworkTag": 2010,
+    "name": "network1",
+    "addressBlocks" : [
+        { "start": "192.86.5.1", "size": 10 },
+        { "start": "192.86.5.50", "size": 20 }
+    ],
+    "netmask" : "255.255.192.0",
+    "gateway" : "10.0.1.254",
+    "svip" : "192.86.5.200",
+    "attributes" : {}
+    "namespace" : true
+  },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result":
+      {
+        "virtualNetworkID": 5
+   }
+}
+----
+
+== New since version
+
+9.6

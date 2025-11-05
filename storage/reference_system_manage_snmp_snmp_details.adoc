@@ -1,0 +1,25 @@
+---
+permalink: storage/reference_system_manage_snmp_snmp_details.html
+sidebar: sidebar
+keywords: snmp, overview, reference, mib, settings, trap
+summary: 'On the SNMP page of the Cluster tab, you can view the following information.'
+---
+
+= SNMP details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+On the SNMP page of the Cluster tab, you can view the following information.
+
+* *SNMP MIBs*
++
+The MIB files that are available for you to view or download.
+
+* *General SNMP Settings*
++
+You can enable or disable SNMP. After you enable SNMP, you can choose which version to use. If using version 2, you can add requestors, and if using version 3, you can set up USM users.
+
+* *SNMP Trap Settings*
++
+You can identify which traps you want to capture. You can set the host, port, and community string for each trap recipient.

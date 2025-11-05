@@ -1,0 +1,110 @@
+---
+permalink: api/reference_element_api_enableencryptionatrest.html
+sidebar: sidebar
+keywords: encryption,enable,enabling,EnableEncryptionAtRest
+summary: 'You can use the EnableEncryptionAtRest method to enable the Advanced Encryption Standard \(AES\) 256-bit encryption at rest on the cluster so that the cluster can manage the encryption key used for the drives on each node. This feature is not enabled by default.'
+---
+
+= EnableEncryptionAtRest
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `EnableEncryptionAtRest` method to enable the Advanced Encryption Standard (AES) 256-bit encryption at rest on the cluster so that the cluster can manage the encryption key used for the drives on each node. This feature is not enabled by default.
+
+TIP: To see the current status of encryption at rest and/or software encryption at rest on the cluster, use the link:../api/reference_element_api_getclusterinfo[get cluster info method^]. You can use the `GetSoftwareEncryptionAtRestInfo` link:../api/reference_element_api_getsoftwareencryptionatrestinfo[method to get information the cluster uses to encrypt data at rest^].
+
+NOTE: This method does not enable software encryption at rest. This can only be done using the link:../api/reference_element_api_createcluster.html[create cluster method^] with `enableSoftwareEncryptionAtRest` set to `true`.
+
+When you enable encryption at rest, the cluster automatically manages encryption keys internally for the drives on each node in the cluster.
+
+If a keyProviderID is specified, the password is generated and retrieved according to the type of key provider. This is usually done using a Key Management Interoperability Protocol (KMIP) key server in the case of a KMIP key provider. After this operation, the specified provider is considered active and cannot be deleted until Encryption at Rest is disabled using the `DisableEncryptionAtRest` method.
+
+NOTE: If you have a node type with a model number ending in "-NE", the `EnableEncryptionAtRest` method call will fail with a response of "Encryption not allowed. Cluster detected non-encryptable node".
+
+NOTE: You should only enable or disable encryption when the cluster is running and in a healthy state. You can enable or disable encryption at your discretion and as often as you need.
+
+NOTE: This process is asynchronous and returns a response before encryption is enabled. You can use the `GetClusterInfo` method to poll the system to see when the process has completed.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+keyProviderID
+a|
+The ID of a KMIP key provider to use.
+a|
+integer
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "EnableEncryptionAtRest",
+   "params": {},
+   "id": 1
+}
+----
+
+== Response examples
+
+This method returns a response similar to the following example from the EnableEncryptionAtRest method. There is no result to report.
+
+----
+{
+   "id": 1,
+   "result": {}
+}
+----
+
+While Encryption At Rest is being enabled on a cluster, GetClusterInfo returns a result describing the state of Encryption at Rest ("encryptionAtRestState") as "enabling". After Encryption at Rest is fully enabled, the returned state changes to "enabled".
+
+----
+{
+   "id": 1,
+      "result": {
+         "clusterInfo": {
+            "attributes": { },
+               "encryptionAtRestState": "enabling",
+            "ensemble": [
+               "10.10.5.94",
+               "10.10.5.107",
+               "10.10.5.108"
+            ],
+            "mvip": "192.168.138.209",
+            "mvipNodeID": 1,
+            "name": "Marshall",
+            "repCount": 2,
+            "svip": "10.10.7.209",
+            "svipNodeID": 1,
+            "uniqueID": "91dt"
+      }
+   }
+}
+----
+
+== New since version
+
+9.6
+
+[discrete]
+== Find more information
+* link:reference_element_api_secureerasedrives.html[SecureEraseDrives]
+* link:reference_element_api_getclusterinfo.html[GetClusterInfo]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

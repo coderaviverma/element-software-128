@@ -1,0 +1,106 @@
+---
+permalink: api/reference_element_api_createsnapmirrorvolume.html
+sidebar: sidebar
+keywords: SnapMirror,endpoints,create,creating,volume,volumes,CreateSnapMirrorVolume
+summary: 'The Element web UI uses the CreateSnapMirrorVolume method to create a volume on the remote ONTAP system.'
+---
+
+= CreateSnapMirrorVolume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element web UI uses the `CreateSnapMirrorVolume` method to create a volume on the remote ONTAP system.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+snapMirrorEndpointID
+a|
+The endpoint ID of the remote ONTAP storage system communicating with the Element storage cluster.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+vserver
+a|
+The name of the Vserver.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+name
+a|
+The destination ONTAP volume name.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+type
+a|
+The volume type. Possible values:
+
+* rw: Read-write volume
+* ls: Load-sharing volume
+* dp: Data protection volume
+
+If no type is provided, the default type is dp.
+a|
+string
+a|
+None
+a|
+No
+a|
+aggregate
+a|
+The containing ONTAP aggregate in which to create the volume. You can use ListSnapMirrorAggregates to get information about available ONTAP aggregates.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+size
+a|
+The size of the volume in bytes.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+snapMirrorVolume
+a|
+Information about a SnapMirror volume.
+a|
+xref:reference_element_api_snapmirrorvolume.adoc[snapMirrorVolume]
+|===
+
+== New since version
+
+10.1

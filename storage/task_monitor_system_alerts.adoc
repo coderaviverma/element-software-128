@@ -1,0 +1,73 @@
+---
+permalink: storage/task_monitor_system_alerts.html
+sidebar: sidebar
+keywords: system alerts, view, cluster faults, system errors
+summary: 'You can view alerts for information about cluster faults or errors in the system. Alerts can be information, warnings, or errors and are a good indicator of how well the cluster is running. Most errors resolve themselves automatically.'
+---
+
+= View system alerts
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can view alerts for information about cluster faults or errors in the system. Alerts can be information, warnings, or errors and are a good indicator of how well the cluster is running. Most errors resolve themselves automatically.
+
+You can use the ListClusterFaults API method to automate alert monitoring. This enables you to be notified about all alerts that occur.
+
+. In the Element UI, select *Reporting* > *Alerts*.
++
+The system refreshes the alerts on the page every 30 seconds.
++
+For every event, you see the following information:
++
+|===
+| Item| Description
+a|
+ID
+a|
+Unique ID associated with a cluster alert.
+a|
+Severity
+a|
+The degree of importance of the alert. Possible values:
+
+ ** warning: A minor issue that might soon require attention. System upgrades are still allowed.
+ ** error: A failure that might cause performance degradation or loss of high availability (HA). Errors generally should not affect service otherwise.
+ ** critical: A serious failure that affects service. The system is unable to serve API or client I/O requests. Operating in this state could lead to potential loss of data.
+ ** bestPractice: A recommended system configuration best practice is not being used.
+
+a|
+Type
+a|
+The component that the fault affects. Can be node, drive, cluster, service, or volume.
+a|
+Node
+a|
+Node ID for the node that this fault refers to. Included for node and drive faults, otherwise set to - (dash).
+a|
+Drive ID
+a|
+Drive ID for the drive that this fault refers to. Included for drive faults, otherwise set to - (dash).
+a|
+Error Code
+a|
+A descriptive code that indicates what caused the fault.
+a|
+Details
+a|
+A description of the fault with additional details.
+a|
+Date
+a|
+The date and time the fault was logged.
+|===
+
+. Click *Show Details* for an individual alert to view information about the alert.
+. To view the details of all alerts on the page, click the Details column.
++
+After the system resolves an alert, all information about the alert including the date it was resolved is moved to the Resolved area.
+
+== Find more information
+
+* xref:reference_monitor_cluster_fault_codes.adoc[Cluster fault codes]
+* link:../api/index.html[Manage storage with the Element API]

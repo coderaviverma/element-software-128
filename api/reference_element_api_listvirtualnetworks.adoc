@@ -1,0 +1,159 @@
+---
+permalink: api/reference_element_api_listvirtualnetworks.html
+sidebar: sidebar
+keywords: virtual,network,networks,listing,list,listvirtualnetworks
+summary: 'You can use the ListVirtualNetworks method to list all configured virtual networks for the cluster.'
+---
+
+= ListVirtualNetworks
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListVirtualNetworks` method to list all configured virtual networks for the cluster.
+
+You can use this method to verify the virtual network settings in the cluster. There are no required parameters for this method. However, to filter the results, you can pass one or more virtualNetworkID or virtualNetworkTag values.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+virtualNetworkID
+a|
+Network ID to filter the list for a single virtual network.
+a|
+integer
+a|
+None
+a|
+No
+a|
+virtualNetworkTag
+a|
+Network tag to filter the list for a single virtual network.
+a|
+integer
+a|
+None
+a|
+No
+a|
+virtualNetworkIDs
+a|
+Network IDs to include in the list.
+a|
+integer array
+a|
+None
+a|
+No
+a|
+virtualNetworkTags
+a|
+Network tag to include in the list.
+a|
+integer array
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+virtualNetworks
+a|
+Object containing virtual network IP addresses.
+a|
+xref:reference_element_api_virtualnetwork.adoc[virtualNetwork]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ListVirtualNetworks",
+  "params": {
+     "virtualNetworkIDs": [5,6]
+   },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "virtualNetworks": [
+   {
+    "addressBlocks": [
+   {
+    "available": "11000000",
+    "size": 8,
+    "start": "10.26.250.207"
+   }
+ ],
+    "attributes": null,
+    "gateway": "10.26.250.254",
+    "name": "2250",
+    "namespace": false,
+    "netmask": "255.255.255.0",
+    "svip": "10.26.250.200",
+    "virtualNetworkID": 2250
+   },
+   {
+     "addressBlocks": [
+   {
+     "available": "11000000",
+     "size": 8,
+     "start": "10.26.241.207"
+   }
+  ],
+     "attributes": null,
+     "gateway": "10.26.241.254",
+     "name": "2241",
+     "namespace": false,
+     "netmask": "255.255.255.0",
+     "svip": "10.26.241.200",
+     "virtualNetworkID": 2241
+   },
+  {
+     "addressBlocks": [
+  {
+     "available": "11000000",
+     "size": 8,
+     "start": "10.26.240.207"
+   }
+  ],
+     "attributes": null,
+     "gateway": "10.26.240.254",
+     "name": "2240",
+     "namespace": false,
+     "netmask": "255.255.255.0",
+     "svip": "10.26.240.200",
+     "virtualNetworkID": 2240
+    },
+   {
+  }
+ ]
+}
+----
+
+== New since version
+
+9.6

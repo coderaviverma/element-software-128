@@ -1,0 +1,64 @@
+.Before you begin
+* Some functions in Active IQ, for example, quality of service (QoS), require Element 11.3 or later to work correctly. To confirm that you have the capability to use all Active IQ functions, NetApp recommends the following:
+** Your storage cluster is running NetApp Element software 11.3 or later.
+** You have deployed a management node running version 11.3 or later.
+* You have internet access. The Active IQ collector service cannot be used from dark sites that do not have external connectivity.
+
+.Steps
+. Get the base asset ID for the installation:
+.. Open the inventory service REST API UI on the management node:
++
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+.. Select *Authorize* and complete the following:
+... Enter the cluster user name and password.
+... Enter the client ID as `mnode-client`.
+... Select *Authorize* to begin a session.
+... Close the window.
+.. From the REST API UI, select *GET ​/installations*.
+.. Select *Try it out*.
+.. Select *Execute*.
+.. From the code 200 response body, copy the `id` for the installation.
++
+[subs=+quotes]
+----
+{
+  "installations": [
+    {
+      "_links": {
+        "collection": "https://10.111.211.111/inventory/1/installations",
+        "self": "https://10.111.217.111/inventory/1/installations/abcd01e2-ab00-1xxx-91ee-12f111xxc7x0x"
+      },
+      *"id": "abcd01e2-ab00-1xxx-91ee-12f111xxc7x0x",*
+----
++
+NOTE: Your installation has a base asset configuration that was created during installation or upgrade.
+
+. Activate telemetry:
+.. Access the mnode service API UI on the management node by entering the management node IP address followed by `/mnode`:
++
+----
+https://<ManagementNodeIP>/mnode
+----
+
+.. Select *Authorize* or any lock icon and complete the following:
+... Enter the cluster user name and password.
+... Enter the client ID as `mnode-client`.
+... Select *Authorize* to begin a session.
+... Close the window.
+.. Configure the base asset:
+... Select *PUT /assets/{asset_id}*.
+... Select *Try it out*.
+... Enter the following in the JSON payload:
++
+----
+{
+"telemetry_active": true
+"config": {}
+}
+----
+... Enter the base ID from the previous step in *asset_ID*.
+... Select *Execute*.
++
+The Active IQ service is automatically restarted whenever assets are changed. Modifying assets results in a short delay before settings are applied.

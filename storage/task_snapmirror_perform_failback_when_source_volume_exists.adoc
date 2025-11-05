@@ -1,0 +1,34 @@
+---
+permalink: storage/task_snapmirror_perform_failback_when_source_volume_exists.html
+sidebar: sidebar
+keywords: element, ui, failback, perform, source volume, snapmirror
+summary: 'You can resynchronize the original source volume and fail back using the NetApp Element UI. This procedure applies to scenarios where the original source volume still exists.'
+---
+
+= Perform a failback when source volume still exists
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can resynchronize the original source volume and fail back using the NetApp Element UI. This procedure applies to scenarios where the original source volume still exists.
+
+. In the Element UI, find the relationship that you broke to perform the failover.
+. Click the Actions icon and click *Reverse Resync*.
+. Confirm the action.
++
+NOTE: The Reverse Resync operation creates a new relationship in which the roles of the original source and destination volumes are reversed (this results in two relationships as the original relationship persists). Any new data from the original destination volume is transferred to the original source volume as part of the reverse resync operation. You can continue to access and write data to the active volume on the destination side, but you will need to disconnect all hosts to the source volume and perform a SnapMirror update before redirecting back to the original primary.
+
+. Click the Actions icon of the inverse relationship that you just created and click *Update*.
++
+Now that you have completed the reverse resync and ensured that there are no active sessions connected to the volume on the destination side and that the latest data is on the original primary volume, you can perform the following steps to complete the failback and reactivate the original primary volume:
+
+. Click the Actions icon of the inverse relationship and click *Break*.
+. Click the Actions icon of the original relationship and click *Resync*.
++
+NOTE: The original primary volume can now be mounted to resume production workloads on the original primary volume. The original SnapMirror replication resumes based on the policy and schedule configured for the relationship.
+
+. After you confirm that the original relationship status is "`snapmirrored`", click the Actions icon of the inverse relationship and click *Delete*.
+
+== Find more information
+
+xref:concept_snapmirror_failback_scenarios.adoc[SnapMirror failback scenarios]

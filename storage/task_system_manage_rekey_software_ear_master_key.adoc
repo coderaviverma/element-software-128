@@ -1,0 +1,89 @@
+---
+permalink: storage/task_system_manage_rekey_software_ear_master_key.html
+sidebar: sidebar
+keywords: element, rekey, encryption at rest, rekey master, replace key
+summary: 'You can use the Element API to rekey an existing key. This process creates a new replacement master key for your external key management server.'
+---
+
+= Rekey software encryption at rest master key
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the Element API to rekey an existing key. This process creates a new replacement master key for your external key management server. Master keys are always replaced by new master keys and never duplicated or overwritten.
+
+You might need to rekey as part of one of the following procedures:
+
+* Create a new key as part of a change from internal key management to external key management.
+* Create a new key as a reaction to or as protection against a security-related event.
+
+NOTE: This process is asynchronous and returns a response before the rekey operation is complete. You can use the link:../api/reference_element_api_getasyncresult.html[GetAsyncResult] method to poll the system to see when the process has completed.
+
+.What you'll need
+* You have enabled software encryption at rest using the link:../api/reference_element_api_createcluster.html[CreateCluster] method on a new cluster that does not contain volumes and has no I/O. Use link:../api/reference_element_api_getsoftwareencryptionatrestinfo.html[`GetSoftwareEncryptionatRestInfo`] to confirm that the state is `enabled` before proceeding.
+* You have link:../storage/task_system_manage_key_set_up_external_key_management.html[established a trust relationship] between the SolidFire cluster and an External Key Server (EKS). Run the link:../api/reference_element_api_testkeyserverkmip.html[TestKeyProviderKmip] method to verify that a connection to the key provider is established.
+
+.Steps
+
+. Run the link:../api/reference_element_api_listkeyserverskmip.html[ListKeyProvidersKmip] command and copy the key provider ID (`keyProviderID`).
+. Run the link:../api/reference_element_api_rekeysoftwareencryptionatrestmasterkey.html[RekeySoftwareEncryptionAtRestMasterKey] with the `keyManagementType` parameter as `external` and `keyProviderID` as the ID number of the key provider from the previous step:
++
+----
+{
+ "method": "rekeysoftwareencryptionatrestmasterkey",
+ "params": {
+   "keyManagementType": "external",
+   "keyProviderID": "<ID number>"
+ }
+}
+----
+. Copy the `asyncHandle` value from the `RekeySoftwareEncryptionAtRestMasterKey` command response.
+. Run the link:../api/reference_element_api_getasyncresult.html[GetAsyncResult] command with the `asyncHandle` value from the previous step to confirm the change in configuration. From the command response, you should see that the older master key configuration has been updated with new key information. Copy the new key provider ID for use in a later step.
++
+----
+{
+   "id": null,
+   "result": {
+     "createTime": "2021-01-01T22:29:18Z",
+     "lastUpdateTime": "2021-01-01T22:45:51Z",
+     "result": {
+       "keyToDecommission": {
+         "keyID": "<value>",
+         "keyManagementType": "internal"
+     },
+     "newKey": {
+       "keyID": "<value>",
+       "keyManagementType": "external",
+       "keyProviderID": <value>
+     },
+     "operation": "Rekeying Master Key. Master Key management being transferred from Internal Key Management to External Key Management with keyProviderID=<value>",
+     "state": "Ready"
+   },
+   "resultType": "RekeySoftwareEncryptionAtRestMasterKey",
+   "status": "complete"
+}
+----
+. Run the `GetSoftwareEncryptionatRestInfo` command to confirm that new key details, including the `keyProviderID`, have been updated.
++
+----
+{
+   "id": null,
+   "result": {
+     "masterKeyInfo": {
+       "keyCreatedTime": "2021-01-01T22:29:18Z",
+       "keyID": "<updated value>",
+       "keyManagementType": "external",
+       "keyProviderID": <value>
+     },
+     "rekeyMasterKeyAsyncResultID": <value>
+     "status": "enabled",
+     "version": 1
+   },
+}
+----
+
+[discrete]
+== Find more information
+* link:../api/concept_element_api_about_the_api.html[Manage storage with the Element API]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

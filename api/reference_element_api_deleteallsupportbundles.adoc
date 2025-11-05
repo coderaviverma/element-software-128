@@ -1,0 +1,50 @@
+---
+permalink: api/reference_element_api_deleteallsupportbundles.html
+sidebar: sidebar
+keywords: support,bundle,delete,deleting,DeleteAllSupportBundles
+summary: 'You can use the DeleteAllSupportBundles method to delete all support bundles generated with the CreateSupportBundle API method.'
+---
+
+= DeleteAllSupportBundles
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DeleteAllSupportBundles` method to delete all support bundles generated with the `CreateSupportBundle` API method.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "DeleteAllSupportBundles",
+   "params": {}
+  },
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {}
+ }
+}
+----
+
+== New since version
+
+9.6

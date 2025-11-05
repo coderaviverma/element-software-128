@@ -1,0 +1,109 @@
+---
+permalink: storage/concept_data_manage_vvol_manage_storage_containers.html
+sidebar: sidebar
+keywords: storage container, storage containers, about storage containers, cluster, vvols, create, view details, chap, edit, delete
+summary: 'A storage container is a vSphere datastore representation created on a cluster running Element software.'
+---
+
+= Manage storage containers
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+A storage container is a vSphere datastore representation created on a cluster running Element software.
+
+Storage containers are created and tied to NetApp Element accounts. A storage container created on Element storage appears as a vSphere datastore in vCenter and ESXi. Storage containers do not allocate any space on Element storage. They are simply used to logically associate virtual volumes.
+
+A maximum of four storage containers per cluster is supported. A minimum of one storage container is required to enable VVols functionality.
+
+
+== Create a storage container
+
+You can create storage containers in the Element UI and discover them in vCenter. You must create at least one storage container to begin provisioning VVol-backed virtual machines.
+
+Before you begin, enable VVols functionality in the Element UI for the cluster.
+
+.Steps
+. Select *VVols* > *Storage Containers*.
+. Click the *Create Storage Containers* button.
+. Enter storage container information in the *Create a New Storage Container* dialog box:
+ .. Enter a name for the storage container.
+ .. Configure initiator and target secrets for CHAP.
++
+TIP: Leave the CHAP Settings fields blank to automatically generate secrets.
+
+ .. Click the *Create Storage Container* button.
+. Verify that the new storage container appears in the list in the *Storage Containers* sub-tab.
++
+NOTE: Because a NetApp Element account ID is created automatically and assigned to the storage container, it is not necessary to manually create an account.
+
+== View storage container details
+
+On the Storage Containers page of the VVols tab, you can view information for all active storage containers on the cluster.
+
+* *Account ID*: The ID of the NetApp Element account associated with the storage container.
+
+* *Name*: The name of the storage container.
+
+* *Status*: The status of the storage container. Possible values:
+
+ ** Active: The storage container is in use.
+ ** Locked: The storage container is locked.
+
+* *PE Type*: The protocol endpoint type (SCSI is the only available protocol for Element software).
+
+* *Storage Container ID*: The UUID of the virtual volume storage container.
+
+* *Active Virtual Volumes*: The number of active virtual volumes associated with the storage container.
+
+
+== View individual storage container details
+
+You can view the storage container information for an individual storage container by selecting it from the Storage Containers page on the VVols tab.
+
+* *Account ID*: The ID of the NetApp Element account associated with the storage container.
+
+* *Name*: The name of the storage container.
+
+* *Status*: The status of the storage container. Possible values:
+
+ ** Active: The storage container is in use.
+ ** Locked: The storage container is locked.
+
+* *Chap Initiator Secret*: The unique CHAP secret for the initiator.
+
+* *Chap Target Secret*: The unique CHAP secret for the target.
+
+* *Storage Container ID*: The UUID of the virtual volume storage container.
+
+* *Protocol Endpoint Type*: Indicates the protocol endpoint type (SCSI is the only available protocol).
+
+
+== Edit a storage container
+
+You can modify storage container CHAP authentication in the Element UI.
+
+. Select *VVols* > *Storage Containers*.
+. Click the *Actions* icon for the storage container you want to edit.
+. In the resulting menu, select *Edit*.
+. Under CHAP Settings, edit the Initiator Secret and Target Secret credentials used for authentication.
++
+TIP: If you do not change the CHAP Settings credentials, they remain the same. If you make the credentials fields blank, the system automatically generates new secrets.
+
+. Click *Save Changes*.
+
+== Delete a storage container
+
+You can delete storage containers from the Element UI.
+
+.What you'll need
+
+Ensure that all virtual machines have been removed from the VVol datastore.
+
+.Steps
+
+. Select *VVols* > *Storage Containers*.
+. Click the *Actions* icon for the storage container you want to delete.
+. In the resulting menu, select *Delete*.
+. Confirm the action.
+. Refresh the list of storage containers in the *Storage Containers* sub-tab to confirm that the storage container has been removed.

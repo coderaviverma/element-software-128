@@ -1,0 +1,28 @@
+---
+permalink: storage/task_data_manage_vvol_create_a_storage_container.html
+sidebar: sidebar
+keywords: storage container, create
+summary: 'You can create storage containers in the Element UI and discover them in vCenter. You must create at least one storage container to begin provisioning VVol-backed virtual machines.'
+---
+
+= Create a storage container
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can create storage containers in the Element UI and discover them in vCenter. You must create at least one storage container to begin provisioning VVol-backed virtual machines.
+
+You have enabled VVols functionality in the Element UI for the cluster.
+
+. Select *VVols* > *Storage Containers*.
+. Click the *Create Storage Containers* button.
+. Enter storage container information in the *Create a New Storage Container* dialog box:
+ .. Enter a name for the storage container.
+ .. Configure initiator and target secrets for CHAP.
++
+TIP: Leave the CHAP Settings fields blank to automatically generate secrets.
+
+ .. Click the *Create Storage Container* button.
+. Verify that the new storage container appears in the list in the *Storage Containers* sub-tab.
++
+NOTE: Because a NetApp Element account ID is created automatically and assigned to the storage container, it is not necessary to manually create an account.

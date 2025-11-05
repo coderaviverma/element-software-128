@@ -1,0 +1,58 @@
+---
+permalink: api/reference_element_api_disableencryptionatrest.html
+sidebar: sidebar
+keywords: element, api, encryption, disable, disabling, at rest, rest, DisableEncryptionAtRest
+summary: 'You can use the DisableEncryptionAtRest method to remove the encryption that was previously applied to the cluster using the EnableEncryptionAtRest method. This disable method is asynchronous and returns a response before encryption is disabled. You can use the GetClusterInfo method to poll the system to see when the process has completed.'
+---
+
+= DisableEncryptionAtRest
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DisableEncryptionAtRest` method to remove the encryption that was previously applied to the cluster using the `EnableEncryptionAtRest` method. This disable method is asynchronous and returns a response before encryption is disabled. You can use the `GetClusterInfo` method to poll the system to see when the process has completed.
+
+TIP: To see the current status of encryption at rest and/or software encryption at rest on the cluster, use the link:../api/reference_element_api_getclusterinfo.html[get cluster info method^]. You can use the `GetSoftwareEncryptionAtRestInfo` link:../api/reference_element_api_getsoftwareencryptionatrestinfo.html[method to get information the cluster uses to encrypt data at rest^].
+
+NOTE: You cannot use this method to disable software encryption at rest. To disable software encryption at rest, you need to link:reference_element_api_createcluster.html[create a new cluster] with software encryption at rest disabled.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "DisableEncryptionAtRest",
+   "params": {},
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+  "result" : {}
+}
+----
+
+== New since version
+
+9.6
+
+[discrete]
+== Find more information
+* link:api/reference_element_api_getclusterinfo.html[GetClusterInfo]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

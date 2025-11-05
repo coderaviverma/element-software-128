@@ -1,0 +1,62 @@
+---
+permalink: concepts/concept_solidfire_concepts_security.html
+sidebar: sidebar
+keywords: solidfire security, element security, encryption at rest, software encryption at rest, external key management, fips 140-2, mfa
+summary: When you use NetApp Element software, your data is protected by industry-standard security protocols.
+---
+
+= Security
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you use your SolidFire all-flash storage system, your data is protected by industry-standard security protocols.
+
+== Encryption at Rest (hardware)
+All drives in storage nodes are capable of encryption leverage AES 256-bit encryption at the drive level. Each drive has its own encryption key, which is created when the drive is first initialized. When you enable the encryption feature, a cluster-wide password is created, and chunks of the password are then distributed to all nodes in the cluster. No single node stores the entire password. The password is then used to password-protect all access to the drives. The password is needed to unlock the drive and then not needed unless power is removed from the drive or the drive is locked.
+
+link:../storage/task_system_manage_cluster_enable_and_disable_encryption_for_a_cluster.html[Enabling the hardware encryption at rest feature^] does not affect performance or efficiency on the cluster. If an encryption-enabled drive or node is removed from cluster configuration with the Element API or Element UI, encryption at rest will be disabled on the drives. After the drive is removed, the drive can be secure erased by using the `SecureEraseDrives` API method. If a physical drive or node is forcibly removed, the data remains protected by the cluster-wide password and the drive’s individual encryption keys.
+
+== Encryption at Rest (software)
+Another type of encryption-at-rest, software encryption-at-rest enables all data written to SSDs in a storage cluster to be encrypted. link:../storage/task_system_manage_cluster_enable_and_disable_encryption_for_a_cluster.html[When enabled^], it encrypts all data written and decrypts all data read automatically in software. Software encryption at rest mirrors the Self-Encrypting Drive (SED) implementation in hardware to provide data security in the absence of SED.
+
+WARNING: For SolidFire all-flash storage clusters, software encryption at rest must be enabled during cluster creation and cannot be disabled after the cluster has been created.
+
+Both software and hardware-based encryption-at-rest can be used independently or in combination with one another.
+
+== External key management
+
+You can configure Element software to use a third-party KMIP-compliant key management service (KMS) to manage storage cluster encryption keys. When you enable this feature, the storage cluster's cluster-wide drive access password encryption key is managed by a KMS that you specify.
+
+Element can use the following key management services:
+
+* Gemalto SafeNet KeySecure
+* SafeNet AT KeySecure
+* HyTrust KeyControl
+* Vormetric Data Security Manager
+* IBM Security Key Lifecycle Manager
+
+For more information on configuring external key management, see link:../storage/concept_system_manage_key_get_started_with_external_key_management.html[the get started with external key management] documentation.
+
+== Multi-factor authentication
+
+Multi-factor authentication (MFA) enables you to require users to present multiple types of evidence to authenticate with the NetApp Element web UI or storage node UI upon login. You can configure Element to accept only multi-factor authentication for logins integrating with your existing user management system and identity provider.
+You can configure Element to integrate with an existing SAML 2.0 identity provider which can enforce multiple authentication schemes, such as password and text message, password and email message, or other methods.
+
+You can pair multi-factor authentication with common SAML 2.0 compatible identity providers (IdPs), such as Microsoft Active Directory Federation Services (ADFS) and Shibboleth.
+
+To configure MFA, see link:../storage/concept_system_manage_mfa_enable_multi_factor_authentication.html[the enable multi-factor authentication] documentation.
+
+== FIPS 140-2 for HTTPS and data at rest encryption
+
+NetApp SolidFire storage clusters support encryption that complies with the Federal Information Processing Standard (FIPS) 140-2 requirements for cryptographic modules. You can enable FIPS 140-2 compliance on your SolidFire cluster for both HTTPS communications and drive encryption.
+
+When you enable FIPS 140-2 operating mode on your cluster, the cluster activates the NetApp Cryptographic Security Module (NCSM) and leverages FIPS 140-2 Level 1 certified encryption for all communication via HTTPS to the NetApp Element UI and API. You use the `EnableFeature` Element API with the `fips` parameter to enable FIPS 140-2 HTTPS encryption. On storage clusters with FIPS-compatible hardware, you can also enable FIPS drive encryption for data at rest using the `EnableFeature` Element API with the `FipsDrives` parameter.
+
+For more information about preparing a new storage cluster for FIPS 140-2 encryption, see link:../storage/task_system_manage_fips_create_a_cluster_supporting_fips_drives.html[Create a cluster supporting FIPS drives].
+
+For more information about enabling FIPS 140-2 on an existing, prepared cluster, see link:../api/reference_element_api_enablefeature.html[the EnableFeature Element API].
+
+== For more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

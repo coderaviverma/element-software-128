@@ -1,0 +1,56 @@
+---
+permalink: api/reference_element_api_getnetworkconfig.html
+sidebar: sidebar
+keywords: network,config,configuration,get,getting,getnetworkconfig
+summary: 'You can use the GetNetworkConfig method to display the network configuration information for a node.'
+---
+
+= GetNetworkConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetNetworkConfig` method to display the network configuration information for a node.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+network
+a|
+Network connection types and current settings for each network interface of the node.
+a|
+xref:reference_element_api_network_all_interfaces.adoc[network (all interfaces)]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetNetworkConfig",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+Due to the length of this response example, it is documented in a supplementary topic.
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_response_example_getnetworkconfig.adoc[GetNetworkConfig]

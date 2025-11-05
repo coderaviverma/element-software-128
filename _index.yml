@@ -1,14 +1,101 @@
 indexpage:
-  title: # Unquoted string 
-  lead: # Quoted string
-  summary: # Quoted string 
-  keywords: # Unquoted comma-delimited list of keywords 
-  tiles: 
-    # Tile definition 
-    - title: # Quoted or unquoted string
-      links: 
-        # Link definition
-        - title: # Quoted or unquoted string
-          url: # Path to target
-        # Next link on this tile (title/url pair)
-    # Next tile on this page (title/links)
+  title: SolidFire and Element Software Documentation
+  lead: A SolidFire all-flash storage system is comprised of hardware components such as drives and nodes that are combined into a pool of storage resources. Using the Element interface, API, or other management tools, you can manage these storage resource clusters with NetApp Element software. This site contains the documentation for Element software 12.8.
+  summary: A SolidFire all-flash storage system is comprised of hardware components such as drives and nodes that are combined into a pool of storage resources. As a single storage system, this unified cluster is managed with NetApp Element software.
+  keywords: solidfire, all-flash, storage, hardware, install, maintain, element software, esos, element cli
+  tiles:
+    - title: Get started
+      links:
+        - title: Product overview
+          url: /concepts/concept_intro_product_overview.html
+        - title: Release notes
+          url: /concepts/concept_rn_relatedrn_element.html
+        - title: What's new
+          url: /concepts/concept_rn_whats_new_element.html
+        - title: Requirements
+          url: /setup/concept_requirements_overview.html
+        - title: Setup overview
+          url: /setup/concept_setup_overview.html
+    - title: Install & maintain hardware
+      links:
+        - title: H410S and H610S hardware information
+          url: /hardware/concept_h410s_h610s_info.html
+        - title: SF-series hardware information
+          url: /hardware/concept_sfseries_info.html
+        - title: Return to Factory Image information
+          url: /hardware/concept_rtfi_configure.html
+        - title: Supported firmware revisions for NetApp H-Series storage nodes
+          url: /hardware/fw_storage_nodes.html
+    - title: Manage storage
+      links:
+        - title: Use Element software UI
+          url: /storage/index.html
+        - title: Use NetApp Hybrid Cloud Control
+          url: /hccstorage/index.html
+        - title: Use Element software API
+          url: /api/index.html
+        - title: Use Element Plug-in for vCenter Server
+          url: https://docs.netapp.com/us-en/vcp/
+        - title: Use NetApp SolidFire Active IQ
+          url: https://docs.netapp.com/us-en/solidfire-active-iq/
+        - title: Work with the management node
+          url: /mnode/task_mnode_work_overview.html
+    # - title: Install and use SolidFire Enterprise SDS
+      # links:
+        # - title: SolidFire eSDS overview
+          # url: /esds/concept_get_started_esds.html
+        # - title: Quick start
+          # url: https://docs.netapp.com/us-en/element-software/media/SDS_Quick_Start_Guide.pdf
+        # - title: Requirements for installation
+          # url: /esds/concept_esds_prerequisite_tasks.html
+        # - title: Manage storage
+          # url: /esds/reference_esds_element_links.html
+        # - title: Maintain SolidFire eSDS
+          # url: /esds/concept_esds_maintain.html
+    - title: Use integration tools (login required)
+      links:
+        - title: Element CLI
+          url: https://mysupport.netapp.com/site/tools/tool-eula/elem-cli
+        - title: Element PowerShell Tools
+          url: https://mysupport.netapp.com/site/tools/tool-eula/elem-powershell-tools
+        - title: Element SDKs (Java, .NET, Python)
+          url: https://mysupport.netapp.com/site/products/all/details/netapphci-solidfire-elementsoftware/tools-tab
+        - title: SolidFire Postman API testing suite
+          url: https://github.com/solidfire/postman
+        - title: SolidFire Storage Replication Adapter
+          url: https://mysupport.netapp.com/site/products/all/details/elementsra/downloads-tab
+        - title: SolidFire vRO
+          url: https://mysupport.netapp.com/site/products/all/details/solidfire-vro/downloads-tab
+        - title: SolidFire VSS Provider
+          url: https://mysupport.netapp.com/site/products/all/details/solidfire-vss-provider/downloads-tab
+    - title: Solutions
+      links:
+        - title: NetApp Solutions
+          url: https://docs.netapp.com/us-en/netapp-solutions/index.html
+    - title: Demos & tutorials
+      links:
+        - title: NetApp University SolidFire training (login required)
+          url: https://netapp.sabacloud.com/Saba/Web_spf/NA1PRD0047/common/searchresults/solidfire/LEARNINGEVENT%2COFFERINGTEMPLATE%2CCERTIFICATION%2CCURRICULUM%2COFFERING%2CPACKAGE
+        - title: How to install and scale your NetApp Solidfire cluster (video)
+        # url: http://media.netapp.com/detail/video/5778540099001?autoStart=true&page=1&q=solidfire
+          url: https://www.youtube.com/watch?v=JOe-zwxIZR4
+        - title: NetApp SolidFire installation (video)
+          url: https://youtu.be/YKGK5nNSL68
+    - title: Blogs & community
+      links:
+        - title: NetApp community
+          url: https://community.netapp.com/t5/AFF-NVMe-EF-Series-and-SolidFire-Discussions/bd-p/flash-storage-systems-discussions
+        - title: Where to get help
+          url: https://mysupport.netapp.com/site/products/all/details/element-software/guideme-tab
+    - title: Earlier versions
+      links:
+        - title: Element 12.2.1 documentation
+          url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=63945&language=en-US
+        - title: Element 12.2 documentation
+          url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=63593&language=en-US
+        - title: Element 12.0.1 documentation
+          url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=63946&language=en-US
+        - title: Element 12.0 documentation
+          url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=63368&language=en-US
+        - title: Element 11.8.2 and earlier documentation
+          url: /element-earlierversions.html

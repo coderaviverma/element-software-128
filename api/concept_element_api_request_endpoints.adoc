@@ -1,0 +1,40 @@
+---
+permalink: api/concept_element_api_request_endpoints.html
+sidebar: sidebar
+keywords: request,endpoints
+summary: 'There are three types of request endpoints used in the API \(storage cluster, storage cluster creation, and per-node\). You should always use the latest endpoint supported by your version of Element software.'
+---
+
+= Request endpoints
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+There are three types of request endpoints used in the API (storage cluster, storage cluster creation, and per-node). You should always use the latest endpoint supported by your version of Element software.
+
+The three request endpoints in the API are designated in the following ways:
+
+== Cluster API methods
+
+The HTTPS endpoint for storage-cluster-wide API requests is `+https://<mvip>/json-rpc/<api-version>+`, where:
+
+* `<mvip>` is the management virtual IP address for the storage cluster.
+* `<api-version>` is the version of the API you are using.
+
+== Cluster creation and bootstrap API methods
+
+The HTTPS endpoint for creating a storage cluster and accessing bootstrap API requests is `+https://<nodeIP>/json-rpc/<api-version>+`, where:
+
+* `<nodeIP>` is the IP address of the node you are adding to the cluster.
+* `<api-version>` is the version of the API you are using.
+
+== Per-node API methods
+
+The HTTPS endpoint for individual storage node API requests is `+https://<nodeIP>:442/json-rpc/<api-version>+`, where:
+
+* `<nodeIP>` is the management IP address of the storage node; 442 is the port the HTTPS server is running on.
+* `<api-version>` is the version of the API you are using.
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

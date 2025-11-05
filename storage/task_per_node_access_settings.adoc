@@ -1,0 +1,25 @@
+---
+permalink: storage/task_per_node_access_settings.html
+sidebar: sidebar
+keywords: nodes, accessing node settings, accessing node settings with per-node UI
+summary: 'You can access network settings, cluster settings, and system tests and utilities in the per-node user interface after you enter the management node IP and authenticate.'
+---
+
+= Access per-node settings using the per-node UI
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can access network settings, cluster settings, and system tests and utilities in the per-node user interface after you enter the management node IP and authenticate.
+
+If you want to modify settings of a node in an Active state that is part of a cluster, you must log in as a cluster administrator user.
+
+TIP: You should configure or modify one node at a time. You should ensure that the network settings specified are having the expected effect, and that the network is stable and performing well before you make modifications to another node.
+
+. Open the per-node UI using one of the following methods:
+ ** Enter the management IP address followed by :442 in a browser window, and log in using an admin user name and password.
+ ** In the Element UI, select *Cluster* > *Nodes*, and click the management IP address link for the node you want to configure or modify.
+In the browser window that opens, you can edit the settings of the node.
+
++
+image::../media/per_node_ui_hcc_skin.png[Per node UI network settings page]

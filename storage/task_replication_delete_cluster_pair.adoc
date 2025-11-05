@@ -1,0 +1,19 @@
+---
+permalink: storage/task_replication_delete_cluster_pair.html
+sidebar: sidebar
+keywords: cluster pairs, delete
+summary: 'You can delete a cluster pair from the Element UI of either of the clusters in the pair.'
+---
+
+= Delete a cluster pair
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can delete a cluster pair from the Element UI of either of the clusters in the pair.
+
+. Click *Data Protection* > *Cluster Pairs*.
+. Click the Actions icon for a cluster pair.
+. In the resulting menu, click *Delete*.
+. Confirm the action.
+. Perform the steps again from the second cluster in the cluster pairing.

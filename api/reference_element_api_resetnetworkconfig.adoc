@@ -1,0 +1,42 @@
+---
+permalink: api/reference_element_api_resetnetworkconfig.html
+sidebar: sidebar
+keywords: network,config,configuration,reset,restetting,factory,default,resetnetworkconfig
+summary: 'You can use the ResetNetworkConfig method to help resolve network configuration issues for an individual node. This method resets an individual node’s network configuration to the factory default settings.'
+---
+
+= ResetNetworkConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ResetNetworkConfig` method to help resolve network configuration issues for an individual node. This method resets an individual node's network configuration to the factory default settings.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ResetNetworkConfig",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method does not return a response.
+
+== New since version
+
+11.0
+// 2022 DEC 12, DOC-4643 

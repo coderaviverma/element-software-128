@@ -1,0 +1,72 @@
+---
+permalink: api/reference_element_api_listtests.html
+sidebar: sidebar
+keywords: test,tests,list,listing,listtests
+summary: 'You can use the ListTests method to list the tests that are available to run on a node.'
+---
+
+= ListTests
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListTests` method to list the tests that are available to run on a node.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+tests
+a|
+List of tests that can be performed on the node.
+a|
+string array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListTests",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+   "tests": [
+             "TestConnectEnsemble",
+             "TestConnectMvip",
+             "TestConnectSvip",
+             "TestDrives",
+             "TestHardwareConfig",
+             "TestLocateCluster",
+             "TestPing",
+             "TestLocalConnectivity",
+             "TestRemoteConnectivity",
+             "TestNetworkConfig"
+           ]
+      }
+}
+----
+
+== New since version
+
+9.6

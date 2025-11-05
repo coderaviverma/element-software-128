@@ -1,0 +1,158 @@
+---
+permalink: api/reference_element_api_clustercapacity.html
+sidebar: sidebar
+keywords: objects,object,clusterCapacity
+summary: 'The clusterCapacity object contains high-level capacity measurements for the cluster. You can get cluster capacity information with the GetClusterCapacity API method. Space measurements in the object members are calculated in bytes.'
+---
+
+= clusterCapacity
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The clusterCapacity object contains high-level capacity measurements for the cluster. You can get cluster capacity information with the GetClusterCapacity API method. Space measurements in the object members are calculated in bytes.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+activeBlockSpace
+a|
+The amount of space on the block drives. This includes additional information such as metadata entries and space which can be cleaned up.
+a|
+integer
+a|
+activeSessions
+a|
+The number of active iSCSI sessions communicating with the cluster.
+a|
+integer
+a|
+averageIOPS
+a|
+The average IOPS for the cluster since midnight Coordinated Universal Time (UTC).
+a|
+integer
+a|
+clusterRecentIOSize
+a|
+The average size of IOPS to all volumes in the cluster.
+a|
+integer
+a|
+currentIOPS
+a|
+The average IOPS for all volumes in the cluster over the last 5 seconds.
+a|
+integer
+a|
+maxIOPS
+a|
+The estimated maximum IOPS capability of the current cluster.
+a|
+integer
+a|
+maxOverProvisionableSpace
+a|
+The maximum amount of provisionable space. This is a computed value. You cannot create new volumes if the current provisioned space plus the new volume size would exceed this number. The value is calculated as follows: `maxOverProvisionableSpace = maxProvisionedSpace * maxMetadataOverProvisionFactor`
+a|
+integer
+a|
+maxProvisionedSpace
+a|
+The total amount of provisionable space if all volumes are 100% filled (no thin provisioned metadata).
+a|
+integer
+a|
+maxUsedMetadataSpace
+a|
+The number of bytes on volume drives used to store metadata.
+a|
+integer
+a|
+maxUsedSpace
+a|
+The total amount of space on all active block drives.
+a|
+integer
+a|
+nonZeroBlock
+a|
+The total number of 4KiB blocks that contain data after the last garbage collection operation has completed.
+a|
+integer
+a|
+peakActiveSessions
+a|
+The peak number of iSCSI connections since midnight UTC.
+a|
+integer
+a|
+peakIOPS
+a|
+The highest value for currentIOPS since midnight UTC.
+a|
+integer
+a|
+provisionedSpace
+a|
+The total amount of space provisioned in all volumes on the cluster.
+a|
+integer
+a|
+timestamp
+a|
+The date and time, in UTC+0 format, that this cluster capacity sample was taken.
+a|
+ISO 8601 string
+a|
+totalOps
+a|
+The total number of I/O operations performed throughout the lifetime of the cluster.
+a|
+integer
+a|
+uniqueBlocks
+a|
+The total number of blocks stored on the block drives. The value includes replicated blocks.
+a|
+integer
+a|
+uniqueBlocksUsedSpace
+a|
+The total amount of data the uniqueBlocks take up on the block drives. See the GetclusterCapacity method for information about how this number relates to the uniqueBlocks value.
+a|
+integer
+a|
+usedMetadataSpace
+a|
+The total number of bytes on volume drives used to store metadata.
+a|
+integer
+a|
+usedMetadataSpaceInSnapshots
+a|
+The number of bytes on volume drives used for storing unique data in snapshots. This number provides an estimate of how much metadata space would be regained by deleting all snapshots on the system.
+a|
+integer
+a|
+usedSpace
+a|
+The total amount of space used by all block drives in the system.
+a|
+integer
+a|
+zeroBlocks
+a|
+The total number of empty 4KiB blocks without data after the last round of garbage collection operation has completed.
+a|
+integer
+|===
+
+== Find more information
+
+xref:reference_element_api_getclustercapacity.adoc[GetClusterCapacity]

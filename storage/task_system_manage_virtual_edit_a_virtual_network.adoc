@@ -1,0 +1,38 @@
+---
+permalink: storage/task_system_manage_virtual_edit_a_virtual_network.html
+sidebar: sidebar
+keywords: virtual network, edit, ip address block, vlan attributes
+summary: 'You can change VLAN attributes, such as VLAN name, netmask, and size of the IP address blocks. The VLAN tag and SVIP cannot be modified for a VLAN. The gateway attribute is not a valid parameter for non-VRF VLANs.'
+---
+
+= Edit a virtual network
+:url-peak: https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_determine_which_VLAN_IP%27s_are_in_use_and_which_nodes_those_IP%27s_are_assigned_to_in_Element
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can change VLAN attributes, such as VLAN name, netmask, and size of the IP address blocks. The VLAN tag and SVIP cannot be modified for a VLAN. The gateway attribute is not a valid parameter for non-VRF VLANs.
+
+If any iSCSI, remote replication, or other network sessions exist, the modification might fail.
+
+When managing the size of VLAN IP address ranges, you should note the following limitations:
+
+*	You can only remove IP addresses from the initial IP address range assigned at the time the VLAN was created.
+*	You can remove an IP address block that was added after the initial IP address range, but you cannot resize an IP block by removing IP addresses.
+*	When you try to remove IP addresses, from either the initial IP address range or in an IP block, that are in use by nodes in the cluster, the operation might fail.
+*	You cannot reassign specific in-use IP addresses to other nodes in the cluster.
+
+You can add an IP address block by using the following procedure:
+
+. Select *Cluster* > *Network*.
+. Select the Actions icon for the VLAN you want to edit.
+. Select *Edit*.
+. In the *Edit VLAN* dialog box, enter the new attributes for the VLAN.
+. Select *Add a Block* to add a non-continuous block of IP addresses for the virtual network.
+. Select *Save Changes*.
+
+.Link to troubleshooting KB articles
+Link to the Knowledge Base articles for help with troubleshooting issues with managing your VLAN IP address ranges.
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/Duplicate_IP_warning_after_adding_a_storage_node_in_VLAN_on_Element_cluster[Duplicate IP warning after adding a storage node in VLAN on Element cluster^]
+* {url-peak}[How to determine which VLAN IP's are in use and which nodes those IP's are assigned to in Element^]

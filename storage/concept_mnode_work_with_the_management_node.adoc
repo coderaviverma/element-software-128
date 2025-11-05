@@ -1,0 +1,17 @@
+---
+permalink: storage/concept_mnode_work_with_the_management_node.html
+sidebar: sidebar
+keywords: management node,mNode
+summary: 'You can use the management node \(mNode\) to upgrade system services, manage cluster assets and settings, run system tests and utilities, configure Active IQ for system monitoring, and enable NetApp Support access for troubleshooting.'
+---
+
+= Work with the management node
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the management node (mNode) to upgrade system services, manage cluster assets and settings, run system tests and utilities, configure Active IQ for system monitoring, and enable NetApp Support access for troubleshooting.
+
+NOTE: As a best practice, only associate one management node with one VMware vCenter instance, and avoid defining the same storage and compute resources or vCenter instances in multiple management nodes.
+
+See link:../mnode/task_mnode_work_overview.html[management node documentation] for more information.

@@ -1,0 +1,261 @@
+---
+permalink: api/reference_element_api_modifyclusterfullthreshold.html
+sidebar: sidebar
+keywords: modify,modifying,edit,editing,change,changing,cluster,full,fullness,threshold,modifyclusterfullthreshold
+summary: 'You can use the ModifyClusterFullThreshold method to change the level at which the system generates an event when the storage cluster approaches a certain capacity utilization. You can use the threshold setting to indicate the acceptable amount of utilized block storage before the system generates a warning.'
+---
+
+= ModifyClusterFullThreshold
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyClusterFullThreshold` method to change the level at which the system generates an event when the storage cluster approaches a certain capacity utilization. You can use the threshold setting to indicate the acceptable amount of utilized block storage before the system generates a warning.
+
+For example, if you want to be alerted when the system reaches 3% below the "Error" level block storage utilization, enter a value of "3" for the stage3BlockThresholdPercent parameter. If this level is reached, the system sends an alert to the Event Log in the Cluster Management Console.
+
+== Parameters
+
+This method has the following input parameters:
+
+NOTE: You must select at least one parameter.
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+maxMetadataOverProvisionFactor
+a|
+A value representative of the number of times metadata space can be over provisioned relative to the amount of space available. For example, if there was enough metadata space to store 100 TiB of volumes and this number was set to 5, then 500 TiB worth of volumes could be created.
+a|
+integer
+a|
+5
+a|
+No
+a|
+stage2AwareThreshold
+a|
+The number of nodes of capacity remaining in the cluster before the system triggers a capacity notification.
+a|
+integer
+a|
+None
+a|
+No
+a|
+stage3BlockThresholdPercent
+a|
+The percentage of block storage utilization below the "Error" threshold that causes the system to trigger a cluster "Warning" alert.
+a|
+integer
+a|
+None
+a|
+No
+a|
+stage3MetadataThresholdPercent
+a|
+The percentage of metadata storage utilization below the "`Error`" threshold that causes the system to trigger a cluster "`Warning`" alert.
+a|
+integer
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+blockFullness
+a|
+The current computed level of block fullness of the cluster.
+
+* stage1Happy: No alerts or error conditions. Corresponds to the *Healthy* state in the web UI.
+* stage2Aware: No alerts or error conditions. Corresponds to the *Healthy* state in the web UI.
+* stage3Low: Your system cannot provide redundant data protection from two non-simultaneous node failures. Corresponds to the *Warning* state in the web UI. You can configure this level in the web UI (by default, the system triggers this alert at a capacity of 3% below the Error state).
+* stage4Critical: The system is not capable of providing redundant data protection from a single node failure. No new volumes or clones can be created. Corresponds to the *Error* state in the Element UI.
+* stage5CompletelyConsumed: Completely consumed. The cluster is read-only and iSCSI connections are maintained, but all writes are suspended. Corresponds to the *Critical* state in the Element UI.
+
+a|
+string
+a|
+fullness
+a|
+Reflects the highest level of fullness between "blockFullness" and "metadataFullness".
+a|
+string
+a|
+maxMetadataOverProvisionFactor
+a|
+A value representative of the number of times metadata space can be over provisioned relative to the amount of space available. For example, if there was enough metadata space to store 100 TiB of volumes and this number was set to 5, then 500 TiB worth of volumes could be created.
+a|
+integer
+a|
+metadataFullness
+a|
+The current computed level of metadata fullness of the cluster.
+
+* stage1Happy: No alerts or error conditions. Corresponds to the *Healthy* state in the web UI.
+* stage2Aware: No alerts or error conditions. Corresponds to the *Healthy* state in the web UI.
+* stage3Low: Your system cannot provide redundant data protection from two non-simultaneous node failures. Corresponds to the *Warning* state in the web UI. You can configure this level in the web UI (by default, the system triggers this alert at a capacity of 3% below the Error state).
+* stage4Critical: The system is not capable of providing redundant data protection from a single node failure. No new volumes or clones can be created. Corresponds to the *Error* state in the Element UI.
+* stage5CompletelyConsumed: Completely consumed. The cluster is read-only and iSCSI connections are maintained, but all writes are suspended. Corresponds to the *Critical* state in the Element UI.
+
+a|
+string
+a|
+sliceReserveUsedThresholdPct
+a|
+Error condition. A system alert is triggered if the reserved slice utilization is greater than the sliceReserveUsedThresholdPct value returned.
+a|
+integer
+a|
+stage2AwareThreshold
+a|
+Awareness condition. The value that is set for "Stage 2" cluster threshold level.
+a|
+integer
+a|
+stage2BlockThresholdBytes
+a|
+The number of bytes being used by the cluster at which a stage 2 fullness condition will exist.
+a|
+integer
+a|
+stage2MetadataThresholdBytes
+a|
+The number of metadata bytes being used by the cluster at which a stage 2 fullness condition will exist.
+a|
+
+a|
+stage3BlockThresholdBytes
+a|
+The number of storage bytes being used by the cluster at which a stage 3 fullness condition will exist.
+a|
+integer
+a|
+stage3BlockThresholdPercent
+a|
+The percent value set for stage 3. At this percent full, a warning is posted in the Alerts log.
+a|
+integer
+a|
+stage3LowThreshold
+a|
+Error condition. The threshold at which a system alert is created due to low capacity on a cluster.
+a|
+integer
+a|
+stage3MetadataThresholdBytes
+a|
+The number of metadata bytes used by the cluster at which a stage 3 fullness condition will exist.
+a|
+
+a|
+stage4BlockThresholdBytes
+a|
+The number of storage bytes being used by the cluster at which a stage 4 fullness condition will exist.
+a|
+integer
+a|
+stage4CriticalThreshold
+a|
+Error condition. The threshold at which a system alert is created to warn about critically low capacity on a cluster.
+a|
+integer
+a|
+stage4MetadataThresholdBytes
+a|
+The number of metadata bytes used by the cluster at which a stage 4 fullness condition will exist.
+a|
+
+a|
+stage5BlockThresholdBytes
+a|
+The number of storage bytes used by the cluster at which a stage 5 fullness condition will exist.
+a|
+integer
+a|
+stage5MetadataThresholdBytes
+a|
+The number of metadata bytes used by the cluster at which a stage 5 fullness condition will exist.
+a|
+
+a|
+sumTotalClusterBytes
+a|
+The physical capacity of the cluster, measured in bytes.
+a|
+integer
+a|
+sumTotalMetadataClusterBytes
+a|
+The total amount of space that can be used to store metadata.
+a|
+integer
+a|
+sumUsedClusterBytes
+a|
+The number of storage bytes used on the cluster.
+a|
+integer
+a|
+sumUsedMetadataClusterBytes
+a|
+The amount of space used on volume drives to store metadata.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method" : "ModifyClusterFullThreshold",
+   "params" : {
+              "stage3BlockThresholdPercent" : 3
+              },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "blockFullness": "stage1Happy",
+    "fullness": "stage3Low",
+    "maxMetadataOverProvisionFactor": 5,
+    "metadataFullness": "stage3Low",
+    "sliceReserveUsedThresholdPct": 5,
+    "stage2AwareThreshold": 3,
+    "stage2BlockThresholdBytes": 2640607661261,
+    "stage3BlockThresholdBytes": 8281905846682,
+    "stage3BlockThresholdPercent": 3,
+    "stage3LowThreshold": 2,
+    "stage4BlockThresholdBytes": 8641988709581,
+    "stage4CriticalThreshold": 1,
+    "stage5BlockThresholdBytes": 12002762096640,
+    "sumTotalClusterBytes": 12002762096640,
+    "sumTotalMetadataClusterBytes": 404849531289,
+    "sumUsedClusterBytes": 45553617581,
+    "sumUsedMetadataClusterBytes": 31703113728
+  }
+}
+----
+
+== New since version
+
+9.6

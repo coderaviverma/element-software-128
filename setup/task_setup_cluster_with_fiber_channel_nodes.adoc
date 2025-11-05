@@ -1,0 +1,26 @@
+---
+permalink: setup/task_setup_cluster_with_fibre_channel_nodes.html
+sidebar: sidebar
+keywords: element, solidfire, fibre channel, setup, node, cluster
+summary: 'Understand the sequence of setting up a cluster with storage nodes.'
+---
+
+= Setting up a cluster with Fibre Channel nodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can set up a cluster with Fibre Channel nodes and manage it using Element software after you install and cable nodes in a rack unit and power them on. You can then install and configure additional components in your storage system.
+
+.Steps
+. link:../setup/concept_setup_fc_configure_a_fibre_channel_node.html[Configure a Fibre Channel node]
+. link:../setup/task_setup_fc_create_a_new_cluster_with_fibre_channel_nodes.html[Create a new cluster with Fibre Channel nodes]
+. link:../setup/task_setup_fc_add_fibre_channel_nodes_to_a_cluster.html[Add Fibre Channel nodes to a cluster]
+. link:../setup/concept_setup_fc_set_up_zones_for_fibre_channel_nodes.html[Set up zones for Fibre Channel nodes]
+. link:../setup/task_setup_create_a_volume_access_group_for_fibre_channel_clients.html[Create a volume access group for Fibre Channel clients]
+. link:../setup/task_setup_determine_which_solidfire_components_to_install.html[Determine which SolidFire components to install]
+. link:../setup/task_setup_gh_redirect_set_up_a_management_node.html[Set up a management node]
+
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

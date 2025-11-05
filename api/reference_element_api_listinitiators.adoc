@@ -1,0 +1,117 @@
+---
+permalink: api/reference_element_api_listinitiators.html
+sidebar: sidebar
+keywords: initiators,initiator,list,listing,listinitiators,iqn,wwpn,iqns,wwpns
+summary: 'You can use the ListInitiators method to get the list of initiator IQNs or World Wide Port Names \(WWPNs\).'
+---
+
+= ListInitiators
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListInitiators` method to get the list of initiator IQNs or World Wide Port Names (WWPNs).
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+initiators
+a|
+A list of initiator IDs to retrieve. You can supply this parameter or the startInitiatorID parameter, but not both.
+a|
+integer array
+a|
+None
+a|
+No
+a|
+startInitiatorID
+a|
+The initiator ID at which to begin the listing. You can supply this parameter or the initiators parameter, but not both.
+a|
+integer
+a|
+0
+a|
+No
+a|
+limit
+a|
+The maximum number of initiator objects to return.
+a|
+integer
+a|
+(unlimited)
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+initiators
+a|
+List of the initiator information.
+a|
+xref:reference_element_api_initiator.adoc[initiator] array
+|===
+
+== Exceptions
+
+This method can have the following exception:
+
+|===
+| Name| Description
+a|
+xInvalidParameter
+a|
+Thrown if you include both the startInitiatorID and the initiators parameters in the same method call.
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListInitiators",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "initiators": [
+      {
+        "alias": "",
+        "attributes": {},
+        "initiatorID": 2,
+        "initiatorName": "iqn.1993-08.org.debian:01:c84ffd71216",
+        "volumeAccessGroups": [
+          1
+        ]
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

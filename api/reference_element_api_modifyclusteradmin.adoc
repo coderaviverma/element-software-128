@@ -1,0 +1,100 @@
+---
+permalink: api/reference_element_api_modifyclusteradmin.html
+sidebar: sidebar
+keywords: modify,modifying,edit,editing,change,changing,cluster,admin,settings,modifyclusteradmin
+summary: 'You can use the ModifyClusterAdmin method to change the settings for a cluster admin, LDAP cluster admin, or third-party Identity Provider \(IdP\) cluster admin. You cannot change access for the administrator cluster admin account.'
+---
+
+= ModifyClusterAdmin
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyClusterAdmin` method to change the settings for a cluster admin, LDAP cluster admin, or third-party Identity Provider (IdP) cluster admin. You cannot change access for the administrator cluster admin account.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+access
+a|
+Controls which methods this cluster admin can use.
+a|
+string array
+a|
+None
+a|
+No
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+clusterAdminID
+a|
+ClusterAdminID for the cluster admin, LDAP cluster admin, or IdP cluster admin to modify.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+password
+a|
+Password used to authenticate this cluster admin. This parameter does not apply to an LDAP or IdP cluster admin.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ModifyClusterAdmin",
+   "params": {
+     "clusterAdminID"  : 2,
+     "password"   : "7925Brc429a"
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+ "id" : 1
+ "result" : { }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_app_b_access_control.adoc[Access control]

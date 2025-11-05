@@ -1,0 +1,40 @@
+---
+permalink: api/reference_element_api_protectionschemetolerance.html
+sidebar: sidebar
+keywords: object,objects,protectionSchemeTolerance
+summary: 'The protectionSchemeTolerance object contains information about whether a storage cluster, for a specific protection scheme, can continue to read and write data after failures.'
+---
+
+= protectionSchemeTolerance
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The protectionSchemeTolerance object contains information about whether a storage cluster, for a specific protection scheme, can continue to read and write data after failures.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+protectionScheme
+a|
+The current protection scheme of this storage cluster. The only possible value is doubleHelix.
+a|
+string
+a|
+sustainableFailuresForBlockData
+a|
+The current number of simultaneous failures which can occur without losing block data availability for the associated protection scheme.
+a|
+integer
+a|
+sustainableFailuresForMetadata
+a|
+The current number of simultaneous failures which can occur without losing metadata availability for the associated protection scheme.
+a|
+integer
+|===

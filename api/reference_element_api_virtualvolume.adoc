@@ -1,0 +1,112 @@
+---
+permalink: api/reference_element_api_virtualvolume.html
+sidebar: sidebar
+keywords: object,objects,virtualVolume
+summary: 'The virtualVolume object contains configuration information about a virtual volume as well as information about snapshots of the virtual volume. It does not include runtime or usage information. You can use the ListVirtualVolumes method to retrieve this information for a cluster.'
+---
+
+= virtualVolume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The virtualVolume object contains configuration information about a virtual volume as well as information about snapshots of the virtual volume. It does not include runtime or usage information. You can use the `ListVirtualVolumes` method to retrieve this information for a cluster.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+bindings
+a|
+A list of binding IDs for this virtual volume.
+a|
+UUID array
+a|
+children
+a|
+A list of virtual volume UUIDs that are children of this virtual volume.
+a|
+UUID array
+a|
+descendants
+a|
+When you pass recursive: true to the ListVirtualVolumes method, contains a list of virtual volume UUIDs that are descendants of this virtual volume.
+a|
+UUID array
+a|
+metadata
+a|
+Key-value pairs of the virtual volume's metadata, such as virtual volume type, guest OS type, and so on.
+a|
+JSON object
+a|
+parentVirtualVolumeID
+a|
+The virtual volume ID of the parent virtual volume. If the ID is all zeros, this is an independent virtual volume with no link to a parent.
+a|
+UUID
+a|
+snapshotID
+a|
+The ID of the underlying volume snapshot. This value is "0" if the virtual volume does not represent a snapshot.
+a|
+integer
+a|
+snapshotInfo
+a|
+The snapshot object for the associated snapshot (null if nonixestent).
+a|
+xref:reference_element_api_snapshot.adoc[snapshot]
+a|
+status
+a|
+Current status of the virtual volume. Possible values:
+
+* cloning: The virtual volume is being processed in response to a clone or snapshot operation.
+* waiting: The virtual volume is waiting for a snapshot operation to complete.
+* ready: The virtual volume is ready for general purpose use.
+
+a|
+string
+a|
+storageContainer
+a|
+An object describing the storage container that owns this virtual volume.
+a|
+xref:reference_element_api_storagecontainer.adoc[storageContainer]
+a|
+virtualVolumeID
+a|
+The unique ID of the virtual volume.
+a|
+UUID
+a|
+virtualVolumeType
+a|
+The type of the virtual volume.
+a|
+string
+a|
+volumeID
+a|
+The ID of the underlying volume.
+a|
+integer
+a|
+volumeInfo
+a|
+When you pass details: true to the ListVirtualVolumes method, this member is an object describing the volume.
+a|
+xref:reference_element_api_volume.adoc[volume]
+|===
+
+== Find more information
+
+* xref:reference_element_api_listvirtualvolumes.adoc[ListVirtualVolumes]
+* xref:reference_element_api_snapshot.adoc[snapshot]
+* xref:reference_element_api_storagecontainer.adoc[storageContainer]
+* xref:reference_element_api_volume.adoc[volume]

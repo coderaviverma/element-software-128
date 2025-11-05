@@ -1,0 +1,41 @@
+---
+permalink: storage/task_data_protection_create_a_snapshot_schedule.html
+sidebar: sidebar
+keywords: snapshot schedule, create, volumes, recurring schedule
+summary: 'You can schedule a snapshot of a volume or volumes to automatically occur at specified intervals.'
+---
+
+= Create a snapshot schedule
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can schedule a snapshot of a volume or volumes to automatically occur at specified intervals.
+
+When you configure a snapshot schedule, you can choose from time intervals based on days of the week or days of the month. You can also create a recurring schedule and specify the days, hours, and minutes before the next snapshot occurs.
+
+If you schedule a snapshot to run at a time period that is not divisible by 5 minutes, the snapshot will run at the next time period that is divisible by 5 minutes. For example, if you schedule a snapshot to run at 12:42:00 UTC, it will run at 12:45:00 UTC. You cannot schedule a snapshot to run at intervals of less than 5 minutes.
+
+Beginning with Element 12.5, you can enable serial creation and select to retain the snapshots on a First-In-First-Out (FIFO) basis from the UI.
+
+* The *Enable Serial Creation* option specifies that only one snapshot is replicated at a time. The creation of a new snapshot fails when a previous snapshot replication is still in progress. If the checkbox is not selected, a snapshot creation is allowed when another snapshot replication is still in progress.
+* The *FIFO* option adds the capability to retain a consistent number of the latest snapshots. When the checkbox is selected, snapshots are retained on a FIFO basis. After the queue of FIFO snapshots reaches its maximum depth, the oldest FIFO snapshot is discarded when a new FIFO snapshot is inserted.
+
+.Steps
+. Select *Data Protection* > *Schedules*.
+. Select *Create Schedule*.
+. In the *Volume IDs CSV* field, enter a single volume ID or a comma-separated list of volume IDs to include in the snapshot operation.
+. Enter a new schedule name.
+. Select a schedule type and set the schedule from the options provided.
+. *Optional:* Select *Recurring Schedule* to repeat the snapshot schedule indefinitely.
+. *Optional:* Enter a name for the new snapshot in the *New Snapshot Name* field.
++
+If you leave the field blank, the system uses the time and date of the snapshot's creation as the name.
+
+. *Optional:* Select the *Include Snapshots in Replication When Paired* check box to ensure that the snapshots are captured in replication when the parent volume is paired.
+. *Optional:* Select the *Enable Serial Creation* check box to ensure that only one snapshot is replicated at a time.
+. To set the retention for the snapshot, select from the following options:
+ ** *Optional:* Select the *FIFO (First In First out)* check box to retain a consistent number of the latest snapshots.
+ ** Select *Keep Forever* to retain the snapshot on the system indefinitely.
+ ** Select *Set Retention Period* and use the date spin boxes to choose a length of time for the system to retain the snapshot.
+. Select *Create Schedule*.

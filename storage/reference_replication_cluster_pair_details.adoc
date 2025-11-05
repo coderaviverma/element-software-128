@@ -1,0 +1,37 @@
+---
+permalink: storage/reference_replication_cluster_pair_details.html
+sidebar: sidebar
+keywords: cluster pairs, replication, data protection
+summary: 'The Cluster Pairs page on the Data Protection tab provides information about clusters that have been paired or are in the process of being paired. The system displays pairing and progress messages in the Status column.'
+---
+
+= Cluster pair details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Cluster Pairs page on the Data Protection tab provides information about clusters that have been paired or are in the process of being paired. The system displays pairing and progress messages in the Status column.
+
+* *ID*
++
+A system-generated ID given to each cluster pair.
+
+* *Remote Cluster Name*
++
+The name of the other cluster in the pair.
+
+* *Remote MVIP*
++
+The management virtual IP address of the other cluster in the pair.
+
+* *Status*
++
+Replication status of the remote cluster
+
+* *Replicating Volumes*
++
+The number of volumes contained by the cluster that are paired for replication.
+
+* *UUID*
++
+A unique ID given to each cluster in the pair.

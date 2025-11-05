@@ -1,0 +1,43 @@
+---
+permalink: setup/task_setup_fc_create_a_new_cluster_with_fibre_channel_nodes.html
+sidebar: sidebar
+keywords:
+summary: 'You can create a new cluster after you have configured the individual Fibre Channel nodes. When you create a cluster, a cluster administrator user account is automatically created for you. The cluster administrator has permission to manage all cluster attributes and can create other cluster administrator accounts.'
+---
+
+= Create a new cluster with Fibre Channel nodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can create a new cluster after you have configured the individual Fibre Channel nodes. When you create a cluster, a cluster administrator user account is automatically created for you. The cluster administrator has permission to manage all cluster attributes and can create other cluster administrator accounts.
+
+During new node configuration, 1G or 10G Management IP (MIP) addresses are assigned to each node. You must use one of the node IP addresses created during configuration to open the Create a New Cluster page. The IP address you use depends on the network you have chosen for cluster management.
+
+.What you'll need
+You have configured the individual Fibre Channel nodes.
+
+.Steps
+. In a browser window, enter a node MIP address.
+. In Create a New Cluster, enter the following information:
+ ** Management VIP: Routable virtual IP on the 1GbE or 10GbE network for network management tasks.
+ ** iSCSI (storage) VIP: Virtual IP on the 10GbE network for storage and iSCSI discovery.
++
+NOTE: You cannot change the SVIP after you create the cluster.
+
+ ** User name: The primary Cluster Admin user name for authenticated access to the cluster. You must save the user name for future reference.
++
+NOTE: You can use uppercase and lowercase letters, special characters, and numbers for the user name.
+
+ ** Password: Password for authenticated access to the cluster. You must save the user name for future reference.
+Two-way data protection is enabled by default. You cannot change this setting.
+. Read the End User License Agreement, and click *I Agree*.
+. *Optional*: In the Nodes list, ensure that the check boxes for nodes that should not be included in the cluster are not selected.
+. Click *Create Cluster*.
++
+The system might take several minutes to create the cluster depending on the number of nodes in the cluster. On a properly configured network, a small cluster of five nodes should take less than one minute. After the cluster is created, the Create a New Cluster window is redirected to the MVIP URL address for the cluster and displays the web UI.
+
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

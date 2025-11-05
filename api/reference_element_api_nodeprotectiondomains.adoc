@@ -1,0 +1,34 @@
+---
+permalink: api/reference_element_api_nodeprotectiondomains.html
+sidebar: sidebar
+keywords: object,objects,node,protection domains
+summary: 'The nodeProtectionDomains object contains information on the identify of a node and the protection domains associated with that node.'
+---
+
+= nodeProtectionDomains
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The nodeProtectionDomains object contains information on the identify of a node and the protection domains associated with that node.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+nodeID
+a|
+Unique identifier for the node.
+a|
+integer
+a|
+protectionDomains
+a|
+List of protection domains of which the node is a member.
+a|
+link:reference_element_api_protectiondomain.html[protectionDomain]
+|===

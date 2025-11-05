@@ -1,0 +1,20 @@
+---
+permalink: storage/task_system_manage_fips_create_a_cluster_supporting_fips_drives.html
+sidebar: sidebar
+keywords: fips, security, federal information processing standards, 140-2, cluster, create
+summary: 'Security is becoming increasingly critical for the deployment of solutions in many customer environments. Federal Information Processing Standards \(FIPS\) are standards for computer security and interoperability. FIPS 140-2 certified encryption for data at rest is a component of the overall security solution.'
+---
+
+= Create a cluster supporting FIPS drives
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Security is becoming increasingly critical for the deployment of solutions in many customer environments. Federal Information Processing Standards (FIPS) are standards for computer security and interoperability. FIPS 140-2 certified encryption for data at rest is a component of the overall security solution.
+
+* link:task_system_manage_fips_avoid_mixing_nodes_for_fips_drives.html[Avoid mixing nodes for FIPS drives]
+* link:task_system_manage_fips_enable_encryption_at_rest.html[Enable encryption at rest]
+* link:task_system_manage_fips_identify_nodes_ready_for_fips_drives[Identify whether nodes are ready for the FIPS drives feature]
+* link:task_system_manage_fips_enable_the_fips_drives_feature.html[Enable the FIPS drives feature]
+* link:task_system_manage_fips_check_the_fips_drive_status.html[Check the FIPS drive status]
+* link:task_system_manage_fips_troubleshoot_the_fips_drive_feature[Troubleshoot the FIPS drive feature]

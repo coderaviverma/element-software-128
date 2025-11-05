@@ -1,0 +1,80 @@
+---
+permalink: api/reference_element_api_clusterpair.html
+sidebar: sidebar
+keywords: objects,object,clusterPair
+summary: 'The clusterPair object contains information about clusters paired with the local cluster. You can retrieve a list of clusterPair objects for the local cluster with the ListClusterPairs method.'
+---
+
+= clusterPair
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The clusterPair object contains information about clusters paired with the local cluster. You can retrieve a list of clusterPair objects for the local cluster with the ListClusterPairs method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+clusterName
+a|
+The name of the other cluster in the pair.
+a|
+string
+a|
+clusterPairID
+a|
+A unique ID given to each cluster in the pair.
+a|
+integer
+a|
+clusterPairUUID
+a|
+The universally unique identifier for the cluster pair.
+a|
+string
+a|
+UUID
+a|
+Unique identifier for the remote cluster in the cluster pair.
+a|
+integer
+a|
+latency
+a|
+The latency, in milliseconds, between clusters.
+a|
+integer
+a|
+mvip
+a|
+The IP address of the management connection for paired clusters.
+a|
+string
+a|
+status
+a|
+The status of the connection between the paired clusters. Possible values:
+
+* Unconfigured
+* Connected
+* Misconfigured
+* Disconnected
+
+a|
+string
+a|
+version
+a|
+The Element version of the other cluster in the pair.
+a|
+string
+|===
+
+== Find more information
+
+xref:reference_element_api_listclusterpairs.adoc[ListClusterPairs]

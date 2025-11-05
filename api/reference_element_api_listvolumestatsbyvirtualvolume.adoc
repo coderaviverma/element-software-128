@@ -1,0 +1,115 @@
+---
+permalink: api/reference_element_api_listvolumestatsbyvirtualvolume.html
+sidebar: sidebar
+keywords: volumes,volume,virtual,stats,list,listing,listvolumestatsbyvirtualvolume,activity
+summary: 'You can use the ListVolumeStatsByVirtualVolume method to list volume statistics for any volumes in the system that are associated with virtual volume. Statistics are cumulative from the creation of the volume.'
+---
+
+= ListVolumeStatsByVirtualVolume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListVolumeStatsByVirtualVolume` method to list volume statistics for any volumes in the system that are associated with virtual volume. Statistics are cumulative from the creation of the volume.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+virtualVolumeIDs
+a|
+A list of one or more virtual volume IDs for which to retrieve information. If you specify this parameter, the method returns information about only these virtual volumes.
+a|
+UUID string array
+a|
+No
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+volumeStats
+a|
+A list of objects containing activity information for each virtual volume in the system.
+a|
+xref:reference_element_api_volumestats.adoc[volumeStats] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ListVolumeStatsByVirtualVolume",
+  "params": {},
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "volumeStats": [
+      {
+        "accountID": 17,
+        "actualIOPS": 0,
+        "asyncDelay": null,
+        "averageIOPSize": 1074265444,
+        "burstIOPSCredit": 0,
+        "clientQueueDepth": 0,
+        "desiredMetadataHosts": null,
+        "latencyUSec": 0,
+        "metadataHosts": {
+          "deadSecondaries": [],
+          "liveSecondaries": [
+            26
+          ],
+          "primary": 56
+        },
+        "nonZeroBlocks": 36,
+        "readBytes": 18366464,
+        "readBytesLastSample": 0,
+        "readLatencyUSec": 0,
+        "readOps": 156,
+        "readOpsLastSample": 0,
+        "samplePeriodMSec": 500,
+        "throttle": 0,
+        "timestamp": "2016-10-10T17:46:35.914642Z",
+        "unalignedReads": 156,
+        "unalignedWrites": 185,
+        "virtualVolumeID": "070ac0ba-f344-4f4c-b79c-142efa3642e8",
+        "volumeAccessGroups": [],
+        "volumeID": 12518,
+        "volumeSize": 91271200768,
+        "volumeUtilization": 0,
+        "writeBytes": 23652213248,
+        "writeBytesLastSample": 0,
+        "writeLatencyUSec": 0,
+        "writeOps": 185,
+        "writeOpsLastSample": 0,
+        "zeroBlocks": 22282972
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

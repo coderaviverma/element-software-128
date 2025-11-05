@@ -1,0 +1,88 @@
+---
+permalink: api/reference_element_api_groupsnapshot.html
+sidebar: sidebar
+keywords: object,objects,groupSnapshot
+summary: 'The groupSnapshot object contains information about a snapshot for a group of volumes. You can use the ListGroupSnapshots API method to retrieve group snapshot information.'
+---
+
+= groupSnapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The groupSnapshot object contains information about a snapshot for a group of volumes. You can use the `ListGroupSnapshots` API method to retrieve group snapshot information.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+createTime
+a|
+The UTC+0 formatted day and time on which the group snapshot was created.
+a|
+ISO 8601 date string
+a|
+enableRemoteReplication
+a|
+Identifies if the snapshot is enabled for remote replication.
+a|
+boolean
+a|
+groupSnapshotID
+a|
+The unique ID of the group snapshot.
+a|
+integer
+a|
+groupSnapshotUUID
+a|
+The UUID of the group snapshot.
+a|
+string
+a|
+members
+a|
+An array of objects containing information about each member of the group snapshot.
+a|
+xref:reference_element_api_snapshot.adoc[snapshot] array
+a|
+name
+a|
+The name of the group snapshot, or, if none was given, the UTC formatted day and time on which the snapshot was created.
+a|
+string or ISO 8601 date string
+a|
+remoteStatuses
+a|
+An array containing the universal identifier and replication status of each remote snapshot on the target cluster as seen from the source cluster.
+a|
+xref:reference_element_api_remoteclustersnapshotstatus.adoc[remoteClusterSnapshotStatus] array
+a|
+status
+a|
+Current status of the snapshot. Possible values:
+
+* Unknown: There was an error obtaining the status of the snapshot.
+* Preparing: This snapshot is being prepared for use and is not yet writable.
+* RemoteSyncing: This snapshot is being replicated from a remote cluster.
+* Done: This snapshot has finished preparation or replication and is now usable.
+* Active: This snapshot is the active branch.
+* Cloning: This snapshot is involved in a CopyVolume operation.
+
+a|
+string
+|===
+
+== Find more information
+
+xref:reference_element_api_listgroupsnapshots.adoc[ListGroupSnapshots]

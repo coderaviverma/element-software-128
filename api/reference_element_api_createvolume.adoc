@@ -1,0 +1,258 @@
+---
+permalink: api/reference_element_api_createvolume.html
+sidebar: sidebar
+keywords: create,volume,volumes,creating,CreateVolume
+summary: 'You can use the CreateVolume method to create a new, empty volume on the cluster. As soon as the volume creation is complete, the volume is available for connection via iSCSI.'
+---
+= CreateVolume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CreateVolume` method to create a new, empty volume on the cluster. As soon as the volume is created, the volume is available for connection via iSCSI.
+
+Volumes created without specified QoS values use the default values. You can view default values for a volume by using the `GetDefaultQoS` method.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+
+|`access`
+|The access mode for the volume. If this parameter is included, the only supported value is `snapMirrorTarget`.
+|string
+|None
+|No
+
+|`accountID`
+|The ID of the account that owns this volume.
+|integer
+|None
+|Yes
+
+|`associateWithQoSPolicy`
+a|Associate the volume with the specified QoS policy. Possible values:
+
+* `true`: Associate the volume with the QoS policy specified in the QoSPolicyID parameter.
+* `false`: Do not associate the volume with the QoS policy specified in the QoSPolicyID parameter. When false, any existing policy association is removed, regardless of whether you specify a QoS policy in the QoSPolicy parameter.
+
+|boolean
+|true
+|No
+
+|`attributes`
+|List of name-value pairs in JSON object format. The total attribute size must be less than 1000B, or 1KB, including JSON formatting characters.
+|JSON object
+|None
+|No
+
+|`dontMoveforIopsRebalance`
+a|Prevent a volume from moving when load balancing with actual IOPS. This setting is available beginning with Element 12.8 and is only effective when link:reference_element_api_enablefeature.html[VolumeLoadBalanceOnActualIOPS] is enabled. Possible values:
+
+* `true`: Volume does not load balance based on actual IOPS.
+* `false`: Volume does load balance based on actual IOPS.
+
+*Note*: Balancing for high availability (node failure) takes precedence over `VolumeLoadBalanceOnActualIOPS` and `dontMoveforIopsRebalance`.
+|boolean
+|false
+|No
+
+|`enable512e`
+a|Enable 512-byte sector emulation. Possible values:
+
+* `true`: The volume provides 512-byte sector emulation.
+* `false`: 512e emulation is not enabled.
+
+|boolean
+|None
+|Yes
+
+|`enableSnapMirrorReplication`
+a|Determines whether the volume can be used for replication with SnapMirror endpoints. Possible values:
+
+* `true`
+* `false`
+
+|boolean
+|false
+|No
+
+|`fifoSize`
+|Specifies the maximum number of First-In-First-Out (FIFO) snapshots supported by the volume. Note that FIFO and non-FIFO snapshots both use the same pool of available snapshot slots on a volume. Use this option to limit FIFO snapshot consumption of the available snapshot slots. If omitted, the value defaults to 24.
+|integer
+|24
+|No
+
+|`minFifoSize`
+|Specifies the minimum number of First-In-First-Out (FIFO) snapshot slots reserved by the volume. This guarantees that if you are using both FIFO snapshots and non-FIFO snapshots on a volume that the non-FIFO snapshots do not unintentionally consume too many FIFO slots. It also ensures that at least this many FIFO snapshots are always available. Since FIFO and non-FIFO snapshots share the same pool, the `minFifoSize` reduces the total number of possible non-FIFO snapshots by the same amount. If omitted, the value defaults to 0.
+|integer
+|0
+|No
+
+|`name`
+|Name of the volume access group (may be user-specified). Not required to be unique, but recommended. Must be 1 to 64 characters in length.
+|string
+|None
+|Yes
+
+|`qos`
+a|The initial quality of service settings for this volume. Default values are used if none are specified. Possible values:
+
+* `minIOPS`
+* `maxIOPS`
+* `burstIOPS`
+
+|QoS object
+|None
+|No
+
+|`qosPolicyID`
+|The ID for the policy whose QoS settings should be applied to the specified volumes. This parameter is mutually exclusive with the `qos` parameter.
+|integer
+|None
+|No
+
+|`totalSize`
+|Total size of the volume, in bytes. Size is rounded up to the nearest megabyte.
+|integer
+|None
+|Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+
+a|
+volume
+a|
+Object containing information about the newly created volume.
+a|
+xref:reference_element_api_volume.adoc[volume]
+a|
+volumeID
+a|
+The volumeID for the newly created volume.
+a|
+integer
+a|
+curve
+a|
+The curve is a set of key-value pairs. The keys are the I/O sizes in bytes. The values represent the cost of performing an IOP at a specific I/O size. The curve is calculated relative to a 4096 byte operation set at 100 IOPS.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "CreateVolume",
+   "params": {
+      "name": "testit",
+      "accountID": 22,
+      "dontMoveForIopsRebalance": true,
+      "totalSize": 100000000000,
+      "enable512e": false,
+      "attributes": {},
+      "qos": {
+         "minIOPS": 500, 
+         "maxIOPS": 27000, 
+         "burstIOPS": 27000, 
+         "burstTime": 60
+      }
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "curve": {
+            "1048576": 15000, 
+            "131072": 1950, 
+            "16384": 270, 
+            "262144": 3900, 
+            "32768": 500, 
+            "4096": 100, 
+            "524288": 7600, 
+            "65536": 1000, 
+            "8192": 160
+        },
+        "volume": {
+            "access": "readWrite",
+            "accountID": 22,
+            "attributes": {},
+            "blockSize": 4096,
+            "createTime": "2024-04-02T13:03:02Z",
+            "currentProtectionScheme": "doubleHelix",
+            "deleteTime": "",
+            "dontMoveForIopsRebalance": true,
+            "enable512e": false,
+            "enableSnapMirrorReplication": false,
+            "fifoSize": 24, 
+            "iqn": "iqn.2010-01.com.solidfire:mysqldata.677",
+            "lastAccessTime": null,
+            "lastAccessTimeIO": null,
+            "minFifoSize": 0,
+            "name": "testit",
+            "previousProtectionScheme": null,
+            "purgeTime": "",
+            "qos": {
+                "burstIOPS": 27000,
+                "burstTime": 60,
+                "curve": { 
+                    "1048576": 15000, 
+                    "131072": 1950, 
+                    "16384": 270, 
+                    "262144": 3900, 
+                    "32768": 500, 
+                    "4096": 100, 
+                    "524288": 7600, 
+                    "65536": 1000, 
+                    "8192": 160 
+                },
+                "maxIOPS": 27000,
+                "minIOPS": 500
+            },
+            "qosPolicyID": null,
+            "scsiEUIDeviceID": "3365657500000140f47acc0100000000",
+            "scsiNAADeviceID": "6f47acc1000000003365657500000140",
+            "sliceCount": 0,
+            "status": "active",
+            "totalSize": 1000000716800,
+            "virtualVolumeID": null,
+            "volumeAccessGroups": [],
+            "volumeConsistencyGroupUUID": "8ed68e57-13ee-47df-8381-29b125142718",
+            "volumeID": 320,
+            "volumePairs": [],
+            "volumeUUID": "e0e2c938-4ecd-4de9-a1be-f6b17c93ce5d"
+        },
+        "volumeID": 320
+    }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_getdefaultqos.adoc[GetDefaultQoS]
+
+// 2024 APR 4, DOC-4742

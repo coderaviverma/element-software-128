@@ -1,0 +1,64 @@
+---
+permalink: storage/reference_monitor_iscsi_session_details.html
+sidebar: sidebar
+keywords: iscsi sessions, monitor
+summary: 'You can view information about the iSCSI sessions that are connected to the cluster.'
+---
+= iSCSI session details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can view information about the iSCSI sessions that are connected to the cluster.
+
+The following list describes the information that you can find about the iSCSI sessions:
+
+* *Node*
++
+The node hosting the primary metadata partition for the volume.
+
+* *Account*
++
+The name of the account that owns the volume. If value is blank, a dash (-) is displayed.
+
+* *Volume*
++
+The volume name identified on the node.
+
+* *Volume ID*
++
+ID of the volume associated with the Target IQN.
+
+* *Initiator ID*
++
+A system-generated ID for the initiator.
+
+* *Initiator Alias*
++
+An optional name for the initiator that makes finding the initiator easier when in a long list.
+
+* *Initator IP*
++
+The IP address of the endpoint that initiates the session.
+
+* *Initiator IQN*
++
+The IQN of the endpoint that initiates the session.
+
+* *Target IP*
++
+The IP address of the node hosting the volume.
+
+* *Target IQN*
++
+The IQN of the volume.
+
+* *CHAP*
++
+The CHAP algorithm for an iSCSI session. If a CHAP algorithm is not being used, a dash (-) is displayed. Available beginning with Element 12.8. 
+
+* *Created On*
++
+Date the session was established.
+
+// 2023 JAN 9, DOC-4725

@@ -1,0 +1,1366 @@
+---
+permalink: api/reference_element_api_response_example_getlldpinfo.html
+sidebar: sidebar
+keywords: response,example,getlldpinfo
+summary: 'The GetLldpInfo method returns a response similar to the following example.'
+---
+
+= GetLldpInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `GetLldpInfo` method returns a response similar to the following example.
+
+----
+{
+  "id": null,
+  "result": {
+    "lldpInfo": {
+        "lldpChassis": {
+        "local-chassis": [
+        {
+          "chassis": [
+            {
+              "capability": [
+                {
+                  "enabled": false,
+                  "type": "Bridge"
+                },
+                {
+                  "enabled": false,
+                  "type": "Router"
+                },
+                {
+                  "enabled": false,
+                  "type": "Wlan"
+                },
+                {
+                  "enabled": true,
+                  "type": "Station"
+                }
+              ],
+              "descr": [
+                {
+                  "value": "Element OS 11.0"
+                }
+              ],
+              "id": [
+                {
+                  "type": "mac",
+                  "value": "08:00:27:3c:0a:f4"
+                }
+              ],
+              "mgmt-ip": [
+                {
+                  "value": "10.0.2.15"
+                },
+                {
+                  "value": "fe80::a00:27ff:fe3c:af4"
+                }
+              ],
+              "name": [
+                {
+                  "value": "SF-93FF"
+                }
+              ]
+            }
+          ],
+          "lldp-med": [
+            {
+              "capability": [
+                {
+                  "available": true,
+                  "type": "Capabilities"
+                },
+                {
+                  "available": true,
+                  "type": "Policy"
+                },
+                {
+                  "available": true,
+                  "type": "Location"
+                },
+                {
+                  "available": true,
+                  "type": "MDI/PSE"
+                },
+                {
+                  "available": true,
+                  "type": "MDI/PD"
+                },
+                {
+                  "available": true,
+                  "type": "Inventory"
+                }
+              ],
+              "device-type": [
+                {
+                  "value": "Generic Endpoint (Class I)"
+                }
+              ],
+              "inventory": [
+                {
+                  "firmware": [
+                    {
+                      "value": "VirtualBox"
+                    }
+                  ],
+                  "hardware": [
+                    {
+                      "value": "1.2"
+                    }
+                  ],
+                  "manufacturer": [
+                    {
+                      "value": "innotek GmbH"
+                    }
+                  ],
+                  "model": [
+                    {
+                      "value": "VirtualBox"
+                    }
+                  ],
+                  "serial": [
+                    {
+                      "value": "0"
+                    }
+                  ],
+                  "software": [
+                    {
+                      "value": "4.14.27-solidfire2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lldpInterfaces": {
+      "lldp": [
+        {
+          "interface": [
+            {
+              "age": "0 day, 00:01:04",
+              "chassis": [
+                {
+                  "capability": [
+                    {
+                      "enabled": false,
+                      "type": "Bridge"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Router"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Wlan"
+                    },
+                    {
+                      "enabled": true,
+                      "type": "Station"
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "Element OS 11.0"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:3c:0a:f4"
+                    }
+                  ],
+                  "mgmt-ip": [
+                    {
+                      "value": "10.0.2.15"
+                    },
+                    {
+                      "value": "fe80::a00:27ff:fe3c:af4"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "value": "SF-93FF"
+                    }
+                  ]
+                }
+              ],
+              "lldp-med": [
+                {
+                  "capability": [
+                    {
+                      "available": true,
+                      "type": "Capabilities"
+                    },
+                    {
+                      "available": true,
+                      "type": "Policy"
+                    },
+                    {
+                      "available": true,
+                      "type": "Location"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PSE"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PD"
+                    },
+                    {
+                      "available": true,
+                      "type": "Inventory"
+                    }
+                  ],
+                  "device-type": [
+                    {
+                      "value": "Generic Endpoint (Class I)"
+                    }
+                  ],
+                  "inventory": [
+                    {
+                      "firmware": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "hardware": [
+                        {
+                          "value": "1.2"
+                        }
+                      ],
+                      "manufacturer": [
+                        {
+                          "value": "innotek GmbH"
+                        }
+                      ],
+                      "model": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "serial": [
+                        {
+                          "value": "0"
+                        }
+                      ],
+                      "software": [
+                        {
+                          "value": "4.14.27-solidfire2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "name": "eth0",
+              "port": [
+                {
+                  "aggregation": [
+                    {
+                      "value": "7"
+                    }
+                  ],
+                  "auto-negotiation": [
+                    {
+                      "advertised": [
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "10Base-T"
+                        },
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "100Base-TX"
+                        },
+                        {
+                          "fd": true,
+                          "hd": false,
+                          "type": "1000Base-T"
+                        }
+                      ],
+                      "current": [
+                        {
+                          "value": "full duplex mode"
+                        }
+                      ],
+                      "enabled": true,
+                      "supported": true
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "eth0"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:3c:0a:f4"
+                    }
+                  ]
+                }
+              ],
+              "ttl": [
+                {
+                  "ttl": "120"
+                }
+              ],
+              "via": "unknown"
+            },
+            {
+              "age": "17722 days, 17:14:28",
+              "chassis": [
+                {
+                  "capability": [
+                    {
+                      "enabled": false,
+                      "type": "Bridge"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Router"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Wlan"
+                    },
+                    {
+                      "enabled": true,
+                      "type": "Station"
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "Element OS 11.0"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:3c:0a:f4"
+                    }
+                  ],
+                  "mgmt-ip": [
+                    {
+                      "value": "10.0.2.15"
+                    },
+                    {
+                      "value": "fe80::a00:27ff:fe3c:af4"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "value": "SF-93FF"
+                    }
+                  ]
+                }
+              ],
+              "lldp-med": [
+                {
+                  "capability": [
+                    {
+                      "available": true,
+                      "type": "Capabilities"
+                    },
+                    {
+                      "available": true,
+                      "type": "Policy"
+                    },
+                    {
+                      "available": true,
+                      "type": "Location"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PSE"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PD"
+                    },
+                    {
+                      "available": true,
+                      "type": "Inventory"
+                    }
+                  ],
+                  "device-type": [
+                    {
+                      "value": "Generic Endpoint (Class I)"
+                    }
+                  ],
+                  "inventory": [
+                    {
+                      "firmware": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "hardware": [
+                        {
+                          "value": "1.2"
+                        }
+                      ],
+                      "manufacturer": [
+                        {
+                          "value": "innotek GmbH"
+                        }
+                      ],
+                      "model": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "serial": [
+                        {
+                          "value": "0"
+                        }
+                      ],
+                      "software": [
+                        {
+                          "value": "4.14.27-solidfire2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "name": "eth1",
+              "port": [
+                {
+                  "aggregation": [
+                    {
+                      "value": "7"
+                    }
+                  ],
+                  "auto-negotiation": [
+                    {
+                      "advertised": [
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "10Base-T"
+                        },
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "100Base-TX"
+                        },
+                        {
+                          "fd": true,
+                          "hd": false,
+                          "type": "1000Base-T"
+                        }
+                      ],
+                      "current": [
+                        {
+                          "value": "unknown"
+                        }
+                      ],
+                      "enabled": true,
+                      "supported": true
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "eth1"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:36:79:78"
+                    }
+                  ]
+                }
+              ],
+              "ttl": [
+                {
+                  "ttl": "120"
+                }
+              ],
+              "via": "unknown"
+            },
+            {
+              "age": "0 day, 00:01:01",
+              "chassis": [
+                {
+                  "capability": [
+                    {
+                      "enabled": false,
+                      "type": "Bridge"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Router"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Wlan"
+                    },
+                    {
+                      "enabled": true,
+                      "type": "Station"
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "Element OS 11.0"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:3c:0a:f4"
+                    }
+                  ],
+                  "mgmt-ip": [
+                    {
+                      "value": "10.0.2.15"
+                    },
+                    {
+                      "value": "fe80::a00:27ff:fe3c:af4"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "value": "SF-93FF"
+                    }
+                  ]
+                }
+              ],
+              "lldp-med": [
+                {
+                  "capability": [
+                    {
+                      "available": true,
+                      "type": "Capabilities"
+                    },
+                    {
+                      "available": true,
+                      "type": "Policy"
+                    },
+                    {
+                      "available": true,
+                      "type": "Location"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PSE"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PD"
+                    },
+                    {
+                      "available": true,
+                      "type": "Inventory"
+                    }
+                  ],
+                  "device-type": [
+                    {
+                      "value": "Generic Endpoint (Class I)"
+                    }
+                  ],
+                  "inventory": [
+                    {
+                      "firmware": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "hardware": [
+                        {
+                          "value": "1.2"
+                        }
+                      ],
+                      "manufacturer": [
+                        {
+                          "value": "innotek GmbH"
+                        }
+                      ],
+                      "model": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "serial": [
+                        {
+                          "value": "0"
+                        }
+                      ],
+                      "software": [
+                        {
+                          "value": "4.14.27-solidfire2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "name": "eth2",
+              "port": [
+                {
+                  "aggregation": [
+                    {
+                      "value": "6"
+                    }
+                  ],
+                  "auto-negotiation": [
+                    {
+                      "advertised": [
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "10Base-T"
+                        },
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "100Base-TX"
+                        },
+                        {
+                          "fd": true,
+                          "hd": false,
+                          "type": "1000Base-T"
+                        }
+                      ],
+                      "current": [
+                        {
+                          "value": "full duplex mode"
+                        }
+                      ],
+                      "enabled": true,
+                      "supported": true
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "eth2"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:fc:f0:a9"
+                    }
+                  ]
+                }
+              ],
+              "ttl": [
+                {
+                  "ttl": "120"
+                }
+              ],
+              "via": "LLDP"
+            },
+            {
+              "age": "0 day, 00:01:01",
+              "chassis": [
+                {
+                  "capability": [
+                    {
+                      "enabled": false,
+                      "type": "Bridge"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Router"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Wlan"
+                    },
+                    {
+                      "enabled": true,
+                      "type": "Station"
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "Element OS 11.0"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:3c:0a:f4"
+                    }
+                  ],
+                  "mgmt-ip": [
+                    {
+                      "value": "10.0.2.15"
+                    },
+                    {
+                      "value": "fe80::a00:27ff:fe3c:af4"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "value": "SF-93FF"
+                    }
+                  ]
+                }
+              ],
+              "lldp-med": [
+                {
+                  "capability": [
+                    {
+                      "available": true,
+                      "type": "Capabilities"
+                    },
+                    {
+                      "available": true,
+                      "type": "Policy"
+                    },
+                    {
+                      "available": true,
+                      "type": "Location"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PSE"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PD"
+                    },
+                    {
+                      "available": true,
+                      "type": "Inventory"
+                    }
+                  ],
+                  "device-type": [
+                    {
+                      "value": "Generic Endpoint (Class I)"
+                    }
+                  ],
+                  "inventory": [
+                    {
+                      "firmware": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "hardware": [
+                        {
+                          "value": "1.2"
+                        }
+                      ],
+                      "manufacturer": [
+                        {
+                          "value": "innotek GmbH"
+                        }
+                      ],
+                      "model": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "serial": [
+                        {
+                          "value": "0"
+                        }
+                      ],
+                      "software": [
+                        {
+                          "value": "4.14.27-solidfire2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "name": "eth3",
+              "port": [
+                {
+                  "aggregation": [
+                    {
+                      "value": "6"
+                    }
+                  ],
+                  "auto-negotiation": [
+                    {
+                      "advertised": [
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "10Base-T"
+                        },
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "100Base-TX"
+                        },
+                        {
+                          "fd": true,
+                          "hd": false,
+                          "type": "1000Base-T"
+                        }
+                      ],
+                      "current": [
+                        {
+                          "value": "full duplex mode"
+                        }
+                      ],
+                      "enabled": true,
+                      "supported": true
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "eth3"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:2c:e4:f8"
+                    }
+                  ]
+                }
+              ],
+              "ttl": [
+                {
+                  "ttl": "120"
+                }
+              ],
+              "via": "LLDP"
+            }
+          ]
+        }
+      ]
+    },
+    "lldpNeighbors": {
+      "lldp": [
+        {
+          "interface": [
+            {
+              "age": "0 day, 00:04:34",
+              "chassis": [
+                {
+                  "capability": [
+                    {
+                      "enabled": true,
+                      "type": "Bridge"
+                    },
+                    {
+                      "enabled": true,
+                      "type": "Router"
+                    },
+                    {
+                      "enabled": true,
+                      "type": "Wlan"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Station"
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "x86_64"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "50:7b:9d:2b:36:84"
+                    }
+                  ],
+                  "mgmt-ip": [
+                    {
+                      "value": "192.168.100.1"
+                    },
+                    {
+                      "value": "fe80::a58e:843:952e:d8eb"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "value": "ConventionalWisdom.wlan.netapp.com"
+                    }
+                  ]
+                }
+              ],
+              "name": "eth2",
+              "port": [
+                {
+                  "auto-negotiation": [
+                    {
+                      "current": [
+                        {
+                          "value": "full duplex mode"
+                        }
+                      ],
+                      "enabled": false,
+                      "supported": false
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "vboxnet1"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "0a:00:27:00:00:01"
+                    }
+                  ],
+                  "ttl": [
+                    {
+                      "value": "120"
+                    }
+                  ]
+                }
+              ],
+              "rid": "2",
+              "via": "LLDP"
+            },
+            {
+              "age": "0 day, 00:01:01",
+              "chassis": [
+                {
+                  "capability": [
+                    {
+                      "enabled": false,
+                      "type": "Bridge"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Router"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Wlan"
+                    },
+                    {
+                      "enabled": true,
+                      "type": "Station"
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "Element OS 11.0"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:3c:0a:f4"
+                    }
+                  ],
+                  "mgmt-ip": [
+                    {
+                      "value": "10.0.2.15"
+                    },
+                    {
+                      "value": "fe80::a00:27ff:fe3c:af4"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "value": "SF-93FF"
+                    }
+                  ]
+                }
+              ],
+              "lldp-med": [
+                {
+                  "capability": [
+                    {
+                      "available": true,
+                      "type": "Capabilities"
+                    },
+                    {
+                      "available": true,
+                      "type": "Policy"
+                    },
+                    {
+                      "available": true,
+                      "type": "Location"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PSE"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PD"
+                    },
+                    {
+                      "available": true,
+                      "type": "Inventory"
+                    }
+                  ],
+                  "device-type": [
+                    {
+                      "value": "Generic Endpoint (Class I)"
+                    }
+                  ],
+                  "inventory": [
+                    {
+                      "firmware": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "hardware": [
+                        {
+                          "value": "1.2"
+                        }
+                      ],
+                      "manufacturer": [
+                        {
+                          "value": "innotek GmbH"
+                        }
+                      ],
+                      "model": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "serial": [
+                        {
+                          "value": "0"
+                        }
+                      ],
+                      "software": [
+                        {
+                          "value": "4.14.27-solidfire2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "name": "eth2",
+              "port": [
+                {
+                  "aggregation": [
+                    {
+                      "value": "6"
+                    }
+                  ],
+                  "auto-negotiation": [
+                    {
+                      "advertised": [
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "10Base-T"
+                        },
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "100Base-TX"
+                        },
+                        {
+                          "fd": true,
+                          "hd": false,
+                          "type": "1000Base-T"
+                        }
+                      ],
+                      "current": [
+                        {
+                          "value": "full duplex mode"
+                        }
+                      ],
+                      "enabled": true,
+                      "supported": true
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "eth3"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:2c:e4:f8"
+                    }
+                  ],
+                  "ttl": [
+                    {
+                      "value": "120"
+                    }
+                  ]
+                }
+              ],
+              "rid": "1",
+              "via": "LLDP"
+            },
+            {
+              "age": "0 day, 00:04:34",
+              "chassis": [
+                {
+                  "capability": [
+                    {
+                      "enabled": true,
+                      "type": "Bridge"
+                    },
+                    {
+                      "enabled": true,
+                      "type": "Router"
+                    },
+                    {
+                      "enabled": true,
+                      "type": "Wlan"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Station"
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "x86_64"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "50:7b:9d:2b:36:84"
+                    }
+                  ],
+                  "mgmt-ip": [
+                    {
+                      "value": "192.168.100.1"
+                    },
+                    {
+                      "value": "fe80::a58e:843:952e:d8eb"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "value": ""
+                    }
+                  ]
+                }
+              ],
+              "name": "eth3",
+              "port": [
+                {
+                  "auto-negotiation": [
+                    {
+                      "current": [
+                        {
+                          "value": "full duplex mode"
+                        }
+                      ],
+                      "enabled": false,
+                      "supported": false
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "vboxnet1"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "0a:00:27:00:00:01"
+                    }
+                  ],
+                  "ttl": [
+                    {
+                      "value": "120"
+                    }
+                  ]
+                }
+              ],
+              "rid": "2",
+              "via": "LLDP"
+            },
+            {
+              "age": "0 day, 00:01:01",
+              "chassis": [
+                {
+                  "capability": [
+                    {
+                      "enabled": false,
+                      "type": "Bridge"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Router"
+                    },
+                    {
+                      "enabled": false,
+                      "type": "Wlan"
+                    },
+                    {
+                      "enabled": true,
+                      "type": "Station"
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "Element OS 11.0"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:3c:0a:f4"
+                    }
+                  ],
+                  "mgmt-ip": [
+                    {
+                      "value": "10.0.2.15"
+                    },
+                    {
+                      "value": "fe80::a00:27ff:fe3c:af4"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "value": "SF-93FF"
+                    }
+                  ]
+                }
+              ],
+              "lldp-med": [
+                {
+                  "capability": [
+                    {
+                      "available": true,
+                      "type": "Capabilities"
+                    },
+                    {
+                      "available": true,
+                      "type": "Policy"
+                    },
+                    {
+                      "available": true,
+                      "type": "Location"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PSE"
+                    },
+                    {
+                      "available": true,
+                      "type": "MDI/PD"
+                    },
+                    {
+                      "available": true,
+                      "type": "Inventory"
+                    }
+                  ],
+                  "device-type": [
+                    {
+                      "value": "Generic Endpoint (Class I)"
+                    }
+                  ],
+                  "inventory": [
+                    {
+                      "firmware": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "hardware": [
+                        {
+                          "value": "1.2"
+                        }
+                      ],
+                      "manufacturer": [
+                        {
+                          "value": "innotek GmbH"
+                        }
+                      ],
+                      "model": [
+                        {
+                          "value": "VirtualBox"
+                        }
+                      ],
+                      "serial": [
+                        {
+                          "value": "0"
+                        }
+                      ],
+                      "software": [
+                        {
+                          "value": "4.14.27-solidfire2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "name": "eth3",
+              "port": [
+                {
+                  "aggregation": [
+                    {
+                      "value": "6"
+                    }
+                  ],
+                  "auto-negotiation": [
+                    {
+                      "advertised": [
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "10Base-T"
+                        },
+                        {
+                          "fd": true,
+                          "hd": true,
+                          "type": "100Base-TX"
+                        },
+                        {
+                          "fd": true,
+                          "hd": false,
+                          "type": "1000Base-T"
+                        }
+                      ],
+                      "current": [
+                        {
+                          "value": "1000BaseTFD"
+                        }
+                      ],
+                      "enabled": true,
+                      "supported": true
+                    }
+                  ],
+                  "descr": [
+                    {
+                      "value": "eth2"
+                    }
+                  ],
+                  "id": [
+                    {
+                      "type": "mac",
+                      "value": "08:00:27:fc:f0:a9"
+                    }
+                  ],
+                  "ttl": [
+                    {
+                      "value": "120"
+                    }
+                  ]
+                }
+              ],
+              "rid": "1",
+              "via": "LLDP"
+            }
+          ]
+        }
+      ]
+    }
+    }
+ }
+}
+----

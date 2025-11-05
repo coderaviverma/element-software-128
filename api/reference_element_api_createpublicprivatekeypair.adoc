@@ -1,0 +1,128 @@
+---
+permalink: api/reference_element_api_createpublicprivatekeypair.html
+sidebar: sidebar
+keywords: SSL keys,public and private keys,certificate signing request,creating key pair
+summary: 'You can use the CreatePublicPrivateKeyPair method to create public and private SSL keys. You can use these keys to generate certificate signing requests. There can only be one key pair in use for each storage cluster. Before using this method to replacing existing keys, ensure the keys are no longer in use by any providers.'
+---
+
+= CreatePublicPrivateKeyPair
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CreatePublicPrivateKeyPair` method to create public and private SSL keys. You can use these keys to generate certificate signing requests. There can only be one key pair in use for each storage cluster. Before using this method to replacing existing keys, ensure the keys are no longer in use by any providers.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+commonName
+a|
+The X.509 distinguished name *Common Name* field (CN).
+a|
+string
+a|
+None
+a|
+No
+a|
+country
+a|
+The X.509 distinguished name *Country* field (C).
+a|
+string
+a|
+None
+a|
+No
+a|
+emailAddress
+a|
+The X.509 distinguished name *Email Address* field (MAIL).
+a|
+string
+a|
+None
+a|
+No
+a|
+locality
+a|
+The X.509 distinguished name *Locality Name* field (L).
+a|
+string
+a|
+None
+a|
+No
+a|
+organization
+a|
+The X.509 distinguished name *Organization Name* field (O).
+a|
+string
+a|
+None
+a|
+No
+a|
+organizationalUnit
+a|
+The X.509 distinguished name *Organizational Unit Name* field (OU).
+a|
+string
+a|
+None
+a|
+No
+a|
+state
+a|
+The X.509 distinguished name *State* or *Province Name* field (ST or SP or S).
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has no return values. If there is no error, key creation is considered successful.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "CreatePublicPrivateKeyPair",
+  "params": {
+    "commonName": "Name",
+    "country": "US",
+    "emailAddress" : "email@domain.com"
+   },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result":
+      {}
+}
+----
+
+== New since version
+
+11.7

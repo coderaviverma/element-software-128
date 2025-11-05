@@ -1,0 +1,17 @@
+---
+permalink: storage/concept_basic_interface_refresh_rate_impacted_by_cluster_load.html
+sidebar: sidebar
+keywords: data refresh interval, cluster, interval controls, API requests, heavy load cluster, cluster credentials
+summary: 'Depending on API response times, the cluster might automatically adjust the data refresh interval for certain portions of the NetApp Element software page you are viewing.'
+---
+
+= Interface refresh rate impacted by cluster load
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Depending on API response times, the cluster might automatically adjust the data refresh interval for certain portions of the NetApp Element software page you are viewing.
+
+The refresh interval is reset to the default when you reload the page in your browser. You can see the current refresh interval by clicking the cluster name in the upper-right of the page. Note that the interval controls how often API requests are made, not how quickly the data comes back from the server.
+
+When a cluster is under heavy load, it might queue API requests from the Element UI. In rare circumstances, when system response is significantly delayed, such as a slow network connection combined with a busy cluster, you might be logged out of the Element UI if the system does not respond to queued API requests quickly enough. If you are redirected to the logout screen, you can log in again after dismissing any initial browser authentication prompt. Upon returning to the overview page, you might be prompted for cluster credentials if they are not saved by your browser.

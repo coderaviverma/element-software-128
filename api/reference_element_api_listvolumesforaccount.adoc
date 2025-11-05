@@ -1,0 +1,126 @@
+---
+permalink: api/reference_element_api_listvolumesforaccount.html
+sidebar: sidebar
+keywords: volume,volumes,list,listing,account,active,pending,deleted,listvolumesforaccount
+summary: 'You can use the ListVolumesForAccount method to list active and \(pending\) deleted volumes for an account.'
+---
+
+= ListVolumesForAccount
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListVolumesForAccount` method to list active and (pending) deleted volumes for an account.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+includeVirtualVolumes
+a|
+Virtual volumes are included in the response by default. To exclude virtual volumes, set to false.
+a|
+boolean
+a|
+true
+a|
+No
+a|
+accountID
+a|
+All volumes owned by this accountID are returned.
+a|
+integer
+a|
+No
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+volumes
+a|
+List of volume information.
+a|
+xref:reference_element_api_volume.adoc[volume] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListVolumesForAccount",
+   "params": {
+      "accountID"  : 1
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+Responses for this method are similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "volumes": [
+            {
+                "access": "readWrite",
+                "accountID": 1,
+                "attributes": {},
+                "blockSize": 4096,
+                "createTime": "2018-07-22T16:15:25Z",
+                "deleteTime": "",
+                "enable512e": false,
+                "iqn": "iqn.2010-01.com.solidfire:0oto.test1.25",
+                "name": "test1",
+                "purgeTime": "",
+                "qos": {
+                    "burstIOPS": 15000,
+                    "burstTime": 60,
+                    "curve": {
+                        "4096": 100,
+                        "8192": 160,
+                        "16384": 270,
+                        "32768": 500,
+                        "65536": 1000,
+                        "131072": 1950,
+                        "262144": 3900,
+                        "524288": 7600,
+                        "1048576": 15000
+                    },
+                    "maxIOPS": 15000,
+                    "minIOPS": 50
+                },
+                "scsiEUIDeviceID": "306f746f00000019f47acc0100000000",
+                "scsiNAADeviceID": "6f47acc100000000306f746f00000019",
+                "sliceCount": 1,
+                "status": "active",
+                "totalSize": 1000341504,
+                "virtualVolumeID": null,
+                "volumeAccessGroups": [],
+                "volumeID": 25,
+                "volumePairs": []
+            }
+        ]
+    }
+}
+----
+
+== New since version
+
+9.6

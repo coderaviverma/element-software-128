@@ -1,0 +1,59 @@
+section: mnode
+title: Work with the management node
+entries:
+  - title: Management node overview
+    url: /mnode/task_mnode_work_overview.html
+  - title: Install or recover a management node
+    entries:
+    - title: Install a management node
+      url: /mnode/task_mnode_install.html
+    - title: Create a NetApp HCC role in vCenter
+      url: /mnode/task_mnode_create_netapp_hcc_role_vcenter.html
+    - title: Configure a storage Network Interface Controller (NIC)
+      url: /mnode/task_mnode_install_add_storage_NIC.html
+    - title: Recover a management node
+      url: /mnode/task_mnode_recover.html
+  - title: Access the management node
+    url: /mnode/task_mnode_access_ui.html
+  - title: Change the management node default SSL certificate
+    url: /mnode/reference_change_mnode_default_ssl_certificate.html
+  - title: Work with the management node UI
+    entries:
+    - title: Management node UI overview
+      url: /mnode/task_mnode_work_overview_UI.html
+    - title: Configure alert monitoring
+      url: /mnode/task_mnode_enable_alerts.html
+    - title: Modify and test the management node network, cluster, and system settings
+      url: /mnode/task_mnode_settings.html
+    - title: Run system utilities from the management node
+      url: /mnode/task_mnode_run_system_utilities.html
+  - title: Work with the management node REST API
+    entries:
+    - title: Management node REST API UI overview
+      url: /mnode/task_mnode_work_overview_API.html
+    - title: Get authorization to use REST APIs
+      url: /mnode/task_mnode_api_get_authorizationtouse.html
+    - title: Enable Active IQ and NetApp monitoring
+      url: /mnode/task_mnode_enable_activeIQ.html
+    - title: Configure NetApp Hybrid Cloud Control for multiple vCenters
+      url: /mnode/task_mnode_multi_vcenter_config.html
+    - title: Add a controller asset to the management node
+      url: /mnode/task_mnode_add_assets.html
+    - title: Create and manage storage cluster assets
+      url: /mnode/task_mnode_manage_storage_cluster_assets.html
+    - title: View or edit existing controller assets
+      url: /mnode/task_mnode_edit_vcenter_assets.html
+    - title: Configure a proxy server
+      url: /mnode/task_mnode_configure_proxy_server.html
+    - title: Verify management node OS and services versions
+      url: /mnode/task_mnode_api_find_mgmt_svcs_version.html
+    - title: Getting logs from management services
+      url: /mnode/task_mnode_logs.html
+  - title: Manage support connections
+    entries:
+    - title: Accessing storage nodes using SSH for basic troubleshooting
+      url: /mnode/task_mnode_enable_node_troubleshooting_sessions.html
+    - title: Start a remote NetApp Support session
+      url: /mnode/task_mnode_enable_remote_support_connections.html
+    - title: Manage SSH functionality on the management node
+      url: /mnode/task_mnode_ssh_management.html

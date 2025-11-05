@@ -1,0 +1,31 @@
+---
+permalink: storage/task_data_protection_restore_volume_from_backup_on_amazon_s3.html
+sidebar: sidebar
+keywords: volume restore, amazon s3 object store
+summary: 'You can restore a volume from a backup on an Amazon S3 object store.'
+---
+
+= Restore a volume from backup on an Amazon S3 object store
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can restore a volume from a backup on an Amazon S3 object store.
+
+. Click *Reporting* > *Event Log*.
+. Locate the backup event that created the backup you need to restore.
+. In the *Details* column for the event, click *Show Details*.
+. Copy the manifest information to your clipboard.
+. Click *Management* > *Volumes*.
+. Click the Actions icon for the volume you want to restore.
+. In the resulting menu, click *Restore from*.
+. In the *Integrated Restore* dialog box under *Restore from*, select *S3*.
+. Select the option that matches the backup under *Data Format*:
+ ** *Native*: A compressed format readable only by SolidFire storage systems.
+ ** *Uncompressed*: An uncompressed format compatible with other systems.
+. Enter a hostname to use to access the object store in the *Hostname* field.
+. Enter an access key ID for the account in the *Access Key ID* field.
+. Enter the secret access key for the account in the *Secret Access Key* field.
+. Enter the S3 bucket in which to store the backup in the *S3 Bucket* field.
+. Paste the manifest information into the *Manifest* field.
+. Click *Start Write*.

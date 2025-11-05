@@ -1,0 +1,23 @@
+section: upgrade
+title: Upgrade your NetApp SolidFire all-flash storage system
+entries:
+  - title: Upgrade sequence overview
+    url: /upgrade/concept_element_upgrade_overview.html
+  - title: System upgrade procedures
+    entries:
+  # - title: Upgrade to the latest HealthTools
+  #  url: /upgrade/task_upgrade_element_latest_healthtools.html
+    - title: Run Element storage health checks prior to upgrading storage
+      url: /upgrade/task_hcc_upgrade_element_prechecks.html
+    - title: Upgrade a management node
+      url: /upgrade/task_hcc_upgrade_management_node.html
+    - title: Update management services
+      url: /upgrade/task_hcc_update_management_services.html
+    - title: Upgrade Element software
+      url: /upgrade/task_hcc_upgrade_element_software.html
+    - title: Upgrade storage firmware
+      url: /upgrade/task_hcc_upgrade_storage_firmware.html
+    - title: Upgrade the Element Plug-in for vCenter Server
+      url: /upgrade/task_vcp_upgrade_plugin.html
+  - title: Upgrade your vSphere components for a NetApp SolidFire storage system with the Element Plug-in for vCenter Server
+    url: /upgrade/task_sf_upgrade_all_vsphere.html

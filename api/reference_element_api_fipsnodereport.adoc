@@ -1,0 +1,49 @@
+---
+permalink: api/reference_element_api_fipsnodereport.html
+sidebar: sidebar
+keywords: objects,object,fipsNodeReport
+summary: 'The fipsNodeReport object contains information about FIPS 140-2 support for a single node in the storage cluster. You can retrieve this information using the GetFipsReport method.'
+---
+
+= fipsNodeReport
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The fipsNodeReport object contains information about FIPS 140-2 support for a single node in the storage cluster. You can retrieve this information using the `GetFipsReport` method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+nodeID
+a|
+The ID of the node reporting the information.
+a|
+integer
+a|
+fipsDrives
+a|
+Whether or not FIPS 140-2 drive encryption is enabled for this node. Possible values:
+
+* None: This node is not capable of FIPS drive encryption.
+* Partial: Node is capable of FIPS drive encryption but not all drives present are FIPS-capable drives.
+* Ready: Node is capable of FIPS drive encryption and either all drives present are FIPS-capable drives, or there are no drives present.
+
+a|
+FipsDrivesStatusType
+a|
+httpsEnabled
+a|
+Whether or not FIPS 140-2 HTTPS encryption is enabled for this node. Possible values:
+
+* true: enabled
+* false: disabled
+
+a|
+boolean
+|===

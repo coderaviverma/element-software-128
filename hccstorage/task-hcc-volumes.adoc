@@ -1,0 +1,71 @@
+---
+sidebar: sidebar
+permalink: hccstorage/task-hcc-volumes.html
+summary: You can monitor volumes in your system by using the Hybrid Cloud Control Volumes page.
+keywords: netapp, element, volumes, storage, access groups, initiators, capacity, data protection, QoS
+---
+
+= Monitor volumes on your storage cluster
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+The SolidFire system provisions storage using volumes. Volumes are block devices accessed over the network by iSCSI or Fibre Channel clients. You can monitor details about access groups, accounts, initiators, used capacity, Snapshot data protection status, number of iSCSI sessions, and the Quality of Service (QoS) policy associated with the volume.
+
+You can also see details on active and deleted volumes.
+
+With this view, you might first want to monitor the Used capacity column.
+
+You can access this information only if you have NetApp Hybrid Cloud Control administrative privileges.
+
+
+.Steps
+
+. Open the IP address of the management node in a web browser. For example:
++
+----
+https://[management node IP address]
+----
+. Log in to NetApp Hybrid Cloud Control by providing the SolidFire all-flash storage cluster administrator credentials.
+. In the left navigation blue box, select the SolidFire all-flash storage installation.
+. In the left navigation, select the cluster and select *Storage* > *Volumes*.
++
+image::hcc_volumes_overview_active.png[HCC Volumes page > Overview tab image]
+
+. On the Volumes page, use the following options:
++
+image::hcc_volumes_icons.png[HCC Volumes page icons]
+
+.. Filter the results by selecting the *Filter* icon.
+.. Hide or show columns by selecting the *Hide/Show* icon.
+.. Refresh data by selecting the *Refresh* icon.
+.. Download a CSV file by selecting on the *Download* icon.
+
+. Monitor the Used capacity column. If Warning, Error, or Critical thresholds are reached, the color represents the used capacity status:
+.. Warning - Yellow
+.. Error - Orange
+.. Critical - Red
+
+. From the Volumes view, select the tabs to see additional details about the volumes:
+.. *Access Groups*: You can see the volume access groups that are mapped from initiators to a collection of volumes for secured access.
++
+See information about link:../concepts/concept_solidfire_concepts_volume_access_groups.html[volume access groups].
+
+.. *Accounts*: You can see the user accounts, which enable clients to connect to volumes on a node. When you create a volume, it is assigned to a specific user account.
++
+See information about link:../concepts/concept_solidfire_concepts_accounts_and_permissions.html#user-accounts[SolidFire all-flash storage system user accounts].
+
+.. *Initiators*: You can see the iSCSI initiator IQN or Fibre Channel WWPNs for the volume. Each IQN added to an access group can access each volume in the group without requiring CHAP authentication. Each WWPN added to an access group enables Fibre Channel network access to the volumes in the access group.
+
+.. *QoS Policies*: You can see the QoS policy applied to the volume. A QoS policy applies standardized settings for minimum IOPS, maximum IOPS, and burst IOPS to multiple volumes.
++
+See information about link:../concepts/concept_data_manage_volumes_solidfire_quality_of_service.html#qos-performance.html[performance and QoS policies].
+
+[discrete]
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element documentation^]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

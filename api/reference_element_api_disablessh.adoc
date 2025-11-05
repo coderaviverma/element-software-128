@@ -1,0 +1,57 @@
+---
+permalink: api/reference_element_api_disablessh.html
+sidebar: sidebar
+keywords: SSH,disable,disabling,node,DisableSsh
+summary: 'You can use the DisableSsh method to disable the SSH service for a single storage node. This method does not affect the cluster-wide SSH service timeout duration.'
+---
+
+= DisableSsh
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DisableSsh` method to disable the SSH service for a single storage node. This method does not affect the cluster-wide SSH service timeout duration.
+
+== Parameter
+
+This method has no input parameter.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+enabled
+a|
+The status of the SSH service for this node.
+a|
+boolean
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "DisableSsh",
+  "params": {
+      },
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {"enabled": false}
+}
+----
+// 2022 DEC 12, DOC-4643 

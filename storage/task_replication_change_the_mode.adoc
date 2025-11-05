@@ -1,0 +1,23 @@
+---
+permalink: storage/task_replication_change_the_mode.html
+sidebar: sidebar
+keywords: volume pairings, replication mode, change, volume pair properties
+summary: 'You can edit volume pair properties to change the replication mode of the volume pair relationship.'
+---
+
+= Change the mode of replication
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can edit volume pair properties to change the replication mode of the volume pair relationship.
+
+. Select *Data Protection* > *Volume Pairs*.
+. Click the Actions icon for the volume pair.
+. Click *Edit*.
+. In the *Edit Volume Pair* pane, select a new replication mode:
+ ** *Real-time (Asynchronous)*: Writes are acknowledged to the client after they are committed on the source cluster.
+ ** *Real-time (Synchronous)*: Writes are acknowledged to the client after they are committed on both the source and target clusters.
+ ** *Snapshots Only*: Only snapshots created on the source cluster are replicated. Active writes from the source volume are not replicated.
+*Attention:* Changing the mode of replication changes the mode immediately. Be sure that you have coordinated these changes at both sites.
+. Click *Save Changes*.

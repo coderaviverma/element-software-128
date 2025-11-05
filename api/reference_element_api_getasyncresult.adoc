@@ -1,0 +1,184 @@
+---
+permalink: api/reference_element_api_getasyncresult.html
+sidebar: sidebar
+keywords: async,asynchronous,results,result,get,getting,GetAsyncResult
+summary: 'You can use GetAsyncResult to retrieve the result of asynchronous method calls. Some method calls require some time to run, and might not be finished when the system sends the initial response. To obtain the status or result of the method call, use GetAsyncResult to poll the asyncHandle value returned by the method.'
+---
+
+= GetAsyncResult
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `GetAsyncResult` to retrieve the result of asynchronous method calls. Some method calls require some time to run, and might not be finished when the system sends the initial response. To obtain the status or result of the method call, use `GetAsyncResult` to poll the asyncHandle value returned by the method.
+
+`GetAsyncResult` returns the overall status of the operation (in progress, completed, or error) in a standard fashion, but the actual data returned for the operation depends on the original method call and the return data is documented with each method.
+
+If the keepResult parameter is missing or false, the asyncHandle becomes inactive when the result is returned, and later attempts to query that asyncHandle return an error. You can keep the asyncHandle active for future queries by setting the keepResult parameter to true.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+asyncHandle
+a|
+A value that was returned from the original asynchronous method call.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+keepResult
+a|
+If true, GetAsyncResult does not remove the asynchronous result upon returning it, enabling future queries to that asyncHandle.
+a|
+boolean
+a|
+false
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+status
+a|
+Status of the asynchronous method call. Possible values:
+
+* running: The method is still running.
+* complete: The method is complete and the result or error is available.
+
+a|
+string
+a|
+result
+a|
+If the asynchronous method successfully completed, this is the result of the asynchronous operation. If the asynchronous operation failed, this member is not present.
+a|
+string
+a|
+error
+a|
+If the status is complete and the asynchronous method failed, this member includes the error details. If the asynchronous operation succeeded, this member is not present.
+a|
+string
+a|
+resultType
+a|
+The type of operation the asynchronous method call is or was performing.
+a|
+string
+a|
+details
+a|
+If the status is running, this member includes information relevant to the method's current operation. If the asynchronous method is not running, this member is not present.
+a|
+JSON Object
+a|
+createTime
+a|
+The time that the asynchronous method was called, in UTC+0 format.
+a|
+ISO 8601 date string
+a|
+lastUpdateTime
+a|
+The time that the asynchronous method's status was last updated, in UTC+0 format.
+a|
+ISO 8601 date string
+|===
+*Note:* The return value of GetAsyncResult is essentially a nested version of the standard JSON response with an additional status field.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetAsyncResult",
+  "params": {
+      "asyncHandle" : 389
+},
+"id" : 1
+}
+----
+
+== Response example: method error
+
+This method returns a response similar to the following example:
+
+----
+{
+   "error": {
+      "code": 500,
+      "message": "DBClient operation requested on a non-existent path at [/asyncresults/1]",
+      "name": "xDBNoSuchPath"
+   },
+   "id": 1
+}
+----
+
+If "response" were the JSON response object from the GetAsyncResult call, then "response.error" would correspond to an error with the GetAsyncResult method itself (such as querying a non-existent asyncHandle).
+
+== Response example: asynchronous task error
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+     "createTime": "2016-01-01T02:05:53Z",
+     "error": {
+       "bvID": 1,
+       "message": "Bulk volume job failed",
+       "name": "xBulkVolumeScriptFailure",
+       "volumeID": 34
+     },
+     "lastUpdateTime": "2016-01-21T02:06:56Z",
+     "resultType": "BulkVolume",
+     "status": "complete"
+   }
+}
+----
+
+The "`response.result.error`" would correspond to an error result from the original method call.
+
+== Response example: asynchronous task success
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+     "createTime": "2016-01-01T22:29:18Z",
+     "lastUpdateTime": "2016-01-01T22:45:51Z",
+     "result": {
+       "cloneID": 25,
+       "message": "Clone complete.",
+       "volumeID": 47
+     },
+     "resultType": "Clone",
+     "status": "complete"
+   }
+}
+----
+
+The "`response.result.result`" is the return value for the original method call if the call completed successfully.
+
+== New since version
+
+9.6

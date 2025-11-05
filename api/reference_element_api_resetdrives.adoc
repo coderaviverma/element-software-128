@@ -1,0 +1,100 @@
+---
+permalink: api/reference_element_api_resetdrives.html
+sidebar: sidebar
+keywords: drive,drives,remove,removing,data,reset,resetting,resetdrives,erase
+summary: 'You can use the ResetDrives method to proactively initialize drives and remove all data currently residing on a drive. The drive can then be reused in an existing node or used in an upgraded node.'
+---
+
+= ResetDrives
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ResetDrives` method to proactively initialize drives and remove all data currently residing on a drive. The drive can then be reused in an existing node or used in an upgraded node.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+drives
+a|
+List of device names (not driveIDs) to reset.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+force
+a|
+Set to true to reset the drive.
+a|
+boolean
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+details
+a|
+Details of drives that are being reset.
+a|
+JSON object array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ResetDrives",
+   "params": {
+      "drives" : "slot3",
+      "force" : true
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+   "details": {
+    "drives": [
+    {
+      "drive": "slot3",
+      "returnCode": 0,
+      "stderr": " * Unlocking /dev/slot9 .[ ok ]\ * Setting master password /dev/slot9 .[ ok ]\ * Secure erasing /dev/slot9 (hdparm) [tries=0/1] ...........................[ ok ]",
+      "stdout": ""
+    }
+   ]
+  },
+  "duration": "00:00:28.501269",
+  "result": "Passed"
+  }
+}
+----
+
+== New since version
+
+9.6

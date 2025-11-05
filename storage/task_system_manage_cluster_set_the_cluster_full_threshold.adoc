@@ -1,0 +1,25 @@
+---
+permalink: storage/task_system_manage_cluster_set_the_cluster_full_threshold.html
+sidebar: sidebar
+keywords: cluster fullness, setting threshold, metadata, warning
+summary: 'You can change the level at which the system generates a block cluster fullness warning using the steps below. In addition, you can use the ModifyClusterFullThreshold API method to change the level at which the system generates a block or metadata warning.'
+---
+
+= Set the cluster full threshold
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can change the level at which the system generates a block cluster fullness warning using the steps below. In addition, you can use the ModifyClusterFullThreshold API method to change the level at which the system generates a block or metadata warning.
+
+.What you'll need
+You must have cluster administrator privileges.
+
+.Steps
+. Click *Cluster* > *Settings*.
+. In the Cluster Full Settings section, enter a percentage in *Raise a warning alert when _% capacity remains before Helix could not recover from a node failure*.
+. Click *Save Changes*.
+
+== Find more information
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/SF_Series/How_are_the_blockSpace_thresholds_calculated_for_Element[How are the blockSpace thresholds calculated for Element^]

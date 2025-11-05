@@ -1,0 +1,106 @@
+---
+permalink: api/reference_element_api_pendingactivenode.html
+sidebar: sidebar
+keywords: object,objects,pendingActiveNode
+summary: 'The pendingActiveNode object contains information about a node that is currently in the pendingActive state, between the pending and active states. These are nodes that are currently being returned to the factory software image. Use the ListPendingActiveNodes API method to return a list of this information for all pendingActive nodes.'
+---
+
+= pendingActiveNode
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The pendingActiveNode object contains information about a node that is currently in the pendingActive state, between the pending and active states. These are nodes that are currently being returned to the factory software image. Use the `ListPendingActiveNodes` API method to return a list of this information for all pendingActive nodes.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+activeNodeKey
+a|
+A unique key that allows the node to join the cluster automatically after a successful installation of software.
+a|
+string
+a|
+assignedNodeID
+a|
+The assigned node ID for the node.
+a|
+string
+a|
+asyncHandle
+a|
+The asynchronous method handle that you can use to query the status of the operation.
+a|
+integer
+a|
+cip
+a|
+The cluster IP address assigned to the node.
+a|
+string
+a|
+mip
+a|
+The management IP address assigned to the node.
+a|
+string
+a|
+nodeSlot
+a|
+For HCI platforms, the letter corresponding to the chassis slot this node is in ("A", "B", "C", or "D"). For storage platforms, this value is null.
+a|
+string
+a|
+pendingActiveNodeID
+a|
+The pending node ID of the node.
+a|
+integer
+a|
+platformInfo
+a|
+Hardware information for the node. Members:
+
+* chassisType: The hardware platform of the node.
+* cpuModel: The CPU model of the hardware platform.
+* nodeMemoryGB: The amount of memory installed in the physical platform in GB.
+* nodeType: The node model name.
+* platformConfigVersion: The version of software configured for this node hardware.
+
+a|
+JSON object
+a|
+role
+a|
+The node's role in the cluster. Possible values:
+
+* Management
+* Storage
+* Compute
+* Witness
+
+a|
+
+a|
+sip
+a|
+The storage (iSCSI) IP address assigned to the node.
+a|
+string
+a|
+softwareVersion
+a|
+The current version of Element software running on the node.
+a|
+string
+|===
+
+
+== Find more information
+
+xref:reference_element_api_listpendingactivenodes.adoc[ListPendingActiveNodes]

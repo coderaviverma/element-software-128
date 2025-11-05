@@ -1,0 +1,40 @@
+---
+permalink: api/reference_element_api_protectiondomainresiliency.html
+sidebar: sidebar
+keywords: object,objects,protectionDomainResiliency
+summary: 'The protectionDomainResiliency object contains the resiliency status of this storage cluster. Resiliency indicates the storage cluster’s ability to automatically heal itself from one or more failures all within a single protection domain of its associated protection domain type. A storage cluster is considered healed when it can continue reading and writing data through the failure of any single storage node \(a state known as node tolerance\).'
+---
+
+= protectionDomainResiliency
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The protectionDomainResiliency object contains the resiliency status of this storage cluster. Resiliency indicates the storage cluster's ability to automatically heal itself from one or more failures all within a single protection domain of its associated protection domain type. A storage cluster is considered healed when it can continue reading and writing data through the failure of any single storage node (a state known as node tolerance).
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+protectionSchemeResiliencies
+a|
+A list of objects (one for each protection scheme) containing failure resiliency information for the associated type of protection domain.
+a|
+xref:reference_element_api_protectionschemeresiliency.adoc[protectionSchemeResiliency] array
+a|
+singleFailureThresholdBytesForBlockData
+a|
+The maximum number of bytes that can be stored on the storage cluster before losing the ability to automatically heal to a state of node tolerance.
+a|
+integer
+a|
+sustainableFailuresForEnsemble
+a|
+The predicted number of simultaneous failures that can occur without losing the ability to automatically heal to a state of node tolerance for the ensemble quorum.
+a|
+integer
+|===

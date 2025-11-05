@@ -1,0 +1,115 @@
+---
+permalink: api/reference_element_api_createstoragecontainer.html
+sidebar: sidebar
+keywords: create,creating,storage,container,virtual,volume,volumes,vvol,vvols,CreateStorageContainer
+summary: 'You can use the CreateStorageContainer method to create a Virtual Volume \(VVol\) storage container. You can use storage containers for reporting and resource allocation. You need to create at least one storage container to use the Virtual Volumes feature.'
+---
+
+= CreateStorageContainer
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CreateStorageContainer` method to create a Virtual Volume (VVol) storage container. You can use storage containers for reporting and resource allocation. You need to create at least one storage container to use the Virtual Volumes feature.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+name
+a|
+Name of the storage container. Follows Element software account naming restrictions.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+accountID
+a|
+Non-storage container account that will become a storage container.
+a|
+integer
+a|
+None
+a|
+No
+a|
+initiatorSecret
+a|
+The secret for CHAP authentication for the initiator.
+a|
+string
+a|
+None
+a|
+No
+a|
+targetSecret
+a|
+The secret for CHAP authentication for the target.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+storageContainer
+a|
+Object containing Information about the newly created storage container.
+a|
+xref:reference_element_api_storagecontainer.adoc[storageContainer]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "CreateStorageContainer",
+    "params": {
+        "name" : "example"
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "storageContainer": {
+      "accountID": 8,
+      "initiatorSecret": "rVTOi25^H.d;cP}l",
+      "name": "example",
+      "protocolEndpointType": "SCSI",
+      "status": "active",
+      "storageContainerID": "a9ec1138-e386-4a44-90d7-b9acbbc05176",
+      "targetSecret": "6?AEIxWpvo6,!boM"
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

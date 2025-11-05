@@ -1,0 +1,105 @@
+---
+permalink: api/reference_element_api_getvolumeefficiency.html
+sidebar: sidebar
+keywords: volume,volumes,get,getting,stats,measurements,efficiency,GetVolumeEfficiency
+summary: 'You can use the GetVolumeEfficiency method to get information about a volume. Only the volume you give as a parameter in this API method is used to compute the capacity.'
+---
+
+= GetVolumeEfficiency
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetVolumeEfficiency` method to get information about a volume. Only the volume you give as a parameter in this API method is used to compute the capacity.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeID
+a|
+Specifies the volume for which capacity is computed.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+compression
+a|
+The amount of space being saved by compressing data on a single volume. Stated as a ratio, where 1 means data has been stored without being compressed.
+a|
+float
+a|
+deduplication
+a|
+The amount of space being saved on a single volume by not duplicating data. Stated as a ratio.
+a|
+float
+a|
+missingVolumes
+a|
+The volumes that could not be queried for efficiency data. Missing volumes can be caused by Garbage Collection (GC) being less than an hour old, temporary network loss or restarted services since the GC cycle.
+a|
+integer array
+a|
+thinProvisioning
+a|
+The ratio of space used to the amount of space allocated for storing data. Stated as a ratio.
+a|
+float
+a|
+timestamp
+a|
+The last time efficiency data was collected after GC.
+a|
+ISO 8601 data string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetVolumeEfficiency",
+   "params": {
+      "volumeID": 606
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+       "compression": 2.001591240821456,
+       "deduplication": 1,
+       "missingVolumes": [],
+       "thinProvisioning": 1.009861932938856,
+       "timestamp": "2014-03-10T16:06:33Z"
+   }
+}
+----
+
+== New since version
+
+9.6

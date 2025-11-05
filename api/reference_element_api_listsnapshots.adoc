@@ -1,0 +1,113 @@
+---
+permalink: api/reference_element_api_listsnapshots.html
+sidebar: sidebar
+keywords: snapshot,snapshots,list,listing,attributes,listsnapshots
+summary: 'You can use ListSnapshots to return the attributes of each snapshot taken on the volume.'
+---
+
+= ListSnapshots
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `ListSnapshots` to return the attributes of each snapshot taken on the volume.
+
+Information about snapshots that reside on the target cluster will be displayed on the source cluster when this method is called from the source cluster.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeID
+a|
+Retrieves snapshots for a volume. If volumeID is not provided, all snapshots for all volumes are returned.
+a|
+integer
+a|
+None
+a|
+No
+a|
+snapshotID
+a|
+Retrieves information for an individual snapshot ID.
+a|
+integer
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+snapshots
+a|
+Information about each snapshot for each volume. If volumeID is not provided, all snapshots for all volumes are returned. Snapshots that are in a group are returned with a group ID.
+a|
+xref:reference_element_api_snapshot.adoc[snapshot] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListSnapshots",
+   "params": {
+             "volumeID": "1"
+       },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "snapshots": [
+        {
+          "attributes": {},
+          "checksum": "0x0",
+          "createTime": "2015-05-08T13:15:00Z",
+          "enableRemoteReplication": true,
+          "expirationReason": "None",
+          "expirationTime": "2015-05-08T21:15:00Z",
+          "groupID": 0,
+          "groupSnapshotUUID": "00000000-0000-0000-0000-000000000000",
+          "name": "Hourly",
+          "remoteStatuses": [
+              {
+                "remoteStatus": "Present",
+                "volumePairUUID": "237e1cf9-fb4a-49de-a089-a6a9a1f0361e"
+              }
+         ],
+          "snapshotID": 572,
+          "snapshotUUID": "efa98e40-cb36-4c20-a090-a36c48296c14",
+          "status": "done",
+          "totalSize": 10000269312,
+          "volumeID": 1
+        }
+      ]
+    }
+  }
+----
+
+== New since version
+
+9.6

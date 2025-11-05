@@ -1,0 +1,39 @@
+section: concepts
+title: Concepts
+url: /concepts/index.html
+entries:
+  - title: Product overview
+    url: /concepts/concept_intro_product_overview.html
+  - title: Architecture and components
+    url: /concepts/concept_solidfire_concepts_solidfire_architecture_overview.html
+    entries:
+    - title: SolidFire software interfaces
+      url: /concepts/concept_intro_solidfire_software_interfaces.html
+    - title: SolidFire Active IQ
+      url: /concepts/concept_intro_solidfire_active_iq.html
+    - title: Management node for Element software
+      url: /concepts/concept_intro_management_node.html
+    - title: Management services for SolidFire all-flash storage
+      url: /concepts/concept_intro_management_services_for_afa.html
+  - title: Nodes
+    url: /concepts/concept_solidfire_concepts_nodes.html
+  - title: Clusters
+    url: /concepts/concept_intro_clusters.html
+  - title: Security
+    url: /concepts/concept_solidfire_concepts_security.html
+  - title: Accounts and permissions
+    url: /concepts/concept_solidfire_concepts_accounts_and_permissions.html
+  - title: Storage
+    entries:
+    - title: Volumes
+      url: /concepts/concept_solidfire_concepts_volumes.html
+    - title: Virtual volumes (vVols)
+      url: /concepts/concept_solidfire_concepts_vvols.html
+    - title: Volume access groups
+      url: /concepts/concept_solidfire_concepts_volume_access_groups.html
+    - title: Initiators
+      url: /concepts/concept_solidfire_concepts_initiators.html
+  - title: Data protection
+    url: /concepts/concept_solidfire_concepts_data_protection.html
+  - title: Performance and quality of service
+    url: /concepts/concept_data_manage_volumes_solidfire_quality_of_service.html

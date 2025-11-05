@@ -1,0 +1,101 @@
+---
+permalink: api/reference_element_api_snapmirrorvserver.html
+sidebar: sidebar
+keywords: object,objects,snapMirrorVserver
+summary: 'The snapMirrorVserver object contains information about the Storage Virtual Machines \(or Vservers\) at the destination ONTAP cluster.'
+---
+
+= snapMirrorVserver
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The snapMirrorVserver object contains information about the Storage Virtual Machines (or Vservers) at the destination ONTAP cluster.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+snapMirrorEndpointID
+a|
+The ID of the destination ONTAP system.
+a|
+integer
+a|
+vserverName
+a|
+The name of the Vserver.
+a|
+string
+a|
+vserverType
+a|
+The type of Vserver. Possible values:
+
+* data
+* admin
+* system
+* node
+
+a|
+string
+a|
+vserverSubtype
+a|
+The subtype of the Vserver. Possible values:
+
+* default
+* dp_destination
+* data
+* sync_source
+* sync_destination
+
+a|
+string
+a|
+rootVolume
+a|
+The root volume of the Vserver.
+a|
+string
+a|
+rootVolumeAggregate
+a|
+The aggregate on which the root volume will be created.
+a|
+string
+a|
+vserverAggregateInfo
+a|
+An array of snapMirrorVserverAggregateInfo objects.
+a|
+JSON object
+a|
+adminState
+a|
+The detailed administrative state of the Vserver. Possible values:
+
+* running
+* stopped
+* starting
+* stopping
+* initializing
+* deleting
+
+a|
+string
+a|
+operationalState
+a|
+The basic operational state of the Vserver. Possible values:
+
+* running
+* stopped
+
+a|
+string
+|===

@@ -1,0 +1,793 @@
+// This include file is used in the element-software and vcp repos.
+// You must assess updates to this content for impact on both the Element software and VCP documentation.
+* *authenticationServiceFault*
++
+The Authentication Service on one or more cluster nodes is not functioning as expected.
++
+Contact NetApp Support for assistance.
+
+* *availableVirtualNetworkIPAddressesLow*
++
+The number of virtual network addresses in the block of IP addresses is low.
++
+To resolve this fault, add more IP addresses to the block of virtual network addresses.
+
+* *blockClusterFull*
++
+There is not enough free block storage space to support a single node loss. See the GetClusterFullThreshold API method for details on cluster fullness levels. This cluster fault indicates one of the following conditions:
+
+ ** stage3Low (Warning): User-defined threshold was crossed. Adjust Cluster Full settings or add more nodes.
+ ** stage4Critical (Error): There is not enough space to recover from a 1-node failure. Creation of volumes, snapshots, and clones is not allowed.
+ ** stage5CompletelyConsumed (Critical)1; No writes or new iSCSI connections are allowed. Current iSCSI connections will be maintained. Writes will fail until more capacity is added to the cluster.
+
++
+To resolve this fault, purge or delete volumes or add another storage node to the storage cluster.
+
+* *blocksDegraded*
++
+Block data is no longer fully replicated due to a failure.
++
+|===
+| Severity| Description
+a|
+Warning
+a|
+Only two complete copies of the block data are accessible.
+a|
+Error
+a|
+Only a single complete copy of the block data is accessible.
+a|
+Critical
+a|
+No complete copies of the block data are accessible.
+|===
+*Note:* The warning status can only occur on a Triple Helix system.
++
+To resolve this fault, restore any offline nodes or block services, or contact NetApp Support for assistance.
+
+* *blockServiceTooFull*
++
+A block service is using too much space.
++
+To resolve this fault, add more provisioned capacity.
+
+* *blockServiceUnhealthy*
++
+A block service has been detected as unhealthy:
++
+ ** Severity = Warning: No action is taken. This warning period will expire in cTimeUntilBSIsKilledMSec=330000 milliseconds.
+ ** Severity = Error: The system is automatically decommissioning data and re-replicating its data to other healthy drives.
+ ** Severity = Critical: There are failed block services on several nodes greater than or equal to the replication count (2 for double helix). Data is unavailable and bin syncing will not finish.
++
+Check for network connectivity issues and hardware errors. There will be other faults if specific hardware components have failed. The fault will clear when the block service is accessible or when the service has been decommissioned.
+
+* *BmcSelfTestFailed*
++
+The Baseboard Management Controller (BMC) failed a self-test.
++
+Contact NetApp support for assistance.
++
+During an upgrade to Element 12.5 or later, the `BmcSelfTestFailed` fault is not generated for a node that has a preexisting failed BMC, or when a node's BMC fails during the upgrade. The BMCs that fail the self-tests during the upgrade will issue a `BmcSelfTestFailed` warning fault after the entire cluster completes the upgrade.
+
+* *clockSkewExceedsFaultThreshold*
++
+Time skew between the Cluster master and the node which is presenting a token exceeds the recommended threshold. Storage cluster cannot correct the time skew between the nodes automatically.
++
+To resolve this fault, use NTP servers that are internal to your network, rather than the installation defaults. If you are using an internal NTP server, contact NetApp Support for assistance.
+
+* *clusterCannotSync*
++
+There is an out-of-space condition and data on the offline block storage drives cannot be synced to drives that are still active.
++
+To resolve this fault, add more storage.
+
+* *clusterFull*
++
+There is no more free storage space in the storage cluster.
++
+To resolve this fault, add more storage.
+
+* *clusterIOPSAreOverProvisioned*
++
+Cluster IOPS are over provisioned. The sum of all minimum QoS IOPS is greater than the expected IOPS of the cluster. Minimum QoS cannot be maintained for all volumes simultaneously.
++
+To resolve this issue, lower the minimum QoS IOPS settings for volumes.
+
+* *CpuThermalEventThreshold*
++
+The number of CPU thermal events on one or more CPUs exceeds the configured threshold.
++
+If no new CPU thermal events are detected within ten minutes, the warning will resolve itself.
+
+* *disableDriveSecurityFailed*
++
+The cluster is not configured to enable drive security (Encryption at Rest), but at least one drive has drive security enabled, meaning that disabling drive security on those drives failed. This fault is logged with "`Warning`" severity.
++
+To resolve this fault, check the fault details for the reason why drive security could not be disabled. Possible reasons are:
++
+ ** The encryption key could not be acquired, investigate the problem with access to the key or the external key server.
+ ** The disable operation failed on the drive, determine whether the wrong key could possibly have been acquired.
+
++
+If neither of these are the reason for the fault, the drive might need to be replaced.
++
+You can attempt to recover a drive that does not successfully disable security even when the correct authentication key is provided. To perform this operation, remove the drive(s) from the system by moving it to Available, perform a secure erase on the drive and move it back to Active.
+
+* *disconnectedClusterPair*
++
+A cluster pair is disconnected or configured incorrectly. 
++
+Check network connectivity between the clusters.
+
+* *disconnectedRemoteNode*
++
+A remote node is either disconnected or configured incorrectly. 
++
+Check network connectivity between the nodes.
+
+* *disconnectedSnapMirrorEndpoint*
++
+A remote SnapMirror endpoint is disconnected or configured incorrectly. 
++
+Check network connectivity between the cluster and the remote SnapMirrorEndpoint.
+
+* *driveAvailable*
++
+One or more drives are available in the cluster. In general, all clusters should have all drives added and none in the available state. If this fault appears unexpectedly, contact NetApp Support.
++
+To resolve this fault, add any available drives to the storage cluster.
+
+* *driveFailed*
++
+The cluster returns this fault when one or more drives have failed, indicating one of the following conditions:
++
+ ** The drive manager cannot access the drive.
+ ** The slice or block service has failed too many times, presumably because of drive read or write failures, and cannot restart.
+ ** The drive is missing.
+ ** The master service for the node is inaccessible (all drives in the node are considered missing/failed).
+ ** The drive is locked and the authentication key for the drive cannot be acquired.
+ ** The drive is locked and the unlock operation fails.
++
+To resolve this issue:
+ ** Check network connectivity for the node.
+ ** Replace the drive.
+ ** Ensure that the authentication key is available.
+
+* *driveHealthFault*
++
+A drive has failed the SMART health check and as a result, the drive's functions are diminished. There is a Critical severity level for this fault:
+
+ ** Drive with serial: <serial number> in slot: <node slot><drive slot> has failed the SMART overall health check.
+
++
+To resolve this fault, replace the drive.
+
+* *driveWearFault*
++
+A drive's remaining life has dropped below thresholds, but it is still functioning.There are two possible severity levels for this fault: Critical and Warning:
++
+ ** Drive with serial: <serial number> in slot: <node slot><drive slot> has critical wear levels.
+ ** Drive with serial: <serial number> in slot: <node slot><drive slot> has low wear reserves.
++
+To resolve this fault, replace the drive soon.
+
+* *duplicateClusterMasterCandidates*
++
+More than one storage cluster master candidate has been detected. 
++
+Contact NetApp Support for assistance.
+
+* *enableDriveSecurityFailed*
++
+The cluster is configured to require drive security (Encryption at Rest), but drive security could not be enabled on at least one drive. This fault is logged with "`Warning`" severity.
++
+To resolve this fault, check the fault details for the reason why drive security could not be enabled. Possible reasons are:
+
+ ** The encryption key could not be acquired, investigate the problem with access to the key or the external key server.
+ ** The enable operation failed on the drive, determine whether the wrong key could possibly have been acquired.
+If neither of these are the reason for the fault, the drive might need to be replaced.
+
++
+You can attempt to recover a drive that does not successfully enable security even when the correct authentication key is provided. To perform this operation, remove the drive(s) from the system by moving it to Available, perform a secure erase on the drive and move it back to Active.
+
+* *ensembleDegraded*
++
+Network connectivity or power has been lost to one or more of the ensemble nodes.
++
+To resolve this fault, restore network connectivity or power.
+
+* *exception*
++
+A fault reported that is other than a routine fault. These faults are not automatically cleared from the fault queue.
++
+Contact NetApp Support for assistance.
+
+* *failedSpaceTooFull*
++
+A block service is not responding to data write requests. This causes the slice service to run out of space to store failed writes.
++
+To resolve this fault, restore block services functionality to allow writes to continue normally and failed space to be flushed from the slice service.
+
+* *fanSensor*
++
+A fan sensor has failed or is missing.
++
+To resolve this fault, replace any failed hardware.
+
+* *fibreChannelAccessDegraded*
++
+A Fibre Channel node is not responding to other nodes in the storage cluster over its storage IP for a period of time. In this state, the node will then be considered unresponsive and generate a cluster fault. 
++
+Check network connectivity.
+
+* *fibreChannelAccessUnavailable*
++
+All Fibre Channel nodes are unresponsive. The node IDs are displayed. 
++
+Check network connectivity.
+
+* *fibreChannelActiveIxL*
++
+The IxL Nexus count is approaching the supported limit of 8000 active sessions per Fibre Channel node.
+
+ ** Best practice limit is 5500.
+ ** Warning limit is 7500.
+ ** Maximum limit (not enforced) is 8192.
+
++
+To resolve this fault, reduce the IxL Nexus count below the best practice limit of 5500.
+
+* *fibreChannelConfig*
++
+This cluster fault indicates one of the following conditions:
+
+ ** There is an unexpected Fibre Channel port on a PCI slot.
+ ** There is an unexpected Fibre Channel HBA model.
+ ** There is a problem with the firmware of a Fibre Channel HBA.
+ ** A Fibre Channel port is not online.
+ ** There is a persistent issue configuring Fibre Channel passthrough.
+
++
+Contact NetApp Support for assistance.
+
+* *fibreChannelIOPS*
++
+The total IOPS count is approaching the IOPS limit for Fibre Channel nodes in the cluster. The limits are:
+
+ ** FC0025: 450K IOPS limit at 4K block size per Fibre Channel node.
+ ** FCN001: 625K OPS limit at 4K block size per Fibre Channel node.
+
++
+To resolve this fault, balance the load across all available Fibre Channel nodes.
+
+* *fibreChannelStaticIxL*
++
+The IxL Nexus count is approaching the supported limit of 16000 static sessions per Fibre Channel node.
+
+ ** Best practice limit is 11000.
+ ** Warning limit is 15000.
+ ** Maximum limit (enforced) is 16384.
+
++
+To resolve this fault, reduce the IxL Nexus count below the best practice limit of 11000.
+
+* *fileSystemCapacityLow*
++
+There is insufficient space on one of the filesystems.
++
+To resolve this fault, add more capacity to the filesystem.
+
+* *fileSystemIsReadOnly*
++
+A filesystem has moved into read-only mode. 
++
+Contact NetApp Support for assistance.
+
+* *fipsDrivesMismatch*
++
+A non-FIPS drive has been physically inserted into a FIPS capable storage node or a FIPS drive has been physically inserted into a non-FIPS storage node. A single fault is generated per node and lists all drives affected.
++
+To resolve this fault, remove or replace the mismatched drive or drives in question.
+
+* *fipsDrivesOutOfCompliance*
++
+The system has detected that Encryption at Rest was disabled after the FIPS Drives feature was enabled. This fault is also generated when the FIPS Drives feature is enabled and a non-FIPS drive or node is present in the storage cluster.
++
+To resolve this fault, enable Encryption at Rest or remove the non-FIPS hardware from the storage cluster.
+
+* *fipsSelfTestFailure*
++
+The FIPS subsystem has detected a failure during the self test.
++
+Contact NetApp Support for assistance.
+
+* *hardwareConfigMismatch*
++
+This cluster fault indicates one of the following conditions:
+
+ ** The configuration does not match the node definition.
+ ** There is an incorrect drive size for this type of node.
+ ** An unsupported drive has been detected. A possible reason is that the installed Element version does not recognize this drive. Recommend updating the Element software on this node.
+ ** There is a drive firmware mismatch.
+ ** The drive encryption capable state does not match the node.
+
++
+Contact NetApp Support for assistance.
+
+* *idPCertificateExpiration*
++
+The cluster's service provider SSL certificate for use with a third-party identity provider (IdP) is nearing expiration or has already expired. This fault uses the following severities based on urgency:
++
+|===
+| Severity| Description
+a|
+Warning
+a|
+Certificate expires within 30 days.
+a|
+Error
+a|
+Certificate expires within 7 days.
+a|
+Critical
+a|
+Certificate expires within 3 days or has already expired.
+|===
++
+To resolve this fault, update the SSL certificate before it expires. Use the UpdateIdpConfiguration API method with `refreshCertificateExpirationTime=true` to provide the updated SSL certificate.
+
+* *inconsistentBondModes*
++
+The bond modes on the VLAN device are missing. This fault will display the expected bond mode and the bond mode currently in use.
+
+//* *inconsistentInterfaceConfiguration*
+//+
+//The interface configuration is inconsistent.
+//+
+//To resolve this fault, ensure the node interfaces in the storage cluster are consistently configured.
+
+* *inconsistentMtus*
++
+This cluster fault indicates one of the following conditions:
+
+ ** Bond1G mismatch: Inconsistent MTUs have been detected on Bond1G interfaces.
+ ** Bond10G mismatch: Inconsistent MTUs have been detected on Bond10G interfaces.
+
++
+This fault displays the node or nodes in question along with the associated MTU value.
+
+* *inconsistentRoutingRules*
++
+The routing rules for this interface are inconsistent.
+
+* *inconsistentSubnetMasks*
++
+The network mask on the VLAN device does not match the internally recorded network mask for the VLAN. This fault displays the expected network mask and the network mask currently in use.
+
+* *incorrectBondPortCount*
++
+The number of bond ports is incorrect.
+
+* *invalidConfiguredFibreChannelNodeCount*
++
+One of the two expected Fibre Channel node connections is degraded. This fault appears when only one Fibre Channel node is connected.
++
+To resolve this fault, check the cluster network connectivity and network cabling, and check for failed services. If there are no network or service problems, contact NetApp Support for a Fibre Channel node replacement.
+
+* *irqBalanceFailed*
++
+An exception occurred while attempting to balance interrupts.
++
+Contact NetApp Support for assistance.
+
+* *kmipCertificateFault*
+ ** Root Certification Authority (CA) certificate is nearing expiration.
++
+To resolve this fault, acquire a new certificate from the root CA with expiration date at least 30 days out and use ModifyKeyServerKmip to provide the updated root CA certificate.
+
+ ** Client certificate is nearing expiration.
++
+To resolve this fault, create a new CSR using GetClientCertificateSigningRequest, have it signed ensuring the new expiration date is at least 30 days out, and use ModifyKeyServerKmip to replace the expiring KMIP client certificate with the new certificate.
+
+ ** Root Certification Authority (CA) certificate has expired.
++
+To resolve this fault, acquire a new certificate from the root CA with expiration date at least 30 days out and use ModifyKeyServerKmip to provide the updated root CA certificate.
+
+ ** Client certificate has expired.
++
+To resolve this fault, create a new CSR using GetClientCertificateSigningRequest, have it signed ensuring the new expiration date is at least 30 days out, and use ModifyKeyServerKmip to replace the expired KMIP client certificate with the new certificate.
+
+ ** Root Certification Authority (CA) certificate error.
++
+To resolve this fault, check that the correct certificate was provided, and, if needed, reacquire the certificate from the root CA. Use ModifyKeyServerKmip to install the correct KMIP client certificate.
+
+ ** Client certificate error.
++
+To resolve this fault, check that the correct KMIP client certificate is installed. The root CA of the client certificate should be installed on the EKS. Use ModifyKeyServerKmip to install the correct KMIP client certificate.
+* *kmipServerFault*
+ ** Connection failure
++
+To resolve this fault, check that the External Key Server is alive and reachable via the network. Use TestKeyServerKimp and TestKeyProviderKmip to test your connection.
+
+ ** Authentication failure
++
+To resolve this fault, check that the correct root CA and KMIP client certificates are being used, and that the private key and the KMIP client certificate match.
+
+ ** Server error
++
+To resolve this fault, check the details for the error. Troubleshooting on the External Key Server might be necessary based on the error returned.
+* *memoryEccThreshold*
++
+A large number of correctable or uncorrectable ECC errors have been detected. This fault uses the following severities based on urgency:
++
+|===
+| Event| Severity| Description
+a|
+A single DIMM cErrorCount reaches cDimmCorrectableErrWarnThreshold.
+a|
+Warning
+a|
+Correctable ECC memory errors above threshold on DIMM: <Processor> <DIMM Slot>
+a|
+A single DIMM cErrorCount stays above cDimmCorrectableErrWarnThreshold until cErrorFaultTimer expires for the DIMM.
+a|
+Error
+a|
+Correctable ECC memory errors above threshold on DIMM: <Processor> <DIMM>
+a|
+A memory controller reports cErrorCount above cMemCtlrCorrectableErrWarnThreshold, and cMemCtlrCorrectableErrWarnDuration is specified.
+a|
+Warning
+a|
+Correctable ECC memory errors above threshold on memory controller: <Processor> <Memory Controller>
+a|
+A memory controller reports cErrorCount above cMemCtlrCorrectableErrWarnThreshold until cErrorFaultTimer expires for the memory controller.
+a|
+Error
+a|
+Correctable ECC memory errors above threshold on DIMM: <Processor> <DIMM>
+a|
+A single DIMM reports a uErrorCount above zero, but less than cDimmUncorrectableErrFaultThreshold.
+a|
+Warning
+a|
+Uncorrectable ECC memory error(s) detected on DIMM: <Processor> <DIMM Slot>
+a|
+A single DIMM reports a uErrorCount of at least cDimmUncorrectableErrFaultThreshold.
+a|
+Error
+a|
+Uncorrectable ECC memory error(s) detected on DIMM: <Processor> <DIMM Slot>
+a|
+A memory controller reports a uErrorCount above zero, but less than cMemCtlrUncorrectableErrFaultThreshold.
+a|
+Warning
+a|
+Uncorrectable ECC memory error(s) detected on memory controller: <Processor> <Memory Controller>
+a|
+A memory controller reports a uErrorCount of at least cMemCtlrUncorrectableErrFaultThreshold.
+a|
+Error
+a|
+Uncorrectable ECC memory error(s) detected on memory controller: <Processor> <Memory Controller>
+|===
++
+To resolve this fault, contact NetApp Support for assistance.
+
+* *memoryUsageThreshold*
++
+Memory usage is above normal. This fault uses the following severities based on urgency:
++
+NOTE: See the *Details* heading in the error fault for more detailed information on the type of fault.
++
+|===
+| Severity| Description
+a|
+Warning
+a|
+System memory is low.
+a|
+Error
+a|
+System memory is very low.
+a|
+Critical
+a|
+System memory is completely consumed.
+|===
++
+To resolve this fault, contact NetApp Support for assistance.
+
+* *metadataClusterFull*
++
+There is not enough free metadata storage space to support a single node loss. See the GetClusterFullThreshold API method for details on cluster fullness levels. This cluster fault indicates one of the following conditions:
+
+ ** stage3Low (Warning): User-defined threshold was crossed. Adjust Cluster Full settings or add more nodes.
+ ** stage4Critical (Error): There is not enough space to recover from a 1-node failure. Creation of volumes, snapshots, and clones is not allowed.
+ ** stage5CompletelyConsumed (Critical)1; No writes or new iSCSI connections are allowed. Current iSCSI connections will be maintained. Writes will fail until more capacity is added to the cluster. Purge or delete data or add more nodes.
+
++
+To resolve this fault, purge or delete volumes or add another storage node to the storage cluster.
+
+* *mtuCheckFailure*
++
+A network device is not configured for the proper MTU size.
++
+To resolve this fault, ensure that all network interfaces and switch ports are configured for jumbo frames (MTUs up to 9000 bytes in size).
+
+* *networkConfig*
++
+This cluster fault indicates one of the following conditions:
+
+ ** An expected interface is not present.
+ ** A duplicate interface is present.
+ ** A configured interface is down.
+ ** A network restart is required.
+
++
+Contact NetApp Support for assistance.
+
+* *noAvailableVirtualNetworkIPAddresses*
++
+There are no available virtual network addresses in the block of IP addresses.
+
+ ** virtualNetworkID # TAG(\###) has no available storage IP addresses. Additional nodes cannot be added to the cluster.
+
++
+To resolve this fault, add more IP addresses to the block of virtual network addresses.
+
+* *nodeHardwareFault (Network interface <name> is down or cable is unplugged)*
++
+A network interface is either down or the cable is unplugged.
++
+To resolve this fault, check network connectivity for the node or nodes.
+
+* *nodeHardwareFault (Drive encryption capable state mismatches node's encryption capable state for the drive in slot <node slot><drive slot>)*
++
+A drive does not match encryption capabilities with the storage node it is installed in.
+
+* *nodeHardwareFault (Incorrect <drive type> drive size <actual size> for the drive in slot <node slot><drive slot> for this node type - expected <expected size>)*
++
+A storage node contains a drive that is the incorrect size for this node.
+
+* *nodeHardwareFault (Unsupported drive detected in slot <node slot><drive slot>; drive statistics and health information will be unavailable)*
++
+A storage node contains a drive it does not support.
+
+* *nodeHardwareFault (The drive in slot <node slot><drive slot> should be using firmware version <expected version>, but is using unsupported version <actual version>)*
++
+A storage node contains a drive running an unsupported firmware version.
+
+* *nodeMaintenanceMode*
++
+A node has been placed in maintenance mode. This fault uses the following severities based on urgency:
++
+|===
+| Severity| Description
+a|
+Warning
+a|
+Indicates that the node is still in maintenance mode.
+a|
+Error
+a|
+Indicates that maintenance mode has failed to disable, most likely due to failed or active standbys.
+|===
++
+To resolve this fault, disable maintenance mode once maintenance completes. If the Error level fault persists, contact NetApp Support for assistance.
+
+* *nodeOffline*
++
+Element software cannot communicate with the specified node. Check network connectivity.
+
+* *notUsingLACPBondMode*
++
+LACP bonding mode is not configured.
++
+To resolve this fault, use LACP bonding when deploying storage nodes; clients might experience performance issues if LACP is not enabled and properly configured.
+
+* *ntpServerUnreachable*
++
+The storage cluster cannot communicate with the specified NTP server or servers.
++
+To resolve this fault, check the configuration for the NTP server, network, and firewall.
+
+* *ntpTimeNotInSync*
++
+The difference between storage cluster time and the specified NTP server time is too large. The storage cluster cannot correct the difference automatically.
++
+To resolve this fault, use NTP servers that are internal to your network, rather than the installation defaults. If you are using internal NTP servers and the issue persists, contact NetApp Support for assistance.
+
+* *nvramDeviceStatus*
++
+An NVRAM device has an error, is failing, or has failed. This fault has the following severities:
++
+|===
+| Severity| Description
+a|
+Warning
+a|
+A warning has been detected by the hardware. This condition may be transitory, such as a temperature warning.
+
+ ** nvmLifetimeError
+ ** nvmLifetimeStatus
+ ** energySourceLifetimeStatus
+ ** energySourceTemperatureStatus
+ ** warningThresholdExceeded
+
+a|
+Error
+a|
+An Error or Critical status has been detected by the hardware. The cluster master attempts to remove the slice drive from operation (this generates a drive removal event). If secondary slice services are not available the drive will not be removed. Errors returned in addition to the Warning level errors:
+
+ ** NVRAM device mount point doesn't exist.
+ ** NVRAM device partition doesn't exist.
+ ** NVRAM device partition exists, but not mounted.
+
+a|
+Critical
+a|
+An Error or Critical status has been detected by the hardware. The cluster master attempts to remove the slice drive from operation (this generates a drive removal event). If secondary slice services are not available the drive will not be removed.
+
+ ** persistenceLost
+ ** armStatusSaveNArmed
+ ** csaveStatusError
+
++
+|===
++
+Replace any failed hardware in the node. If this does not resolve the issue, contact NetApp Support for assistance.
+
+* *powerSupplyError*
++
+This cluster fault indicates one of the following conditions:
+
+ ** A power supply is not present.
+ ** A power supply has failed.
+ ** A power supply input is missing or out of range.
+
++
+To resolve this fault, verify that redundant power is supplied to all nodes. Contact NetApp Support for assistance.
+
+* *provisionedSpaceTooFull*
++
+The overall provisioned capacity of the cluster is too full.
++
+To resolve this fault, add more provisioned space, or delete and purge volumes.
+
+* *remoteRepAsyncDelayExceeded*
++
+The configured asynchronous delay for replication has been exceeded. Check network connectivity between clusters.
+
+* *remoteRepClusterFull*
++
+The volumes have paused remote replication because the target storage cluster is too full.
++
+To resolve this fault, free up some space on the target storage cluster.
+
+* *remoteRepSnapshotClusterFull*
++
+The volumes have paused remote replication of snapshots because the target storage cluster is too full.
++
+To resolve this fault, free up some space on the target storage cluster.
+
+* *remoteRepSnapshotsExceededLimit*
++
+The volumes have paused remote replication of snapshots because the target storage cluster volume has exceeded its snapshot limit.
++
+To resolve this fault, increase the snapshot limit on the target storage cluster.
+
+* *scheduleActionError*
++
+One or more of the scheduled activities ran, but failed.
++
+The fault clears if the scheduled activity runs again and succeeds, if the scheduled activity is deleted, or if the activity is paused and resumed.
+
+* *sensorReadingFailed*
++
+A sensor could not communicate with the Baseboard Management Controller (BMC).
++
+Contact NetApp Support for assistance.
+
+* *serviceNotRunning*
++
+A required service is not running.
++
+Contact NetApp Support for assistance.
+
+* *sliceServiceTooFull*
++
+A slice service has too little provisioned capacity assigned to it.
++
+To resolve this fault, add more provisioned capacity.
+
+* *sliceServiceUnhealthy*
++
+The system has detected that a slice service is unhealthy and is automatically decommissioning it.
+
+ ** Severity = Warning: No action is taken. This warning period will expire in 6 minutes.
+ ** Severity = Error: The system is automatically decommissioning data and re-replicating its data to other healthy drives.
+
++
+Check for network connectivity issues and hardware errors. There will be other faults if specific hardware components have failed. The fault will clear when the slice service is accessible or when the service has been decommissioned.
+
+* *sshEnabled*
++
+The SSH service is enabled on one or more nodes in the storage cluster.
++
+To resolve this fault, disable the SSH service on the appropriate node or nodes or contact NetApp Support for assistance.
+
+* *sslCertificateExpiration*
++
+The SSL certificate associated with this node is nearing expiration or has expired. This fault uses the following severities based on urgency:
++
+|===
+| Severity| Description
+a|
+Warning
+a|
+Certificate expires within 30 days.
+a|
+Error
+a|
+Certificate expires within 7 days.
+a|
+Critical
+a|
+Certificate expires within 3 days or has already expired.
+|===
++
+To resolve this fault, renew the SSL certificate. If needed, contact NetApp Support for assistance.
+
+* *strandedCapacity*
++
+A single node accounts for more than half of the storage cluster capacity.
++
+In order to maintain data redundancy, the system reduces the capacity of the largest node so that some of its block capacity is stranded (not used).
++
+To resolve this fault, add more drives to existing storage nodes or add storage nodes to the cluster.
+
+* *tempSensor*
++
+A temperature sensor is reporting higher than normal temperatures. This fault can be triggered in conjunction with powerSupplyError or fanSensor faults.
++
+To resolve this fault, check for airflow obstructions near the storage cluster. If needed, contact NetApp Support for assistance.
+
+* *upgrade*
++
+An upgrade has been in progress for more than 24 hours.
++
+To resolve this fault, resume the upgrade or contact NetApp Support for assistance.
+
+* *unresponsiveService*
++
+A service has become unresponsive.
++
+Contact NetApp Support for assistance.
+
+* *virtualNetworkConfig*
++
+This cluster fault indicates one of the following conditions:
+
+ ** An interface is not present.
+ ** There is an incorrect namespace on an interface.
+ ** There is an incorrect netmask.
+ ** There is an incorrect IP address.
+ ** An interface is not up and running.
+ ** There is a superfluous interface on a node.
+
++
+Contact NetApp Support for assistance.
+
+* *volumesDegraded*
++
+Secondary volumes have not finished replicating and synchronizing. The message is cleared when the synchronizing is complete.
+
+* *volumesOffline*
++
+One or more volumes in the storage cluster are offline. The *volumeDegraded* fault will also be present.
++
+Contact NetApp Support for assistance.
+
+// 2022 FEB 7, DOC-4671

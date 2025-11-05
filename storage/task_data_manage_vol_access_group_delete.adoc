@@ -1,0 +1,19 @@
+---
+permalink: storage/task_data_manage_vol_access_group_delete.html
+sidebar: sidebar
+keywords: access group, delete
+summary: 'You can delete an access group when it is no longer needed. You do not need to delete Initiator IDs and Volume IDs from the volume access group before deleting the group. After you delete the access group, group access to the volumes is discontinued.'
+---
+
+= Delete an access group
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can delete an access group when it is no longer needed. You do not need to delete Initiator IDs and Volume IDs from the volume access group before deleting the group. After you delete the access group, group access to the volumes is discontinued.
+
+. Click *Management* > *Access Groups*.
+. Click the *Actions* icon for the access group you want to delete.
+. In the resulting menu, click *Delete*.
+. To also delete the initiators associated with this access group, select the *Delete initiators in this access group* check box.
+. Confirm the action.

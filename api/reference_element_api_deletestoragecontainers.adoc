@@ -1,0 +1,65 @@
+---
+permalink: api/reference_element_api_deletestoragecontainers.html
+sidebar: sidebar
+keywords: virtual,volume,storage,container,delete,deleting,vvol,DeleteStorageContainers
+summary: 'You can use the DeleteStorageContainers method to remove up to 2000 Virtual Volume \(VVol\) storage containers from the system at one time. The storage containers you remove must not contain any VVols.'
+---
+
+= DeleteStorageContainers
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DeleteStorageContainers` method to remove up to 2000 Virtual Volume (VVol) storage containers from the system at one time. The storage containers you remove must not contain any VVols.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+storageContainerIDs
+a|
+A list of IDs of the storage containers to delete. You can specify up to 2000 IDs in the list.
+a|
+UUID array
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "DeleteStorageContainers",
+    "params": {
+        "storageContainerIDs" : ["a9ec1138-e386-4a44-90d7-b9acbbc05176"]
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {}
+}
+----
+
+== New since version
+
+9.6

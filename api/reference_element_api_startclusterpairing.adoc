@@ -1,0 +1,73 @@
+---
+permalink: api/reference_element_api_startclusterpairing.html
+sidebar: sidebar
+keywords: cluster,pair,pairing,start,starting,startclusterpairing
+summary: 'You can use the StartClusterPairing method to create an encoded key from a cluster that is used to pair with another cluster. The key created from this API method is used in the CompleteClusterPairing method to establish a cluster pairing. You can pair a cluster with a maximum of four other clusters.'
+---
+
+= StartClusterPairing
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `StartClusterPairing` method to create an encoded key from a cluster that is used to pair with another cluster. The key created from this API method is used in the `CompleteClusterPairing` method to establish a cluster pairing. You can pair a cluster with a maximum of four other clusters.
+
+== Parameter
+
+This method has no input parameter.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+clusterPairingKey
+a|
+A string of characters that is used by the xref:reference_element_api_completeclusterpairing.adoc[CompleteClusterPairing] API method.
+a|
+string
+a|
+clusterPairID
+a|
+Unique identifier for the cluster pair.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "StartClusterPairing",
+   "params": {
+      },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+     "clusterPairID": 1,
+     "clusterPairingKey": "7b22636c7573746572506169724944223a312c22636c75737465725061697255554944223a2231636561313336322d346338662d343631612d626537322d373435363661393533643266222c22636c7573746572556e697175654944223a2278736d36222c226d766970223a223139322e3136382e3133392e313232222c226e616d65223a224175746f54657374322d63307552222c2270617373776f7264223a22695e59686f20492d64774d7d4c67614b222c22727063436f6e6e656374696f6e4944223a3931333134323634392c22757365726e616d65223a225f5f53465f706169725f50597a796647704c7246564432444a42227d"
+   }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_completeclusterpairing.adoc[CompleteClusterPairing]

@@ -1,0 +1,24 @@
+---
+sidebar: sidebar
+permalink: mnode/task_mnode_enable_remote_support_connections.html
+summary: You can use the management node to enable NetApp Support access for troubleshooting.
+keywords: netapp, mnode, management node, connect to support, support tunnel, rst
+---
+
+= Start a remote NetApp Support session
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+If you require technical support for your SolidFire all-flash storage system, NetApp Support can connect remotely with your system. To start a session and gain remote access, NetApp Support can open a reverse Secure Shell (SSH) connection to your environment.
+
+include::../_include/enable_remote_ssh_session.adoc[]
+
+== Find more information
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+
+// 2022 FEB 2, DOC-4281

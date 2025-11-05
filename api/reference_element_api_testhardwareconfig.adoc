@@ -1,0 +1,89 @@
+---
+permalink: api/reference_element_api_testhardwareconfig.html
+sidebar: sidebar
+keywords: node,test,testing,hardware,config,configuration,testhardwareconfig
+summary: 'You can use the TestHardwareConfig method to perform hardware tests on a node. Test options include verifying hardware configurations, firmware versions, and that all drives are present.'
+---
+
+= TestHardwareConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `TestHardwareConfig` method to perform hardware tests on a node. Test options include verifying hardware configurations, firmware versions, and that all drives are present.
+
+== Parameters
+
+NOTE: These test are not intended to detect hardware failures.
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+clean
+a|
+Starts the hardware configuration test with a clean cache. Possible values:
+
+* true: Deletes the cached test results file and reruns the tests.
+* false: Retrieves a cached test results.
+
+a|
+boolean
+a|
+false
+a|
+No
+a|
+force
+a|
+The force parameter must be included in this method to successfully reset the node.
+a|
+boolean
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+details
+a|
+Hardware configuration details.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "TestHardwareConfig",
+   "params": {
+      "force": true
+     },
+   "id" : 1
+}
+----
+
+== Response example
+
+Due to the length of this response example, it is documented in a supplementary topic.
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_response_example_testhardwareconfig.adoc[TestHardwareConfig]

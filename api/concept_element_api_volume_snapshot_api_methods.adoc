@@ -1,0 +1,33 @@
+---
+permalink: api/concept_element_api_volume_snapshot_api_methods.html
+sidebar: sidebar
+keywords: volume,snapshot,API,method
+summary: 'Element software volume snapshot API methods enable you to manage volume snapshots. You can create, modify, clone, and delete volume snapshots using the volume snapshot API methods.'
+---
+
+= Volume snapshot API methods
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Element software volume snapshot API methods enable you to manage volume snapshots. You can create, modify, clone, and delete volume snapshots using the volume snapshot API methods.
+
+* xref:concept_element_api_snapshots_overview.adoc[Snapshots overview]
+* xref:reference_element_api_creategroupsnapshot.adoc[CreateGroupSnapshot]
+* xref:reference_element_api_createschedule.adoc[CreateSchedule]
+* xref:reference_element_api_createsnapshot.adoc[CreateSnapshot]
+* xref:reference_element_api_deletegroupsnapshot.adoc[DeleteGroupSnapshot]
+* xref:reference_element_api_deletesnapshot.adoc[DeleteSnapshot]
+* xref:reference_element_api_getschedule.adoc[GetSchedule]
+* xref:reference_element_api_listgroupsnapshots.adoc[ListGroupSnapshots]
+* xref:reference_element_api_listschedules.adoc[ListSchedules]
+* xref:reference_element_api_listsnapshots.adoc[ListSnapshots]
+* xref:reference_element_api_modifygroupsnapshot.adoc[ModifyGroupSnapshot]
+* xref:reference_element_api_modifyschedule.adoc[ModifySchedule]
+* xref:reference_element_api_modifysnapshot.adoc[ModifySnapshot]
+* xref:reference_element_api_rollbacktogroupsnapshot.adoc[RollbackToGroupSnapshot]
+* xref:reference_element_api_rollbacktosnapshot.adoc[RollbackToSnapshot]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

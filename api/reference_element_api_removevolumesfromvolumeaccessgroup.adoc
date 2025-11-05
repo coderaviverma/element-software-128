@@ -1,0 +1,105 @@
+---
+permalink: api/reference_element_api_removevolumesfromvolumeaccessgroup.html
+sidebar: sidebar
+keywords: remove,removing,volume,volumes,access,group,removevolumesfromvolumeaccessgroup
+summary: 'You can use the RemoveVolumesFromVolumeAccessGroup method to remove volumes from a specified volume access group.'
+---
+
+= RemoveVolumesFromVolumeAccessGroup
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RemoveVolumesFromVolumeAccessGroup` method to remove volumes from a specified volume access group.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeAccessGroupID
+a|
+VolumeAccessGroupID to remove volumes from.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+volumes
+a|
+VolumeIDs of volumes to remove from the volume access group.
+a|
+integer array
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+volumeAccessGroup
+a|
+An object containing information about the newly modified volume access group.
+a|
+xref:reference_element_api_volumeaccessgroup.adoc[volumeAccessGroup]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "RemoveVolumesFromVolumeAccessGroup",
+   "params": {
+      "volumeAccessGroupID": 96,
+      "volumes": [1,2]
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "volumeAccessGroup": {
+      "attributes": {},
+      "deletedVolumes": [
+        346
+      ],
+      "initiatorIDs": [
+        116,
+        117
+      ],
+      "initiators": [
+        "iqn.1993-08.org.debian:01:181324777",
+        "iqn.1993-08.org.debian:01:181324888"
+      ],
+      "name": "northbanktest",
+      "volumeAccessGroupID": 96,
+      "volumes": []
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

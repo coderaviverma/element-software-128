@@ -1,0 +1,17 @@
+---
+permalink: concepts/concept_intro_management_node.html
+sidebar: sidebar
+keywords: what is, element mnode, management node, mnode
+summary: 'The management node \(mNode\) is a virtual machine that runs in parallel with one or more Element software-based storage clusters. It is used to upgrade and provide system services including monitoring and telemetry, manage cluster assets and settings, run system tests and utilities, and enable NetApp Support access for troubleshooting.'
+---
+
+= Management node for Element software
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The link:../mnode/task_mnode_work_overview.html[management node (mNode)] is a virtual machine that runs in parallel with one or more Element software-based storage clusters. It is used to upgrade and provide system services including monitoring and telemetry, manage cluster assets and settings, run system tests and utilities, and enable NetApp Support access for troubleshooting.
+
+The management node interacts with a storage cluster to perform management actions, but is not a member of the storage cluster. Management nodes periodically collect information about the cluster through API calls and report this information to Active IQ for remote monitoring (if enabled). Management nodes are also responsible for coordinating software upgrades of the cluster nodes.
+
+As of the Element 11.3 release, the management node functions as a microservice host, allowing for quicker updates of select software services outside of major releases. These microservices or link:../concepts/concept_intro_management_services_for_afa.html[management services] are updated frequently as service bundles.

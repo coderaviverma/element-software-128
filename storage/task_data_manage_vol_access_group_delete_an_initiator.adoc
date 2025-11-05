@@ -1,0 +1,41 @@
+---
+permalink: storage/task_data_manage_vol_access_group_delete_an_initiator.html
+sidebar: sidebar
+keywords: initiator delete, deleted multiple initiators
+summary: 'You can delete an initiator after it is no longer needed. When you delete an initiator, the system removes it from any associated volume access group. Any connections using the initiator remain valid until the connection is reset.'
+---
+
+= Delete an initiator
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can delete an initiator after it is no longer needed. When you delete an initiator, the system removes it from any associated volume access group. Any connections using the initiator remain valid until the connection is reset.
+
+.Steps
+
+. Click *Management* > *Initiators*.
+. Perform the steps to delete a single initiator or multiple initiators:
++
+[cols=2*,options="header",cols="25,75"]
+|===
+| Option| Steps
+a|
+Delete single initiator
+a|
+
+ .. Click the *Actions* icon for the initiator you want to delete.
+ .. Click *Delete*.
+ .. Confirm the action.
+
+a|
+Delete multiple initiators
+a|
+
+ .. Select the check boxes next to the initiators you want to delete.
+ .. Click the *Bulk Actions* button.
+ .. In the resulting menu, select *Delete*.
+ .. Confirm the action.
+
++
+|===

@@ -1,0 +1,96 @@
+---
+permalink: api/reference_element_api_setclusterconfig.html
+sidebar: sidebar
+keywords: cluster,configuration,set,setting,node,setclusterconfig
+summary: 'You can use the SetClusterConfig method to set the configuration that a node uses to communicate with the cluster it is associated with. To display the current cluster interface settings for a node, run the GetClusterConfig API method.'
+---
+
+= SetClusterConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `SetClusterConfig` method to set the configuration that a node uses to communicate with the cluster it is associated with. To display the current cluster interface settings for a node, run the `GetClusterConfig` API method.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+cluster
+a|
+Configuration attributes that should be changed during this method call. Only the fields you want changed need to be added to this method as members in this parameter.
+a|
+xref:reference_element_api_cluster.adoc[cluster]
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+cluster
+a|
+Configuration information the node uses to communicate with the cluster.
+a|
+xref:reference_element_api_cluster.adoc[cluster]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "SetClusterConfig",
+   "params": {
+      "cluster": {
+         "name": "myhost",
+         "mipi": "Bond10G"
+      },
+    "id" : 1
+   }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result" : {
+      "cluster" : {
+         "cipi" : "Bond10G",
+         "cluster" : "QoS",
+         "ensemble" : [
+            "1:10.10.5.42",
+            "2:10.10.5.43",
+            "3:10.10.5.44",
+            "4:10.10.5.46",
+            "5:10.10.5.47"
+         ],
+          "hostname" : "myhost",
+          "mipi" : "Bond10G",
+          "nodeID" : 1,
+          "sipi" : "Bond10G",
+          "state" : "Active"
+      }
+   }
+}
+----
+
+== New since version
+
+9.6

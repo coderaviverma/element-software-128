@@ -1,0 +1,182 @@
+---
+permalink: api/reference_element_api_rollbacktogroupsnapshot.html
+sidebar: sidebar
+keywords: rollbacktogroupsnapshot,snapshot,group,individual,creating,create,roll,back,rollback,roll back,existing
+summary: 'You can use RollbackToGroupSnapshot to roll back all individual volumes in a snapshot group to each volume’s individual snapshot.'
+---
+
+= RollbackToGroupSnapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `RollbackToGroupSnapshot` to roll back all individual volumes in a snapshot group to each volume's individual snapshot.
+
+Rolling back to a group snapshot creates a temporary snapshot of each volume within the group snapshot.
+
+[NOTE]
+====
+* Creating a snapshot is allowed if cluster fullness is at stage 1, 2, or 3. Snapshots are not created when cluster fullness is at stage 4 or 5.
+
+* Rolling back volumes to a group snapshot might fail when slice synchronization is in progress. Retry `RollbackToGroupSnapshot` after syncing completes.
+====
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+`groupSnapshotID`
+a|
+Unique ID of the group snapshot.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+`attributes`
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+`name`
+a|
+Name for the group snapshot of the volume's current state that is created if `saveCurrentState` is set to true. If you do not give a name, then the name of the snapshots (group and individual volume) are set to a timestamp of the time that the rollback occurred.
+a|
+string
+a|
+None
+a|
+No
+a|
+`saveCurrentState`
+a|
+Specifies whether to save the previous active volume image or not. Valid values:
+
+* `true`: The previous active volume image is kept.
+* `false`: The previous active volume image is deleted.
+
+a|
+boolean
+a|
+false
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+members
+a|
+An array containing volumeIDs and snapshotIDs of members of the group snapshot. Values:
+
+* checksum: A small string representation of the data in the stored snapshot. This checksum can be used later to compare other snapshots to detect errors in the data. (string)
+* snapshotID: Unique ID of a snapshot from which the new snapshot is made. The snapshotID must be a snapshot on the given volume. (integer)
+* volumeID: The source volume ID for the snapshot. (integer)
+
+a|
+JSON object array
+a|
+groupSnapshotID
+a|
+If `saveCurrentState` was set to false, this value is null.
+
+If `saveCurrentState` was set to true, the unique ID of the newly created group snapshot.
+
+a|
+integer
+a|
+groupSnapshot
+a|
+If `saveCurrentState` was set to false, this value is null.
+
+If `saveCurrentState` was set to true, an object containing information about the group snapshot which `RollbackToGroupSnapshot` just rolled back to.
+
+a|
+xref:reference_element_api_groupsnapshot.adoc[groupSnapshot]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "id": 438,
+  "method": "RollbackToGroupSnapshot",
+  "params": {
+    "groupSnapshotID": 1,
+    "name": "grpsnap1",
+    "saveCurrentState": true
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 438,
+  "result": {
+    "groupSnapshot": {
+      "attributes": {},
+      "createTime": "2016-04-06T17:27:17Z",
+      "groupSnapshotID": 1,
+      "groupSnapshotUUID": "468fe181-0002-4b1d-ae7f-8b2a5c171eee",
+      "members": [
+        {
+          "attributes": {},
+          "checksum": "0x0",
+          "createTime": "2016-04-06T17:27:17Z",
+          "enableRemoteReplication": false,
+          "expirationReason": "None",
+          "expirationTime": null,
+          "groupID": 1,
+          "groupSnapshotUUID": "468fe181-0002-4b1d-ae7f-8b2a5c171eee",
+          "name": "2016-04-06T17:27:17Z",
+          "snapshotID": 4,
+          "snapshotUUID": "03563c5e-51c4-4e3b-a256-a4d0e6b7959d",
+          "status": "done",
+          "totalSize": 1000341504,
+          "virtualVolumeID": null,
+          "volumeID": 2
+        }
+      ],
+      "name": "2016-04-06T17:27:17Z",
+      "status": "done"
+    },
+    "groupSnapshotID": 3,
+    "members": [
+      {
+        "checksum": "0x0",
+        "snapshotID": 2,
+        "snapshotUUID": "719b162c-e170-4d80-b4c7-1282ed88f4e1",
+        "volumeID": 2
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6
+
+// 2023 MAY 18, DOC-3779

@@ -1,0 +1,65 @@
+---
+permalink: api/reference_element_api_restoredeletedvolume.html
+sidebar: sidebar
+keywords: restore,active,restoring,deleted,volume,volumes,restoredeletedvolume
+summary: 'You can use the RestoreDeletedVolume method to mark a deleted volume as active again. This action makes the volume immediately available for iSCSI connection.'
+---
+
+= RestoreDeletedVolume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RestoreDeletedVolume` method to mark a deleted volume as active again. This action makes the volume immediately available for iSCSI connection.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeID
+a|
+The volumeID of the deleted volume to restore.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "RestoreDeletedVolume",
+   "params": {
+      "volumeID"  : 5
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result": {}
+}
+----
+
+== New since version
+
+9.6

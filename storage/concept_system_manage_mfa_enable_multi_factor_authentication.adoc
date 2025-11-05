@@ -1,0 +1,13 @@
+---
+permalink: storage/concept_system_manage_mfa_enable_multi_factor_authentication.html
+sidebar: sidebar
+keywords: saml, idp, mfa, enable
+summary: 'Multi-factor authentication \(MFA\) uses a third-party Identity Provider \(IdP\) via the Security Assertion Markup Language \(SAML\) to manage user sessions. MFA enables administrators to configure additional factors of authentication as required, such as password and text message, and password and email message.'
+---
+
+= Enable multi-factor authentication
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Multi-factor authentication (MFA) uses a third-party Identity Provider (IdP) via the Security Assertion Markup Language (SAML) to manage user sessions. MFA enables administrators to configure additional factors of authentication as required, such as password and text message, and password and email message.

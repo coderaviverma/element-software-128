@@ -1,0 +1,90 @@
+---
+permalink: api/reference_element_api_networkinterfacestats.html
+sidebar: sidebar
+keywords: object,objects,stats,statistics,networkInterfacestats
+summary: 'The networkInterfaceStats object contains network statistics and error information for individual network interfaces on a storage node.'
+---
+
+= networkInterfaceStats
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The networkInterfaceStats object contains network statistics, the total number of transmitted and received packets, and error information for individual network interfaces on a storage node. You can use the `ListNetworkInterfaceStats` API method to list this information for the network interfaces on a storage node.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+
+|collisions
+|The number of collisions detected.
+|integer
+
+|name
+|Name of the network interface.
+|string
+
+|rxBytes
+|The total number of bytes received.
+|integer
+
+|rxCrcErrors
+|The number of received packets that had a CRC error.
+|integer
+
+|rxDropped
+|The number of received packets that were dropped.
+|integer
+
+|rxErrors
+|The number of bad or malformed packets received.
+|integer
+
+|rxFifoErrors
+|The number of FIFO overrun errors in the received data.
+|integer
+
+|rxFrameErrors
+|The number of received packets with frame alignment errors.
+|integer
+
+|rxLengthErrors
+|The number of received packets with a length error.
+|integer
+
+|rxMissedErrors
+|The number of packets missed by the receiver.
+|integer
+
+|rxOverErrors
+|The number of receiver ring buffer overflow errors for this interface.
+|integer
+
+|rxPackets
+|The total number of packets received.
+|integer
+
+|txBytes
+|The total number of bytes transmitted.
+|integer
+
+|txCarrierErrors
+|The number of carrier errors for the transmit side.
+|integer
+
+|txErrors
+|The number of packet transmission errors.
+|integer
+
+|txFifoErrors
+|The number of FIFO overrun errors on the transmit side.
+|integer
+
+|txPackets
+|The total number of packets transmitted.
+|integer
+|===

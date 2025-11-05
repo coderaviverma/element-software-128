@@ -1,0 +1,37 @@
+---
+permalink: storage/concept_troubleshoot_drives.html
+sidebar: sidebar
+keywords: troubleshoot, drives, ssd, swappable, solid-state drives
+summary: 'You can replace a failed solid-state drive \(SSD\) with a replacement drive. SSDs for SolidFire storage nodes are hot-swappable. If you suspect an SSD has failed, contact NetApp Support to verify the failure and walk you through the proper resolution procedure. NetApp Support also works with you to get a replacement drive according to your service-level agreement.'
+---
+
+= Troubleshoot drives
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can replace a failed solid-state drive (SSD) with a replacement drive. SSDs for SolidFire storage nodes are hot-swappable. If you suspect an SSD has failed, contact NetApp Support to verify the failure and walk you through the proper resolution procedure. NetApp Support also works with you to get a replacement drive according to your service-level agreement.
+
+How-swappable in this case means that you can remove a failed drive from an active node and replace it with a new SSD drive from NetApp. It is not recommended that you should remove non-failed drives on an active cluster.
+
+You should maintain on-site spares suggested by NetApp Support to allow for immediate replacement of the drive if it fails.
+
+NOTE: For testing purposes, if you are simulating a drive failure by pulling a drive from a node, you must wait 30 seconds before inserting the drive back into the drive slot.
+
+If a drive fails, Double Helix redistributes the data on the drive across the nodes remaining on the cluster. Multiple drive failures on the same node are not an issue since Element software protects against two copies of data residing on the same node. A failed drive results in the following events:
+
+* Data is migrated off of the drive.
+* Overall cluster capacity is reduced by the capacity of the drive.
+* Double Helix data protection ensures that there are two valid copies of the data.
+
+IMPORTANT: SolidFire storage systems do not support removal of a drive if it results in an insufficient amount of storage to migrate data.
+
+== For more information
+
+* xref:task_troubleshoot_remove_failed_drives.adoc[Remove failed drives from the cluster]
+* xref:concept_troubleshoot_basic_mdss_drive_troubleshooting.adoc[Basic MDSS drive troubleshooting]
+* xref:task_troubleshoot_remove_mdss_drives.adoc[Remove MDSS drives]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2844771[Replacing drives for SolidFire storage nodes]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2846859[Replacing drives for H600S series storage nodes]
+* link:../hardware/concept_h410s_h610s_info.html[H410S and H610S hardware information]
+* link:../hardware/concept_sfseries_info.html[SF-series hardware information]

@@ -1,0 +1,6 @@
+---
+permalink: storage/concept_data_manage_volumes_qos_performance_curve.html
+redirect: element-software/concepts/concept_data_manage_volumes_solidfire_quality_of_service.html#qos-performance
+---
+
+// 2022-8-30, DOC-4474, move contents to above redirect

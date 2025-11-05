@@ -1,0 +1,85 @@
+---
+permalink: api/reference_element_api_getaccountbyid.html
+sidebar: sidebar
+keywords: accounts,account,get,getting,GetAccountByID,ID
+summary: 'You can use GetAccountByID to get details about a specific account, given its accountID.'
+---
+
+= GetAccountByID
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `GetAccountByID` to get details about a specific account, given its accountID.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+accountID
+a|
+The account ID of the account for which to get information.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+account
+a|
+Account details.
+a|
+xref:reference_element_api_account.adoc[account]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetAccountByID",
+   "params": {
+     "accountID"  : 3
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "account": {
+        "attributes": {},
+        "username": "account3",
+        "targetSecret": "targetsecret",
+        "volumes": [],
+        "enableChap": true,
+        "status": "active",
+        "accountID": 3,
+        "storageContainerID": "abcdef01-1234-5678-90ab-cdef01234567",
+        "initiatorSecret": "initiatorsecret"
+    }
+}
+----
+
+== New since version
+
+9.6

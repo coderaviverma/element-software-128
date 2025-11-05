@@ -1,0 +1,60 @@
+---
+permalink: api/reference_element_api_createsnapmirrorendpoint_unmanaged.html
+sidebar: sidebar
+keywords: SnapMirror,endpoint,unmanaged,create,creating,CreateSnapMirrorEndpointUnmanaged
+summary: 'The Element software storage system uses the CreateSnapMirrorEndpointUnmanaged method to enable remote, unmanaged SnapMirror endpoints to communicate with a Element storage cluster. Unmanaged endpoints cannot be administered using the Element SnapMirror APIs. They must be managed with ONTAP management software or APIs.'
+---
+
+= CreateSnapMirrorEndpointUnmanaged
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element software storage system uses the `CreateSnapMirrorEndpointUnmanaged` method to enable remote, unmanaged SnapMirror endpoints to communicate with a Element storage cluster. Unmanaged endpoints cannot be administered using the Element SnapMirror APIs. They must be managed with ONTAP management software or APIs.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+clusterName
+a|
+The name of the endpoint.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+ipAddresses
+a|
+The list of IP addresses for a cluster of ONTAP storage systems that should communicate with this Element storage cluster.
+a|
+string array
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+snapMirrorEndpoint
+a|
+The newly created SnapMirror endpoint.
+a|
+xref:reference_element_api_snapmirrorendpoint.adoc[snapMirrorEndpoint]
+|===
+
+== New since version
+
+10.3
