@@ -89,10 +89,6 @@ indexpage:
           url: https://mysupport.netapp.com/site/products/all/details/element-software/guideme-tab
     - title: Earlier versions
       links:
-        - title: Element 12.5 documentation
-          url: https://docs.netapp.com/us-en/element-software-125/index.html
-        - title: Element 12.3.x documentation
-          url: https://docs.netapp.com/us-en/element-software-123/index.html
         - title: Element 12.2.1 documentation
           url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=63945&language=en-US
         - title: Element 12.2 documentation
