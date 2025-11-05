@@ -1,0 +1,22 @@
+---
+permalink: storage/task_data_protection_edit_members_of_group_snapshot.html
+sidebar: sidebar
+keywords: group snapshot members, edit
+summary: 'You can edit the retention settings for members of an existing group snapshot.'
+---
+
+= Editing members of group snapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can edit the retention settings for members of an existing group snapshot.
+
+. Click *Data Protection* > *Snapshots*.
+. Click the *Members* tab.
+. Click the Actions icon for the group snapshot member you want to edit.
+. In the resulting menu, select *Edit*.
+. To change the replication setting for the snapshot, select from the following options:
+ ** Click *Keep Forever* to retain the snapshot on the system indefinitely.
+ ** Click *Set Retention Period* and use the date spin boxes to choose a length of time for the system to retain the snapshot.
+. Click *Save Changes*.

@@ -1,0 +1,20 @@
+---
+permalink: storage/task_system_manage_cluster_enable_and_disable_support_access.html
+sidebar: sidebar
+keywords: support access, enable, disable
+summary: 'You can enable support access to temporarily allow NetApp support personnel access to storage nodes via SSH for troubleshooting.'
+---
+
+= Enable and disable support access
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can enable support access to temporarily allow NetApp support personnel access to storage nodes via SSH for troubleshooting.
+
+You must have cluster admin privileges to change support access.
+
+. Click *Cluster* > *Settings*.
+. In the Enable / Disable Support Access section, enter the duration (in hours) that you want to allow support to have access.
+. Click *Enable Support Access*.
+. *Optional:* To disable support access, click *Disable Support Access*.

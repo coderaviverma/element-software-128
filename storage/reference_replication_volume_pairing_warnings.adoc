@@ -1,0 +1,53 @@
+---
+permalink: storage/reference_replication_volume_pairing_warnings.html
+sidebar: sidebar
+keywords: volume warnings, messages, replication, data protection
+summary: 'The Volume Pairs page on the Data Protection tab provides these messages after you pair volumes. These messages can display on both source and target ends of the pair \(unless otherwise indicated\) in the Replicating Volumes list view.'
+---
+
+= Volume pairing warnings
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+TheVolume Pairs page on the Data Protection tab provides these messages after you pair volumes. These messages can display on both source and target ends of the pair (unless otherwise indicated) in the Replicating Volumes list view.
+
+* *PausedClusterFull*
++
+Because the target cluster is full, source replication and bulk data transfer cannot proceed. The message displays on the source end of the pair only.
+
+* *PausedExceededMaxSnapshotCount*
++
+The target volume already has the maximum number of snapshots and cannot replicate additional snapshots.
+
+* *PausedManual*
++
+Local volume has been manually paused. It must be unpaused before replication resumes.
+
+* *PausedManualRemote*
++
+Remote volume is in manual paused mode. Manual intervention required to unpause the remote volume before replication resumes.
+
+* *PausedMisconfigured*
++
+Waiting for an active source and target. Manual intervention required to resume replication.
+
+* *PausedQoS*
++
+Target QoS could not sustain incoming IO. Replication auto-resumes. The message displays on the source end of the pair only.
+
+* *PausedSlowLink*
++
+Slow link detected and stopped replication. Replication auto-resumes. The message displays on the source end of the pair only.
+
+* *PausedVolumeSizeMismatch*
++
+Target volume is not the same size as the source volume.
+
+* *PausedXCopy*
++
+A SCSI XCOPY command is being issued to a source volume. The command must complete before replication can resume. The message displays on the source end of the pair only.
+
+* *StoppedMisconfigured*
++
+A permanent configuration error has been detected. The remote volume has been purged or unpaired. No corrective action is possible; a new pairing must be established.

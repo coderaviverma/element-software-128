@@ -1,0 +1,21 @@
+---
+permalink: hardware/index.html
+sidebar: sidebar
+keywords: soldifre hardware, h-series hardware, install hardware, maintain hardware, h410s, h610s
+summary: Learn about installing and maintaining H-series and SF-series hardware.
+---
+
+= Install and maintain hardware
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Learn about installing and maintaining H-series and SF-series hardware.
+
+* xref:concept_h410s_h610s_info.adoc[H410S and H610S hardware information]
+* xref:concept_sfseries_info.adoc[SF-series hardware information]
+* xref:concept_rtfi_configure.html[Return to Factory Image information]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

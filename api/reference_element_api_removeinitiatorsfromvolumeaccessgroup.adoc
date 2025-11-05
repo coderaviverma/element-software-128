@@ -1,0 +1,115 @@
+---
+permalink: api/reference_element_api_removeinitiatorsfromvolumeaccessgroup.html
+sidebar: sidebar
+keywords: initiators,initiator,volume,access,group,remove,removing,removeinitiatorsfromvolumeaccessgroup
+summary: 'You can use the RemoveInitiatorsFromVolumeAccessGroup method to remove initiators from a specified volume access group.'
+---
+
+= RemoveInitiatorsFromVolumeAccessGroup
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RemoveInitiatorsFromVolumeAccessGroup` method to remove initiators from a specified volume access group.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeAccessGroupID
+a|
+The ID of the volume access group from which initiators are removed.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+initiators
+a|
+List of initiator IDs or names (IQNs and WWPNs) to include in the volume access group. If you pass a list of initiator names, the initiators are created if they do not already exist. If you pass a list of initiator IDs, the method returns an error if any of the initiators does not already exist. Passing initiator names is deprecated; you should use initiator IDs whenever possible.
+a|
+integer array (recommended) or string array (deprecated)
+a|
+None
+a|
+No
+a|
+deleteOrphanInitiators
+a|
+Specifies whether to delete initiator objects after they are removed from a volume access group or not. Possible values:
+
+* true: Delete initiator objects after they are removed from a volume access group.
+* false: Do not delete initiator objects after they are removed from a volume access group. This is the default.
+
+a|
+boolean
+a|
+false
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+volumeAccessGroup
+a|
+An object containing information about the newly modified volume access group.
+a|
+xref:reference_element_api_volumeaccessgroup.adoc[volumeAccessGroup]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "id": 13171,
+  "method": "RemoveInitiatorsFromVolumeAccessGroup",
+  "params": {
+    "initiators": [114,115],
+    "volumeAccessGroupID": 96
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 13171,
+  "result": {
+    "volumeAccessGroup": {
+      "attributes": {},
+      "deletedVolumes": [
+        327
+      ],
+      "initiatorIDs": [],
+      "initiators": [],
+      "name": "test",
+      "volumeAccessGroupID": 96,
+      "volumes": [
+        346
+      ]
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

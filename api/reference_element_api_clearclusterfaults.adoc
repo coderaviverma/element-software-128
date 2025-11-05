@@ -1,0 +1,71 @@
+---
+permalink: api/reference_element_api_clearclusterfaults.html
+sidebar: sidebar
+keywords: cluster,clear,clearing,fault,faults,support bundles,ClearClusterFaults
+summary: 'You can use the ClearClusterFaults method to clear information about both current and previously detected faults. Both resolved and unresolved faults can be cleared.'
+---
+
+= ClearClusterFaults
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ClearClusterFaults` method to clear information about both current and previously detected faults. Both resolved and unresolved faults can be cleared.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+faultTypes
+a|
+Determines the types of faults to clear. Possible values:
+
+* current:
++
+Faults that are detected currently and have not been resolved.
+
+* resolved: Faults that were previously detected and resolved.
+* all: Both current and resolved faults. The fault status can be determined by the "`resolved`" field of the fault object.
+
+a|
+string
+a|
+resolved
+a|
+No
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ClearClusterFaults",
+   "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+    "result" : {}
+}
+----
+
+== New since version
+
+9.6

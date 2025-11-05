@@ -1,0 +1,21 @@
+---
+permalink: storage/concept_system_manage_virtual_manage_virtual_networks.html
+sidebar: sidebar
+keywords: virtual networks, manage, traffic, clients, vlan tagging
+summary: 'Virtual networking in SolidFire storage enables traffic between multiple clients that are on separate logical networks to be connected to one cluster. Connections to the cluster are segregated in the networking stack through the use of VLAN tagging.'
+---
+
+= Manage virtual networks
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Virtual networking in SolidFire storage enables traffic between multiple clients that are on separate logical networks to be connected to one cluster. Connections to the cluster are segregated in the networking stack through the use of VLAN tagging.
+
+== Find more information
+
+* xref:task_system_manage_virtual_add_a_virtual_network.adoc[Add a virtual network]
+* xref:task_system_manage_virtual_enable_virtual_routing_and_forwarding.adoc[Enable virtual routing and forwarding]
+* xref:task_system_manage_virtual_edit_a_virtual_network.adoc[Edit a virtual network]
+* xref:task_system_manage_virtual_edit_vrf_vlans.adoc[Edit VRF VLANs]
+* xref:task_system_manage_virtual_delete_a_virtual_network.adoc[Delete a virtual network]

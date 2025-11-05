@@ -1,0 +1,39 @@
+---
+permalink: storage/task_system_manage_mfa_set_up_multi_factor_authentication.html
+sidebar: sidebar
+keywords: idp, json, mfa, cluster, metadata, saml
+summary: 'You can use these basic steps via the Element API to set up your cluster to use multi-factor authentication. Details of each API method can be found in the Element API Reference documentation.'
+---
+
+= Set up multi-factor authentication
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use these basic steps via the Element API to set up your cluster to use multi-factor authentication.
+
+Details of each API method can be found in the link:../api/index.html[Element API Reference].
+
+. Create a new third-party Identity Provider (IdP) configuration for the cluster by calling the following API method and passing the IdP metadata in JSON format: `CreateIdpConfiguration`
++
+IdP metadata, in plain text format, is retrieved from the third-party IdP. This metadata needs to be validated to ensure that it is correctly formatted in JSON. There are numerous JSON formatter applications available that you can use, for example:https://freeformatter.com/json-escape.html.
+
+. Retrieve cluster metadata, via spMetadataUrl, to copy to the third-party IdP by calling the following API method: `ListIdpConfigurations`
++
+spMetadataUrl is a URL used to retrieve service provider metadata from the cluster for the IdP in order to establish a trust relationship.
+
+. Configure SAML assertions on the third-party IdP to include the "`NameID`" attribute to uniquely identify a user for audit logging and for Single Logout to function properly.
+. Create one or more cluster administrator user accounts authenticated by a third-party IdP for authorization by calling the following API method:``AddIdpClusterAdmin``
++
+NOTE: The username for the IdP cluster Administrator should match the SAML attribute Name/Value mapping for the desired effect, as shown in the following examples:
+
+ ** email=bob@company.com -- where the IdP is configured to release an email address in the SAML attributes.
+ ** group=cluster-administrator - where the IdP is configured to release a group property in which all users should have access.
+Note that the SAML attribute Name/Value pairing is case-sensitive for security purposes.
+
+. Enable MFA for the cluster by calling the following API method: `EnableIdpAuthentication`
+
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

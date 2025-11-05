@@ -1,0 +1,87 @@
+---
+permalink: api/reference_element_api_createbackuptarget.html
+sidebar: sidebar
+keywords: create,creating,backup,target,CreateBackupTarget
+summary: 'You can use CreateBackupTarget to create and store backup target information so that you do not need to re-enter it each time a backup is created.'
+---
+
+= CreateBackupTarget
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `CreateBackupTarget` to create and store backup target information so that you do not need to re-enter it each time a backup is created.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+name
+a|
+Name for the backup target.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+Yes (but can be empty)
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+backupTargetID
+a|
+Unique identifier assigned to the new backup target.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "CreateBackupTarget",
+   "params": {
+      "name": "mytargetbackup"
+   },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+      "backupTargetID": 1
+   }
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,107 @@
+---
+permalink: api/reference_element_api_addvolumestovolumeaccessgroup.html
+sidebar: sidebar
+keywords: volume,volumes,adding,add,access,group,addvolumestovolumeaccessgroup
+summary: 'You can use the AddVolumesToVolumeAccessGroup method to add volumes to a specified volume access group.'
+---
+
+= AddVolumesToVolumeAccessGroup
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `AddVolumesToVolumeAccessGroup` method to add volumes to a specified volume access group.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumes
+a|
+List of volumeIDs to add to the volume access group.
+a|
+integer array
+a|
+None
+a|
+Yes
+a|
+volumeAccessGroupID
+a|
+VolumeAccessGroupID of the volume access group to which volumes are added.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+volumeAccessGroup
+a|
+An object containing information about the newly modified volume access group.
+a|
+xref:reference_element_api_volumeaccessgroup.adoc[volumeAccessGroup]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "AddVolumesToVolumeAccessGroup",
+   "params": {
+      "volumeAccessGroupID": 96,
+      "volumes": [1,2]
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "volumeAccessGroup": {
+      "attributes": {},
+      "deletedVolumes": [
+        346
+      ],
+      "initiatorIDs": [
+        116,
+        117
+      ],
+      "initiators": [
+        "iqn.1993-08.org.debian:01:181324777",
+        "iqn.1993-08.org.debian:01:181324888"
+      ],
+      "name": "northbanktest",
+      "volumeAccessGroupID": 96,
+      "volumes": [
+        1,
+        2
+      ]
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

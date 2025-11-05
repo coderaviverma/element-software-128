@@ -1,0 +1,61 @@
+---
+permalink: api/concept_element_api_volume_api_methods.html
+sidebar: sidebar
+keywords: volume,API,method,methods
+summary: 'Element software volume API methods enable you to manage volumes that reside on a storage node. You can create, modify, clone, and delete volumes with these methods. You can also use volume API methods to gather and display data measurements for a volume.'
+---
+
+= Volume API methods
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Element software volume API methods enable you to manage volumes that reside on a storage node. You can create, modify, clone, and delete volumes with these methods. You can also use volume API methods to gather and display data measurements for a volume.
+
+* xref:reference_element_api_cancelclone.adoc[CancelClone]
+* xref:reference_element_api_cancelgroupclone.adoc[CancelGroupClone]
+* xref:reference_element_api_clonemultiplevolumes.adoc[CloneMultipleVolumes]
+* xref:reference_element_api_clonevolume.adoc[CloneVolume]
+* xref:reference_element_api_copyvolume.adoc[CopyVolume]
+* xref:reference_element_api_createqospolicy.adoc[CreateQoSPolicy]
+* xref:reference_element_api_createvolume.adoc[CreateVolume]
+* xref:reference_element_api_createbackuptarget.adoc[CreateBackupTarget]
+* xref:reference_element_api_deleteqospolicy.adoc[DeleteQoSPolicy]
+* xref:reference_element_api_deletevolume.adoc[DeleteVolume]
+* xref:reference_element_api_deletevolumes.adoc[DeleteVolumes]
+* xref:reference_element_api_getbackuptarget.adoc[GetBackupTarget]
+* xref:reference_element_api_getvolumestats.adoc[GetVolumeStats]
+* xref:reference_element_api_getdefaultqos.adoc[GetDefaultQoS]
+* xref:reference_element_api_getqospolicy.adoc[GetQoSPolicy]
+* xref:reference_element_api_getvolumecount.adoc[GetVolumeCount]
+* xref:reference_element_api_getvolumeefficiency.adoc[GetVolumeEfficiency]
+* xref:reference_element_api_listactivevolumes.adoc[ListActiveVolumes]
+* xref:reference_element_api_listbackuptargets.adoc[ListBackupTargets]
+* xref:reference_element_api_listbulkvolumejobs.adoc[ListBulkVolumeJobs]
+* xref:reference_element_api_listdeletedvolumes.adoc[ListDeletedVolumes]
+* xref:reference_element_api_listqospolicies.adoc[ListQoSPolicies]
+* xref:reference_element_api_listsyncjobs.adoc[ListSyncJobs]
+* xref:reference_element_api_listvolumeqoshistograms.adoc[ListVolumeQoSHistograms]
+* xref:reference_element_api_listvolumes.adoc[ListVolumes]
+* xref:reference_element_api_listvolumestats.adoc[ListVolumeStats]
+* xref:reference_element_api_listvolumesforaccount.adoc[ListVolumesForAccount]
+* xref:reference_element_api_listvolumestatsbyaccount.adoc[ListVolumeStatsByAccount]
+* xref:reference_element_api_listvolumestatsbyvirtualvolume.adoc[ListVolumeStatsByVirtualVolume]
+* xref:reference_element_api_listvolumestatsbyvolume.adoc[ListVolumeStatsByVolume]
+* xref:reference_element_api_listvolumestatsbyvolumeaccessgroup.adoc[ListVolumeStatsByVolumeAccessGroup]
+* xref:reference_element_api_modifybackuptarget.adoc[ModifyBackupTarget]
+* xref:reference_element_api_modifyqospolicy.adoc[ModifyQoSPolicy]
+* xref:reference_element_api_modifyvolume.adoc[ModifyVolume]
+* xref:reference_element_api_modifyvolumes.adoc[ModifyVolumes]
+* xref:reference_element_api_purgedeletedvolume.adoc[PurgeDeletedVolume]
+* xref:reference_element_api_purgedeletedvolumes.adoc[PurgeDeletedVolumes]
+* xref:reference_element_api_removebackuptarget.adoc[RemoveBackupTarget]
+* xref:reference_element_api_restoredeletedvolume.adoc[RestoreDeletedVolume]
+* xref:reference_element_api_setdefaultqos.adoc[SetDefaultQoS]
+* xref:reference_element_api_startbulkvolumeread.adoc[StartBulkVolumeRead]
+* xref:reference_element_api_startbulkvolumewrite.adoc[StartBulkVolumeWrite]
+* xref:reference_element_api_updatebulkvolumestatus.adoc[UpdateBulkVolumeStatus]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

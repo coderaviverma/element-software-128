@@ -1,0 +1,88 @@
+---
+permalink: api/reference_element_api_getpatchinfo.html
+sidebar: sidebar
+keywords: get,patch,info,patches,getpatchinfo
+summary: 'You can use the GetPatchInfo method to get information about patches installed on a node.'
+---
+
+= GetPatchInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetPatchInfo` method to get information about Element software patches installed on a storage node.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+
+|`force`
+a|Force the method to run on all nodes in the storage cluster. You only need this when you issue the API to a cluster IP address instead of a single node. Possible values:
+
+* `true`
+* `false`
+|boolean
+|`false`
+|No
+|===
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+|patches
+|Object containing information about the patches installed on this node.
+|JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetPatchInfo",
+   "params": {
+      "force": false,
+      },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "patches": {
+          "SUST936": {
+          "date": "Wed 09 Dec 2020 10:41:59 PM UTC",
+          "description": "BMC fixes",
+          "newFiles": [
+              "None"
+          ],
+          "patchedFiles": [
+              "Patched_file_1.bin",
+              "Patched_file_2.dat",
+              "Patched_file_3.tgz"
+          ]
+          }
+        }
+    }
+}
+
+----
+
+== New since version
+
+12.3

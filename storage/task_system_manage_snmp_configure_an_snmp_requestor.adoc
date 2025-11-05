@@ -1,0 +1,29 @@
+---
+permalink: storage/task_system_manage_snmp_configure_an_snmp_requestor.html
+sidebar: sidebar
+keywords: SNMP requestor, config, enable, disable, snmp requests
+summary: 'When SNMP version 2 is enabled, you can enable or disable a requestor, and configure requestors to receive authorized SNMP requests.'
+---
+
+= Configure an SNMP requestor
+:experimental:
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When SNMP version 2 is enabled, you can enable or disable a requestor, and configure requestors to receive authorized SNMP requests.
+
+. Click menu:Cluster[SNMP].
+. Under *General SNMP Settings*, click *Yes* to enable SNMP.
+. From the *Version* list, select *Version 2*.
+. In the *Requestors* section, enter the *Community String* and *Network* information.
++
+NOTE: By default, the community string is public, and the network is localhost. You can change these default settings.
+
+. *Optional:* To add another requestor, click *Add a Requestor* and enter the *Community String* and *Network* information.
+. Click *Save Changes*.
+
+== Find more information
+
+* xref:task_system_manage_snmp_configure_snmp_traps.adoc[Configure SNMP traps]
+* xref:task_system_manage_snmp_view_managed_object_data.adoc[View managed object data using management information base files]

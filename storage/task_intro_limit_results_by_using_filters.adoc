@@ -1,0 +1,25 @@
+---
+permalink: storage/task_intro_limit_results_by_using_filters.html
+sidebar: sidebar
+keywords: filter, filtering, sorting information, viewing lists, unfiltered list
+summary: 'You can filter list information on pages in the Element UI. When viewing lists \(such as volumes and snapshots\), you can add one or more filters to focus the information and make it more easily fit on the page.'
+---
+
+= Limit results by using filters
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can filter list information on pages in the Element UI. When viewing lists (such as volumes and snapshots), you can add one or more filters to focus the information and make it more easily fit on the page.
+
+. When viewing list information, click *Filter*.
+. Expand the *Filter By* field.
+. Choose a column to filter by from the leftmost element in the field.
+. Choose a constraint for the column.
+. Enter text to filter by.
+. Click *Add*.
++
+The system runs the new filter on the information in the list, and temporarily stores the new filter in the Filter By field.
+
+. To add another filter, click *Add* and again choose the filter.
+. Click *Clear All* to remove the list of filters and display the unfiltered list information.

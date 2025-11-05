@@ -1,0 +1,67 @@
+---
+permalink: storage/reference_per_node_cluster_settings_details.html
+sidebar: sidebar
+keywords: nodes, changing cluster settings, per-node UI
+summary: 'You can verify cluster settings for a storage node after cluster configuration and modify the node hostname.'
+---
+
+= Cluster settings details from the per-node UI
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can verify cluster settings for a storage node after cluster configuration and modify the node hostname.
+
+The following list describes the cluster settings for a storage node indicated from the *Cluster Settings* page of the per-node UI (https://<node IP>:442/hcc/node/cluster-settings).
+
+* *Role*
++
+Role the node has in the cluster. Possible values:
+
+ ** Storage: Storage or Fibre Channel node.
+ ** Management: Node is a management node.
+
+* *Hostname*
++
+Name of the node.
+
+* *Cluster*
++
+Name of the cluster.
+
+* *Cluster Membership*
++
+State of the node. Possible values:
+
+ ** Available: The node has no associated cluster name and is not yet part of a cluster.
+ ** Pending: The node is configured and can be added to a designated cluster. Authentication is not required to access the node.
+ ** PendingActive: The system is in the process of installing compatible software on the node. When complete, the node will move to the Active state.
+ ** Active: The node is participating in a cluster. Authentication is required to modify the node.
+
+* *Version*
++
+Version of the Element software running on the node.
+
+* *Ensemble*
++
+Nodes that are part of the database ensemble.
+
+* *Node ID*
++
+ID assigned when a node is added to the cluster.
+
+* *Cluster Interface*
++
+Network interface used for cluster communication.
+
+* *Management Interface*
++
+Management network interface. This defaults to Bond1G but can also use Bond10G.
+
+* *Storage Interface*
++
+Storage network interface using Bond10G.
+
+* *Encryption Capable*
++
+Indicates whether or not the node supports drive encryption.

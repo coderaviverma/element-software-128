@@ -1,0 +1,69 @@
+---
+permalink: api/reference_element_api_listutilities.html
+sidebar: sidebar
+keywords: utilities,list,listing,listutilities
+summary: 'You can use the ListUtilities method to list the operations that are available to run on a node.'
+---
+
+= ListUtilities
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListUtilities` method to list the operations that are available to run on a node.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+utilities
+a|
+List of utilities currently available to run on the node.
+a|
+string array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListUtilities",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "utilities": [
+      "ResetDrives",
+      "ResetNode",
+      "RestartNetworking",
+      "RestartServices",
+      "CreateSupportBundle",
+      "DeleteAllSupportBundles",
+      "CreateClusterSupportBundle"
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

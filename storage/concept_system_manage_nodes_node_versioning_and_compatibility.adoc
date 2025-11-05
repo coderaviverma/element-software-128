@@ -1,0 +1,29 @@
+---
+permalink: storage/concept_system_manage_nodes_node_versioning_and_compatibility.html
+sidebar: sidebar
+keywords: compatibility, node version, clusters, software version, compatible versions, major, minor, micro
+summary: 'Node compatibility is based on the Element software version installed on a node. Element software-based storage clusters automatically image a node to the Element software version on the cluster if the node and cluster are not at compatible versions.'
+---
+
+= Node versioning and compatibility
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Node compatibility is based on the Element software version installed on a node. Element software-based storage clusters automatically image a node to the Element software version on the cluster if the node and cluster are not at compatible versions.
+
+The following list describes the software release significance levels that make up the Element software version number:
+
+* *Major*
++
+The first number designates a software release. A node with one major component number cannot be added to a cluster containing nodes of a different major-patch number, nor can a cluster be created with nodes of mixed major versions.
+
+* *Minor*
++
+The second number designates smaller software features or enhancements to existing software features that have been added to a major release. This component is incremented within a major version component to indicate that this incremental release is not compatible with any other Element software incremental releases with a different minor component. For example, 11.0 is not compatible with 11.1, and 11.1 is not compatible with 11.2.
+
+* *Micro*
++
+The third number designates a compatible patch (incremental release) to the Element software version represented by the major.minor components. For example, 11.0.1 is compatible with 11.0.2, and 11.0.2 is compatible with 11.0.3.
+
+Major and minor version numbers must match for compatibility. Micro numbers do not have to match for compatibility.

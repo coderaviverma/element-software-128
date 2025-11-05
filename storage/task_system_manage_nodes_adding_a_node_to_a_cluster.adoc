@@ -1,0 +1,44 @@
+---
+permalink: storage/task_system_manage_nodes_adding_a_node_to_a_cluster.html
+sidebar: sidebar
+keywords: nodes, add, config, cluster, pending, pairs, capacity, rule
+summary: 'You can add nodes to a cluster when more storage is needed or after cluster creation. Nodes require initial configuration when they are first powered on. After the node is configured, it appears in the list of pending nodes and you can add it to a cluster.'
+---
+
+= Add a node to a cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can add nodes to a cluster when more storage is needed or after cluster creation. Nodes require initial configuration when they are first powered on. After the node is configured, it appears in the list of pending nodes and you can add it to a cluster.
+
+The software version on each node in a cluster must be compatible. When you add a node to a cluster, the cluster installs the cluster version of NetApp Element software on the new node as needed.
+
+You can add nodes of smaller or larger capacities to an existing cluster. You can add larger node capacities to a cluster to allow for capacity growth. Larger nodes added to a cluster with smaller nodes must be added in pairs. This allows for sufficient space for Double Helix to move the data should one of the larger nodes fail. You can add smaller node capacities to a larger node cluster to improve performance.
+
+NOTE: If a newly added node accounts for more than 50 percent of the total cluster capacity, some of the capacity of this node is made unusable ("stranded"), so that it complies with the capacity rule. This remains the case until more storage is added. If a very large node is added that also disobeys the capacity rule, the previously stranded node will no longer be stranded, while the newly added node becomes stranded. Capacity should always be added in pairs to avoid this happening. When a node becomes stranded, the strandedCapacity cluster fault is thrown.
+
+https://www.youtube.com/embed/2smVHWkikXY?rel=0[NetApp video: Scale on Your Terms: Expanding a SolidFire Cluster^]
+
+You can add nodes to NetApp HCI appliances.
+
+.Steps
+. Select *Cluster* > *Nodes*.
+. Click *Pending* to view the list of pending nodes.
++
+When the process for adding nodes is complete, they appear in the Active nodes list. Until then, pending nodes appear in the Pending Active list.
++
+SolidFire installs the Element software version of the cluster on the pending nodes when you add them to a cluster. This might take a few minutes.
+
+. Do one of the following:
+ ** To add individual nodes, click the *Actions* icon for the node you want to add.
+ ** To add multiple nodes, select the check box of the nodes to add, and then *Bulk Actions*.
+*Note:* If the node you are adding has a different version of Element software than the version running on the cluster, the cluster asynchronously updates the node to the version of Element software running on the cluster master. After the node is updated, it automatically adds itself to the cluster. During this asynchronous process, the node will be in a pendingActive state.
+. Click *Add*.
++
+The node appears in the list of active nodes.
+
+== Find more information
+
+xref:concept_system_manage_nodes_node_versioning_and_compatibility.adoc[Node versioning and compatibility]
+// 2022 DEC 12, DOC-4643 

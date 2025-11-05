@@ -1,0 +1,23 @@
+---
+permalink: storage/task_data_manage_vvol_delete_a_virtual_volume.html
+sidebar: sidebar
+keywords: virtual volume, delete, vvols, use Element UI to delete a vvol
+summary: 'Although virtual volumes should always be deleted from the VMware Management Layer, the functionality for you to delete virtual volumes is enabled from the Element UI. You should only delete a virtual volume from the Element UI when absolutely necessary, such as when vSphere fails to clean up virtual volumes on SolidFire storage.'
+---
+
+= Delete a virtual volume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Although virtual volumes should always be deleted from the VMware Management Layer, the functionality for you to delete virtual volumes is enabled from the Element UI. You should only delete a virtual volume from the Element UI when absolutely necessary, such as when vSphere fails to clean up virtual volumes on SolidFire storage.
+
+. Select *VVols* > *Virtual Volumes*.
+. Click the Actions icon for the virtual volume you want to delete.
+. In the resulting menu, select *Delete*.
++
+IMPORTANT: You should delete a virtual volume from the VMware Management Layer to ensure that the virtual volume is properly unbound before deletion. You should only delete a virtual volume from the Element UI when absolutely necessary, such as when vSphere fails to clean up virtual volumes on SolidFire storage. If you delete a virtual volume from the Element UI, the volume will be purged immediately.
+
+. Confirm the action.
+. Refresh the list of virtual volumes to confirm that the virtual volume has been removed.
+. *Optional*: Select *Reporting* > *Event Log* to confirm that the purge has been successful.

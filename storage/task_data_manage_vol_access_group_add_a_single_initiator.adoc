@@ -1,0 +1,53 @@
+---
+permalink: storage/task_data_manage_vol_access_group_add_a_single_initiator.html
+sidebar: sidebar
+keywords: initiator, add to volume access group, access groups, add single initiator, create initiator
+summary: 'You can add an initiator to an existing volume access group.'
+---
+
+= Add a single initiator to a volume access group
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can add an initiator to an existing volume access group.
+
+When you add an initiator to a volume access group, the initiator has access to all volumes in that volume access group.
+
+TIP: You can find the initiator for each volume by clicking the Actions icon and then selecting *View Details* for the volume in the active volumes list.
+
+If you use initiator-based CHAP, you can add CHAP credentials for a single initiator in a volume access group, providing more security. This enables you to apply this option for volume access groups that already exist.
+
+.Steps
+. Click *Management* > *Access Groups*.
+. Click the *Actions* icon for the access group you want to edit.
+. Click *Edit*.
+. To add a Fibre Channel initiator to the volume access group, perform the following steps:
+ .. Under Add Initiators, select an existing Fibre Channel initiator from the *Unbound Fibre Channel Initiators* list.
+ .. Click *Add FC Initiator*.
+
++
+NOTE: You can create an initiator during this step if you click the *Create Initiator* link, enter an initiator name, and click *Create*. The system automatically adds the initiator to the *Initiators* list after you create it.
+
++
+A sample of the format is as follows:
+
++
+----
+5f:47:ac:c0:5c:74:d4:02
+----
+. To add an iSCSI initiator to the volume access group, under Add Initiators, select an existing initiator from the *Initiators* list.
++
+NOTE: You can create an initiator during this step if you click the *Create Initiator* link, enter an initiator name, and click *Create*. The system automatically adds the initiator to the *Initiators* list after you create it.
++
+The accepted format of an initiator IQN is as follows: iqn.yyyy-mm, in which y and m are digits, followed by text which must only contain digits, lower-case alphabetic characters, a period (.), colon (:) or dash (-).
++
+A sample of the format is as follows:
++
+----
+iqn.2010-01.com.solidfire:c2r9.fc0.2100000e1e09bb8b
+----
++
+TIP: You can find the initiator IQN for each volume from the *Management* > *Volumes* Active Volumes page by clicking the Actions icon and then selecting *View Details* for the volume.
+
+. Click *Save Changes*.

@@ -1,0 +1,23 @@
+---
+permalink: storage/task_system_manage_fips_enable_encryption_at_rest.html
+sidebar: sidebar
+keywords: fips, security, encryption at rest, enable, disable, drives
+summary: 'You can enable and disable cluster-wide encryption at rest. This feature is not enabled by default. To support FIPS drives, you must enable encryption at rest.'
+---
+
+= Enable encryption at rest
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can enable and disable cluster-wide encryption at rest. This feature is not enabled by default. To support FIPS drives, you must enable encryption at rest.
+
+. In the NetApp Element software UI, click *Cluster* > *Settings*.
+. Click *Enable Encryption at Rest*.
+
+
+
+== Find more information
+* xref:task_system_manage_cluster_enable_and_disable_encryption_for_a_cluster.adoc[Enable and disable encryption for a cluster]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

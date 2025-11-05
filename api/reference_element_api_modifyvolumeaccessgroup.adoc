@@ -1,0 +1,164 @@
+---
+permalink: api/reference_element_api_modifyvolumeaccessgroup.html
+sidebar: sidebar
+keywords: volume,access,group,modify,modifying,updating,changing,change,update,edit,editing,modifyvolumeaccessgroup
+summary: 'You can use the ModifyVolumeAccessGroup method to update initiators and add or remove volumes from a volume access group.'
+---
+
+= ModifyVolumeAccessGroup
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyVolumeAccessGroup` method to update initiators and add or remove volumes from a volume access group.
+
+If a specified initiator or volume is a duplicate of what currently exists, the volume access group is left as-is. If you do not specify a value for volumes or initiators, the current list of initiators and volumes is not changed.
+
+//You can also associate a virtual network with a volume access group. This association applies to all volumes in the volume access group.
+
+== Parameters
+
+This method has the following input parameters:
+
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeAccessGroupID
+a|
+The ID of the volume access group to modify.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+name
+a|
+The new name for this volume access group.
+a|
+string
+a|
+None
+a|
+No
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+initiators
+a|
+List of initiator IDs or names (IQNs and WWPNs) to include in the volume access group. If you pass a list of initiator names, the initiators are created if they do not already exist. If you pass a list of initiator IDs, the method returns an error if any of the initiators does not already exist. Passing initiator names is deprecated; you should use initiator IDs whenever possible.
+a|
+integer array (recommended) or string array (deprecated)
+a|
+None
+a|
+No
+a|
+deleteOrphanInitiators
+a|
+Specifies whether to delete initiator objects after they are removed from a volume access group or not. Possible values:
+
+* true: Delete initiator objects after they are removed from a volume access group.
+* false: Do not delete initiator objects after they are removed from a volume access group. This is the default.
+
+a|
+boolean
+a|
+false
+a|
+No
+a|
+volumes
+a|
+A list of volume IDs of volumes to modify.
+a|
+integer array
+a|
+None
+a|
+xref:reference_element_api_volumeaccessgroup.adoc[volumeAccessGroup]
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+volumeAccessGroup
+a|
+An object containing information about the newly modified volume access group.
+a|
+xref:reference_element_api_volumeaccessgroup.adoc[volumeAccessGroup]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ModifyVolumeAccessGroup",
+   "params": {
+      "volumeAccessGroupID": 96,
+      "name": "accessgrouptest",
+      "initiators": [115,114],
+      "volumes": [
+         346
+    ],
+      "attributes": {}
+   }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": null,
+  "result": {
+    "volumeAccessGroup": {
+      "attributes": {},
+      "deletedVolumes": [
+        327
+      ],
+      "initiatorIDs": [
+        114,
+        115
+      ],
+      "initiators": [
+        "iqn.1998-01.com.vmware:desk1-esx1-577b283a",
+        "iqn.1998-01.com.vmware:donesq-esx1-421b281b"
+      ],
+      "name": "accessgrouptest",
+      "volumeAccessGroupID": 96,
+      "volumes": [
+        346
+      ]
+    }
+  }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+* xref:reference_element_api_addinitiatorstovolumeaccessgroup.adoc[AddInitiatorsToVolumeAccessGroup]
+* xref:reference_element_api_addvolumestovolumeaccessgroup.adoc[AddVolumesToVolumeAccessGroup]
+* xref:reference_element_api_removeinitiatorsfromvolumeaccessgroup.adoc[RemoveInitiatorsFromVolumeAccessGroup]
+* xref:reference_element_api_removevolumesfromvolumeaccessgroup.adoc[RemoveVolumesFromVolumeAccessGroup]

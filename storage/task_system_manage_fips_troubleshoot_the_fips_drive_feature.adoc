@@ -1,0 +1,27 @@
+---
+permalink: storage/task_system_manage_fips_troubleshoot_the_fips_drive_feature.html
+sidebar: sidebar
+keywords: fips, security, federal information processing standards, 140-2
+summary: 'Using the NetApp Element software UI, you can view alerts for information about cluster faults or errors in the system related to the FIPS drives feature.'
+---
+
+= Troubleshoot the FIPS drive feature
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Using the NetApp Element software UI, you can view alerts for information about cluster faults or errors in the system related to the FIPS drives feature.
+
+. Using the Element UI, select *Reporting* > *Alerts*.
+. Look for cluster faults including:
+ ** FIPS drives mismatched
+ ** FIPS drives out of compliance
+. For resolution suggestions, see Cluster Fault code information.
+
+
+
+== Find more information
+* xref:reference_monitor_cluster_fault_codes.adoc[Cluster fault codes]
+* link:../api/index.html[Manage storage with the Element API]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

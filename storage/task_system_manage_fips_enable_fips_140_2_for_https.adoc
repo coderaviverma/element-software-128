@@ -1,0 +1,40 @@
+---
+permalink: storage/task_system_manage_fips_enable_fips_140_2_for_https.html
+sidebar: sidebar
+keywords: FIPS 140-2, enable fips, federal information processing standards, ncsm
+summary: 'You can use the EnableFeature API method to enable the FIPS 140-2 operating mode for HTTPS communications.'
+---
+
+= Enable FIPS 140-2 for HTTPS on your cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the EnableFeature API method to enable the FIPS 140-2 operating mode for HTTPS communications.
+
+With NetApp Element software, you can choose to enable Federal Information Processing Standards (FIPS) 140-2 operating mode on your cluster. Enabling this mode activates the NetApp Cryptographic Security Module (NCSM) and leverages FIPS 140-2 Level 1 certified encryption for all communication via HTTPS to the NetApp Element UI and API.
+
+IMPORTANT: After you enable FIPS 140-2 mode, it cannot be disabled. When FIPS 140-2 mode is enabled, each node in the cluster reboots and runs through a self-test ensuring that the NCSM is correctly enabled and operating in the FIPS 140-2 certified mode. This causes an interruption to both management and storage connections on the cluster. You should plan carefully and only enable this mode if your environment needs the encryption mechanism it offers.
+
+For more information, see the Element API information.
+
+The following is an example of the API request to enable FIPS:
+
+----
+{
+  "method": "EnableFeature",
+    "params": {
+        "feature" : "fips"
+    },
+    "id": 1
+}
+----
+
+After this operating mode is enabled, all HTTPS communication uses the FIPS 140-2 approved ciphers.
+
+
+== Find more information
+* xref:reference_system_manage_fips_ssl_cipher_changes.adoc[SSL ciphers]
+* link:../api/index.html[Manage storage with the Element API]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

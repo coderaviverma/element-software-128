@@ -1,0 +1,32 @@
+---
+permalink: storage/task_data_protection_clone_multiple_volumes_from_a_group_snapshot.html
+sidebar: sidebar
+keywords: multiple volumes, group snapshot, clone, create, data protection
+summary: 'You can clone a group of volumes from a point-in-time group snapshot. This operation requires that a group snapshot of the volumes already exist, because the group snapshot is used as the basis to create the volumes. After you create the volumes, you can use them like any other volume in the system.'
+---
+
+= Cloning multiple volumes from a group snapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can clone a group of volumes from a point-in-time group snapshot. This operation requires that a group snapshot of the volumes already exist, because the group snapshot is used as the basis to create the volumes. After you create the volumes, you can use them like any other volume in the system.
+
+Volume size and current cluster load affect the time needed to complete a cloning operation.
+
+. Click *Data Protection* > *Group Snapshots*.
+. Click the Actions icon for the group snapshot you want to use for the volume clones.
+. In the resulting menu, select *Clone Volumes From Group Snapshot*.
+. Enter a *New Volume Name Prefix* in the *Clone Volumes From Group Snapshot* dialog box.
++
+The prefix is applied to all volumes created from the group snapshot.
+
+. *Optional:* Select a different account to which the clone will belong.
++
+If you do not select an account, the system assigns the new volumes to the current volume account.
+
+. *Optional:* Select a different access method for the volumes in the clone.
++
+If you do not select an access method, the system uses the current volume access.
+
+. Click *Start Cloning*.

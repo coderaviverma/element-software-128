@@ -1,0 +1,30 @@
+---
+permalink: storage/concept_snapmirror_failback_scenarios.html
+sidebar: sidebar
+keywords: failback scenarios, snapmirror, dr, disaster recovery
+summary: 'The SnapMirror disaster recovery functionality is illustrated in two failback scenarios. These assume the original relationship has been failed over \(broken\).'
+---
+
+= SnapMirror failback scenarios
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The SnapMirror disaster recovery functionality is illustrated in two failback scenarios. These assume the original relationship has been failed over (broken).
+
+The steps from the corresponding procedures are added for reference.
+
+NOTE: In the examples here, R1 = the original relationship in which the cluster running NetApp Element software is the original source volume (Element) and ONTAP is the original destination volume (ONTAP). R2 and R3 represent the inverse relationships created through the reverse resync operation.
+
+The following image shows the failback scenario when the source volume still exists:
+
+image::../media/snapmirror_element_failback1.gif[]
+
+The following image shows the failback scenario when the source volume no longer exists:
+
+image::../media/snapmirror_element_failback2.png[]
+
+== Find more information
+
+* xref:task_snapmirror_perform_failback_when_source_volume_exists.adoc[Perform a failback when source volume still exists]
+* xref:task_snapmirror_performing_failback_when_source_volume_no_longer_exists.adoc[Perform a failback when source volume no longer exists]

@@ -1,0 +1,220 @@
+---
+permalink: api/reference_element_api_listevents.html
+sidebar: sidebar
+keywords: cluster,list,listing,event,events,listevents
+summary: 'You can use the ListEvents method to list events detected on the cluster, sorted from oldest to newest.'
+---
+
+= ListEvents
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListEvents` method to list events detected on the cluster, sorted from oldest to newest.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+driveID
+a|
+Specifies that only events with this drive ID will be returned.
+a|
+integer
+a|
+0
+a|
+No
+a|
+endEventID
+a|
+Identifies the end of a range of event IDs to return.
+a|
+integer
+a|
+(unlimited)
+a|
+No
+a|
+endPublishTime
+a|
+Specifies that only events published earlier than this time will be returned.
+a|
+string
+a|
+0
+a|
+No
+a|
+endReportTime
+a|
+Specifies that only events reported earlier than this time will be returned.
+a|
+string
+a|
+0
+a|
+No
+a|
+eventType
+a|
+Specifies the type of events to return. See xref:reference_element_api_event.adoc[event] for possible event types.
+a|
+string
+a|
+0
+a|
+No
+a|
+maxEvents
+a|
+Specifies the maximum number of events to return.
+a|
+integer
+a|
+(unlimited)
+a|
+No
+a|
+nodeID
+a|
+Specifies that only events with this node ID will be returned.
+a|
+integer
+a|
+
+a|
+
+a|
+serviceID
+a|
+Specifies that only events with this service ID will be returned.
+a|
+
+a|
+
+a|
+
+a|
+startEventID
+a|
+Identifies the beginning of a range of events to return.
+a|
+integer
+a|
+0
+a|
+No
+a|
+startPublishTime
+a|
+Specifies that only events published after this time will be returned.
+a|
+string
+a|
+0
+a|
+No
+a|
+startReportTime
+a|
+Specifies that only events reported after this time will be returned.
+a|
+string
+a|
+0
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+events
+a|
+List of events.
+a|
+xref:reference_element_api_event.adoc[event] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListEvents",
+   "params": {
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id":1,
+  "result":{
+    "events":[
+       {
+          "details":
+            {
+              "paramGCGeneration":1431550800,
+              "paramServiceID":2
+            },
+          "driveID":0,
+          "eventID":2131,
+          "eventInfoType":"gcEvent",
+          "message":"GC Cluster Coordination Complete",
+          "nodeID":0,
+          "serviceID":2,
+          "severity":0,
+          "timeOfPublish":"2015-05-13T21:00:02.361354Z",
+          "timeOfReport":"2015-05-13T21:00:02.361269Z"
+       },{
+          "details":
+               {
+                  "eligibleBS":[5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,24,25,26,27,28,29,30,31,40,41,42,43,44,45,46,47,52,53,54,55,56,57,58,59,60],
+                  "generation":1431550800,
+                  "participatingSS":[23,35,39,51]
+               },
+          "driveID":0,
+          "eventID":2130,
+          "eventInfoType":"gcEvent",
+          "message":"GCStarted",
+          "nodeID":0,
+          "serviceID":2,
+          "severity":0,
+          "timeOfPublish":"2015-05-13T21:00:02.354128Z",
+          "timeOfReport":"2015-05-13T21:00:02.353894Z"
+       },{
+          "details":"",
+          "driveID":0,
+          "eventID":2129,
+          "eventInfoType":"tSEvent",
+          "message":"return code:2 t:41286 tt:41286 qcc:1 qd:1 qc:1 vrc:1 tt:2 ct:Write etl:524288",
+          "nodeID":0,
+          "serviceID":0,
+          "severity":0,
+          "timeOfPublish":"2015-05-13T20:45:21.586483Z",
+          "timeOfReport":"2015-05-13T20:45:21.586311Z"
+       }
+     ]
+   }
+}
+----
+
+== New since version
+
+9.6

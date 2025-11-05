@@ -1,0 +1,89 @@
+---
+permalink: api/reference_element_api_modifybackuptarget.html
+sidebar: sidebar
+keywords: modify,modifying,edit,editing,change,changing,backup,target,modifybackuptarget
+summary: 'You can use the ModifyBackupTarget method to change attributes of a backup target.'
+---
+
+= ModifyBackupTarget
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyBackupTarget` method to change attributes of a backup target.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+backupTargetID
+a|
+Unique target ID for the target to modify.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+name
+a|
+New name for the backup target.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ModifyBackupTarget",
+   "params": {
+      "backupTargetID" : 1,
+      "name": "yourtargetS3"
+      "attributes" : {
+          "size" : 500,
+      }
+   },
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {}
+}
+----
+
+== New since version
+
+9.6

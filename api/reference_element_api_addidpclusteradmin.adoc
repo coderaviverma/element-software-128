@@ -1,0 +1,107 @@
+---
+permalink: api/reference_element_api_addidpclusteradmin.html
+sidebar: sidebar
+keywords: IdP,idp,cluster,admin,add,adding,addIdpclusteradmin
+summary: 'You can use the AddIpdClusterAdmin method to add a cluster administrator user authenticated by a third-party Identity Provider \(IdP\). IdP cluster admin accounts are configured based on SAML attribute-value information provided within the IdP’s SAML assertion associated with the user. If a user successfully authenticates with the IdP and has SAML attribute statements within the SAML assertion matching multiple IdP cluster admin accounts, the user will have the combined access level of those matching IdP cluster admin accounts.'
+---
+
+= AddIdpClusterAdmin
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `AddIpdClusterAdmin` method to add a cluster administrator user authenticated by a third-party Identity Provider (IdP). IdP cluster admin accounts are configured based on SAML attribute-value information provided within the IdP's SAML assertion associated with the user. If a user successfully authenticates with the IdP and has SAML attribute statements within the SAML assertion matching multiple IdP cluster admin accounts, the user will have the combined access level of those matching IdP cluster admin accounts.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+access
+a|
+Controls which methods this IdP cluster admin can use.
+a|
+string array
+a|
+None
+a|
+Yes
+a|
+acceptEula
+a|
+Accept the End User License Agreement. Set to true to add a cluster administrator account to the system. If omitted or set to false, the method call fails.
+a|
+boolean
+a|
+None
+a|
+Yes
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+username
+a|
+A SAML attribute-value mapping to an IdP cluster admin (for example, email=test@example.com). This can be defined using a specific SAML subject using `NameID` or as an entry in the SAML attribute statement, such as `eduPersonAffiliation`.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+clusterAdminID
+a|
+Unique identifier for the newly created cluster admin.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+    "method": "AddIdpClusterAdmin",
+    "params": {
+        "username": "email=test@example.com",
+        "acceptEula": true,
+        "access": ["administrator"]
+    }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "result": {
+        "clusterAdminID": 13
+    }
+}
+----
+
+== New since version
+
+12.0

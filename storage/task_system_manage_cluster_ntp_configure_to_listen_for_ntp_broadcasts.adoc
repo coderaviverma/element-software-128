@@ -1,0 +1,29 @@
+---
+permalink: storage/task_system_manage_cluster_ntp_configure_to_listen_for_ntp_broadcasts.html
+sidebar: sidebar
+keywords: ntp, broadcasts, server, config, server list, broadcast client
+summary: 'By using the broadcast mode, you can instruct each node in a cluster to listen on the network for Network Time Protocol \(NTP\) broadcast messages from a particular server.'
+---
+
+= Configure the cluster to listen for NTP broadcasts
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+By using the broadcast mode, you can instruct each node in a cluster to listen on the network for Network Time Protocol (NTP) broadcast messages from a particular server.
+
+.What you'll need
+* You must have cluster administrator privileges to configure this setting.
+* You must configure an NTP server on your network as a broadcast server.
+
+.Steps
+. Click *Cluster* > *Settings*.
+. Enter the NTP server or servers that are using broadcast mode into the server list.
+. Under Network Time Protocol Settings, select *Yes* to use a broadcast client.
+. To set the broadcast client, in the *Server* field, enter the NTP server you configured in broadcast mode.
+. Click *Save Changes*.
+
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

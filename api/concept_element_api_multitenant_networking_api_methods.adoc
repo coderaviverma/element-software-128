@@ -1,0 +1,42 @@
+---
+permalink: api/concept_element_api_multitenant_networking_api_methods.html
+sidebar: sidebar
+keywords: multitenant,network,networking,api,prerequisites,requirements,virtual,tenant
+summary: 'Multitenant networking in Element storage clusters allows traffic between multiple clients that are on separate logical networks to be connected to one Element storage cluster without layer 3 routing.'
+---
+
+= Multitenant networking API methods
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Multitenant networking in Element storage clusters allows traffic between multiple clients that are on separate logical networks to be connected to one Element storage cluster without layer 3 routing.
+
+Connections to the storage cluster are segregated in the networking stack through the use of VLAN tagging.
+
+== Prerequisites for setting up a multitenant virtual network
+
+* You must have identified the block of client network IP addresses to be assigned to the virtual networks on the storage nodes.
+* You must have identified a client storage network IP (SVIP) address to be used as an endpoint for all storage traffic.
+
+== Virtual networking order of operations
+
+. Use the AddVirtualNetwork method to bulk provision the IP addresses you enter.
++
+After you add a virtual network, the cluster automatically performs the following steps:
+
+** Each storage node creates a virtual network interface.
+** Each storage node is assigned a VLAN address that can be routed to using the virtual SVIP.
+** VLAN IP addresses persist on each node in the event of a node reboot.
+
+. When the virtual network interface and VLAN addresses have been assigned, you can assign client network traffic to the virtual SVIP.
+
+== Find more information
+
+* xref:concept_element_api_virtual_network_naming_conventions.adoc[Virtual network naming conventions]
+* xref:reference_element_api_addvirtualnetwork.adoc[AddVirtualNetwork]
+* xref:reference_element_api_modifyvirtualnetwork.adoc[ModifyVirtualNetwork]
+* xref:reference_element_api_listvirtualnetworks.adoc[ListVirtualNetworks]
+* xref:reference_element_api_removevirtualnetwork.adoc[RemoveVirtualNetwork]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

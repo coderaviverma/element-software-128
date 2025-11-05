@@ -1,0 +1,32 @@
+---
+permalink: setup/task_setup_fc_add_fibre_channel_nodes_to_a_cluster.html
+sidebar: sidebar
+keywords:
+summary: 'You can add Fibre Channel nodes to a cluster when more storage is needed or during cluster creation. Fibre Channel nodes require initial configuration when they are first powered on. After the node is configured, it appears in the list of pending nodes and you can add it to a cluster.'
+---
+
+= Add Fibre Channel nodes to a cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can add Fibre Channel nodes to a cluster when more storage is needed or during cluster creation. Fibre Channel nodes require initial configuration when they are first powered on. After the node is configured, it appears in the list of pending nodes and you can add it to a cluster.
+
+The software version on each Fibre Channel node in a cluster must be compatible. When you add a Fibre Channel node to a cluster, the cluster installs the cluster version of Element on the new node as needed.
+
+.Steps
+. Select *Cluster* > *Nodes*.
+. Click *Pending* to view the list of pending nodes.
+. Do one of the following:
+ ** To add individual nodes, click the *Actions* icon for the node you want to add.
+ ** To add multiple nodes, select the check box of the nodes to add, and then *Bulk Actions*.
++
+NOTE: If the node you are adding has a different version of Element than the version running on the cluster, the cluster asynchronously updates the node to the version of Element running on the cluster master. After the node is updated, it automatically adds itself to the cluster. During this asynchronous process, the node will be in a pendingActive state.
+
+. Click *Add*.
++
+The node appears in the list of active nodes.
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

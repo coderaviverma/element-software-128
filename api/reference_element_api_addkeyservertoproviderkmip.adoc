@@ -1,0 +1,78 @@
+---
+permalink: api/reference_element_api_addkeyservertoproviderkmip.html
+sidebar: sidebar
+keywords: KMIP,key server,assigning to key provider,assign,addkeyservertoproviderkmip
+summary: 'You can use the AddKeyServerToProviderKmip method to assign a Key Management Interoperability Protocol \(KMIP\) key server to the specified key provider. During assignment, the server is contacted to verify functionality. If the specified key server is already assigned to the specified key provider, no action is taken and no error is returned. You can remove the assignment using the RemoveKeyServerFromProviderKmip method.'
+---
+
+= AddKeyServerToProviderKmip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `AddKeyServerToProviderKmip` method to assign a Key Management Interoperability Protocol (KMIP) key server to the specified key provider. During assignment, the server is contacted to verify functionality. If the specified key server is already assigned to the specified key provider, no action is taken and no error is returned. You can remove the assignment using the `RemoveKeyServerFromProviderKmip` method.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+keyProviderID
+a|
+The ID of the key provider to assign the key server to.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+keyServerID
+a|
+The ID of the key server to assign.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return value. The assignment is considered successful as long as there is no error returned.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "AddKeyServerToProviderKmip",
+  "params": {
+    "keyProviderID": 1,
+    "keyServerID": 15
+    },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result":
+      {}
+    }
+}
+----
+
+== New since version
+
+11.7

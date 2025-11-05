@@ -1,0 +1,19 @@
+---
+permalink: storage/task_monitor_node_performance_activity.html
+sidebar: sidebar
+keywords: performance activity, nodes, view
+summary: 'You can view performance activity for each node in a graphical format. This information provides real-time statistics for CPU and read/write I/O operations per second \(IOPS\) for each drive the node. The utilization graph is updated every five seconds, and the drive statistics graph updates every ten seconds.'
+---
+
+= View node performance activity
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can view performance activity for each node in a graphical format. This information provides real-time statistics for CPU and read/write I/O operations per second (IOPS) for each drive the node. The utilization graph is updated every five seconds, and the drive statistics graph updates every ten seconds.
+
+. Click *Cluster* > *Nodes*.
+. Click *Actions* for the node you want to view.
+. Click *View Details*.
++
+NOTE: You can see specific points in time on the line and bar graphs by positioning your cursor over the line or bar.

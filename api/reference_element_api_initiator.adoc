@@ -1,0 +1,86 @@
+---
+permalink: api/reference_element_api_initiator.html
+sidebar: sidebar
+keywords: object,objects,initiator
+summary: 'The initiator object contains information about an iSCSI or Fibre Channel initiator. An initiator object can contain IQN or WWPN identifiers. You can use the ListInitiators method to get a list of all initiators known on the system. You use initiator objects to configure SCSI initiator access to a set of volumes through volume access groups. An initiator can only be a member of one volume access group at a time. You can restrict initiator access to one or more VLANs by specifying one or more virtualNetworkIDs using the CreateInitiators and ModifyInitiators methods. If you don’t specify any virtual networks, the initiator can access all networks.'
+---
+
+= initiator
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The initiator object contains information about an iSCSI or Fibre Channel initiator. An initiator object can contain IQN or WWPN identifiers. You can use the `ListInitiators` method to get a list of all initiators known on the system. You use initiator objects to configure SCSI initiator access to a set of volumes through volume access groups. An initiator can only be a member of one volume access group at a time. You can restrict initiator access to one or more VLANs by specifying one or more virtualNetworkIDs using the `CreateInitiators` and `ModifyInitiators` methods. If you don't specify any virtual networks, the initiator can access all networks.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+alias
+a|
+The friendly name assigned to the initiator, if any.
+a|
+string
+a|
+attributes
+a|
+A set of JSON attributes assigned to this initiator. Empty if no attributes are assigned.
+a|
+JSON object
+a|
+chapUsername
+a|
+The unique CHAP username for this initiator.
+a|
+string
+a|
+initiatorID
+a|
+The numeric identifier for the initiator.
+a|
+integer
+a|
+initiatorName
+a|
+The initiator name, in IQN or WWPN format.
+a|
+string
+a|
+initiatorSecret
+a|
+The CHAP secret used to authenticate the initiator.
+a|
+string
+a|
+requireChap
+a|
+True if CHAP is required for this initiator.
+a|
+boolean
+a|
+targetSecret
+a|
+The CHAP secret used to authenticate the target (when using mutual CHAP authentication).
+a|
+string
+a|
+virtualNetworkIDs
+a|
+The list of virtual network identifiers associated with this initiator. If one or more are defined, this initiator will only be able to login to the specified virtual networks. If no virtual networks are defined this initiator can login to all networks.
+a|
+integer
+a|
+volumeAccessGroups
+a|
+A list of volume access group IDs that this initiator belongs to.
+a|
+integer array
+|===
+
+== Find more information
+
+xref:reference_element_api_listinitiators.adoc[ListInitiators]

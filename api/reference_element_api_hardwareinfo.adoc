@@ -1,0 +1,141 @@
+---
+permalink: api/reference_element_api_hardwareinfo.html
+sidebar: sidebar
+keywords: object,objects,hardwareInfo
+summary: 'The hardwareInfo object contains detailed information about the hardware and status of each node in the cluster. You can retrieve this information with the GetHardwareInfo API method.'
+---
+
+= hardwareInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The hardwareInfo object contains detailed information about the hardware and status of each node in the cluster. You can retrieve this information with the `GetHardwareInfo` API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+boardSerial
+a|
+The DMI board serial number.
+a|
+string
+a|
+bus
+a|
+Motherboard media bus information.
+a|
+JSON object
+a|
+chassisSerial
+a|
+The serial number of the chassis.
+a|
+string
+a|
+driveHardware
+a|
+A list of information for each drive in the node.
+a|
+JSON object array
+a|
+fibreChannelPorts
+a|
+A list of Fibre Channel ports on the node.
+a|
+integer array
+a|
+hardwareConfig
+a|
+Motherboard peripheral configuration information.
+a|
+JSON object
+a|
+kernelCrashDumpState
+a|
+The crash dump configuration of the operating system kernel.
+a|
+string
+a|
+memory
+a|
+Firmware and system memory hardware information.
+a|
+JSON object
+a|
+network
+a|
+Descriptions of the hardware of each of the node's network interfaces.
+a|
+JSON object
+a|
+networkInterfaces
+a|
+The status of the node's network interfaces.
+a|
+JSON object
+a|
+nodeSlot
+a|
+For HCI platforms, the letter corresponding to the chassis slot this node is in ("A", "B", "C", or "D"). For storage platforms, this value is null.
+a|
+string
+a|
+nvram
+a|
+NVRAM statistics for the node.
+a|
+JSON object
+a|
+origin
+a|
+The vendor of the motherboard.
+a|
+string
+a|
+platform
+a|
+A description of the chassis platform.
+a|
+JSON object
+a|
+serial
+a|
+The serial number of the product.
+a|
+string
+a|
+storage
+a|
+Storage controller information.
+a|
+JSON object
+a|
+systemMemory
+a|
+Operating system memory usage and performance information.
+a|
+JSON object
+a|
+system
+a|
+The type of node chassis.
+a|
+JSON object
+a|
+uuid
+a|
+The unique ID of the node.
+a|
+UUID
+|===
+
+
+== Find more information
+
+xref:reference_element_api_gethardwareinfo.adoc[GetHardwareInfo]

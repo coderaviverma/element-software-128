@@ -1,0 +1,99 @@
+---
+permalink: api/reference_element_api_getclustercapacity.html
+sidebar: sidebar
+keywords: cluster,capacity,getting,get,measurements,measure,deduplication,GetClusterCapacity
+summary: 'You can use the GetClusterCapacity to return high-level capacity measurements for an entire storage cluster. This method returns fields that you can use to calculate the efficiency rates shown in the Element web UI. You can use the efficiency calculations in scripts to return the efficiency rates for thin provisioning, deduplication, compression, and overall efficiency.'
+---
+
+= GetClusterCapacity
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetClusterCapacity` to return high-level capacity measurements for an entire storage cluster. This method returns fields that you can use to calculate the efficiency rates shown in the Element web UI. You can use the efficiency calculations in scripts to return the efficiency rates for thin provisioning, deduplication, compression, and overall efficiency.
+
+== Efficiency calculations
+
+Use the following equations to calculate thin provisioning, deduplication, and compression. These equations apply to Element 8.2 and later.
+
+* thinProvisioningFactor = (nonZeroBlocks + zeroBlocks) / nonZeroBlocks
+* deDuplicationFactor = (nonZeroBlocks + snapshotNonZeroBlocks) / uniqueBlocks
+* compressionFactor = (uniqueBlocks * 4096) / (uniqueBlocksUsedSpace * 0.93)
+
+== Overall efficiency rate calculation
+
+Use the following equation to calculate overall cluster efficiency using the results of the thin provisioning, deduplication, and compression efficiency calculations.
+
+* efficiencyFactor = thinProvisioningFactor * deDuplicationFactor * compressionFactor
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+clusterCapacity
+a|
+Capacity measurements for the storage cluster.
+a|
+xref:reference_element_api_clustercapacity.adoc[clusterCapacity]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetClusterCapacity",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "clusterCapacity": {
+      "activeBlockSpace": 236015557096,
+      "activeSessions": 20,
+      "averageIOPS": 0,
+      "clusterRecentIOSize": 0,
+      "currentIOPS": 0,
+      "maxIOPS": 150000,
+      "maxOverProvisionableSpace": 259189767127040,
+      "maxProvisionedSpace": 51837953425408,
+      "maxUsedMetadataSpace": 404984011161,
+      "maxUsedSpace": 12002762096640,
+      "nonZeroBlocks": 310080350,
+      "peakActiveSessions": 20,
+      "peakIOPS": 0,
+      "provisionedSpace": 1357931085824,
+      "snapshotNonZeroBlocks": 0,
+      "timestamp": "2016-10-17T21:24:36Z",
+      "totalOps": 1027407650,
+      "uniqueBlocks": 108180156,
+      "uniqueBlocksUsedSpace": 244572686901,
+      "usedMetadataSpace": 8745762816,
+      "usedMetadataSpaceInSnapshots": 8745762816,
+      "usedSpace": 244572686901,
+      "zeroBlocks": 352971938
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

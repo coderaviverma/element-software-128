@@ -1,0 +1,108 @@
+---
+sidebar: sidebar
+permalink: hccstorage/task-hcc-dashboard.html
+summary: You can view storage resources on the NetApp Hybrid Cloud Control Dashboard. Additionally, you can monitor storage capacity and storage performance.
+keywords: netapp, element, hcc, hybrid cloud control, storage, storage performance, capacity
+---
+= Monitor storage resources on the Hybrid Cloud Control Dashboard
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+With the NetApp Hybrid Cloud Control Dashboard, you can view all your storage resources at a glance. Additionally, you can monitor storage capacity and storage performance.
+
+NOTE: When you launch a new NetApp Hybrid Cloud Control session for the first time, there might be a delay with loading the NetApp Hybrid Cloud Control Dashboard view when the management node is managing many clusters. The loading time varies depending on the number of clusters being actively managed by the management node. For subsequent launches, you will experience faster loading times.
+
+*	<<Access the NetApp HCC Dashboard>>
+* <<Monitor storage resources>>
+*	<<Monitor storage capacity>>
+*	<<Monitor storage performance>>
+
+== Access the NetApp HCC Dashboard
+
+. Open the IP address of the management node in a web browser. For example:
++
+----
+https://[management node IP address]
+----
+. Log in to NetApp Hybrid Cloud Control by providing the SolidFire all-flash storage cluster administrator credentials.
+. View the Hybrid Cloud Control Dashboard.
+
+image::hcc_dashboard_all.PNG[HCC Dashboard]
+
+== Monitor storage resources
+Use the *Storage* pane to see your total storage environment. You can monitor the number of storage clusters, storage nodes, and total volumes.
+
+To see details, in the Storage pane, select *Show Details*.
+
+image::hcc_dashboard_storage_node_number.PNG[Storage view]
+
+NOTE: The Total Storage Nodes number does not include Witness Nodes from two-node storage clusters. The Witness Nodes are included in the Nodes number in the details section for that cluster.
+
+TIP: To see the most recent storage cluster data, use the Storage Clusters page, where polling occurs more frequently than on the Dashboard.
+
+== Monitor storage capacity
+Monitoring the storage capacity of your environment is critical. Using the Storage Capacity pane, you can determine your storage capacity efficiency gains with or without compression, deduplication, and thin provisioning features enabled.
+
+You can see the total physical storage space available in your cluster on the *RAW* tab, and information about the provisioned storage on the *EFFECTIVE* tab.
+
+image::hcc_dashboard_storage_capacity_effective.png[HCC Dashboard > Storage Capacity pane]
+
+.Steps
+
+.	Select the *RAW* tab, to see the total physical storage space used and available in your cluster.
++
+Look at the vertical lines to determine whether your used capacity is less than the total or less than Warning, Error, or Critical thresholds. Hover over the lines to see details.
++
+NOTE: You can set the threshold for Warning, which defaults to 3% below the Error threshold. The Error and Critical thresholds are preset and not configurable by design. The Error threshold indicates that less than one node of capacity remains in the cluster. For steps on setting the threshold, see link:../storage/task_system_manage_cluster_set_the_cluster_full_threshold.html[Setting cluster full threshold].
++
+TIP: For details about the related cluster thresholds Element API, see link:../api/reference_element_api_getclusterfullthreshold.html[“getClusterFullThreshold”] in the _Element software API documentation_. To view details about block and metadata capacity, see link:../storage/concept_monitor_understand_cluster_fullness_levels.html[Understanding cluster fullness levels] in the _Element software documentation_.
+
+.	Select the *EFFECTIVE* tab, to see information about total storage provisioned to connected hosts and to see efficiency ratings.
+
+.. Optionally, check *Include Thin Provisioning* to see thin provisioning efficiency rates  in the Effective Capacity bar chart.
+.. *Effective Capacity bar chart*: Look at the vertical lines to determine whether your used capacity is less than the total or less than Warning, Error, or Critical thresholds. Similar to the Raw tab, you can hover over the vertical lines to see details.
+.. *Efficiencies*: Look at these ratings to determine your storage capacity efficiency gains with compression, deduplication, and thin provisioning features enabled. For example, if compression shows as “1.3x”, this means that storage efficiency with compression enabled is 1.3 times more efficient than without it.
++
+NOTE: Total Efficiencies equals (maxUsedSpace * efficiency factor) / 2, where efficiencyFactor = (thinProvisioningFactor * deDuplicationFactor * compressionFactor). When Thin Provisioning is unchecked, it is not included in the Total Efficiency.
+
+..	If the effective storage capacity nears an Error or Critical threshold, consider clearing the data on your system.
+
+.	For further analysis and historical context, look at https://activeiq.solidfire.com/[NetApp SolidFire Active IQ details^].
+
+
+== Monitor storage performance
+You can look at how much IOPS or throughput you can get out of a cluster without surpassing the useful performance of that resource by using the Storage Performance pane. Storage performance is the point at which you get the maximum utilization before latency becomes an issue.
+
+The Storage Performance pane helps you identify whether the performance is reaching the point where the performance might degrade if the workloads increase.
+
+The information on this pane refreshes every 10 seconds and shows an average of all the points on the graph.
+
+For details about the associated Element API method, see the link:../api/reference_element_api_getclusterstats.html[GetClusterStats] method in the _Element software API documentation_.
+
+.Steps
+
+.	View the Storage Performance pane. For details, hover over points in the graph.
+
+..	*IOPS* tab: See the current operations per second. Look for trends in data or spikes. For example, if you see that the maximum IOPS is 160K and 100K of that is free or available IOPS, you might consider adding more workloads to this cluster.  On the other hand, if you see that only 140K is available, you might consider offloading workloads or expanding your system.
++
+image::hcc_dashboard_storage_perform_iops.png[Storage Performance > IOPS tab]
+..	*Throughput* tab: Monitor patterns or spikes in throughput. Also monitor for continuously high throughput values, which might indicate that you are nearing the maximum useful performance of the resource.
++
+image::hcc_dashboard_storage_perform_throughput.png[Storage Performance > Throughput tab]
+..	*Utilization* tab: Monitor the utilization of IOPS in relation to the total IOPS available summed up at the cluster level.
++
+image::hcc_dashboard_storage_perform_utlization.png[Storage Performance > Utilization tab]
+
+. For further analysis, look at storage performance by using the NetApp Element Plug-in for vCenter Server.
++
+https://docs.netapp.com/us-en/vcp/vcp_task_reports_volume_performance.html[Performance shown in the NetApp Element Plug-in for vCenter Server^].
+
+
+[discrete]
+== Find more information
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

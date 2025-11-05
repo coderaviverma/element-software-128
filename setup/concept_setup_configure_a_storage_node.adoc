@@ -1,0 +1,84 @@
+---
+permalink: setup/concept_setup_configure_a_storage_node.html
+sidebar: sidebar
+keywords: configuring node,configure storage node,configuring using TUI,configuring using node UI
+summary: 'You must configure individual nodes before you can add them to a cluster. After you install and cable a node in a rack unit and power it on, you can configure the node network settings using the per-node UI or the node terminal user interface.'
+---
+
+= Configure a storage node
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You must configure individual nodes before you can add them to a cluster. After you install and cable a node in a rack unit and power it on, you can configure the node network settings using the per-node UI or the node terminal user interface (TUI). Ensure that you have the necessary network configuration information for the node before proceeding.
+
+There are two options for configuring storage nodes:
+
+* <<Configure a storage node using the per-node UI,Per-node UI>>: Use the per-node UI (https://<node_management_IP>:442) to configure node network settings.
+
+* <<Configure a storage node using the TUI,TUI>>: Use the node terminal user interface (TUI) to configure the node.
+
+You cannot add a node with DHCP-assigned IP addresses to a cluster. You can use the DHCP IP address to initially configure the node in the per-node UI, TUI, or API. During this initial configuration, you can add static IP address information so that you can add the node to a cluster.
+
+After initial configuration, you can access the node using the node's management IP address. You can then change the node settings, add it to a cluster, or use the node to create a cluster. You can also configure a new node using Element software API methods.
+
+NOTE: Beginning in Element version 11.0, nodes can be configured with IPv4, IPv6, or both addresses for their management network. This applies to both storage nodes and management nodes, except for management node 11.3 and later which does not support IPv6. When you create a cluster, only a single IPv4 or IPv6 address can be used for the MVIP and the corresponding address type must be configured on all nodes.
+
+== Configure a storage node using the per-node UI
+You can configure nodes using the per-node user interface.
+
+.About this task
+* You can configure the node to have either an IPv4 or IPv6 address.
+* You need the DHCP address displayed in the TUI to access a node. You cannot use DHCP addresses to add a node to a cluster.
++
+IMPORTANT: You should configure the management (Bond1G) and storage (Bond10G) interfaces for separate subnets. Bond1G and Bond10G interfaces configured for the same subnet cause routing problems when storage traffic is sent via the Bond1G interface. If you must use the same subnet for management and storage traffic, manually configure management traffic to use the Bond10G interface. You can do this for each node using the *Cluster Settings* page of the per-node UI.
+
+.Steps
+. In a browser window, enter the DHCP IP address of a node.
++
+You must add the extension `:442` to access the node; for example, https://172.25.103.6:442.
++
+The *Network Settings* tab opens with the *Bond1G* section.
+
+. Enter the 1G management network settings.
+. Click *Apply Changes*.
+. Click *Bond10G* to display the 10G storage network settings.
+. Enter the 10G storage network settings.
+. Click *Apply Changes*.
+. Click *Cluster Settings*.
+. Enter the hostname for the 10G network.
+. Enter the cluster name.
++
+IMPORTANT: This name must be added to the configuration for all nodes before a cluster can be created. All the nodes in a cluster must have identical cluster names. Cluster names are case-sensitive.
+
+. Click *Apply Changes*.
+
+== Configure a storage node using the TUI
+You can use the terminal user interface (TUI) to perform initial configuration for new nodes.
+
+You should configure the Bond1G (Management) and Bond10G (Storage) interfaces for separate subnets. Bond1G and Bond10G interfaces configured for the same subnet causes routing problems when storage traffic is sent via the Bond1G interface. If you must use the same subnet for management and storage traffic, manually configure management traffic to use the Bond10G interface. You can do this for each node using the *Cluster* > *Nodes* page of the Element UI.
+
+.Steps
+. Attach a keyboard and monitor to the node and then power on the node.
++
+The NetApp Storage Main menu of the TUI appears on the tty1 terminal.
++
+NOTE: If the node cannot reach your configuration server, the TUI displays an error message. Check your configuration server connection or the networking connection to resolve the error.
+
+. Select *Network* > *Network Config*.
++
+TIP: To navigate through the menu, press the Up or Down arrow keys. To move to another button or to the fields from the buttons, press *Tab*. To navigate between fields, use the Up or Down arrow keys.
+
+. Select *Bond1G (Management)* or *Bond10G (Storage)* to configure the 1G and 10G network settings for the node.
+. For the Bond mode and Status fields, press *Tab* to select the Help button and identify the available options.
++
+All the nodes in a cluster must have identical cluster names. Cluster names are case-sensitive. If a DHCP server is running on the network with available IP addresses, the 1GbE address appears in the Address field.
+
+. Press *Tab* to select the *OK* button and save the changes.
++
+The node is put in a pending state and can be added to an existing cluster or a new cluster.
+
+== Find more information
+
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

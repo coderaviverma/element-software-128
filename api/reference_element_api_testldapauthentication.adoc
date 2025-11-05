@@ -1,0 +1,107 @@
+---
+permalink: api/reference_element_api_testldapauthentication.html
+sidebar: sidebar
+keywords: ldap,auth,authentication,test,testing,testldapauthentication
+summary: 'You can use the TestLdapAuthentication method to validate the currently enabled LDAP authentication settings. If the configuration is correct, the API call returns the group membership of the tested user.'
+---
+
+= TestLdapAuthentication
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `TestLdapAuthentication` method to validate the currently enabled LDAP authentication settings. If the configuration is correct, the API call returns the group membership of the tested user.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+username
+a|
+The username to be tested.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+password
+a|
+The password for the username to be tested.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+ldapConfiguration
+a|
+An ldapConfiguration object to be tested. If you provide this parameter, the system tests the provided configuration even if LDAP authentication is currently disabled.
+a|
+xref:reference_element_api_ldapconfiguration.adoc[ldapConfiguration]
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+groups
+a|
+List of LDAP groups that include the tested user as a member.
+a|
+array
+a|
+userDN
+a|
+The tested user's full LDAP distinguished name.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+"method": "TestLdapAuthentication",
+"params": {"username":"admin1",
+           "password":"admin1PASS"
+      },
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+ "id": 1,
+ "result": {
+    "groups": [
+        "CN=StorageMgmt,OU=PTUsers,DC=prodtest,DC=solidfire,DC=net"
+      ],
+        "userDN": "CN=Admin1 Jones,OU=PTUsers,DC=prodtest,DC=solidfire,DC=net"
+  }
+}
+----
+
+== New since version
+
+9.6

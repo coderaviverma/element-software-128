@@ -1,0 +1,144 @@
+---
+permalink: api/reference_element_api_getbootstrapconfig.html
+sidebar: sidebar
+keywords: cluster,getting,bootstrap,information,node,GetBootstrapConfig
+summary: 'You can use the GetBootstrapConfig method to get cluster and node information from the bootstrap configuration file. Use this API method on an individual node before it has been joined with a cluster. The information this method returns is used in the cluster configuration interface when you create a cluster.'
+---
+
+= GetBootstrapConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetBootstrapConfig` method to get cluster and node information from the bootstrap configuration file. Use this API method on an individual node before it has been joined with a cluster. The information this method returns is used in the cluster configuration interface when you create a cluster.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+clusterName
+a|
+Name of the cluster.
+a|
+string
+a|
+mvip
+a|
+Cluster MVIP address. Empty if the node is not part of a cluster.
+a|
+string
+a|
+nodeName
+a|
+Name of the node.
+a|
+string
+a|
+nodes
+a|
+List of information about each node that is actively waiting to join the cluster. Possible values:
+
+* chassisType: (string) Hardware platform of the node.
+* cip: (string) Cluster IP address of the node.
+* compatible: (boolean) Indicates if the node is compatible with the node the API call was executed against.
+* hostname: (string) Host name of the node.
+* mip: (string) The IPv4 management IP address of the node.
+* mipV6: (string) The IPv6 management IP address of the node.
+* nodeType: (string)Model name of the node.
+* version: (string)Version of software currently installed on the node.
+
+a|
+JSON object array
+a|
+svip
+a|
+Cluster SVIP address. Null if the node is not part of a cluster.
+a|
+string
+a|
+version
+a|
+Version of Element software currently installed on the node that was called by this API method.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetBootstrapConfig",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id":1,
+	"result":{
+		"clusterName":"testname",
+		"nodeName":"testnode",
+		"svip": "10.117.1.5",
+		"mvip": "10.117.1.6",
+		"nodes":[
+			{
+				"chassisType":"R630",
+				"cip":"10.117.115.16",
+				"compatible":true,
+				"hostname":"NLABP1132",
+				"mip":"10.117.114.16",
+				"mipV6":"fd20:8b1e:b256:45a::16",
+				"nodeType":"SF2405",
+				"role":"Storage",
+				"version":"11.0"
+			},
+			{
+				"chassisType":"R630",
+				"cip":"10.117.115.17",
+				"compatible":true,
+				"hostname":"NLABP1133",
+				"mip":"10.117.114.17",
+				"mipV6":"fd20:8b1e:b256:45a::17",
+				"nodeType":"SF2405",
+				"role":"Storage",
+				"version":"11.0"
+			},
+			{
+				"chassisType":"R630",
+				"cip":"10.117.115.18",
+				"compatible":true,
+				"hostname":"NLABP1134",
+				"mip":"10.117.114.18",
+				"mipV6":"fd20:8b1e:b256:45a::18",
+				"nodeType":"SF2405",
+				"role":"Storage",
+				"version":"11.0"
+			}
+		],
+		"version":"11.0"
+	}
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_createcluster.adoc[CreateCluster]

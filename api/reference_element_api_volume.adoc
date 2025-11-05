@@ -1,0 +1,220 @@
+---
+permalink: api/reference_element_api_volume.html
+sidebar: sidebar
+keywords: object,objects,volume
+summary: 'The volume object contains configuration information about unpaired or paired volumes. It does not include runtime or usage information, and does not contain information about virtual volumes.'
+---
+
+= volume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The volume object contains configuration information about unpaired or paired volumes. It does not include runtime or usage information, and does not contain information about virtual volumes.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+access
+a|
+The type of access allowed for the volume. Possible values:
+
+* `readOnly`: Only read operations are allowed.
+* `readWrite`: Reads and writes are allowed.
+* `locked`: No reads or writes are allowed.
+* `replicationTarget`: Designated as a target volume in a replicated volume pair.
+
+a|
+string
+a|
+accountID
+a|
+The accountID of the account containing the volume.
+a|
+integer
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+blockSize
+a|
+The size of blocks on the volume.
+a|
+integer
+a|
+createTime
+a|
+The UTC+0 formatted time the volume was created.
+a|
+ISO 8601 string
+a|
+currentProtectionScheme
+a|
+The protection scheme that is being used for this volume. If a volume is converting from one protection scheme to another, this member reflects the protection scheme to which the volume is converting.
+a|
+string
+a|
+deleteTime
+a|
+The UTC+0 formatted time the volume was deleted.
+a|
+ISO 8601 string
+a|
+enable512e
+a|
+If set to true, the volume provides 512 byte sector emulation.
+a|
+boolean
+a|
+enableSnapMirrorReplication
+a|
+Whether or not the volume can be used for replication with SnapMirror endpoints.
+a|
+boolean
+
+|fifoSize
+|Specifies the maximum number of snapshots of the volume to be maintained simultaneously if using the First-In-First-Out (FIFO) snapshot retention mode.
+|integer
+
+a|
+iqn
+a|
+The iSCSI Qualified Name of the volume.
+a|
+string
+a|
+lastAccessTime
+a|
+The last time any access (including I/O) to the volume occurred (formatted as UTC+0). If the last access time is not known, this value is null.
+a|
+ISO 8601 string
+a|
+lastAccessTimeIO
+a|
+The last time any I/O to the volume occurred (formatted as UTC+0). If the last access time is not known, this value is null.
+a|
+ISO 8601 string
+
+|minFifoSize
+|Specifies the minimum number of First-In-First-Out (FIFO) snapshot slots reserved simultaneously by the volume if using the First-In-First-Out (FIFO) snapshot retention mode.
+|integer
+
+
+a|
+name
+a|
+The name of the volume as provided at creation time.
+a|
+string
+a|
+previousProtectionScheme
+a|
+If a volume is converting from one protection scheme to another, this member reflects the protection scheme from which the volume is converting. This member does not change until a conversion is started. If a volume has never been converted, this member is null.
+a|
+string
+a|
+purgeTime
+a|
+The UTC+0 formatted time the volume was purged from the system.
+a|
+ISO 8601 string
+a|
+qos
+a|
+The quality of service settings for this volume.
+a|
+xref:reference_element_api_qos.adoc[QoS]
+a|
+qosPolicyID
+a|
+The QoS policy ID associated with the volume. The value is null if the volume is not associated with a policy.
+a|
+integer
+a|
+scsiEUIDeviceID
+a|
+Globally unique SCSI device identifier for the volume in EUI-64 based 16-byte format.
+a|
+string
+a|
+scsiNAADeviceID
+a|
+Globally unique SCSI device identifier for the volume in NAA IEEE Registered Extended format.
+a|
+string
+a|
+sliceCount
+a|
+The number of slices on the volume. This value is always "1".
+a|
+integer
+a|
+status
+a|
+The current status of the volume. Possible values:
+
+* init: A volume that is being initialized and is not ready for connections.
+* active: An active volume ready for connections.
+* deleted: A volume that has been marked for deletion, but not yet purged.
+
+a|
+string
+a|
+totalSize
+a|
+The total bytes of provisioned capacity.
+a|
+integer
+a|
+virtualVolumeID
+a|
+The unique virtual volume ID associated with the volume, if any.
+a|
+UUID
+a|
+volumeAccessGroups
+a|
+List of IDs pf volume access groups to which a volume belongs. This value is an empty list if a volume does not belong to any volume access groups.
+a|
+integer array
+a|
+volumeConsistencyGroupUUID
+a|
+The universally unique ID of the volume consistency group of which the volume is a member.
+a|
+UUID
+a|
+volumeID
+a|
+The unique volumeID for the volume.
+a|
+integer
+a|
+volumePairs
+a|
+Information about a paired volume. Visible only if a volume is paired. This value is an empty list if the volume is not paired.
+a|
+xref:reference_element_api_volumepair.adoc[volumePair] array
+a|
+volumeUUID
+a|
+The universally unique ID of the volume.
+a|
+UUID
+|===
+
+== Find more information
+
+* xref:reference_element_api_listactivevolumes.adoc[ListActiveVolumes]
+* xref:reference_element_api_listdeletedvolumes.adoc[ListDeletedVolumes]
+* xref:reference_element_api_listvolumes.adoc[ListVolumes]
+* xref:reference_element_api_listvolumesforaccount.adoc[ListVolumesForAccount]
+* xref:reference_element_api_qos.adoc[QoS]

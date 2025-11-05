@@ -1,0 +1,105 @@
+---
+permalink: api/reference_element_api_modifystoragecontainer.html
+sidebar: sidebar
+keywords: virtual,volume,storage,container,vvol,modify,modifying,change,changing,edit,editing
+summary: 'You can use the ModifyStorageContainer method to make changes to an existing virtual volume storage container.'
+---
+
+= ModifyStorageContainer
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyStorageContainer` method to make changes to an existing virtual volume storage container.
+
+== Parameters
+
+This method has the following input parameters:
+
+|===
+|Name |Description |Type |Default value |Required
+a|
+storageContainerID
+a|
+The unique ID of the virtual volume storage container to modify.
+a|
+UUID
+a|
+None
+a|
+Yes
+a|
+initiatorSecret
+a|
+The new secret for CHAP authentication for the initiator.
+a|
+string
+a|
+None
+a|
+No
+a|
+targetSecret
+a|
+The new secret for CHAP authentication for the target.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+storageContainer
+a|
+Information about the newly created storage container.
+a|
+xref:reference_element_api_storagecontainer.adoc[storageContainer]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ModifyStorageContainer",
+    "params": {
+      "storageContainerID": "6c95e24f-9f0b-4793-affb-5a4bc6c3d7e1",
+      "targetSecret": "O,IM;tOQdn9$JJ*8"
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "storageContainer": {
+      "accountID": 8,
+      "initiatorSecret": "T$|5TO>2IY5sk4@k",
+      "name": "doctest1",
+      "protocolEndpointType": "SCSI",
+      "status": "active",
+      "storageContainerID": "6c95e24f-9f0b-4793-affb-5a4bc6c3d7e1",
+      "targetSecret": "O,IM;tOQdn9$JJ*8"
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

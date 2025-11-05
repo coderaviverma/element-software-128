@@ -1,0 +1,29 @@
+---
+permalink: storage/task_snapmirror_perform_failover_from_element_cluster.html
+sidebar: sidebar
+keywords: element, ui, failover, cluster, perform a failover, snapmirror
+summary: 'You can perform a failover from the Element cluster to make the destination volume read/write and accessible to hosts on the destination side. Before you perform a failover from the Element cluster, you must break the SnapMirror relationship.'
+---
+
+= Perform a failover from an Element cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can perform a failover from the Element cluster to make the destination volume read/write and accessible to hosts on the destination side. Before you perform a failover from the Element cluster, you must break the SnapMirror relationship.
+
+Use the NetApp Element UI to perform the failover. If the Element UI is not available, you can also use ONTAP System Manager or ONTAP CLI to issue the break relationship command.
+
+.What you'll need
+* A SnapMirror relationship exists and has at least one valid snapshot on the destination volume.
+* You have a need to failover to the destination volume due to unplanned outage or planned event at the primary site.
+
+
+.Steps
+. In the Element UI, click *Data Protection* > *SnapMirror Relationships*.
+. Find the relationship with the source volume that you want to failover.
+. Click the *Actions* icon.
+. Click *Break*.
+. Confirm the action.
++
+The volume on the destination cluster now has read-write access and can be mounted to the application hosts to resume production workloads. All SnapMirror replication is halted as a result of this action. The relationship shows a state of broken-off.

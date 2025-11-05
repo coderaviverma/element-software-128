@@ -1,0 +1,49 @@
+---
+sidebar: sidebar
+permalink: mnode/task_mnode_enable_activeIQ.html
+summary: You can use the management node (mNode) to enable Active IQ for SolidFire all-flash storage.
+keywords: netapp, Element, api, enable, active iq, activeiq
+---
+
+= Enable Active IQ and NetApp monitoring
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+You can enable Active IQ storage monitoring if you did not already do so during installation or upgrade. You might need to use this procedure if you did not set up SolidFire Active IQ during installation for a SolidFire all-flash storage system.
+
+The Active IQ collector service forwards configuration data and Element software-based cluster performance metrics to SolidFire Active IQ for historical reporting and near real-time performance monitoring. The NetApp monitoring service enables forwarding of storage cluster faults to vCenter for alert notification.
+
+include::../_include/enable_active_iq.adoc[]
+
+. If you have not already done so, add a vCenter controller asset for NetApp Hybrid Cloud Control to the management node known assets:
++
+NOTE: A controller asset is required for NetApp monitoring services.
+
+.. Select *POST /assets/{asset_id}/controllers* to add a controller sub-asset.
+.. Select *Try it out*.
+.. Enter the parent base asset ID you copied to your clipboard in the *asset_id* field.
+.. Enter the required payload values with `type` as `vCenter` and vCenter credentials.
++
+----
+{
+"username": "string",
+"password": "string",
+"ip": "string",
+"type": "vCenter",
+"host_name": "string",
+"config": {}
+}
+----
++
+NOTE: `ip` is the vCenter IP address.
+
+.. Select *Execute*.
+
+[discrete]
+== Find more information
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

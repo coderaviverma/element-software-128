@@ -1,0 +1,31 @@
+---
+permalink: storage/task_monitor_volume_performance.html
+sidebar: sidebar
+keywords: volume performance, view, view alerts
+summary: 'You can view detailed performance information for all volumes in the cluster. You can sort the information by volume ID or by any of the performance columns. You can also use filter the information by certain criteria.'
+---
+
+= View volume performance
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can view detailed performance information for all volumes in the cluster. You can sort the information by volume ID or by any of the performance columns. You can also use filter the information by certain criteria.
+
+You can change how often the system refreshes performance information on the page by clicking the *Refresh every* list, and choosing a different value. The default refresh interval is 10 seconds if the cluster has less than 1000 volumes; otherwise, the default is 60 seconds. If you choose a value of Never, automatic page refreshing is disabled.
+
+You can reenable automatic refreshing by clicking *Turn on auto-refresh*.
+
+. In the Element UI, select *Reporting* > *Volume Performance*.
+. In the volume list, click the Actions icon for a volume.
+. Click *View Details*.
++
+A tray is displayed at the bottom of the page containing general information about the volume.
+
+. To see more detailed information about the volume, click *See More Details*.
++
+The system displays detailed information as well as performance graphs for the volume.
+
+== Find more information
+
+xref:reference_monitor_volume_performance_details.adoc[Volume performance details]

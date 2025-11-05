@@ -1,0 +1,73 @@
+---
+permalink: api/reference_element_api_getnvraminfo.html
+sidebar: sidebar
+keywords: nvram,info,get,getting,getnvraminfo
+summary: 'You can use the GetNvramInfo method to get information from each node about the NVRAM card.'
+---
+
+= GetNvramInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetNvramInfo` method to get information from each node about the NVRAM card.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+force
+a|
+The force parameter must be included on this method to successfully run on all nodes in the cluster.
+a|
+boolean
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+nvramInfo
+a|
+Arrays of events and errors detected on the NVRAM card.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetNvramInfo",
+  "params": {
+      "force": true
+	  },
+  "id" : 1
+}
+----
+
+== Response example
+
+Due to the length of this response example, it is documented in a supplementary topic.
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_response_example_getnvraminfo.adoc[GetNvramInfo]

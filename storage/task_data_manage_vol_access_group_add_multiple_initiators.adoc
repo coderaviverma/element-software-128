@@ -1,0 +1,31 @@
+---
+permalink: storage/task_data_manage_vol_access_group_add_multiple_initiators.html
+sidebar: sidebar
+keywords: initiator, add to volume access group, access groups, add multiple initiators, create initiator
+summary: 'You can add multiple initiators to an existing volume access group to allow access to volumes in the volume access group with or without requiring CHAP authentication..'
+---
+
+= Add multiple initiators to a volume access group
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can add multiple initiators to an existing volume access group to allow access to volumes in the volume access group with or without requiring CHAP authentication..
+
+When you add initiators to a volume access group, the initiators have access to all volumes in that volume access group.
+
+TIP: You can find the initiator for each volume by clicking the Actions icon and then *View Details* for the volume in the active volumes list.
+
+You can add multiple initiators to an existing volume access group to enable access to volumes and assign unique CHAP credentials for each initiator within that volume access group. This enables you to apply this option for volume access groups that already exist.
+
+You can assign initator-based CHAP attributes by using an API call. To add a CHAP account name and credentials per initiator, you must use the ModifyInitiator API call to remove and add CHAP access and attributes.
+
+For details, see link:../api/index.html[Manage storage with the Element API].
+
+.Steps
+. Click *Management* > *Initiators*.
+. Select the initiators you want to add to an access group.
+. Click the *Bulk Actions* button.
+. Click *Add to Volume Access Group*.
+. In the Add to Volume Access Group dialog box, select an access group from the *Volume Access Group* list.
+. Click *Add*.

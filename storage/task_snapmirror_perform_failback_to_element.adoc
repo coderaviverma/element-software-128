@@ -1,0 +1,19 @@
+---
+permalink: storage/task_snapmirror_perform_failback_to_element.html
+sidebar: sidebar
+keywords: failback, perform a failbacl, Element, snapmirror
+summary: 'When the issue on the primary side has been mitigated, you must resynchronize the original source volume and fail back to NetApp Element software. The steps you perform vary depending on whether the original source volume still exists or whether you need to failback to a newly created volume.'
+---
+
+= Perform a failback to Element
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When the issue on the primary side has been mitigated, you must resynchronize the original source volume and fail back to NetApp Element software. The steps you perform vary depending on whether the original source volume still exists or whether you need to failback to a newly created volume.
+
+== Find more information
+
+* xref:task_snapmirror_perform_failback_when_source_volume_exists.adoc[Perform a failback when source volume still exists]
+* xref:task_snapmirror_performing_failback_when_source_volume_no_longer_exists.adoc[Perform a failback when source volume no longer exists]
+* xref:concept_snapmirror_failback_scenarios.adoc[SnapMirror failback scenarios]

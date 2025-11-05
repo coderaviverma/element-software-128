@@ -1,0 +1,74 @@
+---
+permalink: storage/task_data_manage_vol_access_group_create_a_volume_access_group.html
+sidebar: sidebar
+keywords: volume access group, create, initiators
+summary: 'You can create volume access groups by mapping initiators to a collection of volumes for secured access. You can then grant access to the volumes in the group with an account CHAP initiator secret and target secret.'
+---
+
+= Create a volume access group
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can create volume access groups by mapping initiators to a collection of volumes for secured access. You can then grant access to the volumes in the group with an account CHAP initiator secret and target secret.
+
+If you use initiator-based CHAP, you can add CHAP credentials for a single initiator in a volume access group, providing more security. This enables you to apply this option for volume access groups that already exist.
+
+.Steps
+
+. Click *Management* > *Access Groups*.
+. Click *Create Access Group*.
+. Enter a name for the volume access group in the *Name* field.
+. Add an initiator to the volume access group in one of the following ways:
++
+[cols=2*,options="header", cols="25,75"]
+|===
+| Option| Description
+a|
+Adding a Fibre Channel initiator
+a|
+
+ .. Under Add Initiators, select an existing Fibre Channel initiator from the Unbound Fibre Channel Initiators list.
+ .. Click *Add FC Initiator*.
++
+NOTE: You can create an initiator during this step if you click the *Create Initiator* link, enter an initiator name, and click *Create*. The system automatically adds the initiator to the Initiators list after you create it.
+
+A sample of the format is as follows:
+
+----
+5f:47:ac:c0:5c:74:d4:02
+----
+
+a|
+Adding an iSCSI initiator
+a|
+Under Add Initiators, select an existing initiator from the Initiators list.    *Note:* You can create an initiator during this step if you click the *Create Initiator* link, enter an initiator name, and click *Create*. The system automatically adds the initiator to the Initiators list after you create it.
+
+A sample of the format is as follows:
+
+----
+iqn.2010-01.com.solidfire:c2r9.fc0.2100000e1e09bb8b
+----
+
+TIP: You can find the initiator IQN for each volume by selecting *View Details* in the Actions menu for the volume on the *Management* > *Volumes* > *Active* list.
+
+
+When you modify an initiator, you can toggle the requiredCHAP attribute to True, which enables you to set the target initiator secret. For details, see API information about the ModifyInitiator API method.
+
+
+link:../api/index.html[Manage storage with the Element API]
+
+|===
+
+. *Optional:* Add more initiators as needed.
+. Under Add Volumes, select a volume from the *Volumes* list.
++
+The volume appears in the *Attached Volumes* list.
+
+. *Optional:* Add more volumes as needed.
+. Click *Create Access Group*.
+
+
+== Find more information
+
+xref:task_data_manage_vol_access_group_add_volumes.adoc[Add volumes to an access group]

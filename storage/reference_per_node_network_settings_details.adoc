@@ -1,0 +1,84 @@
+---
+permalink: storage/reference_per_node_network_settings_details.html
+sidebar: sidebar
+keywords: network settings, per-node UI, storage node, ui
+summary: 'You can change the storage node network settings to give the node a new set of network attributes.'
+---
+
+= Network settings details from the per-node UI
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can change the storage node network settings to give the node a new set of network attributes.
+
+You can see the network settings for a storage node on the *Network Settings* page when you log in to the node (https://<node IP>:442/hcc/node/network-settings). You can select either *Bond1G* (management) or *Bond10G* (storage) settings. The following list describes the settings that you can modify when a storage node is in Available, Pending, or Active state:
+
+* *Method*
++
+The method used to configure the interface. Possible methods:
+
+ ** loopback: Used to define the IPv4 loopback interface.
+ ** manual: Used to define interfaces for which no configuration is done by default.
+ ** dhcp: Used to obtain an IP address via DHCP.
+ ** static: Used to define Ethernet interfaces with statically allocated IPv4 addresses.
+
+* *Link Speed*
++
+The speed negotiated by the virtual NIC.
+
+* *IPv4 Address*
++
+The IPv4 address for the eth0 network.
+
+* *IPv4 Subnet Mask*
++
+Address subdivisions of the IPv4 network.
+
+* *IPv4 Gateway Address*
++
+Router network address to send packets out of the local network.
+
+* *IPv6 Address*
++
+The IPv6 address for the eth0 network.
+
+* *IPv6 Gateway Address*
++
+Router network address to send packets out of the local network.
+
+* *MTU*
++
+Largest packet size that a network protocol can transmit. Must be greater than or equal to 1500. If you add a second storage NIC, the value should be 9000.
+
+* *DNS Servers*
++
+Network interface used for cluster communication.
+
+* *Search Domains*
++
+Search for additional MAC addresses available to the system.
+
+* *Bond Mode*
++
+Can be one of the following modes:
+
+ ** ActivePassive (default)
+ ** ALB
+ ** LACP
+
+* *Status*
++
+Possible values:
+
+ ** UpAndRunning
+ ** Down
+ ** Up
+
+* *Virtual Network Tag*
++
+Tag assigned when the virtual network was created.
+
+* *Routes*
++
+Static routes to specific hosts or networks via the associated interface the routes are configured to use.

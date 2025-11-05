@@ -1,0 +1,15 @@
+---
+permalink: storage/concept_data_manage_vvol_bindings.html
+sidebar: sidebar
+keywords: bindings, vvols, bound virtual volumes
+summary: 'To perform I/O operations with a virtual volume, an ESXi host must first bind the virtual volume.'
+---
+
+= Bindings
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+To perform I/O operations with a virtual volume, an ESXi host must first bind the virtual volume.
+
+The SolidFire cluster chooses an optimal protocol endpoint, creates a binding that associates the ESXi host and virtual volume with the protocol endpoint, and returns the binding to the ESXi host. After it is bound, the ESXi host can perform I/O operations with the bound virtual volume.

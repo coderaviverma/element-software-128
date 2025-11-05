@@ -1,0 +1,75 @@
+---
+permalink: api/reference_element_api_rekeysoftwareencryptionatrestmasterkey.html
+sidebar: sidebar
+keywords: system, api, element, security, rekey, software encryption at rest
+summary: 'You can use the RekeySoftwareEncryptionAtRestMasterKey method to rekey the software encryption-at-rest master key used to encrypt DEKs (Data Encryption Keys).'
+---
+
+= RekeySoftwareEncryptionAtRestMasterKey
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RekeySoftwareEncryptionAtRestMasterKey` method to rekey the software encryption-at-rest master key used to encrypt DEKs (Data Encryption Keys). During cluster creation, software encryption at rest is configured to use Internal Key Management (IKM). This rekey method can be used after cluster creation to use either IKM or External Key Management (EKM).
+
+== Parameters
+This method has the following input parameters. If the `keyManagementType` parameter is not specified, the rekey operation is performed using the existing key management configuration. If the `keyManagementType` is specified and the key provider is external, the `keyProviderID` parameter must also be used.
+
+[cols=4*,options="header"]
+|===
+| Parameter| Description| Type| Optional
+| keyManagementType| The type of key management used to manage the master key.
+
+Possible values are:
+`Internal`: Rekey using internal key management.
+`External`: Rekey using external key management.
+
+If this parameter is not specified, the rekey operation is performed using the existing key management configuration.
+| string| True|
+
+keyProviderID| The ID of the key provider to use. This is a unique value returned as part of one of the `CreateKeyProvider` methods. The ID is only required when `keyManagementType` is `External` and is otherwise invalid.
+| integer| True|
+|===
+
+== Return values
+This method has the following return values:
+
+[cols=4*,options="header"]
+|===
+| Parameter| Description| Type| Optional|
+asyncHandle| Determine the status of the rekey operation using this `asyncHandle` value with `GetAsyncResult`. `GetAsyncResult` output will include a `newKey` field that contains information about the new master key and a `keyToDecommission` field that contains information about the old key.
+| integer| False
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+ "method": "rekeysoftwareencryptionatrestmasterkey",
+ "params": {
+   "keyManagementType": "external",
+   "keyProviderID": "<ID number>"
+ }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "asyncHandle": 1
+}
+----
+
+== New since version
+
+12.3
+
+[discrete]
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

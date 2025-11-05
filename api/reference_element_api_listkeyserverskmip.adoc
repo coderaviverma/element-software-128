@@ -1,0 +1,115 @@
+---
+permalink: api/reference_element_api_listkeyserverskmip.html
+sidebar: sidebar
+keywords: KMIP,key server,key,server,listing,list,listkeyserverskmip
+summary: 'You can use the ListKeyServersKmip method to list all Key Management Interoperability Protocol \(KMIP\) key servers that have been created. You can filter the results by specifying additional parameters.'
+---
+
+= ListKeyServersKmip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListKeyServersKmip` method to list all Key Management Interoperability Protocol (KMIP) key servers that have been created. You can filter the results by specifying additional parameters.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+keyProviderID
+a|
+When specified, the method only returns KMIP key servers that are assigned to the specified KMIP key provider. If omitted, returned KMIP key servers will not be filtered based on whether they are assigned to the specified KMIP Key Provider.
+a|
+integer
+a|
+None
+a|
+No
+a|
+kmipAssignedProviderIsActive
+a|
+Filters returned KMIP key server objects based on whether they are active. Possible values:
+
+* true: Returns only KMIP key servers which are active (providing keys which are currently in use).
+* false: Returns only KMIP key servers which are inactive (not providing any keys and able to be deleted).
+
+If omitted, returned KMIP key servers are not filtered based on whether they are active.
+a|
+boolean
+a|
+None
+a|
+No
+a|
+kmipHasProviderAssigned
+a|
+Filters returned KMIP key servers based on whether they have a KMIP key provider assigned. Possible values:
+
+* true: Returns only KMIP key servers which have a KMIP key provider assigned.
+* false: Returns only KMIP key servers which do not have a KMIP key provider assigned.
+
+If omitted, returned KMIP key servers are not filtered based on whether they have a KMIP key provider assigned.
+a|
+boolean
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+kmipKeyServers
+a|
+The complete list of KMIP key servers which have been created.
+a|
+link:reference_element_api_keyserverkmip.html[KeyServerKmip] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ListKeyServersKmip",
+  "params": {},
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "kmipKeyServers": [
+        {
+            "kmipKeyServerName": "keyserverName",
+            "kmipClientCertificate": "dKkkirWmnWXbj9T/UWZYB2oK0z5...",
+            "keyServerID": 15,
+            "kmipAssignedProviderIsActive": true,
+            "kmipKeyServerPort": 5696,
+            "kmipCaCertificate": "MIICPDCCAaUCEDyRMcsf9tAbDpq40ES/E...",
+            "kmipKeyServerHostnames": [
+                "server1.hostname.com", "server2.hostname.com"
+            ],
+            "keyProviderID": 1
+        }
+    ]
+}
+----
+
+== New since version
+
+11.7

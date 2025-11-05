@@ -1,0 +1,22 @@
+---
+permalink: storage/task_data_protection_schedule_a_snapshot_task.html
+sidebar: sidebar
+keywords: snapshot, schedule, volume snapshots, group snapshots
+summary: 'You can protect data on a volume or a group of volumes by scheduling volume snapshots to occur at specified intervals. You can schedule either single volume snapshots or group snapshots to run automatically.'
+---
+
+= Schedule a snapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can protect data on a volume or a group of volumes by scheduling volume snapshots to occur at specified intervals. You can schedule either single volume snapshots or group snapshots to run automatically.
+
+When you configure a snapshot schedule, you can choose from time intervals based on days of the week or days of the month. You can also specify the days, hours, and minutes before the next snapshot occurs. You can store the resulting snapshots on a remote storage system if the volume is being replicated.
+
+== Find more information
+
+* xref:task_data_protection_create_a_snapshot_schedule.adoc[Create a snapshot schedule]
+* xref:task_data_protection_edit_a_snapshot_schedule.adoc[Edit a snapshot schedule]
+* xref:task_data_protection_delete_a_snapshot_schedule.adoc[Delete a snapshot schedule]
+* xref:task_data_protection_copy_a_snapshot_schedule.adoc[Copy a snapshot schedule]

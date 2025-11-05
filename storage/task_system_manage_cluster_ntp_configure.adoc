@@ -1,0 +1,36 @@
+---
+permalink: storage/task_system_manage_cluster_ntp_configure.html
+sidebar: sidebar
+keywords: ntp, cluster, query, fqdn, dns server
+summary: 'You can instruct each node in a cluster to query a Network Time Protocol \(NTP\) server for updates. The cluster contacts only configured servers and requests NTP information from them.'
+---
+
+= Configure Network Time Protocol servers for the cluster to query
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can instruct each node in a cluster to query a Network Time Protocol (NTP) server for updates. The cluster contacts only configured servers and requests NTP information from them.
+
+Configure NTP on the cluster to point to a local NTP server. You can use the IP address or the FQDN host name. The default NTP server at cluster creation time is set to us.pool.ntp.org; however, a connection to this site cannot always be made depending on the physical location of the SolidFire cluster.
+
+Using the FQDN depends on whether the individual storage node's DNS settings are in place and operational. To do so, configure the DNS servers on every storage node and ensure that the ports are open by reviewing the Network Port Requirements page.
+
+You can enter up to five different NTP servers.
+
+NOTE: You can use both IPv4 and IPv6 addresses.
+
+.What you'll need
+You must have cluster administrator privileges to configure this setting.
+
+.Steps
+. Configure a list of IPs and/or FQDNs in the server settings.
+. Ensure that the DNS is set properly on the nodes.
+. Click *Cluster* > *Settings*.
+. Under Network Time Protocol Settings, select *No*, which uses the standard NTP configuration.
+. Click *Save Changes*.
+
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

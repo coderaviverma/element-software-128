@@ -1,0 +1,23 @@
+---
+permalink: storage/task_replication_create_a_target_volume_with_read_write_access.html
+sidebar: sidebar
+keywords: target volume, create, read, write access
+summary: 'The replication process involves two endpoints: the source and the target volume. When you create the target volume, the volume is automatically set to read/write mode to accept the data during the replication.'
+---
+
+= Create a target volume with read or write access
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The replication process involves two endpoints: the source and the target volume. When you create the target volume, the volume is automatically set to read/write mode to accept the data during the replication.
+
+. Select *Management* > *Volumes*.
+. Click *Create Volume*.
+. In the Create a New Volume dialog box, enter the Volume Name.
+. Enter the total size of the volume, select a block size for the volume, and select the account that should have access to the volume.
+. Click *Create Volume*.
+. In the Active window, click the Actions icon for the volume.
+. Click *Edit*.
+. Change the account access level to Replication Target.
+. Click *Save Changes*.

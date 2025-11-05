@@ -1,0 +1,28 @@
+---
+permalink: storage/task_data_manage_volumes_work_with_volumes_task.html
+sidebar: sidebar
+keywords: volumes, work, storage, iscsi, fc, cluster data management, overview of functions
+summary: 'The SolidFire system provisions storage using volumes. Volumes are block devices accessed over the network by iSCSI or Fibre Channel clients. From the Volumes page on the Management tab, you can create, modify, clone, and delete volumes on a node. You can also view statistics about volume bandwidth and I/O usage.'
+---
+
+= Work with volumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The SolidFire system provisions storage using volumes. Volumes are block devices accessed over the network by iSCSI or Fibre Channel clients. From the Volumes page on the Management tab, you can create, modify, clone, and delete volumes on a node. You can also view statistics about volume bandwidth and I/O usage.
+
+
+== Find more information
+
+* link:concept_data_manage_volumes_quality_of_service_policies.html[Manage Quality of Service policies]
+* link:task_data_manage_volumes.html#create-a-volume[Create a volume]
+* link:task_data_manage_volumes.html#view-volume-details[View individual volume performance details]
+* link:task_data_manage_volumes.html#edit-active-volumes[Edit active volumes]
+* link:task_data_manage_volumes.html#delete-a-volume[Delete a volume]
+* link:task_data_manage_volumes.html#restore-a-deleted-volume[Restore a deleted volume]
+* link:task_data_manage_volumes.html#purge-a-volume[Purge a volume]
+* link:task_data_manage_volumes.html#clone-a-volume[Clone a volume]
+* link:task_data_manage_volumes_assign_luns_to_fibre_channel_volumes.html[Assign LUNs to Fibre Channel volumes]
+* link:task_data_manage_volumes_apply_a_qos_policy.html[Apply a QoS policy to volumes]
+* link:task_data_manage_volumes_remove_a_qos_policy_association_of_a_volume.html[Remove the QoS policy association of a volume]

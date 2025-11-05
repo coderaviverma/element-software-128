@@ -1,0 +1,90 @@
+---
+permalink: api/reference_element_api_getkeyserverkmip.html
+sidebar: sidebar
+keywords: KMIP,key server,getting information,retrieving
+summary: 'You can use the GetKeyServerKmip method to return information about the specified Key Management Interoperability Protocol \(KMIP\) key server.'
+---
+
+= GetKeyServerKmip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetKeyServerKmip` method to return information about the specified Key Management Interoperability Protocol (KMIP) key server.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+keyServerID
+a|
+The ID of the KMIP key server to return information about.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+kmipKeyServer
+a|
+An object containing details about the requested key server.
+a|
+link:reference_element_api_keyserverkmip.html[KeyServerKmip]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetKeyServerKmip",
+  "params": {
+     "keyServerID": 15
+  },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result":
+      {
+        "kmipKeyServer": {
+            "kmipCaCertificate":"MIICPDCCAaUCEDyRMcsf9tAbDpq40ES/E...",
+            "kmipKeyServerHostnames":[
+                "server1.hostname.com", "server2.hostname.com"
+            ],
+            "keyProviderID":1,
+            "kmipKeyServerName":"keyserverName",
+            "keyServerID":15
+            "kmipKeyServerPort":1,
+            "kmipClientCertificate":"dKkkirWmnWXbj9T/UWZYB2oK0z5...",
+            "kmipAssignedProviderIsActive":true
+        }
+    }
+}
+----
+
+== New since version
+
+11.7

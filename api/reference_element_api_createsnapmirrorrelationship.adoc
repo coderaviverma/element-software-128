@@ -1,0 +1,110 @@
+---
+permalink: api/reference_element_api_createsnapmirrorrelationship.html
+sidebar: sidebar
+keywords: SnapMirror,relationship,relationships,create,creating,CreateSnapMirrorRelationship
+summary: 'The Element web UI uses the CreateSnapMirrorRelationship method to create a SnapMirror extended data protection relationship between a source and destination endpoint.'
+---
+
+= CreateSnapMirrorRelationship
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element web UI uses the `CreateSnapMirrorRelationship` method to create a SnapMirror extended data protection relationship between a source and destination endpoint.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+snapMirrorEndpointID
+a|
+The endpoint ID of the remote ONTAP storage system communicating with the Element storage cluster.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+sourceVolume
+a|
+The source volume in the relationship.
+a|
+xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeInfo]
+a|
+None
+a|
+Yes
+a|
+destinationVolume
+a|
+The destination volume in the relationship.
+a|
+xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeInfo]
+a|
+None
+a|
+Yes
+a|
+relationshipType
+a|
+The type of relationship. On storage systems running Element software, this value is always "`extended_data_protection`".
+a|
+string
+a|
+None
+a|
+No
+a|
+policyName
+a|
+Specifies the name of the ONTAP SnapMirror policy for the relationship. If not specified, the default policy name is MirrorLatest.
+a|
+string
+a|
+None
+a|
+No
+a|
+scheduleName
+a|
+The name of the pre-existing cron schedule on the ONTAP system that is used to update the SnapMirror relationship. If no schedule is designated, snapMirror updates are not scheduled and must be updated manually.
+a|
+string
+a|
+None
+a|
+No
+a|
+maxTransferRate
+a|
+Specifies the maximum data transfer rate between the volumes in kilobytes per second. The default value, 0, is unlimited and permits the SnapMirror relationship to fully utilize the available network bandwidth.
+a|
+integer
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+snapMirrorRelationship
+a|
+Information about the newly created SnapMirror relationship.
+a|
+xref:reference_element_api_snapmirrorrelationship.adoc[snapMirrorRelationship]
+|===
+
+== New since version
+
+10.1

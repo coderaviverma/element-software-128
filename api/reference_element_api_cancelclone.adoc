@@ -1,0 +1,65 @@
+---
+permalink: api/reference_element_api_cancelclone.html
+sidebar: sidebar
+keywords:
+summary: 'You can use the CancelClone method to stop an ongoing volume clone or volume copy process. When you cancel a group clone operation, the system completes and removes the operation’s associated asyncHandle.'
+---
+
+= CancelClone
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CancelClone` method to stop an ongoing volume clone or volume copy process. When you cancel a group clone operation, the system completes and removes the operation's associated asyncHandle.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+cloneID
+a|
+The cloneID for the ongoing clone process.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "CancelClone",
+   "params": {
+      "cloneID" : 5,
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {}
+}
+----
+
+== New since version
+
+9.6

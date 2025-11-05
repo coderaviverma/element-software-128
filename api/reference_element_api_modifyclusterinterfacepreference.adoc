@@ -1,0 +1,75 @@
+---
+permalink: api/reference_element_api_modifyclusterinterfacepreference.html
+sidebar: sidebar
+keywords: modify,modifying,edit,editing,change,changing,cluster,interface,preference,modifyclusterinterfacepreference
+summary: 'The ModifyClusterInterfacePreference method enables systems integrated with storage clusters running Element software to change an existing cluster interface preference. This method is for internal use.'
+---
+
+= ModifyClusterInterfacePreference
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `ModifyClusterInterfacePreference` method enables systems integrated with storage clusters running Element software to change an existing cluster interface preference. This method is for internal use.
+
+== Parameters
+
+This method has the following input parameters:
+
+|===
+|Name |Description |Type |Default value |Required
+a|
+name
+a|
+The name of the cluster interface preference to modify.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+value
+a|
+The new value of the cluster interface preference.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+	"method": "ModifyClusterInterfacePreference",
+	"params": {
+	"name": "testname",
+	"value": "newvalue"
+},
+	"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {}
+}
+----
+
+== New since version
+
+11.0

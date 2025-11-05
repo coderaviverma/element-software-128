@@ -1,0 +1,29 @@
+---
+permalink: api/concept_element_api_vvols_api_methods.html
+sidebar: sidebar
+keywords: virtual,volume,vvol,API,method
+summary: 'Element software virtual volume API methods enable you to manage virtual volumes \(VVols\). You can view existing VVols with these API methods as well as create, modify, and delete virtual volume storage containers. Although you cannot use these methods to operate on normal volumes, you can use the normal volume API methods to list information about VVols.'
+---
+
+= Virtual volume API methods
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Element software virtual volume API methods enable you to manage virtual volumes (VVols). You can view existing VVols with these API methods as well as create, modify, and delete virtual volume storage containers. Although you cannot use these methods to operate on normal volumes, you can use the normal volume API methods to list information about VVols.
+
+* xref:reference_element_api_createstoragecontainer.adoc[CreateStorageContainer]
+* xref:reference_element_api_deletestoragecontainers.adoc[DeleteStorageContainers]
+* xref:reference_element_api_getstoragecontainerefficiency.adoc[GetStorageContainerEfficiency]
+* xref:reference_element_api_getvirtualvolumecount.adoc[GetVirtualVolumeCount]
+* xref:reference_element_api_listprotocolendpoints.adoc[ListProtocolEndpoints]
+* xref:reference_element_api_liststoragecontainers.adoc[ListStorageContainers]
+* xref:reference_element_api_listvirtualvolumebindings.adoc[ListVirtualVolumeBindings]
+* xref:reference_element_api_listvirtualvolumehosts.adoc[ListVirtualVolumeHosts]
+* xref:reference_element_api_listvirtualvolumes.adoc[ListVirtualVolumes]
+* xref:reference_element_api_listvirtualvolumetasks.adoc[ListVirtualVolumeTasks]
+* xref:reference_element_api_modifystoragecontainer.adoc[ModifyStorageContainer]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

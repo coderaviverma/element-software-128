@@ -1,0 +1,73 @@
+---
+permalink: api/reference_element_api_protocolendpoint.html
+sidebar: sidebar
+keywords: object,objects,protocolEndpoint
+summary: 'The protocolEndpoint object contains the attributes of a protocol endpoint. You can retrieve this information for all protocol endpoints in the cluster using the ListProtocolEndpoints API method.'
+---
+
+= protocolEndpoint
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The protocolEndpoint object contains the attributes of a protocol endpoint. You can retrieve this information for all protocol endpoints in the cluster using the `ListProtocolEndpoints` API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+primaryProviderID
+a|
+The ID of the primary protocol endpoint provider object for the protocol endpoint.
+a|
+integer
+a|
+protocolEndpointID
+a|
+The unique ID of the protocol endpoint.
+a|
+UUID
+a|
+protocolEndpointState
+a|
+The status of the protocol endpoint. Possible values:
+
+* Active: The protocol endpoint is in use.
+* Start: The protocol endpoint is starting.
+* Failover: The protocol endpoint has failed over.
+* Reserved: The protocol endpoint is reserved.
+
+a|
+string
+a|
+providerType
+a|
+The type of the protocol endpoint's provider. Possible values:
+
+* Primary
+* Secondary
+
+a|
+string
+a|
+scsiNAADeviceID
+a|
+The globally unique SCSI device identifier for the protocol endpoint in NAA IEEE Registered Extended Format.
+a|
+string
+a|
+secondaryProviderID
+a|
+The ID of the secondary protocol endpoint provider object for the protocol endpoint.
+a|
+integer
+|===
+
+
+== Find more information
+
+xref:reference_element_api_listprotocolendpoints.adoc[ListProtocolEndpoints]

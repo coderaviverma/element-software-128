@@ -1,0 +1,16 @@
+---
+permalink: storage/task_system_manage_cluster_ntp_set_the_network_time_protocol.html
+sidebar: sidebar
+keywords: set, ntp, broadcasts, query, updates, clocks, synchronize,
+summary: 'Setting up the Network Time Protocol \(NTP\) can be achieved in one of two ways: either instruct each node in a cluster to listen for broadcasts or or instruct each node to query an NTP server for updates.'
+---
+
+= Set the Network Time Protocol
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Setting up the Network Time Protocol (NTP) can be achieved in one of two ways: either instruct each node in a cluster to listen for broadcasts or or instruct each node to query an NTP server for updates.
+
+The NTP is used to synchronize clocks over a network. Connection to an internal or external NTP server should be part of the initial cluster setup.
+

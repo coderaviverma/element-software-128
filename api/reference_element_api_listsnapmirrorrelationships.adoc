@@ -1,0 +1,90 @@
+---
+permalink: api/reference_element_api_listsnapmirrorrelationships.html
+sidebar: sidebar
+keywords: snapmirror,endpoints,endpoint,list,listing,listsnapmirrorrelationships
+summary: 'The Element software web UI uses the ListSnapMirrorRelationships method to list one or all SnapMirror relationships on an Element storage cluster.'
+---
+
+= ListSnapMirrorRelationships
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element software web UI uses the `ListSnapMirrorRelationships` method to list one or all SnapMirror relationships on an Element storage cluster.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+snapMirrorEndpointID
+a|
+List only the relationships associated with the specified endpoint ID. If no endpoint ID is provided, the system lists relationships from all known SnapMirror endpoints.
+a|
+integer
+a|
+None
+a|
+No
+a|
+destinationVolume
+a|
+List relationships associated with the specified destination volume.
+a|
+xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeInfo]
+a|
+None
+a|
+No
+a|
+sourceVolume
+a|
+List relationships associated with the specified source volume.
+a|
+xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeInfo]
+a|
+None
+a|
+No
+a|
+vserver
+a|
+List relationships on the specified Vserver.
+a|
+string
+a|
+None
+a|
+No
+a|
+relationshipID
+a|
+List relationships associated with the specified relationship ID.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+snapMirrorRelationships
+a|
+A list of objects containing information about SnapMirror relationships.
+a|
+xref:reference_element_api_snapmirrorrelationship.adoc[snapMirrorRelationship] array
+|===
+
+== New since version
+
+10.1

@@ -1,0 +1,102 @@
+---
+permalink: api/reference_element_api_setnodesupplementaltlsciphers.html
+sidebar: sidebar
+keywords: tls,cipher,set,setting,list,supplemental,setnodesupplementaltlsciphers,node
+summary: 'You can use the SetNodeSupplementalTlsCiphers method to specify the list of supplemental TLS ciphers. You can use this command on management nodes.'
+---
+
+= SetNodeSupplementalTlsCiphers
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `SetNodeSupplementalTlsCiphers` method to specify the list of supplemental TLS ciphers. You can use this command on management nodes.
+
+== Parameter
+
+NOTE: You must call this method against the management node. For example:
+
+----
+https://<management node IP>:442/json-rpc/10.0
+----
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+supplementalCiphers
+a|
+The supplemental cipher suite names using the OpenSSL naming scheme. Use of cipher suite names is case-insensitive.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+mandatoryCiphers
+a|
+List of mandatory TLS cipher suites for the node. These are ciphers which are always active on the node.
+a|
+string
+a|
+supplementalCiphers
+a|
+List of supplemental TLS cipher suites for the node.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "SetNodeSupplementalTlsCiphers",
+   "params": {
+        "supplementalCiphers": [
+            "DHE-RSA-AES128-SHA256",
+            "DHE-RSA-AES128-GCM-SHA256",
+            "ECDHE-RSA-AES128-SHA256",
+            "ECDHE-RSA-AES128-GCM-SHA256"
+        ]
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {
+        "mandatoryCiphers": [
+            "DHE-RSA-AES256-SHA256",
+            "DHE-RSA-AES256-GCM-SHA384",
+            "ECDHE-RSA-AES256-SHA384",
+            "ECDHE-RSA-AES256-GCM-SHA384"
+        ],
+        "supplementalCiphers": [
+            "DHE-RSA-AES128-SHA256",
+            "DHE-RSA-AES128-GCM-SHA256",
+            "ECDHE-RSA-AES128-SHA256",
+            "ECDHE-RSA-AES128-GCM-SHA256"
+        ]
+    }
+}
+----

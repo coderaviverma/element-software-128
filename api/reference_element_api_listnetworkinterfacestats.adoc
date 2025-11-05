@@ -1,0 +1,75 @@
+---
+permalink: api/reference_element_api_listnetworkinterfacestats.html
+sidebar: sidebar
+keywords: network,interface,stats,statistics,interfaces,list,listing,listnetworkinterfacestats
+summary: 'You can use the ListNetworkInterfaceStats method to list statistics about each network interface on a node. This API method is intended for use on individual nodes; user ID and password authentication is required for access to individual nodes. However, you can use this method on the cluster if the parameter force is given the value true in the method call. When the parameter is used on the cluster, all interfaces are listed.'
+---
+
+= ListNetworkInterfaceStats
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListNetworkInterfaceStats` method to list statistics such as the number of dropped packets and various types of errors for each network interface on a node. This API method is intended for use on individual nodes; user ID and password authentication is required for access to individual nodes. However, you can use this method on the cluster if the parameter force is given the value true in the method call. When the parameter is used on the cluster, network statistics for all interfaces are listed.
+
+== Parameter
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+|networkInterfaceStats
+|A list of network statistics information, such as the number of dropped packets and various types of network errors, for each network interface of a storage node.
+|xref:reference_element_api_networkinterfacestats.adoc[networkInterfaceStats] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+"method": "ListNetworkInterfaceStats",
+"params": {},
+"id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "networkInterfaceStats": [
+        {
+            "rxErrors": 1,
+            "rxPackets": 1,
+            "txErrors": 1,
+            "rxDropped": 1,
+            "txCarrierErrors": 1,
+            "rxOverErrors": 1,
+            "rxMissedErrors": 1,
+            "txPackets": 1,
+            "name": "if_name",
+            "rxLengthErrors": 1,
+            "collisions": 1,
+            "rxFifoErrors": 1,
+            "txBytes": 1,
+            "rxBytes": 1,
+            "rxFrameErrors": 1,
+            "rxCrcErrors": 1,
+            "txFifoErrors": 1
+        }
+    ]
+}
+----
+
+== New since version
+
+12.3

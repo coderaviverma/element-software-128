@@ -1,0 +1,89 @@
+---
+permalink: api/reference_element_api_deleteauthsessionsbyclusteradmin.html
+sidebar: sidebar
+keywords: auth sessions,cluster,admin,delete,authentication sessions
+summary: 'You can use the DeleteAuthSessionsByClusterAdmin method to delete all authentication sessions associated with the specified ClusterAdminID. If the specified ClusterAdminID maps to a group of users, all authentication sessions for all members of that group will be deleted. To view a list of sessions for possible deletion, use the ListAuthSessionsByClusterAdmin method with the ClusterAdminID parameter.'
+---
+
+= DeleteAuthSessionsByClusterAdmin
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DeleteAuthSessionsByClusterAdmin` method to delete all authentication sessions associated with the specified `ClusterAdminID`. If the specified ClusterAdminID maps to a group of users, all authentication sessions for all members of that group will be deleted. To view a list of sessions for possible deletion, use the ListAuthSessionsByClusterAdmin method with the `ClusterAdminID` parameter.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+clusterAdminID
+a|
+Unique identifier for the cluster admin.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+sessions
+a|
+Session information for the deleted authentication sessions.
+a|
+link:reference_element_api_authsessioninfo.html[authSessionInfo]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "DeleteAuthSessionsByClusterAdmin",
+  "params": {
+    "clusterAdminID": 1
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+"sessions": [
+      {
+        "accessGroupList": [
+          "administrator"
+        ],
+        "authMethod": "Cluster",
+        "clusterAdminIDs": [
+          1
+        ],
+        "finalTimeout": "2020-03-14T19:21:24Z",
+        "idpConfigVersion": 0,
+        "lastAccessTimeout": "2020-03-11T19:51:24Z",
+        "sessionCreationTime": "2020-03-11T19:21:24Z",
+        "sessionID": "b12bfc64-f233-44df-8b9f-6fb6c011abf7",
+        "username": "admin"
+      }
+    ]
+}
+----
+
+== New since version
+
+12.0

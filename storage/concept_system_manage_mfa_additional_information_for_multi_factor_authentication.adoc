@@ -1,0 +1,25 @@
+---
+permalink: storage/concept_system_manage_mfa_additional_information_for_multi_factor_authentication.html
+sidebar: sidebar
+keywords: mfa, idp, certificates, api method
+summary: 'You should be aware of the following caveats in relation to multi-factor authentication.'
+---
+
+= Additional information for multi-factor authentication
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You should be aware of the following caveats in relation to multi-factor authentication.
+
+* In order to refresh IdP certificates that are no longer valid, you will need to use a non-IdP admin user to call the following API method: `UpdateIdpConfiguration`
+* MFA is incompatible with certificates that are less than 2048 bits in length. By default, a 2048-bit SSL certificate is created on the cluster. You should avoid setting a smaller sized certificate when calling the API method: `SetSSLCertificate`
++
+NOTE: If the cluster is using a certificate that is less than 2048 bits pre-upgrade, the cluster certificate must be updated with a 2048-bit or greater certificate after upgrade to Element 12.0 or later.
+
+* IdP admin users cannot be used to make API calls directly (for example, via SDKs or Postman) or used for other integrations (for example, OpenStack Cinder or vCenter Plug-in). Add either LDAP cluster admin users or local cluster admin users if you need to create users that have these abilities.
+
+== Find more information
+* link:../api/index.html[Managing storage with the Element API]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

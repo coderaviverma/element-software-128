@@ -1,0 +1,166 @@
+---
+permalink: api/reference_element_api_session_iscsi.html
+sidebar: sidebar
+keywords: object,objects,session
+summary: 'The session \(iSCSI\) object contains detailed information about each volume’s iSCSI session. You can retrieve iSCSI session information with the ListISCSISessions API method.'
+---
+
+= session (iSCSI)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The session (iSCSI) object contains detailed information about each volume's iSCSI session. You can retrieve iSCSI session information with the `ListISCSISessions` API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+accountID
+a|
+The account ID of the account used for CHAP authentication, if any.
+a|
+integer
+a|
+accountName
+a|
+The name of the account used for CHAP authentication, if any.
+a|
+string
+a|
+authentication
+a|
+Authentication information for this iSCSI session.
+a|
+xref:reference_element_api_iscsiauthentication.adoc[ISCSIAuthentication]
+a|
+createTime
+a|
+The time of the creation of the iSCSI session, in UTC+0 format.
+a|
+ISO 8601 date string
+a|
+driveID
+a|
+The driveID associated with the transport service hosting the session.
+a|
+integer
+a|
+driveIDs
+a|
+A list of the driveIDs of the drives reporting the failure. An empty list if not applicable.
+a|
+integer array
+a|
+initiator
+a|
+Information about this iSCSI session's server initiator. Members:
+
+* alias: The friendly name assigned to the initiator.
+* attributes: The attributes of this initiator.
+* initiatorID: The ID of this initiator.
+* initiatorName: The name of this initiator.
+* volumeAccessGroups: A list of volume access groups associated with this initiator.
+
+a|
+JSON object
+a|
+initiatorIP
+a|
+The IP address and port number of the iSCSI server initiator.
+a|
+string
+a|
+initiatorName
+a|
+The iSCSI Qualified Name (IQN) of the iSCSI server initiator.
+a|
+string
+a|
+initiatorPortName
+a|
+The initiatorName combined with the initiatorSessionID; identifies the initiator port.
+a|
+string
+a|
+initiatorSessionID
+a|
+A 48-bit ID provided by the initiator that identifies the iSCSI session as belonging to that initiator.
+a|
+integer
+a|
+msSinceLastIscsiPDU
+a|
+The time, in milliseconds, since the last iSCSI PDU was received for this session.
+a|
+integer
+a|
+msSinceLastScsiCommand
+a|
+The time, in milliseconds, since the last SCSI command was received for this session.
+a|
+integer
+a|
+nodeID
+a|
+The nodeID associated with the transport service hosting the session.
+a|
+integer
+a|
+serviceID
+a|
+The serviceID of the transport service hosting the session.
+a|
+integer
+a|
+sessionID
+a|
+The iSCSI session ID.
+a|
+integer
+a|
+targetIP
+a|
+The IP address and port number of the iSCSI storage target.
+a|
+string
+a|
+targetName
+a|
+The IQN of the iSCSI target.
+a|
+string
+a|
+targetPortName
+a|
+The targetName combined with the target portal group tag; identifies the target port.
+a|
+string
+a|
+virtualNetworkID
+a|
+The virtual network ID associated with the session.
+a|
+integer
+a|
+volumeID
+a|
+The volumeID of the volume associated with the session, if any.
+a|
+integer
+a|
+volumeInstance
+a|
+Identifies the volume object associated with the iSCSI session, if any.
+a|
+integer
+|===
+
+
+== Find more information
+
+xref:reference_element_api_listiscsisessions.adoc[ListISCSISessions]

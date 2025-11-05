@@ -1,0 +1,101 @@
+---
+permalink: api/reference_element_api_listasyncresults.html
+sidebar: sidebar
+keywords: async,asynchronous,result,results,get,list,listing,listasyncresults
+summary: 'You can use ListAsyncResults to list the results of all currently running and completed asynchronous methods on the system. Querying asynchronous results with ListAsyncResults does not cause completed asyncHandles to expire; you can use GetAsyncResult to query any of the asyncHandles returned by ListAsyncResults.'
+---
+
+= ListAsyncResults
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `ListAsyncResults` to list the results of all currently running and completed asynchronous methods on the system. Querying asynchronous results with `ListAsyncResults` does not cause completed asyncHandles to expire; you can use `GetAsyncResult` to query any of the asyncHandles returned by `ListAsyncResults`.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+asyncResultTypes
+a|
+An optional list of types of results. You can use this list to restrict the results to only these types of operations. Possible values:
+
+* DriveAdd: Operations involving the system adding a drive to the cluster.
+* BulkVolume: Copy operations between volumes, such as backups or restores.
+* Clone: Volume cloning operations.
+* DriveRemoval: Operations involving the system copying data from a drive in preparation to remove it from the cluster.
+* RtfiPendingNode: Operations involving the system installing compatible software on a node before adding it to the cluster.
+
+a|
+string array
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+asyncHandles
+a|
+An array of serialized asynchronous method results.
+a|
+JSON object array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListAsyncResults",
+   "params": {
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+     "asyncHandles": [
+       {
+         "asyncResultID": 47,
+         "completed": true,
+         "createTime": "2016-01-01T22:29:19Z",
+         "data": {
+           "cloneID": 26,
+           "message": "Clone complete.",
+           "volumeID": 48
+         },
+         "lastUpdateTime": "2016-01-01T22:45:43Z",
+         "resultType": "Clone",
+         "success": true
+      },
+      ...]
+   }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_getasyncresult.adoc[GetAsyncResult]

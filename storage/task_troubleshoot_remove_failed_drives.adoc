@@ -1,0 +1,42 @@
+---
+permalink: storage/task_troubleshoot_remove_failed_drives.html
+sidebar: sidebar
+keywords: troubleshoot, failed drives, remove
+summary: 'The SolidFire system puts a drive in a failed state if the drive’s self-diagnostics tells the node it has failed or if communication with the drive stops for five and a half minutes or longer. The system displays a list of the failed drives. You must remove a failed drive from the failed drive list in NetApp Element software.'
+---
+
+= Remove failed drives from the cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The SolidFire system puts a drive in a failed state if the drive's self-diagnostics tells the node it has failed or if communication with the drive stops for five and a half minutes or longer. The system displays a list of the failed drives. You must remove a failed drive from the failed drive list in NetApp Element software.
+
+Drives in the *Alerts* list show as *blockServiceUnhealthy* when a node is offline. When restarting the node, if the node and its drives come back online within five and a half minutes, the drives automatically update and continue as active drives in the cluster.
+
+. In the Element UI, select *Cluster* > *Drives*.
+. Click *Failed* to view the list of failed drives.
+. Note the slot number of the failed drive.
++
+You need this information to locate the failed drive in the chassis.
+
+. Remove the failed drives using one of the following methods:
++
+|===
+| Option| Steps
+a|
+To remove individual drives
+a|
+
+ .. Click *Actions* for the drive you want to remove.
+ .. Click *Remove*.
+
+a|
+To remove multiple drives
+a|
+
+ .. Select all the drives you want to remove, and click *Bulk Actions*.
+ .. Click *Remove*.
+
++
+|===

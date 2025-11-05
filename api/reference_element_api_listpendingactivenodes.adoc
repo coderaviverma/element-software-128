@@ -1,0 +1,78 @@
+---
+permalink: api/reference_element_api_listpendingactivenodes.html
+sidebar: sidebar
+keywords: cluster,list,listing,pending,active,node,nodes,listpendingactivenodes
+summary: 'You can use the ListPendingActiveNodes method to list nodes in the cluster that are in the PendingActive state, between pending and active states. Nodes in this state are being returned to the factory image.'
+---
+
+= ListPendingActiveNodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListPendingActiveNodes` method to list nodes in the cluster that are in the PendingActive state, between pending and active states. Nodes in this state are being returned to the factory image.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+pendingActiveNodes
+a|
+List of objects detailing information about all PendingActive nodes in the system.
+a|
+xref:reference_element_api_pendingactivenode.adoc[pendingActiveNode] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListPendingActiveNodes",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  id: null,
+  result: {
+    pendingActiveNodes: [
+    {
+      activeNodeKey: "5rPHP3lTAO",
+      assignedNodeID: 5,
+      asyncHandle: 2,
+      cip: "10.10.5.106",
+      mip: "192.168.133.106",
+      pendingNodeID: 1,
+      platformInfo: {
+        chassisType: "R620",
+        cpuModel: "Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz",
+        nodeMemoryGB: 72,
+        nodeType: "SF3010"
+      },
+     sip: "10.10.5.106",
+     softwareVersion: "9.0.0.1077"
+    }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

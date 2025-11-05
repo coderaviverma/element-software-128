@@ -1,0 +1,75 @@
+---
+permalink: api/reference_element_api_getsnmpacl.html
+sidebar: sidebar
+keywords: snmp,acl,get,getting,getsnmpacl
+summary: 'You can use the GetSnmpACL method to get the current SNMP access permissions on the cluster nodes.'
+---
+
+= GetSnmpACL
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetSnmpACL` method to get the current SNMP access permissions on the cluster nodes.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+networks
+a|
+List of networks and what type of access they have to the SNMP servers running on the cluster nodes. This value is present if SNMP v3 is disabled.
+a|
+xref:reference_element_api_network_snmp.adoc[network] array
+a|
+usmUsers
+a|
+List of users and the type of access they have to the SNMP servers running on the cluster nodes. This value is present if SNMP v3 is enabled.
+a|
+xref:reference_element_api_usmuser.adoc[usmUser] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+"method": "GetSnmpACL",
+"params": {},
+"id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {
+     "usmUsers"  : [
+       {
+          "name": "jdoe",
+          "access": "rouser",
+          "secLevel": "priv",
+          "password": "mypassword",
+          "passphrase": "mypassphrase",
+       }
+     ]
+   }
+}
+----
+
+== New since version
+
+9.6

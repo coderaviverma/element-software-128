@@ -1,0 +1,66 @@
+---
+permalink: api/reference_element_api_removevolumepair.html
+sidebar: sidebar
+keywords: volume,pair,volumes,remove,removing,removevolumepair
+summary: 'You can use the RemoveVolumePair method to remove the remote pairing between two volumes. Use this method on both the source and target volumes that are paired together. When you remove the volume pairing information, data is no longer replicated to or from the volume.'
+---
+
+= RemoveVolumePair
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RemoveVolumePair` method to remove the remote pairing between two volumes. Use this method on both the source and target volumes that are paired together. When you remove the volume pairing information, data is no longer replicated to or from the volume.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeID
+a|
+ID of the volume on which to stop the replication process.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has no return value.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "RemoveVolumePair",
+   "params": {
+      "volumeID": 5
+   "id" : 1
+   }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+   }
+}
+----
+
+== New since version
+
+9.6

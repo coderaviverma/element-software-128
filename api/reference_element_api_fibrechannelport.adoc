@@ -1,0 +1,106 @@
+---
+permalink: api/reference_element_api_fibrechannelport.html
+sidebar: sidebar
+keywords: object,objects,fibreChannelPort
+summary: 'The fibreChannelPort object contains information about individual ports on a node, or for an entire node in the cluster. You can retrieve this information using the ListNodeFibreChannelPortInfo method.'
+---
+
+= fibreChannelPort
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The fibreChannelPort object contains information about individual ports on a node, or for an entire node in the cluster. You can retrieve this information using the `ListNodeFibreChannelPortInfo` method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+firmware
+a|
+The version of the firmware installed on the Fibre Channel port.
+a|
+integer
+a|
+hbaPort
+a|
+The ID of the individual host bus adapter (HBA) port.
+a|
+integer
+a|
+model
+a|
+Model of the HBA on the port.
+a|
+string
+a|
+nPortID
+a|
+The unique port node ID.
+a|
+string
+a|
+pciSlot
+a|
+The slot containing the PCI card in the Fibre Channel node chassis.
+a|
+integer
+a|
+serial
+a|
+The serial number on the Fibre Channel port.
+a|
+string
+a|
+speed
+a|
+The speed of the HBA on the port.
+a|
+string
+a|
+state
+a|
+Possible values:
+
+* Unknown
+* NotPresent
+* Online
+* Offline
+* Blocked
+* Bypassed
+* Diagnostics
+* Linkdown
+* Error
+* Loopback
+* Deleted
+
+a|
+string
+a|
+switchWwn
+a|
+The World Wide Name of the Fibre Channel switch port.
+a|
+string
+a|
+wwnn
+a|
+World Wide Node Name of the HBA node.
+a|
+string
+a|
+wwpn
+a|
+World Wide Port Name assigned to the physical port of the HBA.
+a|
+string
+|===
+
+
+== Find more information
+
+xref:reference_element_api_listnodefibrechannelportinfo.adoc[ListNodeFibreChannelPortInfo]

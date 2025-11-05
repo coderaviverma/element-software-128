@@ -1,0 +1,180 @@
+---
+permalink: api/reference_element_api_drivestats.html
+sidebar: sidebar
+keywords: object,objects,driveStats
+summary: 'The driveStats object contains high-level activity measurements for a single drive. You can retrieve measurement information with the API method GetDriveStats.'
+---
+
+= driveStats
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The driveStats object contains high-level activity measurements for a single drive. You can retrieve measurement information with the API method `GetDriveStats`.
+
+== Object members
+
+This object contains the following members:
+
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+activeSessions
+a|
+Number of iSCSI sessions currently using this drive (only present for metadata drives).
+a|
+integer
+a|
+driveID
+a|
+Unique ID of the drive in the cluster.
+a|
+integer
+a|
+failedDieCount
+a|
+Number of failed drive hardware elements.
+a|
+integer
+a|
+iosInProgress
+a|
+The number of I/Os to this drive that are in progress.
+a|
+integer
+a|
+lifeRemainingPercent
+a|
+Drive media wear out indicator.
+a|
+integer
+a|
+lifetimeReadBytes
+a|
+Total bytes read from this drive for the lifetime of the drive.
+a|
+integer
+a|
+lifetimeWriteBytes
+a|
+Total bytes written to this drive for the lifetime of the drive.
+a|
+integer
+a|
+powerOnHours
+a|
+Number of hours this drive has been powered on.
+a|
+integer
+a|
+reads
+a|
+The number of read() calls per second to this drive.
+a|
+integer
+a|
+readBytes
+a|
+Total bytes read from the drive due to client operations.
+a|
+integer
+a|
+readsCombined
+a|
+The number of read() calls to adjacent sectors that could be combined into a larger read.
+a|
+integer
+a|
+readMsec
+a|
+The number of milliseconds spent reading.
+a|
+integer
+a|
+readOps
+a|
+Total read operations on the drive due to client operations.
+a|
+integer
+a|
+reallocatedSectors
+a|
+Number of bad sectors replaced in this drive.
+a|
+integer
+a|
+reserveCapacityPercent
+a|
+The available reserve capacity of the drive.
+a|
+integer
+a|
+timestamp
+a|
+The current time in UTC+0 format.
+a|
+ISO 8601 date string
+a|
+totalCapacity
+a|
+Total capacity of the drive, in bytes.
+a|
+integer
+a|
+uncorrectableErrors
+a|
+The Reported Uncorrectable Errors value from the Self-Monitoring, Analysis and Reporting Technology (SMART) monitoring system in the drive.
+a|
+integer
+a|
+usedCapacity
+a|
+Used capacity of the drive, in bytes.
+a|
+integer
+a|
+usedMemory
+a|
+Amount of memory currently used by the node hosting this drive.
+a|
+integer
+a|
+writes
+a|
+The number of write() calls per second to this drive.
+a|
+integer
+a|
+writeBytes
+a|
+Total bytes written to the drive due to client activity.
+a|
+integer
+a|
+writesCombined
+a|
+The number of write() calls to adjacent sectors that could be combined into a larger write.
+a|
+integer
+a|
+writeMsec
+a|
+The number of milliseconds spent writing.
+a|
+integer
+a|
+writeOps
+a|
+Total write operations to the drive due to client activity.
+a|
+integer
+|===
+
+
+== Find more information
+
+xref:reference_element_api_getdrivestats.adoc[GetDriveStats]
+
+// 2025 FEB 27, DOC-4778

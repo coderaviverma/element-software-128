@@ -1,0 +1,120 @@
+---
+permalink: api/reference_element_api_listaccounts.html
+sidebar: sidebar
+keywords: account,accounts,list,listing,all,listaccounts
+summary: 'You can use ListAccounts to get the entire list of storage tenant accounts, with optional paging support. Element accounts enable access to volumes.'
+---
+
+= ListAccounts
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `ListAccounts` to get the entire list of storage tenant accounts, with optional paging support. Element accounts enable access to volumes.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+includeStorageContainers
+a|
+Virtual volume storage containers are included in the response by default. To exclude storage containers, set to false.
+a|
+boolean
+a|
+true
+a|
+No
+a|
+startAccountID
+a|
+Starting accountID to return. If no account exists with this accountID, the next account by accountID order is used as the start of the list. To page through the list, pass the accountID of the last account in the previous response + 1.
+a|
+integer
+a|
+None
+a|
+No
+a|
+limit
+a|
+Maximum number of account objects to return.
+a|
+integer
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+accounts
+a|
+The list of accounts.
+a|
+xref:reference_element_api_account.adoc[account] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListAccounts",
+   "params": {
+     "startAccountID"  : 0,
+     "limit" : 1000
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "result" : {
+    "accounts": [
+	{
+        "attributes": {},
+        "username": "jamesw",
+        "targetSecret": "168#5A757ru268)",
+        "volumes": [],
+        "enableChap": false,
+        "status": "active",
+        "accountID": 16,
+        "storageContainerID": "abcdef01-1234-5678-90ab-cdef01234567",
+        "initiatorSecret": "168#5A757ru268)"
+    },
+    {
+        "attributes": {},
+        "username": "jimmyd",
+        "targetSecret": "targetsecret",
+        "volumes": [],
+        "enableChap": true,
+        "status": "active",
+        "accountID": 5,
+        "storageContainerID": "abcdef01-1234-5678-90ab-cdef01234567",
+        "initiatorSecret": "initiatorsecret"
+    }
+  ]
+}
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,131 @@
+---
+permalink: api/reference_element_api_updateidpconfiguration.html
+sidebar: sidebar
+keywords: IdP,idp,configuration,update
+summary: 'You can use the UpdateIdpConfiguration method to update an existing configuration with a third-party IdP for the cluster.'
+---
+
+= UpdateIdpConfiguration
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `UpdateIdpConfiguration` method to update an existing configuration with a third-party IdP for the cluster.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+generateNewCertificate
+a|
+When specified as true, a new SAML key and certificate is generated and replaces the existing pair. Note: Replacing the existing certificate will disrupt the established trust between the cluster and the IdP until the cluster's Service Provider metadata is reloaded at the IdP. If not provided or set to false, the SAML certificate and key remains unchanged.
+a|
+boolean
+a|
+None
+a|
+No
+a|
+idpConfigurationID
+a|
+UUID for the third-party IdP configuration.
+a|
+UUID
+a|
+None
+a|
+No
+a|
+idpMetadata
+a|
+IdP metadata for configuration and integration details for SAML 2.0 single sign-on.
+a|
+string
+a|
+None
+a|
+No
+a|
+idpName
+a|
+Name used to identify and retrieve an IdP provider for SAML 2.0 single sign-on.
+a|
+string
+a|
+None
+a|
+No
+a|
+newIdpName
+a|
+If specified, this name replaces the old IdP name.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+idpConfigInfo
+a|
+Information around the third-party IdP configuration.
+a|
+link:reference_element_api_idpconfiginfo.html[idpConfigInfo]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+"method": "UpdateIdpConfiguration",
+"params": {
+        "idpConfigurationID": "f983c602-12f9-4c67-b214-bf505185cfed",
+        "generateNewCertificate": true
+    }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "result": {
+        "idpConfigInfo": {
+        "enabled": true,
+        "idpConfigurationID": "f983c602-12f9-4c67-b214-bf505185cfed",
+        "idpMetadata": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n
+        <EntityDescriptor xmlns=\"urn:oasis:names:tc:SAML:2.0:metadata\"\r\n
+        xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"\r\n
+        xmlns:shibmd=\"urn:mace:shibboleth:metadata:1.0\"\r\n
+        xmlns:xml=\"http://www.w3.org/XML/1998/namespace\"\r\n
+        ...</Organization>\r\n
+        </EntityDescriptor>",
+        "idpName": "https://privider.name.url.com",
+        "serviceProviderCertificate": "-----BEGIN CERTIFICATE-----\n
+        MI...BHi\n
+        -----END CERTIFICATE-----\n",
+        "spMetadataUrl": "https://10.193.100.100/auth/ui/saml2"
+        }
+    }
+}
+----
+
+== New since version
+
+12.0

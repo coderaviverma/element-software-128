@@ -1,0 +1,83 @@
+---
+permalink: api/reference_element_api_testconnectensemble.html
+sidebar: sidebar
+keywords: test,testing,connectivity,ensemble,testconnectensemble
+summary: 'You can use the TestConnectEnsemble method to verify connectivity with a specified database ensemble. By default it uses the ensemble for the cluster the node is associated with. Alternatively you can provide a different ensemble to test connectivity.'
+---
+
+= TestConnectEnsemble
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `TestConnectEnsemble` method to verify connectivity with a specified database ensemble. By default it uses the ensemble for the cluster the node is associated with. Alternatively you can provide a different ensemble to test connectivity.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+|ensemble
+|A comma-separated list of ensemble node cluster IP addresses for connectivity testing.
+|string
+|None
+|No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+|details
+a|Objects returned:
+
+* `nodes`: (object) A list of each ensemble node in the test and the results of the tests.
+* `duration`: (string) The time required to run the test.
+* `result`: (string) The results of the entire test.
+
+|JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "TestConnectEnsemble",
+  "params": {},
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+      "details": {
+         "nodes":  {
+            "1:10.10.20.70": "Passed",
+            "2:10.10.20.71": "Passed",
+            "3:10.10.20.72": "Passed",
+            "4:10.10.20.73": "Passed",
+            "5:10.10.20.74": "Passed"
+        }
+      },
+        "duration": "00:00:00:756072",
+        "result": "Passed"
+   }
+}
+----
+
+== New since version
+
+9.6

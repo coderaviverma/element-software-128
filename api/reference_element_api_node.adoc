@@ -1,0 +1,166 @@
+---
+permalink: api/reference_element_api_node.html
+sidebar: sidebar
+keywords: object,objects,node
+summary: 'The node object contains information about each node in the cluster. You can retrieve this information using the ListActiveNodes and ListAllNodes methods.'
+---
+
+= node
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The node object contains information about each node in the cluster. You can retrieve this information using the `ListActiveNodes` and `ListAllNodes` methods.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+associatedFServiceID
+a|
+The Fibre Channel service ID for the node. "0" if the node is not a Fibre Channel node.
+a|
+integer
+a|
+associatedMasterServiceID
+a|
+Master service ID for the node.
+a|
+integer
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+chassisName
+a|
+Uniquely identifies a chassis; identical for all nodes in a single chassis.
+a|
+string
+a|
+cip
+a|
+The cluster IP address assigned to the node.
+a|
+string
+a|
+cipi
+a|
+Network interface used for cluster communication.
+a|
+string
+a|
+customProtectionDomainName
+a|
+Uniquely identifies a custom protection domain. This name is identical for all storage nodes within all chassis in a given custom protection domain.
+a|
+string
+a|
+fibreChannelTargetPortGroup
+a|
+The target group associated with this node. "null" if the node is not a Fibre Channel node.
+a|
+integer
+a| maintenanceMode
+a|
+Indicates which mode a node is in for maintenance.
+a|
+n/a
+a|
+mip
+a|
+The IP address used for node management.
+a|
+string
+a|
+mipi
+a|
+The network interface used for node management.
+a|
+string
+a|
+name
+a|
+Host name for the node.
+a|
+string
+a|
+nodeID
+a|
+NodeID for this node.
+a|
+integer
+a|
+nodeSlot
+a|
+For HCI platforms, the letter corresponding to the chassis slot this node is in ("A", "B", "C", or "D"). For storage platforms, this value is null.
+a|
+string
+a|
+platformInfo
+a|
+Hardware information for the node. Members:
+
+* chassisType: The hardware platform of the node.
+* cpuModel: The CPU model of the hardware platform.
+* nodeMemoryGB: The amount of memory installed in the physical platform in GB.
+* nodeType: The node model name.
+* platformConfigVersion: The version of software configured for this node hardware.
+
+a|
+JSON object
+a|
+role
+a|
+The node's role in the cluster. Possible values:
+
+* Management
+* Storage
+* Compute
+* Witness
+
+a|
+
+a|
+sip
+a|
+The storage IP address assigned to the node.
+a|
+string
+a|
+sipi
+a|
+The network interface used for storage traffic.
+a|
+string
+a|
+softwareVersion
+a|
+Returns the current version of Element software running on the node.
+a|
+string
+a|
+uuid
+a|
+The universally unique identifier associated with this node.
+a|
+string
+a|
+virtualNetworks
+a|
+Object containing virtual network IP addresses and IDs.
+a|
+xref:reference_element_api_virtualnetwork.adoc[virtualNetwork] array
+|===
+
+
+== Find more information
+
+* xref:reference_element_api_listactivenodes.adoc[ListActiveNodes]
+* xref:reference_element_api_listallnodes.adoc[ListAllNodes]

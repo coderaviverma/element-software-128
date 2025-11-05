@@ -1,0 +1,138 @@
+---
+sidebar: sidebar
+permalink: hccstorage/task-hcc-collectlogs.html
+summary: You can use NetApp Hybrid Cloud Control to collect logs from your Element installation to help with troubleshooting.
+keywords: netapp, element, logs, collection, troubleshooting, monitor
+---
+
+= Collect logs for troubleshooting
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+
+If you have trouble with your SolidFire all-flash storage installation, you can collect logs to send to NetApp Support to help with diagnosis. You can either use NetApp Hybrid Cloud Control or the REST API to collect logs on an Element system.
+
+.What you'll need
+* Ensure that your storage cluster version is running NetApp Element software 11.3 or later.
+* Ensure that you have deployed a management node running version 11.3 or later.
+
+.Log collection options
+
+Choose one of the following options:
+
+* <<Use NetApp Hybrid Cloud Control to collect logs>>
+* <<Use the REST API to collect logs>>
+
+== Use NetApp Hybrid Cloud Control to collect logs
+You can access the log collection area from the NetApp Hybrid Cloud Control Dashboard.
+
+.Steps
+. Open the IP address of the management node in a web browser. For example:
++
+----
+https://[management node IP address]
+----
+. Log in to NetApp Hybrid Cloud Control by providing the Element storage cluster administrator credentials.
+. From the Dashboard, select the menu on the upper right.
+. Select *Collect Logs*.
++
+If you have collected logs before, you can download the existing log package, or begin a new log collection.
+. Select a date range in the *Date Range* drop-down menu to specify what dates the logs should include.
++
+If you specify a custom start date, you can select the date to begin the date range. Logs will be collected from that date up to the present time.
+. In the *Log Collection* section, select the types of log files the log package should include.
++
+For storage logs, you can expand the list of storage nodes and select individual nodes to collect logs from (or all nodes in the list).
+. Select *Collect Logs* to start log collection.
++
+Log collection runs in the background, and the page shows the progress.
++
+NOTE: Depending on the logs you collect, the progress bar might remain at a certain percentage for several minutes, or progress very slowly at some points.
+
+. Select *Download Logs* to download the log package.
++
+The log package is in a compressed UNIX .tgz file format.
+
+== Use the REST API to collect logs
+You can use REST API to collect Element logs.
+
+.Steps
+. Locate the storage cluster ID:
+.. Open the management node REST API UI on the management node:
++
+----
+https://[management node IP]/logs/1/
+----
+.. Select *Authorize* and complete the following:
+... Enter the cluster user name and password.
+... Enter the client ID as `mnode-client` if the value is not already populated.
+... Select *Authorize* to begin a session.
+. Collect logs from Element:
+.. Select *POST /bundle*.
+.. Select *Try it out*.
+.. Change the values of the following parameters in the *Request body* field depending on which type of logs you need to collect and for what time range:
++
+|===
+|Parameter |Type |Description
+
+|`modifiedSince`
+|Date string
+|Only include logs modified after this date and time. For example, the value "2020-07-14T20:19:00.000Z" defines a start date of July 14, 2020 at 20:19 UTC.
+
+|`mnodeLogs`
+|Boolean
+|Set this parameter to `true` to include management node logs.
+
+|`storageCrashDumps`
+|Boolean
+|Set this parameter to `true` to include storage node crash debug logs.
+
+|`storageLogs`
+|Boolean
+|Set this parameter to `true` to include storage node logs.
+
+|`storageNodeIds`
+|UUID array
+|If `storageLogs` is set to `true`, populate this parameter with the storage cluster node IDs to limit log collection to those specific storage nodes. Use the `GET https://[management node IP]/logs/1/bundle/options` endpoint to see all possible node IDs you can use.
+|===
+.. Select *Execute* to begin log collection.
+The response should return a response similar to the following:
++
+----
+{
+  "_links": {
+    "self": "https://10.1.1.5/logs/1/bundle"
+  },
+  "taskId": "4157881b-z889-45ce-adb4-92b1843c53ee",
+  "taskLink": "https://10.1.1.5/logs/1/bundle"
+}
+----
+. Check on the status of the log collection task:
+.. Select *GET /bundle*.
+.. Select *Try it out*.
+.. Select *Execute* to return a status of the collection task.
+.. Scroll to the bottom of the response body.
++
+You should see a `percentComplete` attribute detailing the progress of the collection. If the collection is complete, the `downloadLink` attribute contains the full download link including the file name of the log package.
+
+.. Copy the file name at the end of the `downloadLink` attribute.
+. Download the collected log package:
+.. Select *GET /bundle/{filename}*.
+.. Select *Try it out*.
+.. Paste the file name you copied earlier into the `filename` parameter text field.
+.. Select *Execute*.
++
+After execution, a download link appears in the response body area.
+
+.. Select *Download file* and save the resulting file to your computer.
++
+The log package is in a compressed UNIX .tgz file format.
+
+[discrete]
+== Find more information
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

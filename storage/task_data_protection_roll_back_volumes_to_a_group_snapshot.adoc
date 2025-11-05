@@ -1,0 +1,23 @@
+---
+permalink: storage/task_data_protection_roll_back_volumes_to_a_group_snapshot.html
+sidebar: sidebar
+keywords: volumes, rollback, group snapshot, purge
+summary: 'You can roll back a group of volumes at any time to a group snapshot.'
+---
+
+= Roll back volumes to a group snapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can roll back a group of volumes at any time to a group snapshot.
+
+When you roll back a group of volumes, all volumes in the group are restored to the state they were in at the time the group snapshot was created. Rolling back also restores volume sizes to the size recorded in the original snapshot. If the system has purged a volume, all snapshots of that volume were also deleted at the time of the purge; the system does not restore any deleted volume snapshots.
+
+. Click *Data Protection* > *Group Snapshots*.
+. Click the Actions icon for the group snapshot you want to use for the volume rollback.
+. In the resulting menu, select *Rollback Volumes To Group Snapshot*.
+. *Optional*: To save the current state of the volumes before rolling back to the snapshot:
+ .. In the *Rollback To Snapshot* dialog box, select *Save volumes' current state as a group snapshot*.
+ .. Enter a name for the new snapshot.
+. Click *Rollback Group Snapshot*.

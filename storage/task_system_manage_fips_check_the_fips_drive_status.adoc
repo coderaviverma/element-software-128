@@ -1,0 +1,30 @@
+---
+permalink: storage/task_system_manage_fips_check_the_fips_drive_status.html
+sidebar: sidebar
+keywords: fips, security, federal information processing standards, 140-2, drive, enable
+summary: 'You can check whether the FIPS drives feature is enabled on the cluster by using the NetApp Element software GetFeatureStatus API method, which shows whether the FIPS Drives Enabled Status is true or false.'
+---
+
+= Check the FIPS drive status
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can check whether the FIPS drives feature is enabled on the cluster by using the NetApp Element software `GetFeatureStatus` API method, which shows whether the FIPS Drives Enabled Status is true or false.
+
+. Using the Element API, check the FIPS drives feature on the cluster by entering:
++
+`GetFeatureStatus`
+
+. Review the results of the `GetFeatureStatus` API call. If the FIPS Drives enabled value is True, the FIPS drives feature is enabled.
++
+----
+{"enabled": true,
+"feature": "FipsDrives"
+}
+----
+
+== Find more information
+* link:../api/index.html[Manage storage with the Element API]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

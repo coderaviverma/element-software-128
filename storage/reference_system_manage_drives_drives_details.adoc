@@ -1,0 +1,51 @@
+---
+permalink: storage/reference_system_manage_drives_drives_details.html
+sidebar: sidebar
+keywords: drives, details, manage, filter, cluster
+summary: 'The Drives page on the Cluster tab provides a list of the active drives in the cluster. You can filter the page by selecting from the Active, Available, Removing, Erasing, and Failed tabs.'
+---
+
+= Drives details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Drives page on the Cluster tab provides a list of the active drives in the cluster. You can filter the page by selecting from the Active, Available, Removing, Erasing, and Failed tabs.
+
+When you first initialize a cluster, the active drives list is empty. You can add drives that are unassigned to a cluster and listed in the Available tab after a new SolidFire cluster is created.
+
+The following elements appear in the list of active drives.
+
+* *Drive ID*
++
+The sequential number assigned to the drive.
+
+* *Node ID*
++
+The node number assigned when the node is added to the cluster.
+
+* *Node Name*
++
+The name of the node that houses the drive.
+
+* *Slot*
++
+The slot number where the drive is physically located.
+
+* *Capacity*
++
+The size of the drive, in GB.
+
+* *Serial*
++
+The serial number of the drive.
+
+* *Wear Remaining*
++
+The wear level indicator.
++
+The storage system reports the approximate amount of wear available on each solid-state drive (SSD) for writing and erasing data. A drive that has consumed 5 percent of its designed write and erase cycles reports 95 percent wear remaining. The system does not refresh drive wear information automatically; you can refresh or close and reload the page to refresh the information.
+
+* *Type*
++
+The type of drive. The type can be either block or metadata.

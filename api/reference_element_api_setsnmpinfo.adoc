@@ -1,0 +1,130 @@
+---
+permalink: api/reference_element_api_setsnmpinfo.html
+sidebar: sidebar
+keywords: snmp,info,setting,set,setsnmpinfo
+summary: 'You can use the SetSnmpInfo method to configure SNMP version 2 and version 3 on cluster nodes. The values you set with this interface apply to all nodes in the cluster, and the values that are passed replace all values set in any previous call to SetSnmpInfo.'
+---
+
+= SetSnmpInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `SetSnmpInfo` method to configure SNMP version 2 and version 3 on cluster nodes. The values you set with this interface apply to all nodes in the cluster, and the values that are passed replace all values set in any previous call to `SetSnmpInfo`.
+
+== Parameters
+
+NOTE: SetSnmpInfo is deprecated for Element versions 6.0 and later. Use the xref:reference_element_api_enablesnmp.adoc[EnableSnmp] and xref:reference_element_api_setsnmpacl.adoc[SetSnmpACL] methods instead.
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+networks
+a|
+List of networks and what type of access they have to the SNMP servers running on the cluster nodes. See the SNMP xref:reference_element_api_network_snmp.adoc[network] object for possible values. This parameter is required for SNMP v2 only.
+a|
+xref:reference_element_api_network_snmp.adoc[network] array
+a|
+None
+a|
+No
+a|
+enabled
+a|
+If set to true, SNMP is enabled on each node in the cluster.
+a|
+boolean
+a|
+false
+a|
+No
+a|
+snmpV3Enabled
+a|
+If set to true, SNMP v3 is enabled on each node in the cluster.
+a|
+boolean
+a|
+false
+a|
+No
+a|
+usmUsers
+a|
+If SNMP v3 is enabled, this value must be passed in place of the networks parameter. This parameter is required for SNMP v3 only.
+a|
+xref:reference_element_api_usmuser.adoc[usmUser]
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example with SNMP v3 enabled
+
+Requests for this method are similar to the following example:
+
+----
+{
+"method":"SetSnmpInfo",
+"params":{
+    "enabled":true,
+    "snmpV3Enabled":true,
+    "usmUsers":[
+      {
+        "name":"user1",
+        "access":"rouser",
+        "secLevel":"auth",
+        "password":"namex1",
+        "passphrase":"yourpassphrase"
+      }
+    ]
+  },
+ "id":1
+}
+----
+
+== Request example with SNMP v2 enabled
+
+Requests for this method are similar to the following example:
+
+----
+{
+"method":"SetSnmpInfo",
+"params":{
+    "enabled":true,
+    "snmpV3Enabled":false,
+    "networks":[
+      {
+        "community":"public",
+        "access":"ro",
+        "network":"localhost",
+      }
+    ]
+  },
+  "id":1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1
+  "result" :{
+  }
+}
+----
+
+== New since version
+
+9.6

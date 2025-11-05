@@ -1,0 +1,39 @@
+---
+permalink: storage/task_system_manage_cluster_volume_load_balancing.html
+sidebar: sidebar
+keywords: cluster, volume, volumes, load, balancing, actual, IOPS
+summary: 'Beginning with Element 12.8, you can enable Volume Load Balancing to balance volumes across nodes based on actual IOPS by each volume instead of the minimum IOPS configured in the QoS policy.'
+---
+= Enable and disable Volume Load Balancing
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Beginning with Element 12.8, you can use Volume Load Balancing to balance volumes across nodes based on the actual IOPS by each volume instead of the minimum IOPS configured in the QoS policy. You can enable and disable Volume Load Balancing, which is disabled by default, using the Element UI or API.
+
+.Steps
+
+. Select *Cluster* > *Settings*.
+. In the Cluster Specific section, change the status for Volume Load Balancing:
++
+[role="tabbed-block"]
+====
+.Enable Volume Load Balancing
+-- 
+Select *Enable Load Balancing on Actual IOPS*, and confirm your selection.
+--
+
+.Disable Volume Load Balancing:
+-- 
+Select *Disable Load Balancing on Actual IOPS*, and confirm your selection.
+--
+====
+
+. Optionally, select *Reporting* > *Overview* to confirm the status change for Balance on Actual IOPS. You might have to scroll down the Cluster Health information to view the status.
+
+== Find more information
+* link:../api/reference_element_api_enablefeature.html[Enable Volume Load Balancing using the API]
+* https://docs.netapp.com/us-en/element-software/api/reference_element_api_disablefeature.html[Disable Volume Load Balancing using the API]
+* link:../hccstorage/task-hcc-qos-policies.html[Create and manage volume QoS policies]
+
+// 2024 JAN 12, DOC-4724

@@ -1,0 +1,41 @@
+---
+permalink: storage/task_replication_assign_replication_source_and_target_to_paired_volumes.html
+sidebar: sidebar
+keywords: volume pairings, paired volumes, replication source, assign
+summary: 'After volumes are paired, you must assign a source volume and its replication target volume. A replication source or target can be either volume in a volume pair. You can also use this procedure to redirect data sent to a source volume to a remote target volume should the source volume become unavailable.'
+---
+
+= Assign a replication source and target to paired volumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After volumes are paired, you must assign a source volume and its replication target volume. A replication source or target can be either volume in a volume pair. You can also use this procedure to redirect data sent to a source volume to a remote target volume should the source volume become unavailable.
+
+.What you'll need
+You have access to the clusters containing the source and target volumes.
+
+.Steps
+. Prepare the source volume:
+ .. From the cluster that contains the volume you want to assign as source, select *Management* > *Volumes*.
+ .. Click the *Actions* icon for the volume you want to assign as source and click *Edit*.
+ .. In the *Access* drop-down list, select *Read/Write*.
++
+IMPORTANT: If you are reversing source and target assignment, this action will cause the volume pair to display the following message until a new replication target is assigned: `PausedMisconfigured`
++
+Changing access pauses volume replication and causes the transmission of data to cease. Be sure that you have coordinated these changes at both sites.
+
+ .. Click *Save Changes*.
+. Prepare the target volume:
+ .. From the cluster that contains the volume you want to assign as target, select *Management* > *Volumes*.
+ .. Click the Actions icon for the volume you want to assign as target and click *Edit*.
+ .. In the *Access* drop-down list, select *Replication Target*.
++
+IMPORTANT: If you assign an existing volume as the replication target, the data on that volume will be overwritten. You should use a new target volume that contains no data and has the exact characteristics of the source volume, such as size, 512e setting, and QoS configuration. The target volume can be greater or equal in size to the source volume, but it cannot be smaller.
+
+ .. Click *Save Changes*.
+
+== Find more information
+
+* xref:task_replication_pair_volumes_using_a_volume_id.adoc[Pair volumes using a volume ID]
+* xref:task_replication_pair_volumes_using_a_pairing_key.adoc[Pair volumes using a pairing key]

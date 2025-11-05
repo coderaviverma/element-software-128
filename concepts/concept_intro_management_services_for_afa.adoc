@@ -1,0 +1,17 @@
+---
+permalink: concepts/concept_intro_management_services_for_afa.html
+sidebar: sidebar
+keywords: what is, what are, management services, service, vcp service, plugin service, microservice
+summary: 'Management services provide central and extended management functionality for SolidFire all-flash storage. These services include Active IQ system telemetry, logging, and service updates, as well as the QoSSIOC service for the Element Plug-in for vCenter.'
+---
+
+= Management services for SolidFire all-flash storage
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+As of the Element 11.3 release, *management services* are hosted on the link:../concepts/concept_intro_management_node.html[management node], allowing for quicker updates of select software services outside of major releases.
+
+Management services provide central and extended management functionality for SolidFire all-flash storage. These services include link:../concepts/concept_intro_solidfire_software_interfaces.html#netapp-element-plug-in-for-vcenter-server[NetApp Hybrid Cloud Control], Active IQ system telemetry, logging, and service updates, as well as the QoSSIOC service for the Element Plug-in for vCenter.
+
+TIP: Learn more about link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes[management services releases^].

@@ -1,0 +1,37 @@
+---
+permalink: storage/task_snapmirror_create_an_endpoint.html
+sidebar: sidebar
+keywords: element, endpoints, create, snapmirror, ui
+summary: 'You must create a SnapMirror endpoint in the NetApp Element UI before you can create a relationship.'
+---
+
+= Create a SnapMirror endpoint
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You must create a SnapMirror endpoint in the NetApp Element UI before you can create a relationship.
+
+
+A SnapMirror endpoint is an ONTAP cluster that serves as a replication target for a cluster running Element software. Before you create a SnapMirror relationship, you first create a SnapMirror endpoint.
+
+You can create and manage up to four SnapMirror endpoints on a storage cluster running Element software.
+
+NOTE: If an existing endpoint was originally created using the API and credentials were not saved, you can see the endpoint in the Element UI and verify its existence, but it cannot be managed using the Element UI. This endpoint can then only be managed using the Element API.
+
+For details about API methods, see link:../api/index.html[Manage storage with the Element API].
+
+.What you'll need
+* You should have enabled SnapMirror in the Element UI for the storage cluster.
+* You know the ONTAP credentials for the endpoint.
+
+
+.Steps
+. Click *Data Protection* > *SnapMirror Endpoints*.
+. Click *Create Endpoint*.
+. In the *Create a New Endpoint* dialog box, enter the cluster management IP address of the ONTAP system.
+. Enter the ONTAP administrator credentials associated with the endpoint.
+. Review additional details:
+ ** LIFs: Lists the ONTAP intercluster logical interfaces used to communicate with Element.
+ ** Status: Shows the current status of the SnapMirror endpoint. Possible values are: connected, disconnected, and unmanaged.
+. Click *Create Endpoint*.

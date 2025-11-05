@@ -1,0 +1,34 @@
+---
+permalink: api/reference_element_api_fipserrornodereport.html
+sidebar: sidebar
+keywords: objects,object,fipsErrorNodeReport
+summary: 'The fipsErrorNodeReport object contains error information for each node that does not respond with information about FIPS 140-2 support when you query it with the GetFipsReport method.'
+---
+
+= fipsErrorNodeReport
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The fipsErrorNodeReport object contains error information for each node that does not respond with information about FIPS 140-2 support when you query it with the `GetFipsReport` method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+nodeID
+a|
+The ID of the node that did not respond.
+a|
+integer
+a|
+error
+a|
+A JSON object containing error information.
+a|
+JSON object
+|===

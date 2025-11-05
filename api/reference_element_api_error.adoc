@@ -1,0 +1,40 @@
+---
+permalink: api/reference_element_api_error.html
+sidebar: sidebar
+keywords: objects,object,error
+summary: 'The error object contains an error code and message if an error occurs during a method call. All system-generated errors have an error code of 500.'
+---
+
+= error
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The error object contains an error code and message if an error occurs during a method call. All system-generated errors have an error code of 500.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+code
+a|
+The numeric code used to identify the error. All system-generated errors return a code of 500.
+a|
+integer
+a|
+name
+a|
+The unique identifier for the specific error that occurred. Each method returns a documented set of errors, although you should be prepared to handle unrecognized errors as well.
+a|
+string
+a|
+message
+a|
+A description of the error, possibly with additional details.
+a|
+string
+|===

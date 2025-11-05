@@ -1,0 +1,32 @@
+---
+permalink: api/concept_element_api_asynchronous_methods.html
+sidebar: sidebar
+keywords: async,asynchronous,methods,API
+summary: 'Some API methods are asynchronous, which means that the operation they perform might not be complete when the method returns. Asynchronous methods return a handle that you can query to see the status of the operation; status information for some operations might include a percentage of completion.'
+---
+
+= Asynchronous methods
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Some API methods are asynchronous, which means that the operation they perform might not be complete when the method returns. Asynchronous methods return a handle that you can query to see the status of the operation; status information for some operations might include a percentage of completion.
+
+When you query an asynchronous operation, its result can be one of the following types:
+
+* `DriveAdd`: The system is adding a drive to the cluster.
+* `BulkVolume`: The system is performing a copy operation between volumes, such as a backup or restore.
+* `Clone`: The system is cloning a volume.
+* `DriveRemoval`: The system is copying data from a drive in preparation to remove it from the cluster.
+* `RtfiPendingNode`: The system is installing compatible software on a node before adding it to the cluster.
+
+Note the following points when using asynchronous methods or obtaining the status of a running asynchronous operation:
+
+* Asynchronous methods are indicated in the individual method documentation.
+* Asynchronous methods return an "`asyncHandle`", which is a handle that is known by the issuing API method. You can use the handle to poll for the status or result of the asynchronous operation.
+* You can obtain the result of individual asynchronous methods with the GetAsyncResult method. When you use GetAsyncResult to query a completed operation, the system returns the result and automatically purges the result from the system. When you use GetAsyncResult to query an incomplete operation, the system returns the result but does not purge it.
+* You can obtain the status and results of all running or completed asynchronous methods using the ListAsyncResults method. In this case, the system does not purge results for completed operations.
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

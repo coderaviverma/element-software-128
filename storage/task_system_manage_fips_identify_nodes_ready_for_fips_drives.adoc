@@ -1,0 +1,38 @@
+---
+permalink: storage/task_system_manage_fips_identify_nodes_ready_for_fips_drives.html
+sidebar: sidebar
+keywords: fips, security, federal information processing standards, 140-2
+summary: 'You should check to see if all nodes in the storage cluster are ready to support FIPS drives by using the NetApp Element software GetFipsReport API method.'
+---
+
+= Identify whether nodes are ready for the FIPS drives feature
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You should check to see if all nodes in the storage cluster are ready to support FIPS drives by using the NetApp Element software GetFipsReport API method.
+
+The resulting report shows one of the following statuses:
+
+* None: Node is not capable of supporting the FIPS drives feature.
+* Partial: Node is FIPS capable, but not all drives are FIPS drives.
+* Ready: Node is FIPS capable and all drives are FIPS drives or no drives are present.
+
+.Steps
+. Using the Element API, check to see if the nodes and drives in the storage cluster are capable of FIPS drives by entering:
++
+`GetFipsReport`
+
+. Review the results, noting any nodes that did not display a status of Ready.
+. For any nodes that did not display a Ready status, check to see if the drive is capable of supporting the FIPS drives feature:
+ ** Using the Element API, enter: `GetHardwareList`
+ ** Note the value of the *DriveEncryptionCapabilityType*. If it is "fips," the hardware can support the FIPS drives feature.
++
+See details about `GetFipsReport` or `ListDriveHardware` in the link:../api/index.html[Element API Reference].
+. If the drive cannot support the FIPS drives feature, replace the hardware with FIPS hardware (either node or drives).
+
+
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

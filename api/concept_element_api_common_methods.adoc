@@ -1,0 +1,25 @@
+---
+permalink: api/concept_element_api_common_methods.html
+sidebar: sidebar
+keywords: common,methods
+summary: 'Common methods are methods used to retrieve information about the storage cluster, the API itself, or ongoing API operations.'
+---
+
+= Common methods
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Common methods are methods used to retrieve information about the storage cluster, the API itself, or ongoing API operations.
+
+* xref:reference_element_api_getapi.adoc[GetAPI]
+* xref:reference_element_api_getasyncresult.adoc[GetAsyncResult]
+* xref:reference_element_api_getcompletestats.adoc[GetCompleteStats]
+* xref:reference_element_api_getlimits.adoc[GetLimits]
+* xref:reference_element_api_getorigin.adoc[GetOrigin]
+* xref:reference_element_api_getrawstats.adoc[GetRawStats]
+* xref:reference_element_api_listasyncresults.adoc[ListAsyncResults]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

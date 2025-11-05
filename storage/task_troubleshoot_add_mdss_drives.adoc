@@ -1,0 +1,22 @@
+---
+permalink: storage/task_troubleshoot_add_mdss_drives.html
+sidebar: sidebar
+keywords: mdss, add, multi-drive slice service
+summary: 'You can add a second metadata drive on a SolidFire node by converting the block drive in slot 2 to a slice drive. This is accomplished by enabling the multi-drive slice service \(MDSS\) feature. To enable this feature, you must contact NetApp Support.'
+---
+
+= Add MDSS drives
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can add a second metadata drive on a SolidFire node by converting the block drive in slot 2 to a slice drive. This is accomplished by enabling the multi-drive slice service (MDSS) feature. To enable this feature, you must contact NetApp Support.
+
+Getting a slice drive into an available state might require replacing a failed drive with a new or spare drive. You must add the system slice drive at the same time you add the drive for slot 2. If you try to add the slot 2 slice drive alone or before you add the system slice drive, the system will generate an error.
+
+. Click *Cluster* > *Drives*.
+. Click *Available* to view the list of available drives.
+. Select the slice drives to add.
+. Click *Bulk Actions*.
+. Click *Add*.
+. Confirm from the *Active Drives* tab that the drives have been added.

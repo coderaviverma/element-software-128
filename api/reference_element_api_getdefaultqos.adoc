@@ -1,0 +1,75 @@
+---
+permalink: api/reference_element_api_getdefaultqos.html
+sidebar: sidebar
+keywords: qos,values,default,get,getting,getdefaultqos
+summary: 'You can use the GetDefaultQoS method to get the default quality of service \(QoS\) values for a newly created volume.'
+---
+
+= GetDefaultQoS
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetDefaultQoS` method to get the default quality of service (QoS) values for a newly created volume.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+QoS
+a|
+The default QoS values.
+a|
+xref:reference_element_api_qos.adoc[QoS]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetDefaultQoS",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result" : {
+      "burstIOPS" : 15000,
+      "burstTime" : 60,
+      "curve" : {
+         "1048576" : 15000,
+         "131072" : 1900,
+         "16384" : 270,
+         "262144" : 3000,
+         "32768" : 500,
+         "4096" : 100,
+         "524288" : 7500,
+         "65536" : 1000,
+         "8192" : 160
+      },
+      "maxIOPS" : 15000,
+      "minIOPS" : 100
+   }
+}
+----
+
+== New since version
+
+9.6

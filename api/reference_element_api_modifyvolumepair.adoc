@@ -1,0 +1,96 @@
+---
+permalink: api/reference_element_api_modifyvolumepair.html
+sidebar: sidebar
+keywords: volume,pair,pairs,modify,modifying,edit,editing,changing,change,modifyvolumepair,paired
+summary: 'You can use the ModifyVolumePair method to pause or restart replication between a pair of volumes. This method is set on the source volume \(the volume with read/write access\).'
+---
+
+= ModifyVolumePair
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyVolumePair` method to pause or restart replication between a pair of volumes. This method is set on the source volume (the volume with read/write access).
+
+== Parameters
+
+This method has the following input parameters:
+
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeID
+a|
+Identification number of the volume to be modified.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+pausedManual
+a|
+Remote replication can be paused or restarted on the source (read/write) volume. Possible values:
+
+* true: Pause volume replication.
+* false: Restart volume replication.
+
+If no value is specified, no change in replication is performed.
+a|
+boolean
+a|
+None
+a|
+No
+a|
+mode
+a|
+Volume replication mode. Possible values:
+
+* Async: Writes are acknowledged when they complete locally. The cluster does not wait for writes to be replicated to the target cluster.
+* Sync: The source acknowledges the write when the data is stored locally and on the remote cluster.
+* SnapshotsOnly: Only snapshots created on the source cluster are replicated. Active writes from the source volume are not replicated.
+
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has no return value.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ModifyVolumePair",
+  "params": {
+    "pausedManual": false,
+    "volumeID": 5,
+    "mode": "sync"
+   },
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result" : {}
+}
+----
+
+== New since version
+
+9.6

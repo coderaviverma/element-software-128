@@ -1,0 +1,42 @@
+---
+permalink: api/reference_element_api_response_object_members.html
+sidebar: sidebar
+keywords: response,object,member
+summary: 'Each Element software API response body has the following basic parts:'
+---
+
+= Response object members
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Each Element software API response body has the following basic parts:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+result
+a|
+The object returned by the method. The system returns an object with named members corresponding to the documented return value for the method. This member is not present if an error has occurred.
+a|
+JSON object
+a|
+error
+a|
+The object returned when an error occurs. This member is present only if an error has occurred.
+a|
+Object
+a|
+id
+a|
+An identifier used to match the request to response, as provided in the request.
+a|
+string or integer
+a|
+unusedParameters
+a|
+A warning message that at least one incorrect parameter has been passed to the API method and has not been used.
+a|
+Object
+|===

@@ -1,0 +1,56 @@
+---
+permalink: storage/task_data_protection_configure_custom_protection_domains.html
+sidebar: sidebar
+keywords:
+summary: 'You can configure custom Protection Domains to improve resiliency of the cluster.'
+---
+
+= Configure custom Protection Domains
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+For Element clusters that contain more than two storage nodes, you can configure custom Protection Domains for each node. When you configure custom Protection Domains, you must assign all nodes in the cluster to a domain.
+
+TIP: When you assign Protection Domains, a data sync between nodes begins, and some cluster operations are unavailable until the data sync completes. After a custom Protection Domain is configured for a cluster, when you add a new storage node, you cannot add drives for the new node until you assign a Protection Domain for the node and allow the data sync to complete. Visit the link:../concepts/concept_solidfire_concepts_data_protection.html#protection-domains[Protection Domains documentation] to learn more about Protection Domains.
+
+NOTE: For a custom Protection Domain scheme to be useful for a cluster, all storage nodes within each chassis must be assigned to the same custom Protection Domain. You need to create as many custom Protection Domains as is needed for this to be the case (the smallest possible custom Protection Domain scheme is three domains). As a best practice, configure an equal number of nodes per domain and try to ensure that each node assigned to a particular domain is of the same type.
+
+.Steps
+
+. Click *Cluster* > *Nodes*.
+. Click *Configure Protection Domains*.
++
+In the *Configure Custom Protection Domains* window, you can see the currently configured Protection Domains (if any) as well as Protection Domain assignments for individual nodes.
+
+. Enter a name for the new custom Protection Domain, and click *Create*.
++
+Repeat this step for all new Protection Domains you need to create.
+
+. For each node in the *Assign Nodes* list, click the dropdown in the *Protection Domain* column and select a Protection Domain to assign to that node.
++
+CAUTION: Ensure that you understand your node and chassis layout, the custom Protection Domain scheme you have configured, and the scheme's effects on data protection before applying the changes. If you apply a Protection Domain scheme and immediately need to make changes, it could be some time before you can do so because of the data sync that happens once a configuration is applied.
+
+. Click *Configure Protection Domains*.
+
+.Result
+Depending on the size of your cluster, the data sync data between domains could take some time. After the data sync is complete, you can view the custom Protection Domain assignments on the *Cluster* > *Nodes* page, and the Element web UI dashboard shows the protection status of the cluster in the *Custom Protection Domain Health* pane.
+
+.Possible errors
+Here are some errors you might see after applying a custom Protection Domain configuration:
+
+|===
+|Error |Description |Resolution
+|SetProtectionDomainLayout Failed: ProtectionDomainLayout would leave NodeID {9} unusable. Default and non-default names cannot both be used together.
+|A node does not have a Protection Domain assigned.
+|Assign a Protection Domain to the node.
+
+|SetProtectionDomainLayout Failed: Protection domain type 'custom' splits Protection Domain type 'chassis'.
+|A node in a multi-node chassis is assigned a Protection Domain that is different from other nodes in the chassis.
+|Ensure that all nodes in the chassis are assigned the same Protection Domain.
+|===
+
+== Find more information
+
+* link:../concepts/concept_solidfire_concepts_data_protection.html#custom_pd[Custom Protection Domains^]
+* link:../api/index.html[Manage storage with the Element API^]

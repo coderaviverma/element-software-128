@@ -1,0 +1,152 @@
+---
+permalink: api/reference_element_api_getclusterversioninfo.html
+sidebar: sidebar
+keywords: cluster,version,info,get,getting,getclusterversioninfo
+summary: 'You can use the GetClusterVersionInfo method to retrieve information about the Element software version running on each node in the cluster. This method also returns information about nodes that are currently in the process of upgrading software.'
+---
+
+= GetClusterVersionInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetClusterVersionInfo` method to retrieve information about the Element software version running on each node in the cluster. This method also returns information about nodes that are currently in the process of upgrading software.
+
+== Cluster version info object members
+
+This method has the following object members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+nodeID
+a|
+ID of the node.
+a|
+integer
+a|
+nodeInternalRevision
+a|
+Internal software version of the node.
+a|
+string
+a|
+nodeVersion
+a|
+Software version of the node.
+a|
+string
+|===
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+clusterAPIVersion
+a|
+The current API version on the cluster.
+a|
+string
+a|
+clusterVersion
+a|
+Version of Element software currently running on the cluster.
+a|
+string
+a|
+clusterVersionInfo
+a|
+List of nodes in the cluster with version information for each node.
+a|
+JSON object array
+a|
+pendingClusterVersion
+a|
+If present, this is the version that the cluster software is currently being upgraded or reverted to.
+a|
+string
+a|
+softwareVersionInfo
+a|
+The state of an upgrade. Object members:
+
+* currentVersion:
++
+The current software version on a node.
+
+* nodeID: ID of the node being upgraded from currentVersion to pendingVersion. This field is 0 (zero) if there is no upgrade in progress.
+* packageName: Name of the software package being installed.
+* pendingVersion: The version of the software being installed.
+* startTime: The date and time the installation was started, in UTC+0 format.
+
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetClusterVersionInfo",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+ "id": 1,
+ "result": {
+   "clusterAPIVersion": "6.0",
+   "clusterVersion": "6.1382",
+   "clusterVersionInfo": [
+   {
+      "nodeID": 1,
+      "nodeInternalRevision": "BuildType=Release Element=carbon Release=carbon ReleaseShort=carbon Version=6.1382 sfdev=6.28 Repository=dev Revision=061511b1e7fb BuildDate=2014-05-28T18:26:45MDT",
+      "nodeVersion": "6.1382"
+   },
+   {
+      "nodeID": 2,
+      "nodeInternalRevision": "BuildType=Release Element=carbon Release=carbon ReleaseShort=carbon Version=6.1382 sfdev=6.28 Repository=dev Revision=061511b1e7fb BuildDate=2014-05-28T18:26:45MDT",
+      "nodeVersion": "6.1382"
+   },
+   {
+      "nodeID": 3,
+      "nodeInternalRevision": "BuildType=Release Element=carbon Release=carbon ReleaseShort=carbon Version=6.1382 sfdev=6.28 Repository=dev Revision=061511b1e7fb BuildDate=2014-05-28T18:26:45MDT",
+      "nodeVersion": "6.1382"
+   },
+   {
+      "nodeID": 4,
+      "nodeInternalRevision": "BuildType=Release Element=carbon Release=carbon ReleaseShort=carbon Version=6.1382 sfdev=6.28 Repository=dev Revision=061511b1e7fb BuildDate=2014-05-28T18:26:45MDT",
+      "nodeVersion": "6.1382"
+   }
+ ],
+   "softwareVersionInfo": {
+      "currentVersion": "6.1382",
+      "nodeID": 0,
+      "packageName": "",
+      "pendingVersion": "6.1382",
+      "startTime": ""
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

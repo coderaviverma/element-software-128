@@ -1,0 +1,33 @@
+---
+permalink: storage/concept_system_monitoring_and_troubleshooting.html
+sidebar: sidebar
+keywords: trouble, troubleshoot, monitor, element, alert, event
+summary: 'You must monitor the system for diagnostic purposes and to get information about performance trends and statuses of various system operations. You might need to replace nodes or SSDs for maintenance purposes.'
+---
+
+= Troubleshoot your system
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You must monitor the system for diagnostic purposes and to get information about performance trends and statuses of various system operations. You might need to replace nodes or SSDs for maintenance purposes.
+
+
+* link:task_monitor_information_about_system_events.html[View information about system events]
+* link:reference_monitor_status_of_running_tasks.html[View status of running tasks]
+* link:task_monitor_system_alerts.html[View system alerts]
+* link:task_monitor_node_performance_activity.html[View node performance activity]
+* link:task_monitor_volume_performance.html[View volume performance]
+* link:task_monitor_iscsi_sessions.html[View iSCSI sessions]
+* link:task_monitor_fibre_channel_sessions.html[View Fibre Channel sessions]
+* link:concept_troubleshoot_drives.html[Troubleshoot drives]
+* link:concept_troubleshoot_nodes.html[Troubleshoot nodes]
+* link:concept_per_node_work_with_utilities.html[Work with per-node utilities for storage nodes]
+* link:concept_mnode_work_with_the_management_node.html[Work with the management node]
+* link:concept_monitor_understand_cluster_fullness_levels.html[Understand cluster fullness levels]
+
+
+
+== For more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

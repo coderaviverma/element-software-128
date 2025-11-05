@@ -1,0 +1,64 @@
+---
+permalink: api/reference_element_api_breaksnapmirrorrelationship.html
+sidebar: sidebar
+keywords: SnapMirror,volume,volumes,break,breaking,relationship,ONTAP
+summary: 'The Element web UI uses the BreakSnapMirrorRelationship method to break a SnapMirror relationship. When a SnapMirror relationship is broken, the destination volume is made read-write and independent, and can then diverge from the source. You can reestablish the relationship with the ResyncSnapMirrorRelationship API method. This method requires the ONTAP cluster to be available.'
+---
+
+= BreakSnapMirrorRelationship
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element web UI uses the `BreakSnapMirrorRelationship` method to break a SnapMirror relationship. When a SnapMirror relationship is broken, the destination volume is made read-write and independent, and can then diverge from the source. You can reestablish the relationship with the `ResyncSnapMirrorRelationship` API method. This method requires the ONTAP cluster to be available.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+snapMirrorEndpointID
+a|
+The endpoint ID of the remote ONTAP storage system communicating with the Element storage cluster.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+destinationVolume
+a|
+The destination volume in the SnapMirror relationship.
+a|
+xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeInfo]
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+snapMirrorRelationship
+a|
+An object containing information about the broken SnapMirror relationship.
+a|
+xref:reference_element_api_snapmirrorrelationship.adoc[snapMirrorRelationship]
+|===
+
+== New since version
+
+10.1
+
+== Find more information
+
+xref:reference_element_api_breaksnapmirrorvolume.adoc[BreakSnapMirrorVolume]

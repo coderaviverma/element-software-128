@@ -1,0 +1,63 @@
+---
+permalink: concepts/reference_data_manage_volumes_qos_limits.html
+sidebar: sidebar
+keywords:
+summary: 'You can find information about the possible minimum and maximum values for Quality of Service \(QoS\).'
+---
+
+= QoS value limits
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can find information about the possible minimum and maximum values for Quality of Service (QoS).
+
+|===
+|  | I/O size maximum value
+| Parameters| Minimum value| Default| 4KB| 8KB| 16KB| 262KB
+a|
+Min IOPS
+a|
+50
+a|
+50
+a|
+15,000
+a|
+9,375*
+a|
+5556*
+a|
+385*
+a|
+Max IOPS
+a|
+100
+a|
+15,000
+a|
+200,000**
+a|
+125,000
+a|
+74,074
+a|
+5128
+a|
+Burst IOPS
+a|
+100
+a|
+15,000
+a|
+200,000**
+a|
+125,000
+a|
+74,074
+a|
+5128
+a|
+*These estimations are approximate.**Max IOPS and Burst IOPS can be set as high as 200,000; however, this setting is allowed only to effectively uncap the performance of a volume. Real-world maximum performance of a volume is limited by cluster usage and per-node performance.
+
+|===

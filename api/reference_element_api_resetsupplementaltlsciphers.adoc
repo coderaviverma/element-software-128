@@ -1,0 +1,48 @@
+---
+permalink: api/reference_element_api_resetsupplementaltlsciphers.html
+sidebar: sidebar
+keywords: tls,cipher,reset,supplemental,resetsupplementaltlsciphers,restore,restoring,supplemental
+summary: 'You can use the ResetSupplementalTlsCiphers method to restore the list of supplemental TLS ciphers to the default. You can use this method on the entire cluster.'
+---
+
+= ResetSupplementalTlsCiphers
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ResetSupplementalTlsCiphers` method to restore the list of supplemental TLS ciphers to the default. You can use this method on the entire cluster.
+
+== Parameter
+
+This method has no input parameters.
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ResetSupplementalTlsCiphers",
+  "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {}
+}
+----
+
+== New since version
+
+11.3

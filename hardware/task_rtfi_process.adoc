@@ -1,0 +1,14 @@
+---
+permalink: hardware/task_rtfi_process.html
+sidebar: sidebar
+keywords: rtfi, return, factory, image, process, solidfire, node
+summary: Perform the RTFI process to restore the Element software on your SolidFire node.
+---
+= The RTFI process
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+include::../_include/task_the_rtfi_process.adoc[]
+
+// 2022 FEB 2, DOC-4281

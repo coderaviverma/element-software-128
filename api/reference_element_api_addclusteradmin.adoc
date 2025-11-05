@@ -1,0 +1,127 @@
+---
+permalink: api/reference_element_api_addclusteradmin.html
+sidebar: sidebar
+keywords: addclusteradmin,cluster,admin,administrator,adding,add
+summary: 'You can use the AddClusterAdmin method to add a new cluster admin account. A cluster admin can manage the cluster via the API and management tools. Cluster admins are completely separate and unrelated to standard tenant accounts.'
+---
+
+= AddClusterAdmin
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `AddClusterAdmin` method to add a new cluster admin account. A cluster admin can manage the cluster via the API and management tools. Cluster admins are completely separate and unrelated to standard tenant accounts.
+
+Each cluster admin can be restricted to a subset of the API. You should use multiple cluster admin accounts for different users and applications. As a best practice, give each cluster admin the minimal permissions necessary; this reduces the potential impact of credential compromise.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+access
+a|
+Controls which methods the cluster admin can use.
+a|
+string array
+a|
+None
+a|
+Yes
+a|
+acceptEula
+a|
+Accept the End User License Agreement. Set to true to add a cluster administrator account to the system. If omitted or set to false, the method call fails.
+a|
+boolean
+a|
+None
+a|
+Yes
+a|
+attributes
+a|
+List of name/value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+password
+a|
+Password used to authenticate this cluster admin.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+username
+a|
+Unique username for this cluster admin. Must be between 1 and 1024 characters in length.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+clusterAdminID
+a|
+ClusterAdminID for the newly created cluster admin.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "AddClusterAdmin",
+  "params": {
+    "username": "joeadmin",
+    "password": "68!5Aru268)$",
+    "attributes": {},
+    "acceptEula": true,
+    "access": ["volumes", "reporting", "read"]
+  },
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id":1,
+  "result" : {
+    "clusterAdminID": 2
+   }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_app_b_access_control.adoc[Access control]

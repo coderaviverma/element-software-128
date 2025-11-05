@@ -1,0 +1,20 @@
+* *Upgrade process time*: You have scheduled sufficient time to perform your upgrade. When you upgrade to Element software 12.5 or later, the upgrade process time varies depending on your current Element software version and firmware updates.
++
+[cols=5*,options="header",cols="20,20,20,20,20"]
+|===
+|Storage Node |Current Element software version |Approximate software and firmware install time per node^1^ |Approximate data synchronization time per node^2^ |Approximate total upgrade time per node
+
+|All SolidFire and NetApp H-series nodes with up-to-date firmware^3^	|12.x	|15 minutes	| 10 to 15 minutes |20 to 30 minutes
+|H610S and H410S	|12.x and 11.8	|60 minutes	|30 to 60 minutes |90 to 120 minutes
+|H610S	| 11.7 and earlier |90 minutes | 40 to 70 minutes |130 to 160 minutes
+You must also https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure[perform a complete node shutdown and power disconnect^] for each H610S node.
+|===
++
+^1^For a complete matrix of firmware and driver firmware for your hardware, see link:../hardware/fw_storage_nodes.html[supported storage firmware versions for SolidFire storage nodes].
++
+^2^If you combine a cluster with a heavy write IOPS load with a longer firmware update time, the data synchronization time will increase.
++
+^3^ The following nodes aren't supported. If you attempt to upgrade one of these nodes to an unsupported Element version, you will see an error stating that the node is not supported by Element 12.x: 
+
+** Beginning with Element 12.8, SF4805, SF9605, SF19210, and SF38410 storage nodes.
+** Beginning with Element 12.7, SF2405 and SF9608 storage nodes and FC0025 and SF-FCN-01 FC nodes.

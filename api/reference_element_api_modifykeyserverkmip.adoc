@@ -1,0 +1,143 @@
+---
+permalink: api/reference_element_api_modifykeyserverkmip.html
+sidebar: sidebar
+keywords: KMIP,key server,modifying,modify,change,edit
+summary: 'You can use the ModifyKeyServerKmip method to modify an existing Key Management Interoperability Protocol \(KMIP\) key server to the specified attributes. Although the only required parameter is the keyServerID, a request containing only the keyServerID will take no action and return no error. Any other parameters you specify will replace the existing values for the key server with the specified keyServerID. The key server is contacted during the operation to ensure that it is functional. You can provide multiple hostnames or IP addresses with the kmipKeyServerHostnames parameter, but only if the key servers are in a clustered configuration.'
+---
+
+= ModifyKeyServerKmip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyKeyServerKmip` method to modify an existing Key Management Interoperability Protocol (KMIP) key server to the specified attributes. Although the only required parameter is the keyServerID, a request containing only the keyServerID will take no action and return no error. Any other parameters you specify will replace the existing values for the key server with the specified keyServerID. The key server is contacted during the operation to ensure that it is functional. You can provide multiple hostnames or IP addresses with the kmipKeyServerHostnames parameter, but only if the key servers are in a clustered configuration.
+
+== Parameters
+
+This method has the following input parameters:
+
+|===
+|Name |Description |Type |Default value |Required
+a|
+keyServerID
+a|
+The ID of the KMIP Key Server to modify.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+kmipCaCertificate
+a|
+The public key certificate of the external key server's root CA. This will be used to verify the certificate presented by external key server in the TLS communication. For key server clusters where individual servers use different CAs, provide a concatenated string containing the root certificates of all the CAs.
+a|
+string
+a|
+None
+a|
+No
+a|
+kmipClientCertificate
+a|
+A PEM format Base64 encoded PKCS#10 X.509 certificate used by the Solidfire KMIP client.
+a|
+string
+a|
+None
+a|
+No
+a|
+kmipKeyServerHostnames
+a|
+Array of the hostnames or IP addresses associated with this KMIP key server. Multiple hostnames or IP addresses must only be provided if the key servers are in a clustered configuration.
+a|
+string array
+a|
+None
+a|
+No
+a|
+kmipKeyServerName
+a|
+The name of the KMIP key server. This name is only used for display purposes and does not need to be unique.
+a|
+string
+a|
+None
+a|
+No
+a|
+kmipKeyServerPort
+a|
+The port number associated with this KMIP key server (typically 5696).
+a|
+integer
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+kmipKeyServer
+a|
+An object containing details about the newly modified key server.
+a|
+link:reference_element_api_keyserverkmip.html[KeyServerKmip]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ModifyKeyServerKmip",
+  "params": {
+    "keyServerID": 15
+    "kmipCaCertificate": "CPDCCAaUCEDyRMcsf9tAbDpq40ES/E...",
+    "kmipClientCertificate": "kirWmnWXbj9T/UWZYB2oK0z5...",
+    "kmipKeyServerHostnames" : ["server1.hostname.com", "server2.hostname.com"],
+    "kmipKeyServerName" : "keyserverName",
+    "kmipKeyServerPort" : 5696
+  },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result":
+      {
+        "kmipKeyServer": {
+            "kmipCaCertificate":"CPDCCAaUCEDyRMcsf9tAbDpq40ES/E...",
+            "kmipKeyServerHostnames":[
+                "server1.hostname.com", "server2.hostname.com"
+            ],
+            "keyProviderID":1,
+            "kmipKeyServerName":"keyserverName",
+            "keyServerID":1
+            "kmipKeyServerPort":1,
+            "kmipClientCertificate":"kirWmnWXbj9T/UWZYB2oK0z5...",
+            "kmipAssignedProviderIsActive":true
+        }
+    }
+}
+----
+
+== New since version
+
+11.7

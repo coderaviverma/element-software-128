@@ -1,0 +1,48 @@
+---
+permalink: api/reference_element_api_removesslcertificate.html
+sidebar: sidebar
+keywords: ssl,certificate,cert,remove,removing,cluster,removesslcertificate
+summary: 'You can use the RemoveSSLCertificate method to remove the user SSL certificate and private key for the storage nodes in the cluster. After the certificate and private key are removed, the storage nodes are configured to use the default certificate and private key.'
+---
+
+= RemoveSSLCertificate
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RemoveSSLCertificate` method to remove the user SSL certificate and private key for the storage nodes in the cluster. After the certificate and private key are removed, the storage nodes are configured to use the default certificate and private key.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+    "method" : "RemoveSSLCertificate",
+    "params" : {},
+    "id" : 3
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id" : 3,
+    "result" : {}
+}
+----
+
+== New since version
+
+10.0

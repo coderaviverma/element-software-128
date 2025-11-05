@@ -1,0 +1,49 @@
+---
+permalink: storage/task_data_manage_vol_access_group_create_an_initiator.html
+sidebar: sidebar
+keywords: initiator, create, fc, iscsi, aliases, chap
+summary: 'You can create iSCSI or Fibre Channel initiators and optionally assign them aliases.'
+---
+
+= Create an initiator
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can create iSCSI or Fibre Channel initiators and optionally assign them aliases.
+
+You can also assign initator-based CHAP attributes by using an API call. To add a CHAP account name and credentials per initiator, you must use the `CreateInitiator` API call to remove and add CHAP access and attributes. Initiator access can be restricted to one or more VLANs by specifying one or more virtualNetworkIDs via the `CreateInitiators` and `ModifyInitiators` API calls. If no virtual networks are specified, the initiator can access all networks.
+
+For details, see the API reference information.
+link:../api/index.html[Manage storage with the Element API]
+
+.Steps
+. Click *Management* > *Initiators*.
+. Click *Create Initiator*.
+. Perform the steps to create a single initiator or multiple initiators:
++
+[cols=2*,options="header", cols="25,75"]
+|===
+| Option| Steps
+a|
+Create a single initiator
+a|
+
+ .. Click *Create a Single Initiator*.
+ .. Enter the IQN or WWPN for the initiator in the *IQN/WWPN* field.
+ .. Enter a friendly name for the initiator in the *Alias* field.
+ .. Click *Create Initiator*.
+
+a|
+Create multiple initiators
+a|
+
+ .. Click *Bulk Create Initiators*.
+ .. Enter a list of IQNs or WWPNs in the text box.
+ .. Click *Add Initiators*.
+ .. Choose an initiator from the resulting list and click the corresponding Add icon in the *Alias* column to add an alias for the initiator.
+ .. Click the check mark to confirm the new alias.
+ .. Click *Create Initiators*.
+
++
+|===

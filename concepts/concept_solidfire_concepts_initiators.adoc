@@ -1,0 +1,13 @@
+---
+permalink: concepts/concept_solidfire_concepts_initiators.html
+sidebar: sidebar
+keywords: netapp, element, initiator, storage volume, element volume, access group
+summary: Learn about initiators and how you can use them to permit access to storage in volume access groups.
+---
+
+= Initiators
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Initiators enable external clients access to volumes in a cluster, serving as the entry point for communication between clients and volumes. You can use initiators for CHAP-based rather than account-based access to storage volumes. A single initiator, when added to a volume access group, allows volume access group members to access all storage volumes added to the group without requiring authentication. An initiator can belong to only one access group.

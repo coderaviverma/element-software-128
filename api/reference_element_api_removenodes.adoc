@@ -1,0 +1,84 @@
+---
+permalink: api/reference_element_api_removenodes.html
+sidebar: sidebar
+keywords: node,nodes,cluster,remove,removing,removenodes
+summary: 'You can use RemoveNodes to remove one or more nodes that should no longer participate in the cluster.'
+---
+
+= RemoveNodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `RemoveNodes` to remove one or more nodes that should no longer participate in the cluster.
+
+Before removing a node, you must remove all drives the node contains using the `RemoveDrives` method. You cannot remove a node until the `RemoveDrives` process has completed and all data has been migrated away from the node. After you remove a node, it registers itself as a pending node. You can add the node again or shut it down (shutting the node down removes it from the pending node list).
+
+== Cluster master node removal
+
+If you use `RemoveNodes` to remove the cluster master node, the method might time out before returning a response. If the method call fails to remove the node, make the method call again. Note that if you are removing the cluster master node along with other nodes, you should use a separate call to remove the cluster master node by itself.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+ignoreEnsembleToleranceChange
+a|
+Ignore changes to the ensemble's node failure tolerance when removing nodes.
+
+If the storage cluster uses data protection schemes that tolerate multiple node failures and removing the nodes would decrease the node failure tolerance of the ensemble, the node removal normally fails with an error. You can set this parameter to true to disable the ensemble tolerance check so that the node removal succeeds.
+
+a|
+boolean
+a|
+false
+a|
+No
+a|
+nodes
+a|
+List of NodeIDs for the nodes to be removed.
+a|
+integer array
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has no return value.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "RemoveNodes",
+   "params": {
+     "nodes"  : [3,4,5]
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1
+  "result" : {},
+}
+----
+
+== New since version
+
+9.6

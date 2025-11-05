@@ -1,0 +1,60 @@
+---
+permalink: api/reference_element_api_getlldpconfig.html
+sidebar: sidebar
+keywords: lldp,config,configuration,get,getting,getlldpinfo,storage
+summary: 'You can use the GetLldpConfig method to get the Link Layer Discovery Protocol \(LLDP\) configuration for each node of a storage cluster.'
+---
+
+= GetLldpConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetLldpConfig` method to get the Link Layer Discovery Protocol (LLDP) configuration for each node of a storage cluster.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+lldpConfig
+a|
+Information about the storage cluster LLDP configuration.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetLldpConfig",
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": null,
+		"result": {
+			"lldpConfig": {
+				"enableLldp": true,
+				"enableMed": false,
+				"enableOtherProtocols": true
+		}
+	}
+}
+----

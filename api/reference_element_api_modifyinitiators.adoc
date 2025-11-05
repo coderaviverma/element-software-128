@@ -1,0 +1,125 @@
+---
+permalink: api/reference_element_api_modifyinitiators.html
+sidebar: sidebar
+keywords: modify,modifying,edit,editing,change,changing,initiators,initiator,attribute,attributes,modifyinitiators
+summary: 'You can use the ModifyInitiators method to change the attributes of one or more existing initiators.'
+---
+
+= ModifyInitiators
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyInitiators` method to change the attributes of one or more existing initiators.
+
+You cannot change the name of an existing initiator. If you need to change the name of an initiator, delete it first with the xref:reference_element_api_deleteinitiators.adoc[DeleteInitiators] method and create a new one with the xref:reference_element_api_createinitiators.adoc[CreateInitiators] method.
+
+If ModifyInitiators fails to change one of the initiators provided in the parameter, the method returns an error and does not modify any initiators (no partial completion is possible).
+
+== Parameter
+
+This method has the following input parameter:
+
+|===
+|Name |Description |Type |Default value |Required
+a|
+initiators
+a|
+A list of objects containing characteristics of each initiator to modify. Possible objects:
+
+* `alias`: (Optional) A new friendly name to assign to the initiator. (string)
+* `attributes`: (Optional) A new set of JSON attributes to assign to the initiator. (JSON object)
+* `chapUsername`: (Optional) A new unique CHAP username for this initiator. (string)
+* `forceDuringUpgrade`: Complete the initiator modification during an upgrade.
+* `initiatorID`: (Required) The ID of the initiator to modify. (integer)
+* `initiatorSecret`: (Optional) A new CHAP secret used to authenticate the initiator. (string)
+* `requireChap`: (Optional) True if CHAP is required for this initiator. (boolean)
+* `targetSecret`: (Optional) A new CHAP secret used to authenticate the target (when using mutual CHAP authentication). (string)
+* `virtualNetworkIDs`: (Optional) The list of virtual network identifiers associated with this initiator. If you define one or more virtual networks, this initiator is only able to login to those virtual networks. If you don't define any virtual networks, this initiator can login to all networks.
+* `volumeAccessGroupID`: (Optional) The ID of the volume access group to which the initiator should be added. If the initiator was previously in a different volume access group, it is removed from the old volume access group. If this key is present but null, the initiator is removed from its current volume access group, but not placed in any new volume access group. (integer)
+
+a|
+JSON object array
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+initiators
+a|
+List of objects describing the newly modified initiators.
+a|
+xref:reference_element_api_initiator.adoc[initiator] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "id": 6683,
+  "method": "ModifyInitiators",
+  "params": {
+    "initiators": [
+      {
+        "initiatorID": 2,
+        "alias": "alias1",
+        "volumeAccessGroupID": null
+      },
+      {
+        "initiatorID": 3,
+        "alias": "alias2",
+        "volumeAccessGroupID": 1
+      }
+    ]
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 6683,
+  "result": {
+    "initiators": [
+      {
+        "alias": "alias1",
+        "attributes": {},
+        "initiatorID": 2,
+        "initiatorName": "iqn.1993-08.org.debian:01:395543635",
+        "volumeAccessGroups": []
+      },
+      {
+        "alias": "alias2",
+        "attributes": {},
+        "initiatorID": 3,
+        "initiatorName": "iqn.1993-08.org.debian:01:935573135",
+        "volumeAccessGroups": [
+          1
+        ]
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+* xref:reference_element_api_createinitiators.adoc[CreateInitiators]
+* xref:reference_element_api_deleteinitiators.adoc[DeleteInitiators]

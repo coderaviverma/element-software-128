@@ -1,0 +1,97 @@
+---
+permalink: api/reference_element_api_getdrivehardwareinfo.html
+sidebar: sidebar
+keywords: drive,get,getting,hardware,info,getdrivehardwareinfo
+summary: 'You can use the GetDriveHardwareInfo method to get all the hardware information for the given drive. This generally includes manufacturers, vendors, versions, and other associated hardware identification information.'
+---
+
+= GetDriveHardwareInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetDriveHardwareInfo` method to get all the hardware information for the given drive. This generally includes manufacturers, vendors, versions, and other associated hardware identification information.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+driveID
+a|
+ID of the drive for the request.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+result
+a|
+Returned hardware information for the specified driveID.
+a|
+xref:reference_element_api_hardwareinfo.adoc[hardwareInfo]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetDriveHardwareInfo",
+   "params": {
+     "driveID": 5
+   },
+   "id" : 100
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 100,
+   "result" : {
+     "driveHardwareInfo" : {
+       "description" : "ATA Drive",
+       "dev" : "8:80",
+       "devpath" : "/devices/pci0000:40/0000:40:01.0/0000:41:00.0/host6/port-6:0/expander-6:0/port-6:0:4/end_device-6:0:4/target6:0:4/6:0:4:0/block/sdf",
+       "driveSecurityAtMaximum" : false,
+       "driveSecurityFrozen" : false
+       "driveSecurityLocked" : false,
+       "logicalname" : "/dev/sdf",
+       "product" : "INTEL SSDSA2CW300G3",
+       "securityFeatureEnabled" : false,
+       "securityFeatureSupported" : true,
+       "serial" : "CVPR121400NT300EGN",
+       "size" : "300069052416",
+       "uuid" : "7e1fd5b9-5acc-8991-e2ac-c48f813a3884",
+       "version" : "4PC10362"
+     }
+   }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_listdrives.adoc[ListDrives]

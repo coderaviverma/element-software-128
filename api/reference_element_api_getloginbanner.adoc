@@ -1,0 +1,74 @@
+---
+permalink: api/reference_element_api_getloginbanner.html
+sidebar: sidebar
+keywords: terms,use,banner,get,getting,getloginbanner,login
+summary: 'You can use the GetLoginBanner method to get the currently active Terms of Use banner that users see when they log in to the Element web interface.'
+---
+
+= GetLoginBanner
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetLoginBanner` method to get the currently active Terms of Use banner that users see when they log in to the Element web interface.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+banner
+a|
+The current text of the Terms of Use banner. This value can contain text even when the banner is disabled.
+a|
+string
+a|
+enabled
+a|
+The status of the Terms of Use banner. Possible values:
+
+* true: The Terms of Use banner is displayed upon web interface login.
+* false: The Terms of Use banner is not displayed upon web interface login.
+
+a|
+boolean
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "id": 3411,
+  "method": "GetLoginBanner",
+  "params": {}
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 3411,
+  "result": {
+    "loginBanner": {
+      "banner": "Welcome to NetApp!",
+      "enabled": false
+    }
+  }
+}
+----
+
+== New since version
+
+10.0

@@ -1,0 +1,86 @@
+---
+permalink: api/reference_element_api_createkeyproviderkmip.html
+sidebar: sidebar
+keywords: KMIP,key provider,creating,create
+summary: 'You can use the CreateKeyProviderKmip method to create a Key Management Interoperability Protocol \(KMIP\) key provider with the specified name. A key provider defines a mechanism and location to retrieve authentication keys. When you create a new KMIP key provider, it does not have any KMIP key servers assigned to it. To create a KMIP key server, use the CreateKeyServerKmip method. To assign it to a provider, see AddKeyServerToProviderKmip.'
+---
+
+= CreateKeyProviderKmip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CreateKeyProviderKmip` method to create a Key Management Interoperability Protocol (KMIP) key provider with the specified name. A key provider defines a mechanism and location to retrieve authentication keys. When you create a new KMIP key provider, it does not have any KMIP key servers assigned to it. To create a KMIP key server, use the `CreateKeyServerKmip` method. To assign it to a provider, see `AddKeyServerToProviderKmip`.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+keyProviderName
+a|
+The name to associate with the created KMIP key provider. This name is only used for display purposes and does not need to be unique.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+kmipKeyProvider
+a|
+An object containing details about the newly created key provider.
+a|
+link:reference_element_api_keyproviderkmip.html[KeyProviderKmip]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "CreateKeyProviderKmip",
+  "params": {
+    "keyProviderName": "ProviderName",
+    },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result":
+      {
+    "kmipKeyProvider": {
+        "keyProviderName": "ProviderName",
+        "keyProviderIsActive": true,
+        "kmipCapabilities": "SSL",
+        "keyServerIDs": [
+            15
+        ],
+        "keyProviderID": 1
+    }
+}
+}
+----
+
+== New since version
+
+11.7

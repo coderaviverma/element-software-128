@@ -1,0 +1,29 @@
+---
+permalink: storage/task_snapmirror_add_labels_to_snapshots.html
+sidebar: sidebar
+keywords: element, ui, snapmirror, labels, retention, policies, group, snapshots
+summary: 'SnapMirror labels specify the snapshot retention policy on the SnapMirror endpoint. You can add labels to snapshots and group snapshots.'
+---
+
+= Add SnapMirror labels to snapshots
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+SnapMirror labels specify the snapshot retention policy on the SnapMirror endpoint. You can add labels to snapshots and group snapshots.
+
+
+You can view available labels from an existing SnapMirror relationship dialog box or the NetApp ONTAP System Manager.
+
+IMPORTANT: When you add a label to a group snapshot, any existing labels to individual snapshots are overwritten.
+
+.What you'll need
+* SnapMirror is enabled on the cluster.
+* The label you want to add already exists in ONTAP.
+
+
+.Steps
+. Click *Data Protection* > *Snapshots* or *Group Snapshots* page.
+. Click the *Actions* icon for the snapshot or group snapshot you want to add a SnapMirror label to.
+. In the *Edit Snapshot* dialog box, enter text in the *SnapMirror Label* field. The label must match a rule label in the policy applied to the SnapMirror relationship.
+. Click *Save Changes*.

@@ -1,0 +1,24 @@
+---
+permalink: storage/task_data_manage_volumes_deleting_a_qos_policy.html
+sidebar: sidebar
+keywords: qos policy, delete, volumes
+summary: 'You can delete a QoS policy if it is no longer needed. When you delete a QoS policy, all volumes associated with the policy maintain the QoS settings but become unassociated with a policy.'
+---
+
+= Delete a QoS policy
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can delete a QoS policy if it is no longer needed. When you delete a QoS policy, all volumes associated with the policy maintain the QoS settings but become unassociated with a policy.
+
+NOTE: If you are trying instead to disassociate a volume from a QoS policy, you can change the QoS settings for that volume to custom.
+
+. Select *Management* > *QoS Policies*.
+. Click the Actions icon for the QoS policy you want to delete.
+. In the resulting menu, select *Delete*.
+. Confirm the action.
+
+== Find more information
+
+xref:task_data_manage_volumes_remove_a_qos_policy_association_of_a_volume.adoc[Remove the QoS policy association of a volume]

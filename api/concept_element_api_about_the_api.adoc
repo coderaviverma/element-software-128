@@ -1,0 +1,32 @@
+---
+permalink: api/concept_element_api_about_the_api.html
+sidebar: sidebar
+keywords: SolidFire,API,overview,about,Element
+summary: 'The Element API is based on the JSON-RPC protocol over HTTPS. JSON-RPC is a simple text-based RPC protocol based on the lightweight JSON data-interchange format. Client libraries are available for all major programming languages.'
+---
+
+= About the Element software API
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element API is based on the JSON-RPC protocol over HTTPS. JSON-RPC is a simple text-based RPC protocol based on the lightweight JSON data-interchange format. Client libraries are available for all major programming languages.
+
+You can make API requests via HTTPS POST requests to the API endpoint. The body of the POST request is a JSON-RPC request object. The API does not currently support batch requests (multiple request objects in a single POST). When submitting API requests, you must use "application/json-rpc" as the content-type of the request, and ensure that the body is not form-encoded.
+
+NOTE: The Element web UI makes use of the API methods described in this document. You can monitor API operations in the UI by enabling the API Log; this enables you to see the methods that are being issued to the system. You can enable both requests and responses to see how the system replies to the methods that are issued.
+
+Unless stated otherwise, all date strings in the API responses are in UTC+0 format.
+
+NOTE: When the storage cluster is heavily loaded or you submit many consecutive API requests with no intervening delay, a method might fail and return the error "xDBVersionMismatch". If this happens, retry the method call.
+
+* xref:reference_element_api_request_object_members.adoc[Request object members]
+* xref:reference_element_api_response_object_members.adoc[Response object members]
+* xref:concept_element_api_request_endpoints.adoc[Request endpoints]
+* xref:concept_element_api_authentication.adoc[API authentication]
+* xref:concept_element_api_asynchronous_methods.adoc[Asynchronous methods]
+* xref:reference_element_api_attributes.adoc[Attributes]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

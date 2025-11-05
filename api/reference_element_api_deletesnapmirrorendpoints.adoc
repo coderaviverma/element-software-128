@@ -1,0 +1,40 @@
+---
+permalink: api/reference_element_api_deletesnapmirrorendpoints.html
+sidebar: sidebar
+keywords: SnapMirror,endpoints,endpoint,delete,deleting,DeleteSnapMirrorEndpoints
+summary: 'The Element web UI uses DeleteSnapMirrorEndpoints to delete one or more SnapMirror endpoints from the system.'
+---
+
+= DeleteSnapMirrorEndpoints
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element web UI uses `DeleteSnapMirrorEndpoints` to delete one or more SnapMirror endpoints from the system.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+snapMirrorEndpointIDs
+a|
+An array of IDs of SnapMirror endpoints to delete.
+a|
+integer array
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== New since version
+
+10.0

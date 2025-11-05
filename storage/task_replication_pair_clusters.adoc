@@ -1,0 +1,28 @@
+---
+permalink: storage/task_replication_pair_clusters.html
+sidebar: sidebar
+keywords: pair clusters, replication, connect clusters, data protection
+summary: 'You must pair two clusters as a first step to using real-time replication functionality. After you pair and connect two clusters, you can configure active volumes on one cluster to be continuously replicated to a second cluster, providing continuous data protection \(CDP\).'
+---
+
+= Pair clusters for replication
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You must pair two clusters as a first step to using real-time replication functionality. After you pair and connect two clusters, you can configure active volumes on one cluster to be continuously replicated to a second cluster, providing continuous data protection (CDP).
+
+.What you'll need
+* You must have cluster administrator privileges to one or both clusters being paired.
+* All node MIPs and SIPs are routed to each other.
+* Less than 2000 ms of round-trip latency between clusters.
+* Both storage clusters should have unique cluster names, MVIPs, SVIPs, and all node IP addresses.
+* The difference between Element software versions on the clusters is no greater than one major version. If the difference is greater, one of the clusters must be upgraded to perform data replication.
+
+NOTE: Cluster pairing requires full connectivity between nodes on the management network. Replication requires connectivity between the individual nodes on the storage cluster network.
+
+You can pair one cluster with up to four other clusters for replicating volumes. You can also pair clusters within the cluster group with each other.
+
+== Find more information
+
+xref:reference_prereq_network_port_requirements.adoc[Network port requirements]

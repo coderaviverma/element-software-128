@@ -1,0 +1,56 @@
+---
+permalink: api/reference_element_api_listactivenodes.html
+sidebar: sidebar
+keywords: cluster,list,listing,active,node,nodes,listactivenodes
+summary: 'You can use the ListActiveNodes method to return the list of currently active nodes that are in the cluster.'
+---
+
+= ListActiveNodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListActiveNodes` method to return the list of currently active nodes that are in the cluster.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+nodes
+a|
+List of active nodes in the cluster.
+a|
+xref:reference_element_api_node.adoc[node] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListActiveNodes",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+Due to the length of this response example, it is documented in a supplementary topic.
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_response_example_listactivenodes.adoc[ListActiveNodes]

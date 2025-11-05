@@ -1,0 +1,13 @@
+---
+permalink: concepts/concept_intro_solidfire_active_iq.html
+sidebar: sidebar
+keywords: solidfire, active, iq, activeiq, tool, aiq
+summary: 'Active IQ is a web-based tool that provides continually updated historical views of cluster-wide data. You can set up alerts for specific events, thresholds, or metrics. Active IQ enables you to monitor system performance and capacity, as well as stay informed about cluster health.'
+---
+
+= SolidFire Active IQ
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+include::../_include/solidfire_active_iq.adoc[]

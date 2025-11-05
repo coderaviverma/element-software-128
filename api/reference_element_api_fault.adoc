@@ -1,0 +1,139 @@
+---
+permalink: api/reference_element_api_fault.html
+sidebar: sidebar
+keywords: object,objects,fault
+summary: 'The fault object contains information about faults that are detected in the cluster. The ListClusterFaults method returns cluster fault information.'
+---
+
+= fault
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The fault object contains information about faults that are detected in the cluster. The `ListClusterFaults` method returns cluster fault information.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+blocksUpgrade
+a|
+The fault blocks an upgrade. Possible values:
+
+* true: The fault blocks an upgrade.
+* false: The fault does not block an upgrade.
+a|
+boolean
+a|
+clusterFaultID
+a|
+The unique ID associated with each cluster fault.
+a|
+integer
+a|
+code
+a|
+The fault code for the specific fault that was detected. For further details, see Cluster Fault Codes.
+a|
+string
+a|
+data
+a|
+Additional fault-specific information.
+a|
+JSON object
+a|
+date
+a|
+The current time in UTC+0 format.
+a|
+ISO 8601 string
+a|
+details
+a|
+The description of the fault with additional details.
+a|
+string
+a|
+driveID
+a|
+The first drive ID in the driveIDs list. If the driveIDs list is empty (which means that no faults were returned that deal with drives), this value is 0.
+a|
+integer
+a|
+driveIDs
+a|
+A list of driveID values for the drives that this fault refers to. Included for faults dealing with drives. If none, this is an empty array.
+a|
+integer array
+a|
+nodeHardwareFaultID
+a|
+The identifier assigned to a hardware fault on the cluster.
+a|
+integer
+a|
+nodeID
+a|
+The node ID for the node that this fault refers to. Included for node and drive faults, otherwise set to 0.
+a|
+integer
+a|
+resolved
+a|
+The resolved status of the fault. Possible values:
+
+* true: The fault is no longer detected.
+* false: The fault is still present.
+
+a|
+boolean
+a|
+resolvedDate
+a|
+The date and time the fault was resolved.
+a|
+ISO 8601 string
+a|
+serviceID
+a|
+The service associated with the fault. This value is "0" (zero) if the fault is not associated with a service.
+a|
+integer
+a|
+severity
+a|
+The severity of the fault. Possible values:
+
+* warning: A minor issue. The cluster is functioning and upgrades are allowed at this severity level.
+* error: A failure that generally should not affect service (except possible performance degradation or loss of HA). Some features might be disabled.
+* critical: A serious failure that is affecting service. The system is unable to serve API requests or client I/O and is at risk of data loss.
+* bestPractice: Faults triggered by sub-optimal system configuration.
+
+a|
+string
+a|
+type
+a|
+The type of fault. Possible values:
+
+* node: A fault affecting an entire node.
+* drive: A fault affecting an individual drive.
+* cluster: A fault affecting the entire cluster.
+* service: A fault affecting a service on the cluster.
+* volume: A fault affecting an individual volume.
+
+a|
+string
+|===
+
+== Find more information
+
+* xref:reference_element_api_listclusterfaults.adoc[ListClusterFaults]
+* link:../storage/reference_monitor_cluster_fault_codes.html[Cluster fault codes]
+
+// 2024 MAY 1, DOC-4754

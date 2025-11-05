@@ -1,0 +1,105 @@
+---
+permalink: api/reference_element_api_getfeaturestatus.html
+sidebar: sidebar
+keywords: feature,status,cluster,get,getting,getfeaturestatus
+summary: 'You can use the GetFeatureStatus method to retrieve the status of a cluster feature.'
+---
+
+= GetFeatureStatus
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetFeatureStatus` method to retrieve the status of a cluster feature.
+
+== Parameter
+
+This method has the following input parameter:
+
+[cols="1a,3a,1a,1a,1a" options="header"]
+|===
+|Name |Description |Type |Default value |Required
+| feature
+a|
+The status of a cluster feature. If no value is provided, the system returns a status of all features. Possible values:
+
+* `Vvols`: Retrieve status for the VVols cluster feature.
+* `SnapMirror`: Retrieve status for the SnapMirror replication cluster feature.
+* `Fips`: Retrieve status for the FIPS 140-2 encryption for HTTPS communication feature.
+* `FipsDrives`: Retrieve status for the FIPS 140-2 drive encryption feature.
+* `VolumeLoadBalanceOnActualIOPS`: Retrieve status for the slice balancing on actual IOPS rather than Min IOPS feature. Available beginning with Element 12.8.
+
+| string
+| None
+| No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+features
+a|
+An array of feature objects indicating the feature name and its status. Object members:
+
+* feature: (string) The name of the feature.
+* enabled: (boolean) Whether the feature is enabled or not.
+
+a|
+JSON object array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetFeatureStatus",
+    "params": {
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "features": [
+            {
+                "enabled": true,
+                "feature": "Vvols"
+            },
+            {
+                "enabled": true,
+                "feature": "SnapMirror"
+            },
+            {
+                "enabled": true,
+                "feature": "Fips"
+            },
+            {
+                "enabled": true,
+                "feature": "FipsDrives"
+            },
+            {
+                "enabled": true,
+                "feature": "VolumeLoadBalanceOnActualIOPS"
+            }
+        ]
+    }
+}
+----
+
+== New since version
+
+9.6

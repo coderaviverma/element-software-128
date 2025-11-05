@@ -1,0 +1,6 @@
+---
+permalink: storage/concept_intro_solidfire_active_iq.html
+redirect: element-software/concepts/concept_intro_solidfire_active_iq.html
+---
+
+// 2022-8-31, DOC-4474, move contents to above redirect

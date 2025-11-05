@@ -1,0 +1,45 @@
+---
+permalink: api/reference_element_api_protectiondomainlevel.html
+sidebar: sidebar
+keywords: object,objects,protectionDomainLevel
+summary: 'The protectionDomainLevel object contains information about the storage cluster’s current tolerance and resiliency levels. Tolerance levels indicate the cluster’s ability to continue reading and writing data in the event of a failure, and resiliency levels indicate the cluster’s ability to automatically heal itself from one or more failures within its associated type of protection domain.'
+---
+
+= protectionDomainLevel
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The protectionDomainLevel object contains information about the storage cluster's current tolerance and resiliency levels. Tolerance levels indicate the cluster's ability to continue reading and writing data in the event of a failure, and resiliency levels indicate the cluster's ability to automatically heal itself from one or more failures within its associated type of protection domain.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+protectionDomainType
+a|
+The type of the protection domain which has the associated tolerance and resiliency. Possible values:
+
+* node: Any individual node.
+* chassis: Any individual node or all storage nodes in a single chassis.
+* custom: All storage nodes in a single customer-defined protection domain.
+
+a|
+string
+a|
+resiliency
+a|
+The current resiliency of this cluster from the perspective of this protection domain type.
+a|
+xref:reference_element_api_protectiondomainresiliency.adoc[protectionDomainResiliency]
+a|
+tolerance
+a|
+The current tolerance of this cluster from the perspective of this protection domain type.
+a|
+xref:reference_element_api_protectiondomaintolerance.adoc[protectionDomainTolerance]
+|===

@@ -1,0 +1,20 @@
+---
+permalink: storage/task_system_manage_snmp_configure_an_snmp_usm_user.html
+sidebar: sidebar
+keywords: snmp, usm user, config, requests
+summary: 'When you enable SNMP version 3, you need to configure a USM user to receive authorized SNMP requests.'
+---
+
+= Configure an SNMP USM user
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you enable SNMP version 3, you need to configure a USM user to receive authorized SNMP requests.
+
+. Click *Cluster* > *SNMP*.
+. Under *General SNMP Settings*, click *Yes* to enable SNMP.
+. From the *Version* list, select *Version 3*.
+. In the *USM Users* section, enter the name, password, and passphrase.
+. *Optional:* To add another USM user, click *Add a USM User* and enter the name, password, and passphrase.
+. Click *Save Changes*.

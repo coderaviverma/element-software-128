@@ -1,0 +1,147 @@
+---
+permalink: api/reference_element_api_updatebulkvolumestatus.html
+sidebar: sidebar
+keywords: updatebulkvolumestatus,update,updating,bulk,volume,status,job
+summary: 'You can use the UpdateBulkVolumeStatus method to update the status of a bulk volume job that you started with the StartBulkVolumeRead or StartBulkVolumeWrite methods.'
+---
+
+= UpdateBulkVolumeStatus
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `UpdateBulkVolumeStatus` method to update the status of a bulk volume job that you started with the `StartBulkVolumeRead` or `StartBulkVolumeWrite` methods.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+key
+a|
+The key assigned during initialization of a xref:reference_element_api_startbulkvolumeread.adoc[StartBulkVolumeRead] or xref:reference_element_api_startbulkvolumewrite.adoc[StartBulkVolumeWrite] session.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+status
+a|
+The system sets the status of the given bulk volume job. Possible values:
+
+* running: Jobs that are still active.
+* complete: Jobs that are done.
+* failed: Jobs that have failed.
+
+a|
+string
+a|
+None
+a|
+Yes
+a|
+percentComplete
+a|
+The completed progress of the bulk volume job as a percentage.
+a|
+string
+a|
+None
+a|
+No
+a|
+message
+a|
+Returns the status of the bulk volume job when the job has completed.
+a|
+string
+a|
+None
+a|
+No
+a|
+attributes
+a|
+JSON attributes; updates what is on the bulk volume job.
+a|
+JSON object
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+status
+a|
+Status of the session requested. Returned status:
+
+* preparing
+* active
+* done
+* failed
+
+a|
+string
+a|
+attributes
+a|
+Returns attributes that were specified in the method call. Values are returned whether they have changed or not.
+a|
+string
+a|
+url
+a|
+The URL to access the node's web server; provided only if the session is still active.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "UpdateBulkVolumeStatus",
+   "params": {
+          "key": "0b2f532123225febda2625f55dcb0448",
+	      "status": "running"
+      },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result": {
+	  "status" : "running",
+	  "url" : "https://10.10.23.47:8443/"
+    }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+* xref:reference_element_api_startbulkvolumeread.adoc[StartBulkVolumeRead]
+* xref:reference_element_api_startbulkvolumewrite.adoc[StartBulkVolumeWrite]

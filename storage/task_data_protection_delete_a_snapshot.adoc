@@ -1,0 +1,24 @@
+---
+permalink: storage/task_data_protection_delete_a_snapshot.html
+sidebar: sidebar
+keywords: snapshot, delete, volume snapshot, storage cluster, remove snapshot
+summary: 'You can delete a volume snapshot from a storage cluster running Element software. When you delete a snapshot, the system immediately removes it.'
+---
+
+= Delete a snapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can delete a volume snapshot from a storage cluster running Element software. When you delete a snapshot, the system immediately removes it.
+
+You can delete snapshots that are being replicated from the source cluster. If a snapshot is syncing to the target cluster when you delete it, the sync replication completes and the snapshot is deleted from the source cluster. The snapshot is not deleted from the target cluster.
+
+You can also delete snapshots that have been replicated to the target from the target cluster. The deleted snapshot is kept in a list of deleted snapshots on the target until the system detects that you have deleted the snapshot on the source cluster. When the target detects that you have deleted the source snapshot, the target stops replication of the snapshot.
+
+When you delete a snapshot from the source cluster, the target cluster snapshot is not affected (the reverse is also true).
+
+. Click *Data Protection* > *Snapshots*.
+. Click the *Actions* icon for the snapshot you want to delete.
+. In the resulting menu, select *Delete*.
+. Confirm the action.

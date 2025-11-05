@@ -1,0 +1,52 @@
+---
+permalink: storage/reference_data_protection_group_snapshot_details.html
+sidebar: sidebar
+keywords: snapshots, group snapshots, volumes, replication
+summary: 'The Group Snapshots page on the Data Protection tab provides information about the group snapshots.'
+---
+
+= Group snapshot details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Group Snapshots page on the Data Protection tab provides information about the group snapshots.
+
+* *ID*
++
+The system-generated ID for the group snapshot.
+
+* *UUID*
++
+The unique ID of the group snapshot.
+
+* *Name*
++
+User-defined name for the group snapshot.
+
+* *Create Time*
++
+The time at which the group snapshot was created.
+
+* *Status*
++
+The current status of the snapshot. Possible values:
+
+ ** Preparing: The snapshot is being prepared for use and is not yet writable.
+ ** Done: This snapshot has finished preparation and is now usable.
+ ** Active: The snapshot is the active branch.
+
+* *# Volumes*
++
+The number of volumes in the group.
+
+* *Retain Until*
++
+The day and time the snapshot will be deleted.
+
+* *Remote Replication*
++
+Indication of whether or not the snapshot is enabled for replication to a remote SolidFire cluster. Possible values:
+
+ ** Enabled: The snapshot is enabled for remote replication.
+ ** Disabled: The snapshot is not enabled for remote replication.

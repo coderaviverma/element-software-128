@@ -1,0 +1,81 @@
+---
+permalink: api/reference_element_api_disableclusterssh.html
+sidebar: sidebar
+keywords: SSH,disable,disabling,cluster,DisableClusterSsh
+summary: 'You can use the DisableClusterSsh method to disable the SSH service for the entire storage cluster. When you add nodes to the storage cluster, the new nodes will inherit this cluster-wide setting.'
+---
+
+= DisableClusterSsh
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DisableClusterSsh` method to disable the SSH service for the entire storage cluster. When you add nodes to the storage cluster, the new nodes will inherit this cluster-wide setting.
+
+== Parameter
+
+This method has no input parameter.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+result
+a|
+A JSON object containing the status of the SSH service for the storage cluster, the time remaining until SSH is disabled, and the SSH service status for each node.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "DisableClusterSsh",
+  "params": {
+      },
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": 1,
+	"result" : {
+    "enabled": true,
+    "timeRemaining": "00:43:21",
+    "nodes": [
+    {
+        "nodeID": 1,
+        "enabled": true
+    },
+    {
+        "nodeID": 2,
+        "enabled": true
+    },
+    {
+        "nodeID": 3,
+        "enabled": false
+    },
+    {
+        "nodeID": 4,
+        "enabled": false
+    } ]
+			}
+	}
+----
+
+== New since version
+
+10.3
+// 2022 DEC 12, DOC-4643 

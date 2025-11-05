@@ -1,0 +1,23 @@
+---
+permalink: storage/task_data_protection_edit_snapshot_retention.html
+sidebar: sidebar
+keywords: snapshot retention, edit, set a retention period, edit retention period
+summary: 'You can change the retention period for a snapshot to control when or if the system deletes snapshots. The retention period you specify begins when you enter the new interval. When you set a retention period, you can select a period that begins at the current time \(retention is not calculated from the snapshot creation time\). You can specify intervals in minutes, hours, and days.'
+---
+
+= Edit snapshot retention
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can change the retention period for a snapshot to control when or if the system deletes snapshots. The retention period you specify begins when you enter the new interval. When you set a retention period, you can select a period that begins at the current time (retention is not calculated from the snapshot creation time). You can specify intervals in minutes, hours, and days.
+
+.Steps
+. Click *Data Protection* > *Snapshots*.
+. Click the *Actions* icon for the snapshot you want to edit.
+. In the resulting menu, click *Edit*.
+. *Optional:* Select the**Include Snapshot in Replication When Paired** check box to ensure that the snapshot is captured in replication when the parent volume is paired.
+. *Optional:* Select a retention option for the snapshot:
+ ** Click *Keep Forever* to retain the snapshot on the system indefinitely.
+ ** Click *Set Retention Period* and use the date spin boxes to select a length of time for the system to retain the snapshot.
+. Click *Save Changes*.

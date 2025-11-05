@@ -1,0 +1,24 @@
+---
+permalink: api/reference_element_api_getcompletestats.html
+sidebar: sidebar
+keywords:
+summary: 'NetApp engineering uses the GetCompleteStats API method to test new features. The data returned from GetCompleteStats is not documented, changes frequently, and is not guaranteed to be accurate. You should not use GetCompleteStats for collecting performance data or any other management integration with a storage cluster running Element software.'
+---
+
+= GetCompleteStats
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+NetApp engineering uses the `GetCompleteStats` API method to test new features. The data returned from `GetCompleteStats` is not documented, changes frequently, and is not guaranteed to be accurate. You should not use `GetCompleteStats` for collecting performance data or any other management integration with a storage cluster running Element software.
+
+Use the following supported API methods to retrieve statistical information:
+
+* xref:reference_element_api_getvolumestats.adoc[GetVolumeStats]
+* xref:reference_element_api_getclusterstats.adoc[GetClusterStats]
+* xref:reference_element_api_getnodestats.adoc[GetNodeStats]
+* xref:reference_element_api_getdrivestats.adoc[GetDriveStats]
+
+== New since version
+
+9.6

@@ -1,0 +1,97 @@
+---
+permalink: api/reference_element_api_enableclusterssh.html
+sidebar: sidebar
+keywords: SSH,enabling,enable,cluster,EnableClusterSsh
+summary: 'You can use the EnableClusterSsh method to enable the SSH service on all nodes in the storage cluster.'
+---
+
+= EnableClusterSsh
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `EnableClusterSsh` method to enable the SSH service on all nodes in the storage cluster.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+duration
+a|
+The amount of time that the SSH service will remain enabled.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+result
+a|
+A JSON object containing the status of the SSH service for the storage cluster, the time remaining until SSH is disabled, and the SSH service status for each node.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "EnableClusterSsh",
+  "params": {
+      "duration"  : "02:00:00.00"
+  },
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": 1,
+	"result" : {
+    "enabled": true,
+    "timeRemaining": "00:43:21",
+    "nodes": [
+    {
+        "nodeID": 1,
+        "enabled": true
+    },
+    {
+        "nodeID": 2,
+        "enabled": true
+    },
+    {
+        "nodeID": 3,
+        "enabled": false
+    },
+    {
+        "nodeID": 4,
+        "enabled": false
+    } ]
+			}
+	}
+----
+
+== New since version
+
+10.3
+// 2022 DEC 12, DOC-4643 

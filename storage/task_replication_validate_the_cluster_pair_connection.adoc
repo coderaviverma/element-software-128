@@ -1,0 +1,17 @@
+---
+permalink: storage/task_replication_validate_the_cluster_pair_connection.html
+sidebar: sidebar
+keywords: cluster pair connection, validate
+summary: 'After the cluster pairing has completed, you might want to verify the cluster pair connection to ensure replication success.'
+---
+
+= Validate the cluster pair connection
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After the cluster pairing has completed, you might want to verify the cluster pair connection to ensure replication success.
+
+. On the local cluster, select *Data Protection* > *Cluster Pairs*.
+. In the *Cluster Pairs* window, verify that the cluster pair is connected.
+. *Optional:* Navigate back to the local cluster and the *Cluster Pairs* window and verify that the cluster pair is connected.

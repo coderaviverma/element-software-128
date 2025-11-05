@@ -1,0 +1,57 @@
+---
+permalink: storage/task_system_manage_enable_ldap_authentication.html
+sidebar: sidebar
+keywords:
+summary: 'You can configure storage system integration with an existing LDAP server. This enables LDAP administrators to centrally manage storage system access for users.'
+---
+
+= Enable LDAP authentication with the Element user interface
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can configure storage system integration with an existing LDAP server. This enables LDAP administrators to centrally manage storage system access for users.
+
+You can configure LDAP with either the Element user interface or the Element API. This procedure describes how to configure LDAP using the Element UI.
+
+This example shows how to configure LDAP authentication on SolidFire and it uses `SearchAndBind` as the authentication type. The example uses a single Windows Server 2012 R2 Active Directory Server.
+
+. Click *Cluster* > *LDAP*.
+. Click *Yes* to enable LDAP authentication.
+. Click *Add a Server*.
+. Enter the *Host Name/IP Address*.
++
+NOTE: An optional custom port number can also be entered.
++
+For example, to add a custom port number, enter <host name or ip address>:<port number>
+
+. Select *Use LDAPS Protocol*.
+. Enter the required information in *General Settings*.
++
+link:concept_system_manage_manage_ldap.html#view_ldap_details[LDAP details]
++
+image::../media/element_new_ldap_servers.jpg[]
+
+. Click *Enable LDAP*.
+. Click *Test User Authentication* if you want to test the server access for a user.
+. Copy the distinguished name and user group information that appears for use later when creating cluster administrators.
+. Click *Save Changes* to save any new settings.
+. To create a user in this group so that anyone can log in, complete the following:
+ .. Click *User* > *View*.
++
+image::../media/element_new_cluster_admin.jpg[]
+
+ .. For the new user, click *LDAP* for the User Type, and paste the group you copied to the Distinguished Name field.
+ .. Select the permissions, typically all permissions.
+ .. Scroll down to the End User License Agreement and click *I accept*.
+ .. Click *Create Cluster Admin*.
++
+Now you have a user with the value of an Active Directory group.
+
+To test this, log out of the Element UI and log back in as a user in that group.
+
+== Related information
+
+* link:concept_system_manage_manage_cluster_administrator_users.html#create_cluster_admin_account[Create a cluster administrator account]
+
+* link:concept_system_manage_manage_ldap.html#view_ldap_details[LDAP details]

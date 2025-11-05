@@ -1,0 +1,80 @@
+---
+permalink: api/reference_element_api_getclusterinterfacepreference.html
+sidebar: sidebar
+keywords: cluster,interface,preferences,preference,get,getting,getclusterinterfacepreference
+summary: 'The GetClusterInterfacePreference method enables systems integrated with storage clusters running Element software to get information about an existing cluster interface preference. This method is for internal use.'
+---
+
+= GetClusterInterfacePreference
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `GetClusterInterfacePreference` method enables systems integrated with storage clusters running Element software to get information about an existing cluster interface preference. This method is for internal use.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+name
+a|
+The name of the cluster interface preference.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+preference
+a|
+The name and value of the requested cluster interface preference.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+	"method": "GetClusterInterfacePreference",
+	"params": {
+		"name": "prefname"
+		},
+	"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": 1,
+	"result": {
+		"preference": {
+			"name": "prefname",
+			"value": "testvalue"
+		}
+	}
+}
+----
+
+== New since version
+
+11.0

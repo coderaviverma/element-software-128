@@ -1,0 +1,67 @@
+---
+permalink: api/reference_element_api_removeclusteradmin.html
+sidebar: sidebar
+keywords: cluster,admin,remove,removing,removeclusteradmin
+summary: 'You can use the RemoveClusterAdmin method to remove a cluster admin, an LDAP cluster admin, or a third-party Identity Provider \(IdP\) cluster admin. You cannot remove the "admin" Cluster Admin account.'
+---
+
+= RemoveClusterAdmin
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RemoveClusterAdmin` method to remove a cluster admin, an LDAP cluster admin, or a third-party Identity Provider (IdP) cluster admin. You cannot remove the "admin" Cluster Admin account.
+
+== Parameter
+
+When an IdP cluster admin is removed that has authenticated sessions associated with a third-party Identity Provider IdP, those sessions will either logout or possibly experience a loss of access rights within their current session. The access rights loss will depend on whether the removed IdP cluster admin matched one of multiple IdP cluster admins from a given user's SAML attributes. The remaining set of matching IdP cluster admins results in a reduced set of aggregate access rights. Other cluster admin user types are logged out when their cluster admins are removed.
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+clusterAdminID
+a|
+ClusterAdminID for the Cluster Admin to remove.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "RemoveClusterAdmin",
+   "params": {
+     "clusterAdminID"  : 2
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+ "id" : 1
+ "result" : { }
+}
+----
+
+== New since version
+
+9.6

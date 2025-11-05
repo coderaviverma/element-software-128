@@ -1,0 +1,24 @@
+---
+permalink: storage/task_data_protection_use_individual_volume_snapshots.html
+sidebar: sidebar
+keywords: individual volume snapshots, use, volume, snapshot
+summary: 'A volume snapshot is a point-in-time copy of a volume. You can use an individual volume rather than a group of volumes for the snapshot.'
+---
+
+= Use individual volume snapshots for data protection
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+A volume snapshot is a point-in-time copy of a volume. You can use an individual volume rather than a group of volumes for the snapshot.
+
+== Find more information
+
+* xref:task_data_protection_create_a_volume_snapshot.adoc[Create a volume snapshot]
+* xref:task_data_protection_edit_snapshot_retention.adoc[Edit snapshot retention]
+* xref:task_data_protection_delete_a_snapshot.adoc[Deleting a snapshot]
+* xref:task_data_protection_clone_a_volume_from_a_snapshot.adoc[Cloning a volume from a snapshot]
+* xref:task_data_protection_roll_back_a_volume_to_a_snapshot.adoc[Rolling back a volume to a snapshot]
+* xref:task_data_protection_back_up_a_volume_snapshot_to_an_amazon_s3_object_store.adoc[Backing up a volume snapshot to an Amazon S3 object store]
+* xref:task_data_protection_back_up_a_volume_snapshot_to_openstack_swift.adoc[Backing up a volume snapshot to an OpenStack Swift object store]
+* xref:task_data_protection_back_up_volume_snapshot_to_solidfire.adoc[Backing up a volume snapshot to a SolidFire cluster]

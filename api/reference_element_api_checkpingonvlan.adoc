@@ -1,0 +1,201 @@
+---
+permalink: api/reference_element_api_checkpingonvlan.html
+sidebar: sidebar
+keywords: VLAN,pre-deployment,network,validation,validate,validating,check,checking,CheckPingOnVlan
+summary: 'You can use the CheckPingOnVlan method to test network connectivity on a temporary VLAN when performing pre-deployment network validation. CheckPingOnVlan creates a temporary VLAN interface, sends ICMP packets to all nodes in the storage cluster using the VLAN interface, and then removes the interface.'
+---
+
+= CheckPingOnVlan
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CheckPingOnVlan` method to test network connectivity on a temporary VLAN when performing pre-deployment network validation. `CheckPingOnVlan` creates a temporary VLAN interface, sends ICMP packets to all nodes in the storage cluster using the VLAN interface, and then removes the interface.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+attempts
+a|
+Specifies the number of times the system should repeat the test ping.
+a|
+integer
+a|
+5
+a|
+No
+a|
+hosts
+a|
+Specifies a comma-separated list of addresses or hostnames of devices to ping.
+a|
+string
+a|
+The nodes in the cluster
+a|
+No
+a|
+interface
+a|
+The existing (base) interface from which the pings should be sent. Possible values:
+
+* Bond10G: Send pings from the Bond10G interface.
+* Bond1G: Send pings from the Bond1G interface.
+
+a|
+string
+a|
+None
+a|
+Yes
+a|
+packetSize
+a|
+Specifies the number of bytes to send in the ICMP packet that is sent to each IP. The number of bytes must be less than the maximum MTU specified in the network configuration.
+a|
+integer
+a|
+None
+a|
+No
+a|
+pingTimeoutMsec
+a|
+Specifies the number of milliseconds to wait for each individual ping response.
+a|
+integer
+a|
+500 ms
+a|
+No
+a|
+prohibitFragmentation
+a|
+Enables the DF (Do not Fragment) flag for the ICMP packets.
+a|
+boolean
+a|
+false
+a|
+No
+a|
+sourceAddressV4
+a|
+The source IPv4 address to use in the ICMP ping packets.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+sourceAddressV6
+a|
+The source IPv6 address to use in the ICMP ping packets.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+totalTimeoutSec
+a|
+Specifies the time in seconds the ping should wait for a system response before issuing the next ping attempt or ending the process.
+a|
+integer
+a|
+5
+a|
+No
+a|
+virtualNetworkTag
+a|
+The VLAN ID to use when sending the ping packets.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+result
+a|
+List of each IP the node was able to communicate with and ping response statistics.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+    "method": "CheckPingOnVlan",
+    "params": {
+        "interface": "Bond10G",
+        "virtualNetworkTag": 4001,
+        "sourceAddressV4": "192.168.41.4",
+        "hosts": "192.168.41.2"
+},
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "192.168.41.2": {
+      "individualResponseCodes": [
+        "Success",
+        "Success",
+        "Success",
+        "Success",
+        "Success"
+      ],
+      "individualResponseTimes": [
+        "00:00:00.000373",
+        "00:00:00.000098",
+        "00:00:00.000097",
+        "00:00:00.000074",
+        "00:00:00.000075"
+      ],
+      "individualStatus": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "interface": "Bond10G",
+      "responseTime": "00:00:00.000143",
+      "sourceAddressV4": "192.168.41.4",
+      "successful": true,
+      "virtualNetworkTag": 4001
+    }
+  }
+}
+----
+
+== New since version
+
+11.1

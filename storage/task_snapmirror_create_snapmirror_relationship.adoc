@@ -1,0 +1,75 @@
+---
+permalink: storage/task_snapmirror_create_snapmirror_relationship.html
+sidebar: sidebar
+keywords: element, relationships, create, snapmirror, ui
+summary: 'You must create a SnapMirror relationship in the NetApp Element UI.'
+---
+
+= Create a SnapMirror relationship
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You must create a SnapMirror relationship in the NetApp Element UI.
+
+
+NOTE: When a volume is not yet enabled for SnapMirror and you select to create a relationship from the Element UI, SnapMirror is automatically enabled on that volume.
+
+.What you'll need
+
+SnapMirror is enabled on the volume.
+
+
+.Steps
+. Click *Management* > *Volumes*.
+. Click the *Actions* icon for the volume that is to be a part of the relationship.
+. Click *Create a SnapMirror Relationship*.
+. In the *Create a SnapMirror Relationship* dialog box, select an endpoint from the *Endpoint* list.
+. Select if the relationship will be created using a new ONTAP volume or an existing ONTAP volume.
+. To create a new ONTAP volume in the Element UI, click *Create new volume*.
+ .. Select the *Storage Virtual Machine* for this relationship.
+ .. Select the *Aggregate* from the drop-down list.
+ .. In the *Volume Name Suffix* field, enter a suffix.
++
+NOTE: The system detects the source volume name and copies it to the *Volume Name* field. The suffix you enter appends the name.
+
+ .. Click *Create Destination Volume*.
+. To use an existing ONTAP volume, click *Use existing volume*.
+ .. Select the *Storage Virtual Machine* for this relationship.
+ .. Select the volume that is the destination for this new relationship.
+. In the *Relationship Details* section, select a policy. If the selected policy has keep rules, the Rules table displays the rules and associated labels.
+. *Optional*: Select a schedule.
++
+This determines how often the relationship creates copies.
+
+. *Optional*: In the *Limit Bandwidth to* field, enter the maximum amount of bandwidth that can be consumed by data transfers associated with this relationship.
+. Review additional details:
+ ** *State*: Current relationship state of the destination volume. Possible values are:
+
+  *** uninitialized: The destination volume has not been initialized.
+  *** snapmirrored: The destination volume has been initialized and is ready to receive SnapMirror updates.
+  *** broken-off: The destination volume is read/write and snapshots are present.
+
+ ** *Status*: Current status of the relationship. Possible values are idle, transferring, checking, quiescing, quiesced, queued, preparing, finalizing, aborting, and breaking.
+
+ ** *Lag Time*: The amount of time in seconds that the destination system lags behind the source system. The lag time must be no more than the transfer schedule interval.
+
+ ** *Bandwidth Limit*: The maximum amount of bandwidth that can be consumed by data transfers associated with this relationship.
+
+ ** *Last Transferred*: Timestamp of the last transferred snapshot. Click for further information.
+
+ ** *Policy Name*: The name of the ONTAP SnapMirror policy for the relationship.
+
+ ** *Policy Type*: Type of ONTAP SnapMirror policy selected for the relationship. Possible values are:
+
+  *** async_mirror
+  *** mirror_vault
+
+ ** *Schedule Name*: Name of the pre-existing schedule on the ONTAP system selected for this relationship.
+
+. To not initialize at this time, ensure that the *Initialize* check box is not selected.
++
+NOTE: Initialization can be time-consuming. You might want to run this during off-peak hours. Initialization performs a baseline transfer; it makes a snapshot copy of the source volume, then transfers that copy and all the data blocks it references to the destination volume. You can initialize manually or use a schedule to start the initialization process (and subsequent updates) according to the schedule.
+
+. Click *Create Relationship*.
+. Click *Data Protection* > *SnapMirror Relationships* to view this new SnapMirror relationship.

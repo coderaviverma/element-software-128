@@ -1,0 +1,106 @@
+---
+permalink: api/reference_element_api_getaccountefficiency.html
+sidebar: sidebar
+keywords: accounts,account,efficiency,get,getting,GetAccountEfficiency
+summary: 'You can use GetAccountEfficiency to get efficiency statistics about a volume account. This method returns efficiency information only for the account you give as a parameter.'
+---
+
+= GetAccountEfficiency
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `GetAccountEfficiency` to get efficiency statistics about a volume account. This method returns efficiency information only for the account you give as a parameter.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+accountID
+a|
+Specifies the volume account for which efficiency statistics are returned.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+compression
+a|
+The amount of space saved by data compression for all volumes in the account. Stated as a ratio where a value of "1" means data has been stored with no compression.
+a|
+float
+a|
+deduplication
+a|
+The amount of space saved by not duplicating data for all volumes in the account. Stated as a ratio.
+a|
+float
+a|
+missingVolumes
+a|
+The volumes that could not be queried for efficiency data. Missing volumes can be caused by the Garbage Collection (GC) cycle being less than an hour old, temporary loss of network connectivity, or restarted services since the GC cycle.
+a|
+integer array
+a|
+thinProvisioning
+a|
+The ratio of space used to the amount of space allocated for storing data. Stated as a ratio.
+a|
+float
+a|
+timestamp
+a|
+The last time efficiency data was collected after Garbage Collection (GC), in UTC+0 format.
+a|
+ISO 8601 date string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetAccountEfficiency",
+   "params": {
+     "accountID": 3
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+       "compression": 2.020468042933262,
+       "deduplication": 2.042488619119879,
+       "missingVolumes": [],
+       "thinProvisioning": 1.010087163391013,
+       "timestamp": "2014-03-10T14:06:02Z"
+   }
+}
+----
+
+== New since version
+
+9.6

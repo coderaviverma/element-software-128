@@ -1,0 +1,31 @@
+---
+permalink: storage/task_replication_pair_cluster_using_mvip.html
+sidebar: sidebar
+keywords: pair clusters, mvip, connection
+summary: 'You can pair two clusters for real-time replication by using the MVIP of one cluster to establish a connection with the other cluster. Cluster administrator access on both of clusters is required to use this method. The cluster administrator user name and password is used to authenticate cluster access before the clusters can be paired.'
+---
+
+= Pair clusters using MVIP
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can pair two clusters for real-time replication by using the MVIP of one cluster to establish a connection with the other cluster. Cluster administrator access on both of clusters is required to use this method. The cluster administrator user name and password is used to authenticate cluster access before the clusters can be paired.
+
+. On the local cluster, select *Data Protection* > *Cluster Pairs*.
+. Click *Pair Cluster*.
+. Click *Start Pairing* and click *Yes* to indicate that you have access to the remote cluster.
+. Enter the remote cluster MVIP address.
+. Click *Complete pairing on remote cluster*.
++
+In the *Authentication Required* window, enter the cluster administrator user name and password of the remote cluster.
+
+. On the remote cluster, select *Data Protection* > *Cluster Pairs*.
+. Click *Pair Cluster*.
+. Click *Complete Pairing*.
+. Click the *Complete Pairing* button.
+
+== Find more information
+
+* xref:task_replication_pair_cluster_using_pairing_key.adoc[Pair clusters using a pairing key]
+* https://www.youtube.com/watch?v=HbKxPZnNvn4&feature=youtu.be[Pairing clusters using MVIP (video)]

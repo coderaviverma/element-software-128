@@ -1,0 +1,23 @@
+---
+permalink: storage/task_data_protection_delete_a_group_snapshot.html
+sidebar: sidebar
+keywords: group snapshot, delete
+summary: 'You can delete a group snapshot from the system. When you delete the group snapshot, you can choose whether all snapshots associated with the group are deleted or retained as individual snapshots.'
+---
+
+= Deleting a group snapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can delete a group snapshot from the system. When you delete the group snapshot, you can choose whether all snapshots associated with the group are deleted or retained as individual snapshots.
+
+If you delete a volume or snapshot that is a member of a group snapshot, you can no longer roll back to the group snapshot. However, you can roll back each volume individually.
+
+. Click *Data Protection* > *Group Snapshots*.
+. Click the Actions icon for the snapshot you want to delete.
+. In the resulting menu, click *Delete*.
+. Select from one of the following options in the confirmation dialog box:
+ ** Click *Delete group snapshot AND all group snapshot members* to delete the group snapshot and all member snapshots.
+ ** Click *Retain group snapshot members as individual snapshots* to delete the group snapshot but keep all member snapshots.
+. Confirm the action.

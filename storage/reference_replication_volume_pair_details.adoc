@@ -1,0 +1,64 @@
+---
+permalink: storage/reference_replication_volume_pair_details.html
+sidebar: sidebar
+keywords: volume pairs, replication, data protection
+summary: 'The Volume Pairs page on the Data Protection tab provides information about volumes that have been paired or are in the process of being paired. The system displays pairing and progress messages in the Volume Status column.'
+---
+
+= Volume pair details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Volume Pairs page on the Data Protection tab provides information about volumes that have been paired or are in the process of being paired. The system displays pairing and progress messages in the Volume Status column.
+
+* *ID*
++
+System-generated ID for the volume.
+
+* *Name*
++
+The name given to the volume when it was created. Volume names can be up to 223 characters and contain a-z, 0-9, and dash (-).
+
+* *Account*
++
+Name of the account assigned to the volume.
+
+* *Volume Status*
++
+Replication status of the volume
+
+* *Snapshot Status*
++
+Status of the snapshot volume.
+
+* *Mode*
++
+The client write replication method. Possible values are as follows:
+
+ ** Async
+ ** Snapshot-Only
+ ** Sync
+
+* *Direction*
++
+The direction of the volume data:
+
+ ** Source volume icon (image:../media/source_icon_for_volume_pairs.png[Indicates data is being written to a target ouside cluster]) indicates data is being written to a target outside the cluster.
+ ** Target volume icon (image:../media/target_icon_for_volume_pairs.png[Icon that indicates data is being written to the local volume from an outside source]) indicates data is being written to the local volume from an outside source.
+
+* *Async Delay*
++
+Length of time since the volume was last synced with the remote cluster. If the volume is not paired, the value is null.
+
+* *Remote Cluster*
++
+Name of the remote cluster on which the volume resides.
+
+* *Remote Volume ID*
++
+Volume ID of the volume on the remote cluster.
+
+* *Remote Volume Name*
++
+Name given to the remote volume when it was created.

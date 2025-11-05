@@ -1,0 +1,24 @@
+---
+permalink: setup/task_setup_cluster_with_storage_nodes.html
+sidebar: sidebar
+keywords: element, solidfire, install, setup, node, cluster
+summary: 'Understand the sequence of setting up a cluster with storage nodes.'
+---
+
+= Setting up a cluster with Element storage nodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can set up a cluster with storage nodes and manage it using Element software after you install and cable nodes in a rack unit and power them on. You can then install and configure additional components in your storage system.
+
+.Steps
+. link:concept_setup_configure_a_storage_node.html[Configure a storage node]
+. link:task_setup_create_a_storage_cluster.html[Create a storage cluster]
+. link:task_post_deploy_access_the_element_software_user_interface.html[Log in to the Element software user interface]
+. link:task_setup_add_drives_to_a_cluster.html[Add drives to the cluster]
+. link:task_setup_determine_which_solidfire_components_to_install.html[Determine which SolidFire components to install]
+. link:task_setup_gh_redirect_set_up_a_management_node.html[Set up a management node]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

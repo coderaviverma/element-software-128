@@ -1,0 +1,139 @@
+---
+permalink: api/reference_element_api_deletevolumes.html
+sidebar: sidebar
+keywords: volumes,volume,delete,deleting,multiple,DeleteVolumes
+summary: 'You can use the DeleteVolumes method to mark multiple \(up to 500\) active volumes for deletion. When marked, the volume is purged \(permanently deleted\) after the cleanup interval elapses.'
+---
+
+= DeleteVolumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DeleteVolumes` method to mark multiple (up to 500) active volumes for deletion. When marked, the volume is purged (permanently deleted) after the cleanup interval elapses.
+
+After making a request to delete volumes, any active iSCSI connections to the volumes are immediately terminated and no further connections are allowed while the volumes are in this state. A marked volume is not returned in target discovery requests.
+
+Any snapshots of a volume that has been marked for deletion are not affected. Snapshots are kept until the volume is purged from the system. If a volume is marked for deletion and has a bulk volume read or bulk volume write operation in progress, the bulk volume read or write operation is stopped.
+
+If the volumes you delete are paired with a volume, replication between the paired volumes is suspended and no data is transferred to them or from them while in a deleted state. The remote volumes the deleted volumes were paired with enter into a PausedMisconfigured state and data is no longer sent to them or from the deleted volumes. Until the deleted volumes are purged, they can be restored and data transfers resume. If the deleted volumes are purged from the system, the volumes they were paired with enter into a StoppedMisconfigured state and the volume pairing status is removed. The purged volumes become permanently unavailable.
+
+== Parameters
+
+This method has the following input parameters.
+
+NOTE: At least one of the following parameters are required, and you must use only one of the parameters (they are all mutually exclusive with one another).
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeIDs
+a|
+The list of IDs of the volumes to delete from the system.
+a|
+integer array
+a|
+None
+a|
+See Note.
+a|
+volumeAccessGroupIDs
+a|
+A list of volume access group IDs. All of the volumes from all of the volume access groups you specify in this list are deleted from the system.
+a|
+integer array
+a|
+None
+a|
+See Note.
+a|
+accountIDs
+a|
+A list of account IDs. All volumes from these accounts are deleted from the system.
+a|
+integer array
+a|
+None
+a|
+See Note.
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+volumes
+a|
+Information about the newly deleted volume.
+a|
+xref:reference_element_api_volume.adoc[volume]
+a|
+curve
+a|
+The curve is a set of key-value pairs. The keys are the I/O sizes in bytes. The values represent the cost of performing an IOP at a specific I/O size. The curve is calculated relative to a 4096 byte operation set at 100 IOPS.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "DeleteVolumes",
+   "params": {
+      "accountIDs" : [1, 2, 3]
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+
+{
+  "id" : 1,
+  "result": {
+    "volumes" : [ {
+      "access": "readWrite",
+      "accountID": 1,
+      "attributes": {},
+      "blockSize": 4096,
+      "createTime": "2015-03-06T18:50:56Z",
+      "deleteTime": "",
+      "enable512e": False,
+      "iqn": "iqn.2010-01.com.solidfire:pzsr.vclient-030-v00001.1",
+      "name": "vclient-030-v00001",
+      "qos": {
+        "burstIOPS": 15000,
+        "burstTime": 60,
+        "curve": {},
+        "maxIOPS": 15000,
+        "minIOPS": 100
+      },
+      "purgeTime": "",
+      "sliceCount": 1,
+      "scsiEUIDeviceID": "707a737200000001f47acc0100000000",
+      "scsiNAADeviceID": "6f47acc100000000707a737200000001",
+      "status": "active",
+      "totalSize": 10000003072,
+      "virtualVolumeID": 5,
+      "volumeAccessGroups": [],
+      "volumePairs": [],
+      "volumeID": 1
+    } ]
+  }
+}
+----
+
+== New since version
+
+9.6

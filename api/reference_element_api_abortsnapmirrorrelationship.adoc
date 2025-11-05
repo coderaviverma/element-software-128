@@ -1,0 +1,75 @@
+---
+permalink: api/reference_element_api_abortsnapmirrorrelationship.html
+sidebar: sidebar
+keywords:
+summary: 'The Element software web UI uses the AbortSnapMirrorRelationship method to stop SnapMirror transfers that have started but are not yet complete.'
+---
+
+= AbortSnapMirrorRelationship
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element software web UI uses the `AbortSnapMirrorRelationship` method to stop SnapMirror transfers that have started but are not yet complete.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+snapMirrorEndpointID
+a|
+The endpoint ID of the remote ONTAP storage system communicating with the Element storage cluster.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+destinationVolume
+a|
+The destination volume in the SnapMirror relationship.
+a|
+xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeInfo]
+a|
+None
+a|
+Yes
+a|
+clearCheckpoint
+a|
+Determines whether or not to clear the restart checkpoint. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+false
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+snapMirrorRelationship
+a|
+An object containing information about the aborted SnapMirror relationship.
+a|
+xref:reference_element_api_snapmirrorrelationship.adoc[snapMirrorRelationship]
+|===
+
+== New since version
+
+10.1

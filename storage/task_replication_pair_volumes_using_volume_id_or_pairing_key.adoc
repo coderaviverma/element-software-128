@@ -1,0 +1,24 @@
+---
+permalink: storage/task_replication_pair_volumes_using_volume_id_or_pairing_key.html
+sidebar: sidebar
+keywords: volume pairings, pairing key, volume id, replication
+summary: 'The pairing process involves pairing two volumes by using either a volume ID or a pairing key.'
+---
+
+= Pair volumes using a volume ID or pairing key
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The pairing process involves pairing two volumes by using either a volume ID or a pairing key.
+
+. Pair volumes by selecting one of the following methods:
+ ** Using a volume ID: Use this method if you have cluster administrator access to both clusters on which volumes are to be paired. This method uses the volume ID of the volume on the remote cluster to initiate a connection.
+ ** Using a pairing Key: Use this method if you have cluster administrator access to only the source cluster. This method generates a pairing key that can be used on the remote cluster to complete the volume pair.
++
+NOTE: The volume pairing key contains an encrypted version of the volume information and might contain sensitive information. Only share this key in a secure manner.
+
+== Find more information
+
+* xref:task_replication_pair_volumes_using_a_volume_id.adoc[Pair volumes using a volume ID]
+* xref:task_replication_pair_volumes_using_a_pairing_key.adoc[Pair volumes using a pairing key]

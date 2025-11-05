@@ -1,0 +1,103 @@
+---
+permalink: api/reference_element_api_checkproposedcluster.html
+sidebar: sidebar
+keywords: cluster,creation,check,proposed,checking,nodes,node,before,CheckProposedCluster
+summary: 'You can use the CheckProposedCluster method to test a set of storage nodes before creating a storage cluster with them to identify possible errors or faults that would occur from the attempt, such as unbalanced mixed node capabilities or node types that are not supported for two-node storage clusters.'
+---
+
+= CheckProposedCluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CheckProposedCluster` method to test a set of storage nodes before creating a storage cluster with them to identify possible errors or faults that would occur from the attempt, such as unbalanced mixed node capabilities or node types that are not supported for two-node storage clusters.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+nodes
+a|
+A list of storage IP addresses of the initial set of storage nodes making up the storage cluster.
+a|
+string array
+a|
+None
+a|
+Yes
+a|
+force
+a|
+Set to true to run on all storage nodes in the storage cluster.
+a|
+boolean
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+proposedClusterValid
+a|
+Indicates whether or not the proposed storage nodes would make up a valid storage cluster. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+proposedClusterErrors
+a|
+Errors that would occur if a storage cluster was created using the proposed storage nodes.
+a|
+string array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+	"method": "CheckProposedCluster",
+	"params": {
+	"nodes": [
+		"192.168.1.11",
+		"192.168.1.12",
+		"192.168.1.13",
+		"192.168.1.14"
+	]
+},
+	"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": 1,
+	"result": {
+		"proposedClusterValid": true,
+		"proposedClusterErrors": [ ]
+	}
+}
+----
+
+== New since version
+
+11.0

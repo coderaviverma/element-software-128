@@ -1,0 +1,69 @@
+---
+permalink: api/reference_element_api_getsoftwareencryptionatrestinfo.html
+sidebar: sidebar
+keywords: system, api, security, get, getting, software encryption at rest
+summary: 'You can use the GetSoftwareEncryptionAtRestInfo method to get information the cluster uses to encrypt data at rest.'
+---
+
+= GetSoftwareEncryptionAtRestInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetSoftwareEncryptionAtRestInfo` method to get software encryption-at-rest information the cluster uses to encrypt data at rest.
+
+== Parameters
+This method has no input parameters.
+
+== Return values
+This method has the following return values:
+
+[cols=4*,options="header"]
+|===
+|Parameter| Description| Type| Optional
+|masterKeyInfo| Information about the current software encryption-at-rest master key. | EncryptionKeyInfo| True
+
+|rekeyMasterKeyAsyncResultID| The async result ID of the current or most recent rekey operation (if any), if it has not been deleted yet. `GetAsyncResult` output will include a `newKey` field that contains information about the new master key and a `keyToDecommission` field that contains information about the old key.| integer| True
+
+|state| The current software encryption-at-rest state. Possible values are `disabled` or `enabled`.| string| False
+
+|version| A version number that is incremented each time software encryption at rest is enabled.| integer| False|
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+ "method": "getsoftwareencryptionatrestinfo"
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "masterKeyInfo": {
+            "keyCreatedTime": "2021-09-20T23:15:56Z",
+            "keyID": "4d80a629-a11b-40ab-8b30-d66dd5647cfd",
+            "keyManagementType": "internal"
+        },
+        "state": "enabled",
+        "version": 1
+    }
+}
+----
+
+== New since version
+
+12.3
+
+[discrete]
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

@@ -1,0 +1,92 @@
+---
+permalink: api/reference_element_api_getnodesupportedtlsciphers.html
+sidebar: sidebar
+keywords: tls,cipher,ciphers,get,getting,supported,getnodesupportedtlsciphers
+summary: 'You can use the GetNodeSupportedTlsCiphers method on a single node to get a list of the TLS ciphers that are currently supported on this node. You can use this method on management and storage nodes.'
+---
+
+= GetNodeSupportedTlsCiphers
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetNodeSupportedTlsCiphers` method on a single node to get a list of the TLS ciphers that are currently supported on this node. You can use this method on management and storage nodes.
+
+== Parameter
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+mandatoryCiphers
+a|
+List of mandatory TLS cipher suites for the node. These are ciphers which are always active on the node.
+a|
+string
+a|
+defaultSupplementalCiphers
+a|
+List of default supplemental TLS cipher suites for the node. The supplemental ciphers are restored to this list when you run the ResetNodeSupplementalTlsCiphers API method.
+a|
+string
+a|
+supportedSupplementalCiphers
+a|
+List of available supplemental TLS cipher suites which you can configure with the SetNodeSupplementalTlsCiphers API method.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetNodeSupportedTlsCiphers",
+  "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {
+	"defaultSupplementalCiphers": [
+		"DHE-RSA-AES128-SHA256",
+		"DHE-RSA-AES128-GCM-SHA256",
+		"ECDHE-RSA-AES128-SHA256",
+		"ECDHE-RSA-AES128-GCM-SHA256"
+	],
+	"mandatoryCiphers": [
+		"DHE-RSA-AES256-SHA256",
+		"DHE-RSA-AES256-GCM-SHA384",
+		"ECDHE-RSA-AES256-SHA384",
+		"ECDHE-RSA-AES256-GCM-SHA384"
+	],
+	"supportedSupplementalCiphers": [
+		"DHE-RSA-AES128-SHA256",
+		"DHE-RSA-AES128-GCM-SHA256",
+		"ECDHE-RSA-AES128-SHA256",
+		"ECDHE-RSA-AES128-GCM-SHA256",
+		"DHE-RSA-AES256-SHA",
+		"ECDHE-RSA-AES256-SHA",
+		"DHE-RSA-CAMELLIA256-SHA",
+		"DHE-RSA-AES128-SHA",
+		"ECDHE-RSA-AES128-SHA",
+		"DHE-RSA-CAMELLIA128-SHA"
+	]
+}
+}
+----

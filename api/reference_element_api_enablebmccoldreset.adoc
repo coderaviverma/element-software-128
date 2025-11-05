@@ -1,0 +1,79 @@
+---
+permalink: api/reference_element_api_enablebmccoldreset.html
+sidebar: sidebar
+keywords: BMC cold reset,BMC reset,enable BMC
+summary: 'You can use the EnableBmcColdReset method to enable a background task that periodically resets the Baseboard Management Controller \(BMC\) for all nodes in the cluster.'
+---
+
+= EnableBmcColdReset
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `EnableBmcColdReset` method to enable a background task that periodically resets the Baseboard Management Controller (BMC) for all nodes in the cluster.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+timeout
+a|
+The time between BMC reset operations, in minutes.
+a|
+integer
+a|
+20160 minutes
+a|
+No
+|===
+
+== Return values
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+cBmcResetDurationMinutes
+a|
+Returns the time between reset intervals. The interval should always be 0 after the command completes.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+    "method": "EnableBmcColdReset",
+    "params": {
+                "timeout": 36000
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "cBmcResetDurationMinutes": 36000
+    }
+}
+----
+
+== New since version
+
+12.0
+// 2022 DEC 12, DOC-4643 

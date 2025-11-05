@@ -1,0 +1,25 @@
+---
+permalink: storage/task_data_manage_vol_access_group_remove_volumes.html
+sidebar: sidebar
+keywords: access group, remove volumes from, initiators, chap
+summary: 'When you remove a volume from an access group, the group no longer has access to that volume.'
+---
+
+= Remove volumes from an access group
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you remove a volume from an access group, the group no longer has access to that volume.
+
+Modifying CHAP settings in an account or removing initiators or volumes from an access group can cause initiators to lose access to volumes unexpectedly. To verify that volume access will not be lost unexpectedly, always logout iSCSI sessions that will be affected by an account or access group change, and verify that initiators can reconnect to volumes after any changes to initiator settings and cluster settings have been completed.
+
+. Click *Management* > *Access Groups*.
+. Click the Actions icon for the access group you want to remove volumes from.
+. Click *Edit*.
+. Under Add Volumes in the *Edit Volume Access Group* dialog box, click the arrow on the *Attached Volumes* list.
+. Select the volume you want to remove from the list and click the *x* icon to remove the volume from the list.
++
+You can remove more volumes by repeating this step.
+
+. Click *Save Changes*.

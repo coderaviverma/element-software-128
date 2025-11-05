@@ -1,0 +1,13 @@
+---
+permalink: hardware/task_h610s_repl.html
+sidebar: sidebar
+keywords: h610s, replacement, node replacement, chassis replacement, maintenance
+summary: You might need to replace the chassis if the fan, central processing unit (CPU), or dual inline memory module (DIMM) fails, or to fix overheating issues or problems with the boot process. The blinking amber LED in the front of the chassis is an indication of a possible need for chassis replacement. You should contact NetApp Support before you proceed.
+---
+
+= Replace a H610S node
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+include::../_include/task_h610srepl.adoc[]

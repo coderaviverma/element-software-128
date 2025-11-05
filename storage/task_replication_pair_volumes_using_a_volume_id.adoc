@@ -1,0 +1,51 @@
+---
+permalink: storage/task_replication_pair_volumes_using_a_volume_id.html
+sidebar: sidebar
+keywords: volume pairings, volume id, replication
+summary: 'You can pair a volume with another volume on a remote cluster if you have cluster administrator credentials for the remote cluster.'
+---
+
+= Pair volumes using a volume ID
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can pair a volume with another volume on a remote cluster if you have cluster administrator credentials for the remote cluster.
+
+.What you'll need
+* Ensure that the clusters containing the volumes are paired.
+* Create a new volume on the remote cluster.
++
+NOTE: You can assign a replication source and target after the pairing process. A replication source or target can be either volume in a volume pair. You should create a target volume that contains no data and has the exact characteristics of the source volume, such as size, block size setting for the volumes (either 512e or 4k), and QoS configuration. If you assign an existing volume as the replication target, the data on that volume will be overwritten. The target volume can be greater or equal in size to the source volume, but it cannot be smaller.
+
+* Know the target Volume ID.
+
+.Steps
+. Select *Management* > *Volumes*.
+. Click the *Actions* icon for the volume you want to pair.
+. Click *Pair*.
+. In the *Pair Volume* dialog box, select *Start Pairing*.
+. Select *I Do* to indicate that you have access to the remote cluster.
+. Select a *Replication Mode* from the list:
+ ** *Real-time (Asynchronous)*: Writes are acknowledged to the client after they are committed on the source cluster.
+ ** *Real-time (Synchronous)*: Writes are acknowledged to the client after they are committed on both the source and target clusters.
+ ** *Snapshots Only*: Only snapshots created on the source cluster are replicated. Active writes from the source volume are not replicated.
+. Select a remote cluster from the list.
+. Choose a remote volume ID.
+. Click *Start Pairing*.
++
+The system opens a web browser tab that connects to the Element UI of the remote cluster. You might be required to log on to the remote cluster with cluster administrator credentials.
+
+. In the Element UI of the remote cluster, select *Complete Pairing*.
+. Confirm the details in *Confirm Volume Pairing*.
+. Click *Complete Pairing*.
++
+After you confirm the pairing, the two clusters begin the process of connecting the volumes for pairing. During the pairing process, you can see messages in the *Volume Status* column of the *Volume Pairs* window. The volume pair displays `PausedMisconfigured` until the volume pair source and target are assigned.
++
+After you successfully complete the pairing, it is recommended that you refresh the Volumes table to remove the *Pair* option from the *Actions* list for the paired volume. If you do not refresh the table, the *Pair* option remains available for selection. If you select the *Pair* option again, a new tab opens and because the volume is already paired, the system reports a `StartVolumePairing Failed: xVolumeAlreadyPaired` error message in the *Pair Volume* window of the Element UI page.
+
+== Find more information
+
+* xref:reference_replication_volume_pairing_messages.adoc[Volume pairing messages]
+* xref:reference_replication_volume_pairing_warnings.adoc[Volume pairing warnings]
+* xref:task_replication_assign_replication_source_and_target_to_paired_volumes.adoc[Assign a replication source and target to paired volumes]

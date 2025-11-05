@@ -1,0 +1,58 @@
+---
+permalink: api/reference_element_api_getsshinfo.html
+sidebar: sidebar
+keywords: SSH,status,get,getting,getsshinfo
+summary: 'You can use the GetSshInfo method to query the status of the SSH service on a single node.'
+---
+
+= GetSshInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetSshInfo` method to query the status of the SSH service on a single node.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+result
+a|
+The status of the SSH service for this node.
+a|
+boolean
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+    "method" : "GetSshInfo",
+    "params" : {},
+    "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "enabled": false
+    }
+}
+----
+// 2022 DEC 12, DOC-4643 

@@ -1,0 +1,13 @@
+---
+permalink: api/reference_element_api_node_getnodefipsdrivesreport.html
+sidebar: sidebar
+keywords: individual,fips,feature,support,info,report,get,getting,getnodefipsdrivesreport,drive
+summary: 'You can use the GetNodeFipsDrivesReport method to check the FIPS 140-2 drive encryption capability status of a single node in the storage cluster. You must run this method against an individual storage node.'
+---
+
+= GetNodeFipsDrivesReport
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+include::../_include/api_getnodefipsdrivesreport.adoc[]

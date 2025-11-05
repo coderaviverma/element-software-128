@@ -1,0 +1,102 @@
+---
+permalink: api/reference_element_api_addldapclusteradmin.html
+sidebar: sidebar
+keywords: LDAP,cluster,admin,add,adding,addldapclusteradmin
+summary: 'You can use the AddLdapClusterAdmin to add a new LDAP cluster administrator user. An LDAP cluster administrator can manage the cluster using the API and management tools. LDAP cluster admin accounts are completely separate and unrelated to standard tenant accounts.'
+---
+
+= AddLdapClusterAdmin
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `AddLdapClusterAdmin` to add a new LDAP cluster administrator user. An LDAP cluster administrator can manage the cluster using the API and management tools. LDAP cluster admin accounts are completely separate and unrelated to standard tenant accounts.
+
+== Parameters
+
+You can also use this method to add an LDAP group that has been defined in Active Directory®. The access level that is given to the group is passed to the individual users in the LDAP group.
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+access
+a|
+Controls which methods this cluster admin can use.
+a|
+string array
+a|
+None
+a|
+Yes
+a|
+acceptEula
+a|
+Accept the End User License Agreement. Set to true to add a cluster administrator account to the system. If omitted or set to false, the method call fails.
+a|
+boolean
+a|
+None
+a|
+Yes
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+username
+a|
+The distinguished user name for the new LDAP cluster admin.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "AddLdapClusterAdmin",
+  "params": {"username":"cn=mike jones,ou=ptusers,dc=prodtest,dc=solidfire,dc=net",
+    "access": ["administrator", "read"
+    ]
+  },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+ "id": 1,
+ "result": {}
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_app_b_access_control.adoc[Access control]

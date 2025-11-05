@@ -1,0 +1,52 @@
+---
+permalink: storage/reference_data_protection_snapshot_schedule_details.html
+sidebar: sidebar
+keywords: snapshots, snapshot schedules
+summary: 'On the Data Protection \> Schedules page, you can view the following information in the list of snapshot schedules.'
+---
+
+= Snapshot schedule details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+On the Data Protection > Schedules page, you can view the following information in the list of snapshot schedules.
+
+* *ID*
++
+The system-generated ID for the snapshot.
+
+* *Type*
++
+The type of schedule. Snapshot is currently the only type supported.
+
+* *Name*
++
+The name given to the schedule when it was created. Snapshot schedule names can be up to 223 characters in length and contain a-z, 0-9, and dash (-) characters.
+
+* *Frequency*
++
+The frequency at which the schedule is run. The frequency can be set in hours and minutes, weeks, or months.
+
+* *Recurring*
++
+Indication of whether the schedule is to run only once or at regular intervals.
+
+* *Manually Paused*
++
+Indication of whether or not the schedule has been manually paused.
+
+* *Volume IDs*
++
+The ID of the volume the schedule will use when the schedule is run.
+
+* *Last Run*
++
+The last time the schedule was run.
+
+* *Last Run Status*
++
+The outcome of the last schedule execution. Possible values:
+
+ ** Success
+ ** Failure

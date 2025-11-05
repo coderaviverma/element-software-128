@@ -1,0 +1,83 @@
+---
+permalink: api/reference_element_api_setntpinfo.html
+sidebar: sidebar
+keywords: ntp,info,set,setting,setntpinfo
+summary: 'You can use the SetNtpInfo method to configure NTP on cluster nodes. The values you set with this interface apply to all nodes in the cluster. If an NTP broadcast server periodically broadcasts time information on your network, you can optionally configure nodes as broadcast clients.'
+---
+
+= SetNtpInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `SetNtpInfo` method to configure NTP on cluster nodes. The values you set with this interface apply to all nodes in the cluster. If an NTP broadcast server periodically broadcasts time information on your network, you can optionally configure nodes as broadcast clients.
+
+== Parameters
+
+NOTE: Ensure that you use NTP servers that are internal to your network, rather than the installation defaults.
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+servers
+a|
+List of NTP servers to add to each node NTP configuration.
+a|
+string array
+a|
+None
+a|
+Yes
+a|
+broadcastclient
+a|
+Enables every node in the cluster as a broadcast client.
+a|
+boolean
+a|
+false
+a|
+No
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "SetNtpInfo",
+   "params": {
+     "servers"  : [
+       "ntpserver1.example.org",
+       "ntpserver2.example.org",
+       "ntpserver3.example.org"
+     ],
+     "broadcastclient" : false
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id" : 1,
+    "result" : {}
+}
+----
+
+== New since version
+
+9.6
+// 2022 DEC 12, DOC-4643 

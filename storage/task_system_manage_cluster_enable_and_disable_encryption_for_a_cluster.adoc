@@ -1,0 +1,56 @@
+---
+permalink: storage/task_system_manage_cluster_enable_and_disable_encryption_for_a_cluster.html
+sidebar: sidebar
+keywords: enable, disable, encryption at rest, cluster, sed, hardware-based, encryption settings, software-based
+summary: 'With SolidFire clusters, you can encrypt all data stored on the cluster using software or hardware-based encryption at rest.'
+---
+
+= Enable and disable encryption at rest for a cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+With SolidFire clusters, you can encrypt all at-rest data stored on cluster drives. You can enable cluster-wide protection of self-encrypting drives (SED) using either link:../concepts/concept_solidfire_concepts_security.html[hardware or software-based encryption at rest].
+
+You can enable hardware encryption at rest using the Element UI or API. Enabling the hardware encryption at rest feature does not affect performance or efficiency on the cluster. You can enable software encryption at rest using the Element API only.
+
+Hardware-based encryption at rest is not enabled by default during cluster creation and can be enabled and disabled from the Element UI.
+
+WARNING: For SolidFire all-flash storage clusters, software encryption at rest must be enabled during cluster creation and cannot be disabled after the cluster has been created.
+
+.What you'll need
+* You have cluster administrator privileges to enable or change encryption settings.
+* For hardware-based encryption at rest, you have ensured that the cluster is in a healthy state before changing encryption settings.
+*  If you are disabling encryption, two nodes must be participating in a cluster to access the key to disable encryption on a drive.
+
+== Check encryption at rest status
+
+To see the current status of encryption at rest and/or software encryption at rest on the cluster, use the link:../api/reference_element_api_getclusterinfo.html[GetClusterInfo^] method. You can use the link:../api/reference_element_api_getsoftwareencryptionatrestinfo.html[GetSoftwareEncryptionAtRestInfo^] method to get information the cluster uses to encrypt data at rest.
+
+NOTE: The Element software UI dashboard at `https://<MVIP>/` currently only shows encryption at rest status for hardware-based encryption.
+
+.Options
+* <<Enable hardware-based encryption at rest>>
+* <<Enable software-based encryption at rest>>
+* <<Disable hardware-based encryption at rest>>
+
+== Enable hardware-based encryption at rest
+NOTE: To enable encryption at rest using an external key management configuration, you must enable encryption at rest via the link:../api/reference_element_api_enableencryptionatrest.html[API]. Enabling using the existing Element UI button will revert to using internally generated keys.
+
+. From the Element UI, select *Cluster* > *Settings*.
+. Select *Enable Encryption at Rest*.
+
+== Enable software-based encryption at rest
+NOTE: Software encryption at rest cannot be disabled after it is enabled on the cluster.
+
+. During cluster creation, run the link:../api/reference_element_api_createcluster.html[create cluster method] with `enableSoftwareEncryptionAtRest` set to `true`.
+
+== Disable hardware-based encryption at rest
+. From the Element UI, select *Cluster* > *Settings*.
+. Select *Disable Encryption at Rest*.
+
+[discrete]
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]
+// 2022 DEC 12, DOC-4643 

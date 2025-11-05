@@ -1,0 +1,49 @@
+---
+permalink: storage/reference_data_manage_accounts_account_details.html
+sidebar: sidebar
+keywords: account, volumes
+summary: 'The Accounts page on the Management tab provides information about each account in the system, such as ID, user name, and efficiency details for the volumes assigned to each account.'
+---
+
+= Account details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Accounts page on the Management tab provides information about each account in the system, such as ID, user name, and efficiency details for the volumes assigned to each account.
+
+* *ID*
++
+The system-generated ID for the account.
+
+* *Username*
++
+The name given to the account when it was created.
+
+* *Status*
++
+The status of the account. Possible values:
+
+ ** active: An active account.
+ ** locked: A locked account.
+ ** removed: An account that has been deleted and purged.
+
+* *Active Volumes*
++
+The number of active volumes assigned to the account.
+
+* *Compression*
++
+The compression efficiency score for the volumes assigned to the account.
+
+* *Deduplication*
++
+The deduplication efficiency score for the volumes assigned to the account.
+
+* *Thin Provisioning*
++
+The thin provisioning efficiency score for the volumes assigned to the account.
+
+* *Overall Efficiency*
++
+The overall efficiency score for the volumes assigned to the account.

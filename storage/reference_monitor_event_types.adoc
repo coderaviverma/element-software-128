@@ -1,0 +1,173 @@
+---
+permalink: storage/reference_monitor_event_types.html
+sidebar: sidebar
+keywords: event types, monitor, event log
+summary: 'The system reports multiple types of events; each event is an operation that the system has completed. Events can be routine, normal events or events that require administrator attention. The Event Types column on the Event Log page indicates in which part of the system the event occurred.'
+---
+
+= Event types
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The system reports multiple types of events; each event is an operation that the system has completed. Events can be routine, normal events or events that require administrator attention. The Event Types column on the Event Log page indicates in which part of the system the event occurred.
+
+NOTE: The system does not log read-only API commands in the event log.
+
+The following list describes the types of events that appear in the event log:
+
+* *apiEvent*
++
+Events initiated by a user through an API or web UI that modify settings.
+
+* *binAssignmentsEvent*
++
+Events related to the assignment of data bins. Bins are essentially containers that hold data and are mapped across the cluster.
+
+* *binSyncEvent*
++
+System events related to a reassignment of data among block services.
+
+* *bsCheckEvent*
++
+System events related to block service checks.
+
+* *bsKillEvent*
++
+System events related to block service terminations.
+
+* *bulkOpEvent*
++
+Events related to operations performed on an entire volume, such as a backup, restore, snapshot, or clone.
+
+* *cloneEvent*
++
+Events related to volume cloning.
+
+* *clusterMasterEvent*
++
+Events appearing upon cluster initialization or upon configuration changes to the cluster, such as adding or removing nodes.
+
+* [[csum_event]]*cSumEvent*
++
+Events related to the detection of a checksum mismatch during end-to-end checksum validation.
++
+Services that detect a checksum mismatch are automatically stopped and not restarted after generating this event.
+
+* *dataEvent*
++
+Events related to reading and writing data.
+
+* *dbEvent*
++
+Events related to the global database maintained by ensemble nodes in the cluster.
+
+* *driveEvent*
++
+Events related to drive operations.
+
+* *encryptionAtRestEvent*
++
+Events related to the process of encryption on a cluster.
+
+* *ensembleEvent*
++
+Events related to increasing or decreasing the number of nodes in an ensemble.
+
+* *fibreChannelEvent*
++
+Events related to the configuration of and connections to the nodes.
+
+* *gcEvent*
++
+Events related to processes run every 60 minutes to reclaim storage on block drives. This process is also known as garbage collection.
+
+* *ieEvent*
++
+Internal system error.
+
+* *installEvent*
++
+Automatic software installation events. Software is being automatically installed on a pending node.
+
+* *iSCSIEvent*
++
+Events related to iSCSI issues in the system.
+
+* *limitEvent*
++
+Events related to the number of volumes or virtual volumes in an account or in the cluster nearing the maximum allowed.
+
+* *maintenanceModeEvent*
++
+Events related to the node maintenance mode, such as disabling the node.
+
+* [[network_event]]*networkEvent*
++
+Events related to the network error reporting for each physical network interface card (NIC) interface.
++
+These events are triggered when any error count for an interface exceeds a default threshold of 1000 during a 10-minute monitoring interval. These events apply to network errors such as received misses, cyclic redundancy check (CRC) errors, length errors, overrun errors, and frame errors.
+
+* *platformHardwareEvent*
++
+Events related to issues detected on hardware devices.
+
+* *remoteClusterEvent*
++
+Events related to remote cluster pairing.
+
+* *schedulerEvent*
++
+Events related to scheduled snapshots.
+
+* *serviceEvent*
++
+Events related to system service status.
+
+* *sliceEvent*
++
+Events related to the Slice Server, such as removing a metadata drive or volume.
++
+There are three types of slice reassignment events, which include information about the service where a volume is assigned:
+
+ ** flipping: changing the primary service to a new primary service
++
+----
+sliceID oldPrimaryServiceID->newPrimaryServiceID
+----
+
+ ** moving: changing the secondary service to a new secondary service
++
+----
+sliceID {oldSecondaryServiceID(s)}->{newSecondaryServiceID(s)}
+----
+
+ ** pruning: removing a volume from a set of services
++
+----
+sliceID {oldSecondaryServiceID(s)}
+----
+
+* *snmpTrapEvent*
++
+Events related to SNMP traps.
+
+* *statEvent*
++
+Events related to system statistics.
+
+* *tsEvent*
++
+Events related to the system transport service.
+
+* *unexpectedException*
++
+Events related to unexpected system exceptions.
+
+* *ureEvent*
++
+Events related to Unrecoverable Read Errors that occur while reading from the storage device.
+
+* *vasaProviderEvent*
++
+Events related to a VASA (vSphere APIs for Storage Awareness) Provider.

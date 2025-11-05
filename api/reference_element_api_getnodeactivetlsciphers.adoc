@@ -1,0 +1,74 @@
+---
+permalink: api/reference_element_api_getnodeactivetlsciphers.html
+sidebar: sidebar
+keywords: tls,cipher,ciphers,get,getting,getnodeactivetlsciphers,accepted
+summary: 'You can use the GetNodeActiveTlsCiphers method on a single node to get a list of the TLS ciphers that are currently accepted on this node. You can use this method on management and storage nodes.'
+---
+
+= GetNodeActiveTlsCiphers
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetNodeActiveTlsCiphers` method on a single node to get a list of the TLS ciphers that are currently accepted on this node. You can use this method on management and storage nodes.
+
+== Parameter
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+mandatoryCiphers
+a|
+List of mandatory TLS cipher suites for the node. These are ciphers which are always active on the node.
+a|
+string
+a|
+supplementalCiphers
+a|
+List of supplemental TLS cipher suites for the node.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetNodeActiveTlsCiphers",
+  "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+      "id" : 1,
+      "result" : {
+        "mandatoryCiphers": [
+            "DHE-RSA-AES256-SHA256",
+            "DHE-RSA-AES256-GCM-SHA384",
+            "ECDHE-RSA-AES256-SHA384",
+            "ECDHE-RSA-AES256-GCM-SHA384"
+        ],
+        "supplementalCiphers": [
+            "DHE-RSA-AES128-SHA256",
+            "DHE-RSA-AES128-GCM-SHA256",
+            "ECDHE-RSA-AES128-SHA256",
+            "ECDHE-RSA-AES128-GCM-SHA256"
+        ]
+    }
+}
+----

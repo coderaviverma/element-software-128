@@ -1,0 +1,98 @@
+---
+permalink: api/reference_element_api_startvolumepairing.html
+sidebar: sidebar
+keywords: volume,pair,pairing,start,starting,startvolumepairing
+summary: 'You can use the StartVolumePairing method to create an encoded key from a volume that is used to pair with another volume. The key that this method creates is used in the CompleteVolumePairing method to establish a volume pairing.'
+---
+
+= StartVolumePairing
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `StartVolumePairing` method to create an encoded key from a volume that is used to pair with another volume. The key that this method creates is used in the `CompleteVolumePairing` method to establish a volume pairing.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+mode
+a|
+The mode of the volume on which to start the pairing process. The mode can only be set if the volume is the source volume. Possible values:
+
+* `Async`: Writes are acknowledged when they complete locally. The cluster does not wait for writes to be replicated to the target cluster. (Default if no mode parameter specified.)
+* `Sync`: Source acknowledges write when the data is stored locally and on the remote cluster.
+* `SnapshotsOnly`: Only snapshots created on the source cluster are replicated. Active writes from the source volume are not replicated.
+
+a|
+string
+a|
+None
+a|
+No
+a|
+volumeID
+a|
+The ID of the volume on which to start the pairing process.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+volumePairingKey
+a|
+A string of characters that is used by the xref:reference_element_api_completevolumepairing.adoc[CompleteVolumePairing] API method.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "StartVolumePairing",
+   "params": {
+         "mode": "Async",
+	 "volumeID" : 14
+      },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result" : {
+      "volumePairingKey" : "7b226d766970223a223139322e3136382e3133392e313232222c22766f6c756d654944223a312c22766f6c756d654e616d65223a2254657374222c22766f6c756d655061697255554944223a2236393632346663622d323032652d343332352d613536392d656339633635356337623561227d"
+      }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_completevolumepairing.adoc[CompleteVolumePairing]

@@ -1,0 +1,17 @@
+---
+permalink: storage/concept_snapmirror_labels.html
+sidebar: sidebar
+keywords: labels, snapmirror, retention rules
+summary: 'A SnapMirror label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship.'
+---
+
+= SnapMirror labels
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+A SnapMirror label serves as a marker for transferring a specified snapshot according to the retention rules of the relationship.
+
+Applying a label to a snapshot marks it as a target for SnapMirror replication. The role of the relationship is to enforce the rules upon data transfer by selecting the matching labeled snapshot, copying it to the destination volume, and ensuring the correct number of copies are kept. It refers to the policy to determine the keep count and the retention period. The policy can have any number of rules and each rule has a unique label. This label serves as the link between the snapshot and the retention rule.
+
+It is the SnapMirror label that indicates which rule is applied for the selected snapshot, group snapshot, or schedule.

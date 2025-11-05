@@ -1,0 +1,22 @@
+---
+permalink: api/concept_element_api_initiator_api_methods.html
+sidebar: sidebar
+keywords: initiator,method,methods,API,managing,manage
+summary: 'Initiator methods enable you to add, remove, view, and modify iSCSI initiator objects, which handle communication between the storage system and external storage clients.'
+---
+
+= Initiator API methods
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Initiator methods enable you to add, remove, view, and modify iSCSI initiator objects, which handle communication between the storage system and external storage clients.
+
+* xref:reference_element_api_createinitiators.adoc[CreateInitiators]
+* xref:reference_element_api_deleteinitiators.adoc[DeleteInitiators]
+* xref:reference_element_api_listinitiators.adoc[ListInitiators]
+* xref:reference_element_api_modifyinitiators.adoc[ModifyInitiators]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

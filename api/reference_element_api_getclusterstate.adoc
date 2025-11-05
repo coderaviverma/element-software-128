@@ -1,0 +1,71 @@
+---
+permalink: api/reference_element_api_getclusterstate.html
+sidebar: sidebar
+keywords: cluster,state,getting,get,getclusterstate
+summary: 'You can use the GetClusterState API method to indicate if a node is part of a cluster or not.'
+---
+
+= GetClusterState
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetClusterState` API method to indicate if a node is part of a cluster or not.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+cluster
+a|
+Name of the cluster.
+a|
+string
+a|
+state
+a|
+
+* Available: Node has not been configured with a cluster name.
+* Pending: Node is pending for a specific named cluster and can be added.
+* Active: Node is an active member of a cluster and may not be added to another cluster.
+
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetClusterState",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result" :
+      "cluster" :  "Cluster101"
+      "state" : "Active"
+}
+----
+
+== New since version
+
+9.6

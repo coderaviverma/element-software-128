@@ -1,0 +1,436 @@
+---
+permalink: storage/reference_prereq_network_port_requirements.html
+sidebar: sidebar
+keywords: network port requirements, TCP ports, firewall, utilities, URL, access attempt, ICMP, MIP, SIP, MVIP, SVIP
+summary: 'You might need to allow the following TCP ports through your data center’s edge firewall so that you can manage the system remotely and allow clients outside of your data center to connect to resources. Some of these ports might not be required, depending on how you use the system.'
+---
+= Network port requirements
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You might need to allow the following TCP and UDP ports through your data center's edge firewall so that you can manage the system remotely and allow clients outside of your data center to connect to resources. Some of these ports might not be required, depending on how you use the system.
+
+All ports are TCP unless stated otherwise, and all TCP ports must support three-way handshake communication between the NetApp Support Server, management node, and nodes running Element software. For example, the host on a management node source communicates with the host on a storage cluster MVIP destination through TCP port 443, and the destination host communicates back to the source host through any port.
+
+TIP: Enable ICMP between the management node, nodes running Element software, and cluster MVIP.
+
+The following abbreviations are used in the table:
+
+* MIP: Management IP address, a per-node address
+* SIP: Storage IP address, a per-node address
+* MVIP: Management virtual IP address
+* SVIP: Storage virtual IP address
+
+[cols=4*,options="header",cols="25,25,15,35"]
+|===
+| Source| Destination| Port| Description
+a|
+iSCSI clients
+a|
+Storage cluster MVIP
+a|
+443
+a|
+(Optional) UI and API access
+a|
+iSCSI clients
+a|
+Storage cluster SVIP
+a|
+3260
+a|
+Client iSCSI communications
+a|
+iSCSI clients
+a|
+Storage node SIP
+a|
+3260
+a|
+Client iSCSI communications
+a|
+Management node
+a|
+`sfsupport.solidfire.com`
+a|
+22
+a|
+Reverse SSH tunnel for support access
+a|
+Management node
+a|
+Storage node MIP
+a|
+22
+a|
+SSH access for support
+a|
+Management node
+a|
+DNS servers
+a|
+53 TCP/UDP
+a|
+DNS lookup
+a|
+Management node
+a|
+Storage node MIP
+a|
+442
+a|
+UI and API access to storage node and Element software upgrades
+a|
+Management node
+a|
+Storage cluster MVIP
+a|
+442
+a|
+UI and API access to storage node and Element software upgrades
+a|
+Management node
+a|
+`monitoring.solidfire.com`
+a|
+443
+a|
+Storage cluster reporting to Active IQ
+a|
+Management node
+a|
+Storage cluster MVIP
+a|
+443
+a|
+UI and API access to storage node and Element software upgrades
+a|
+Management node
+a|
+repo.netapp.com
+a|
+443
+a|
+Provides access to components necessary to install/update on-premises deployment.
+
+|Management node
+|Storage node BMC/IPMI
+|623 UDP
+|RMCP port. This is required to manage IPMI-enabled systems.
+
+a|
+Management node
+a|
+Witness Node
+a|
+9442
+a|
+Per-node configuration API service
+a|
+Management node
+a|
+vCenter Server
+a|
+9443
+a|
+vCenter Plug-in registration. The port can be closed after registration is complete.
+a|
+SNMP server
+a|
+Storage cluster MVIP
+a|
+161 UDP
+a|
+SNMP polling
+a|
+SNMP server
+|
+Storage node MIP
+a|
+161 UDP
+a|
+SNMP polling
+
+|Storage node BMC/IPMI
+|Management node
+|623 UDP
+|RMCP port. This is required to manage IPMI-enabled systems.
+
+a|
+Storage node MIP
+a|
+DNS servers
+a|
+53 TCP/UDP
+a|
+DNS lookup
+a|
+Storage node MIP
+a|
+Management node
+a|
+80
+a|
+Element software upgrades
+a|
+Storage node MIP
+a|
+S3/Swift endpoint
+a|
+80
+a|
+(Optional) HTTP communication to S3/Swift endpoint for backup and recovery
+a|
+Storage node MIP
+a|
+NTP server
+a|
+123 UDP
+a|
+NTP
+a|
+Storage node MIP
+a|
+Management node
+a|
+162 UDP
+a|
+(Optional) SNMP traps
+a|
+Storage node MIP
+a|
+SNMP server
+a|
+162 UDP
+a|
+(Optional) SNMP traps
+a|
+Storage node MIP
+a|
+LDAP server
+a|
+389 TCP/UDP
+a|
+(Optional) LDAP lookup
+a|
+Storage node MIP
+a|
+Management node
+a|
+443
+a|
+Element storage upgrades
+a|
+Storage node MIP
+a|
+Remote storage cluster MVIP
+a|
+443
+a|
+Remote replication cluster pairing communication
+a|
+Storage node MIP
+a|
+Remote storage node MIP
+a|
+443
+a|
+Remote replication cluster pairing communication
+a|
+Storage node MIP
+a|
+S3/Swift endpoint
+a|
+443
+a|
+(Optional) HTTPS communication to S3/Swift endpoint for backup and recovery
+a|
+Storage node MIP
+a|
+Management node
+a|
+514 TCP/UDP
+
+10514 TCP/UDP
+a|
+Syslog forwarding
+a|
+Storage node MIP
+a|
+Syslog server
+a|
+514 TCP/UDP
+
+10514 TCP/UDP
+a|
+Syslog forwarding
+a|
+Storage node MIP
+a|
+LDAPS server
+a|
+636 TCP/UDP
+a|
+LDAPS lookup
+a|
+Storage node MIP
+a|
+Remote storage node MIP
+a|
+2181
+a|
+Intercluster communication for remote replication
+//a|
+//Storage node SIP
+//a|
+//S3/Swift endpoint
+//a|
+//80
+//a|
+//(Optional) HTTP communication to S3/Swift endpoint for backup and recovery
+//a|
+//Storage node SIP
+//a|
+//S3/Swift endpoint
+//a|
+//443
+//a|
+//(Optional) HTTPS communication to S3/Swift endpoint for backup and recovery
+a|
+Storage node SIP
+a|
+Remote storage node SIP
+a|
+2181
+a|
+Intercluster communication for remote replication
+a|
+Storage node SIP
+a|
+Storage node SIP
+a|
+3260
+a|
+Internode iSCSI
+a|
+Storage node SIP
+a|
+Remote storage node SIP
+a|
+4000 through 4020
+a|
+Remote replication node-to-node data transfer
+a|
+System administrator PC
+a|
+Management node
+a|
+442
+a|
+HTTPS UI access to management node
+a|
+System administrator PC
+a|
+Storage node MIP
+a|
+442
+a|
+HTTPS UI and API access to storage node
+a|
+System administrator PC
+a|
+Management node
+a|
+443
+a|
+HTTPS UI and API access to management node
+a|
+System administrator PC
+a|
+Storage cluster MVIP
+a|
+443
+a|
+HTTPS UI and API access to storage cluster
+a|
+System administrator PC
+a|
+Storage node baseboard management controller (BMC)/Intelligent Platform Management Interface (IPMI) H410 and H600 series	
+a|
+443
+a|
+HTTPS UI and API access to node remote control
+a|
+System administrator PC
+a|
+Storage node MIP
+a|
+443
+a|
+HTTPS storage cluster creation, post-deployment UI access to storage cluster
+a|
+System administrator PC
+a|
+Storage node BMC/IPMI H410 and H600 series	
+a|
+623 UDP
+a|
+Remote Management Control Protocol port. This is required to manage IPMI-enabled systems.
+a|
+System administrator PC
+a|
+Witness Node
+a|
+8080
+a|
+Witness Node per-node web UI
+a|
+vCenter Server
+a|
+Storage cluster MVIP
+a|
+443
+a|
+vCenter Plug-in API access
+a|
+vCenter Server
+a|
+Remote plug-in
+a|
+8333
+a|
+Remote vCenter Plug-in service
+a|
+vCenter Server
+a|
+Management node
+a|
+8443
+a|
+(Optional) vCenter Plug-in QoSSIOC service.
+a|
+vCenter Server
+a|
+Storage cluster MVIP
+a|
+8444
+a|
+vCenter VASA provider access (VVols only)
+a|
+vCenter Server
+a|
+Management node
+a|
+9443
+a|
+vCenter Plug-in registration. The port can be closed after registration is complete.
+|===
+
+== For more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+
+// 2025 JULY 7, DOC-4709
+// 2023 FEB 23, DOC-4667
+// 2022 DEC 14, DOC-4644

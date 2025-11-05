@@ -1,0 +1,139 @@
+---
+permalink: api/reference_element_api_modifysnapshot.html
+sidebar: sidebar
+keywords: modify,modifying,edit,editing,change,changing,snapshot,attributes,attribute
+summary: 'You can use ModifySnapshot to change the attributes currently assigned to a snapshot. You can also use this method to enable snapshots created on the read/write \(source\) volume to be remotely replicated to a target storage cluster running Element software.'
+---
+
+= ModifySnapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `ModifySnapshot` to change the attributes currently assigned to a snapshot. You can also use this method to enable snapshots created on the read/write (source) volume to be remotely replicated to a target storage cluster running Element software.
+
+== Parameters
+
+This method has the following input parameters:
+
+|===
+|Name |Description |Type |Default value |Required
+a|
+enableRemoteReplication
+a|
+Use to enable the snapshot created to be replicated to a remote storage cluster. Possible values:
+
+* `true`: The snapshot will be replicated to remote storage.
+* `false`:The snapshot will not be replicated to remote storage.
+
+a|
+boolean
+a|
+false
+a|
+No
+a|
+expirationTime
+a|
+Specify the time after which the snapshot can be removed. Cannot be used with retention.
+If neither expirationTime, or retention on the original snapshot, are specified, the snapshot will not expire. The time format is an ISO 8601 date string for time based expiration, otherwise it will not expire. A value of null causes the snapshot to be retained permanently. A value of fifo causes the snapshot to be preserved on a First-In-First-Out (FIFO) basis, relative to other FIFO snapshots on the volume. The API will fail if no FIFO space is available.
+a|
+ISO 8601 date string
+a|
+None
+a|
+No
+a|
+name
+a|
+The name of the snapshot. If no name is entered, the date and time the snapshot was taken is used. The maximum name length allowed is 255 characters.
+a|
+string
+a|
+None
+a|
+No
+a|
+snapMirrorLabel
+a|
+The label used by SnapMirror software to specify the snapshot retention policy on a SnapMirror endpoint.
+a|
+string
+a|
+None
+a|
+No
+a|
+snapshotID
+a|
+Identifier of the snapshot.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+snapshot
+a|
+An object containing information about the newly modified snapshot.
+a|
+xref:reference_element_api_snapshot.adoc[snapshot]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ModifySnapshot",
+  "params": {
+    "snapshotID": 3114,
+    "enableRemoteReplication": "true",
+    "name" : "Chicago"
+  },
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "snapshot": {
+      "attributes": {},
+      "checksum": "0x0",
+      "createTime": "2016-04-04T17:26:20Z",
+      "enableRemoteReplication": true,
+      "expirationReason": "None",
+      "expirationTime": null,
+      "groupID": 0,
+      "groupSnapshotUUID": "00000000-0000-0000-0000-000000000000",
+      "name": "test1",
+      "snapshotID": 3114,
+      "snapshotUUID": "5809a671-4ad0-4a76-9bf6-01cccf1e65eb",
+      "status": "done",
+      "totalSize": 5000658944,
+      "virtualVolumeID": null,
+      "volumeID": 1
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

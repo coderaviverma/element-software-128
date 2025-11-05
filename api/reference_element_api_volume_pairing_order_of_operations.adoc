@@ -1,0 +1,31 @@
+---
+permalink: api/reference_element_api_volume_pairing_order_of_operations.html
+sidebar: sidebar
+keywords: volume,pairing,order,operations,volumes,pairing,pair,pairs
+summary: 'You must create a cluster pair between two corresponding clusters before volumes can be paired.'
+---
+
+= Volume pairing order of operations
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You must create a cluster pair between two corresponding clusters before volumes can be paired.
+
+Use the following set of API methods to establish a cluster connection:
+
+* xref:reference_element_api_startvolumepairing.adoc[StartVolumePairing]:
++
+This API method creates and returns a volume pairing key that is used to create a volume pair. The key contains information that is used to establish communications between volumes.
+
+* xref:reference_element_api_completevolumepairing.adoc[CompleteVolumePairing]:
++
+This method uses the pairing key created with the xref:reference_element_api_startvolumepairing.adoc[StartVolumePairing] API method to create a volume pair. Issue the xref:reference_element_api_completevolumepairing.adoc[CompleteVolumePairing] API method with the volumeID and volumePairingKey parameters to the destination volume.
+
+Only one of the paired volumes can be identified as a replication target volume. Use the xref:reference_element_api_modifyvolumepair.adoc[ModifyVolumePair] API method to establish the direction of the volume's data replication by identifying which volume is the target. Data is replicated from the source volume to the target volume.
+
+== Find more information
+
+* xref:reference_element_api_startvolumepairing.adoc[StartVolumePairing]
+* xref:reference_element_api_completevolumepairing.adoc[CompleteVolumePairing]
+* xref:reference_element_api_modifyvolumepair.adoc[ModifyVolumePair]

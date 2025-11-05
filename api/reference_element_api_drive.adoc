@@ -1,0 +1,128 @@
+---
+permalink: api/reference_element_api_drive.html
+sidebar: sidebar
+keywords: objects,object,drive
+summary: 'The drive object contains information about individual drives in the cluster’s active nodes. This object contains details on drives that have been added as volume metadata or block drives, as well as drives that have not yet been added and are available. You can retrieve this information with the ListDrives API method.'
+---
+
+= drive
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The drive object contains information about individual drives in the cluster's active nodes. This object contains details on drives that have been added as volume metadata or block drives, as well as drives that have not yet been added and are available. You can retrieve this information with the `ListDrives` API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+attributes
+a|
+List of name-value pairs in JSON object format. This object is always null and is not modifiable.
+a|
+JSON object
+a|
+capacity
+a|
+The total capacity of the drive, in bytes.
+a|
+integer
+a|
+chassisSlot
+a|
+For HCI platforms, this value is the node letter and slot number in the server chassis where this drive is located. For storage platforms, the slot number is a string representation of the "slot" integer.
+a|
+string
+a|
+driveFailureDetail
+a|
+If a drive's status is "Failed", this field provides more detail on why the drive was marked failed.
+a|
+string
+a|
+driveID
+a|
+The ID of this drive.
+a|
+integer
+a|
+driveSecurityFaultReason
+a|
+If enabling or disabling drive security failed, the reason why it failed. If the value is "none", there was no failure.
+a|
+string
+a|
+keyID
+a|
+The keyID used by the key provider to acquire the authentication key for unlocking this drive.
+a|
+UUID
+a|
+keyProviderID
+a|
+Identifies the provider of the authentication key for unlocking this drive.
+a|
+integer
+a|
+nodeID
+a|
+The ID of the node containing this drive.
+a|
+integer
+a|
+segmentFileSize
+a|
+The segment file size of the drive, in bytes.
+a|
+integer
+a|
+serial
+a|
+The drive serial number.
+a|
+string
+a|
+slot
+a|
+The slot number in the server chassis where this drive is located, or -1 if a SATADimm device is used for the internal metadata drive.
+a|
+integer
+a|
+status
+a|
+The status of the drive. Possible values:
+
+* available: An available drive.
+* active: An active drive.
+* erasing: A drive is in the process of being secure erased. Any data on that drive is permanently removed.
+* failed: A drive that has failed. Any data that was previously on the drive has been migrated to other drives in the cluster.
+* removing: A drive is in the process of being removed. Any data previously on the drive is being migrated to other drives in the cluster.
+
+a|
+string
+a|
+type
+a|
+The type of drive. Possible values:
+
+* volume: Stores volume metadata.
+* block: Stores block data.
+* unknown: Drive type not yet active and is yet to be determined.
+
+a|
+string
+a|
+usableCapacity
+a|
+The usable capacity of the drive, in bytes.
+a|
+integer
+|===
+
+== Find more information
+
+xref:reference_element_api_listdrives.adoc[ListDrives]
