@@ -1,0 +1,90 @@
+---
+permalink: api/reference_element_api_listpendingnodes.html
+sidebar: sidebar
+keywords: cluster,list,listing,pending,nodes,node,listpendingnodes
+summary: 'You can use the ListPendingNodes method to list the pending storage nodes in the system. Pending nodes are storage nodes that are running and configured to join the storage cluster but have not yet been added using the AddNodes API method.'
+---
+
+= ListPendingNodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListPendingNodes` method to list the pending storage nodes in the system. Pending nodes are storage nodes that are running and configured to join the storage cluster but have not yet been added using the AddNodes API method.
+
+== IPv4 and IPv6 management addresses
+
+Note that `ListPendingNodes` does not list pending nodes that have different address types for the management IP address (MIP) and management virtual IP address (MVIP). For example, if a pending node has an IPv6 MVIP and an IPv4 MIP, `ListPendingNodes` will not include the node as part of the result.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+pendingNodes
+a|
+List of pending nodes in the cluster.
+a|
+xref:reference_element_api_pendingnode.adoc[pendingNode] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListPendingNodes",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 3,
+  "result": {
+    "pendingNodes": [
+      {
+        "assignedNodeID": 0,
+        "cip": "10.26.65.101",
+        "cipi": "Bond10G",
+        "compatible": true,
+        "mip": "172.26.65.101",
+        "mipi": "Bond1G",
+        "name": "VWC-EN101",
+        "pendingNodeID": 1,
+        "platformInfo": {
+          "chassisType": "R620",
+          "cpuModel": "Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz",
+          "nodeMemoryGB": 72,
+          "nodeType": "SF3010"
+        },
+        "sip": "10.26.65.101",
+        "sipi": "Bond10G",
+        "softwareVersion": "9.0.0.1554",
+        "uuid": "4C4C4544-0048-4410-8056-C7C04F395931"
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_addnodes.adoc[AddNodes]

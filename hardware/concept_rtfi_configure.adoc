@@ -1,0 +1,14 @@
+---
+permalink: hardware/concept_rtfi_configure.html
+sidebar: sidebar
+keywords: rtfi, return, factory, image, nodes, solidfire, software, image 
+summary: NetApp SolidFire storage systems use the RTFI process to write a software image to a new node or restore a node to its original factory state.
+---
+= Configure the Return to Factory Image 
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+include::../_include/concept_rtfi_configure_introduction.adoc[]
+
+// 2022 FEB 2, DOC-4281

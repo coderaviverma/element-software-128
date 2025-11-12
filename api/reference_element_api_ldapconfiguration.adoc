@@ -1,0 +1,99 @@
+---
+permalink: api/reference_element_api_ldapconfiguration.html
+sidebar: sidebar
+keywords: object,objects,ldapConfiguration
+summary: 'The ldapConfiguration object contains information about the LDAP configuration on the storage system. You can retrieve LDAP information with the GetLdapConfiguration API method.'
+---
+
+= ldapConfiguration
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The ldapConfiguration object contains information about the LDAP configuration on the storage system. You can retrieve LDAP information with the `GetLdapConfiguration` API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+authType
+a|
+Identifies which user authentication method to use. Possible values:
+
+* DirectBind
+* SearchAndBind
+
+a|
+string
+a|
+enabled
+a|
+Identifies whether or not the system is configured for LDAP. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+groupSearchBaseDN
+a|
+The base DN of the tree to start the group search (the system will perform a subtree search from here).
+a|
+string
+a|
+groupSearchCustomFilter
+a|
+The custom search filter used.
+a|
+string
+a|
+groupSearchType
+a|
+Controls the default group search filter used. Possible values:
+
+* NoGroups: No group support.
+* ActiveDirectory: Nested membership of all of a user's AD groups.
+* MemberDN: MemberDN style groups (single-level).
+
+a|
+string
+a|
+searchBindDN
+a|
+A fully qualified DN to log in with to perform an LDAP search for the user (needs read access to the LDAP directory).
+a|
+string
+a|
+serverURIs
+a|
+A comma-separated list of LDAP server URIs (for example, `ldap://1.2.3.4` and `ldaps://1.2.3.4:123`.)
+a|
+string
+a|
+userDNTemplate
+a|
+A string that is used to form a fully qualified user DN.
+a|
+string
+a|
+userSearchBaseDN
+a|
+The base DN of the tree used to start the search (will do a subtree search from here).
+a|
+string
+a|
+userSearchFilter
+a|
+The LDAP filter used.
+a|
+string
+|===
+
+== Find more information
+
+xref:reference_element_api_getldapconfiguration.adoc[GetLdapConfiguration]

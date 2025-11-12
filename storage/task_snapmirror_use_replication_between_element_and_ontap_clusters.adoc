@@ -1,0 +1,27 @@
+---
+permalink: storage/task_snapmirror_use_replication_between_element_and_ontap_clusters.html
+sidebar: sidebar
+keywords: replication, snapmirror, data protection
+summary: 'You can create SnapMirror relationships from the Data Protection tab in the NetApp Element UI. SnapMirror functionality must be enabled to see this in the user interface.'
+---
+= Use SnapMirror replication between Element and ONTAP clusters (Element UI)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can create SnapMirror relationships from the Data Protection tab in the NetApp Element UI. SnapMirror functionality must be enabled to see this in the user interface.
+
+IPv6 is not supported for SnapMirror replication between NetApp Element software and ONTAP clusters.
+
+https://www.youtube.com/embed/kerGI1ZtnZQ?rel=0[NetApp video: SnapMirror for NetApp HCI and Element Software^]
+
+Systems running NetApp Element software support SnapMirror functionality to copy and restore Snapshot copies with NetApp ONTAP systems. The primary reason for using this technology is disaster recovery of NetApp HCI to ONTAP. Endpoints include ONTAP, ONTAP Select, and Cloud Volumes ONTAP. See TR-4641 NetApp HCI Data Protection.
+
+https://www.netapp.com/pdf.html?item=/media/17048-tr4641pdf.pdf[NetApp Technical Report 4641: NetApp HCI Data Protection^]
+
+== Find more information
+
+* https://www.netapp.com/pdf.html?item=/media/16991-tr4748pdf.pdf[Building your Data Fabric with NetApp HCI, ONTAP, and Converged Infrastructure^]
+* link:element-replication-index.html[Replication between NetApp Element Software and ONTAP (ONTAP CLI)]
+
+// 2024 SEP 23, DOC-4760

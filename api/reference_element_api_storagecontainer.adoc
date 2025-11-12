@@ -1,0 +1,78 @@
+---
+permalink: api/reference_element_api_storagecontainer.html
+sidebar: sidebar
+keywords: object,objects,storagecontainer
+summary: 'The storageContainer object contains the attributes of a virtual volume storage container. You can retrieve this information for each storage container in the cluster using the ListStorageContainers API method.'
+---
+
+= storageContainer
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The storageContainer object contains the attributes of a virtual volume storage container. You can retrieve this information for each storage container in the cluster using the `ListStorageContainers` API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+accountID
+a|
+The ID of the storage system account associated with the storage container.
+a|
+integer
+a|
+initiatorSecret
+a|
+The CHAP authentication secret for the initiator associated with the storage container.
+a|
+string
+a|
+name
+a|
+The name of the storage container.
+a|
+string
+a|
+protocolEndpointType
+a|
+The storage container's protocol endpoint type. SCSI is the only valid value.
+a|
+string
+a|
+status
+a|
+The status of the storage container. Possible values:
+
+* Active: The storage container is in use.
+* Locked: The storage container is locked.
+
+a|
+string
+a|
+storageContainerID
+a|
+The unique ID of the storage container.
+a|
+UUID
+a|
+targetSecret
+a|
+The CHAP authentication secret for the target associated with the storage container.
+a|
+string
+a|
+virtualVolumes
+a|
+A list of IDs of the virtual volumes associated with the storage container.
+a|
+UUID array
+|===
+
+== Find more information
+
+xref:reference_element_api_liststoragecontainers.adoc[ListStorageContainers]

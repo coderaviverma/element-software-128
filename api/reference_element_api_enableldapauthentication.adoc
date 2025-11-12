@@ -1,0 +1,176 @@
+---
+permalink: api/reference_element_api_enableldapauthentication.html
+sidebar: sidebar
+keywords: LDAP,auth,authentication,enable,enabling,EnableLdapAuthentication
+summary: 'You can use the EnableLdapAuthentication method to configure an LDAP directory connection for LDAP authentication to a cluster. Users that are members of the LDAP directory can then log in to the storage system using their LDAP credentials.'
+---
+
+= EnableLdapAuthentication
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `EnableLdapAuthentication` method to configure an LDAP directory connection for LDAP authentication to a cluster. Users that are members of the LDAP directory can then log in to the storage system using their LDAP credentials.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+authType
+a|
+Identifies which user authentication method to use. Possible values:
+
+* `DirectBind`
+* `SearchAndBind`
+
+a|
+string
+a|
+SearchAndBind
+a|
+No
+a|
+groupSearchBaseDN
+a|
+The base DN of the tree to start the group subtree search.
+a|
+string
+a|
+None
+a|
+No
+a|
+groupSearchType
+a|
+Controls the default group search filter used. Possible values:
+
+* NoGroups: No group support.
+* ActiveDirectory: Nested membership of all of a user's active directory groups.
+* MemberDN: MemberDN style groups (single level).
+
+a|
+string
+a|
+ActiveDirectory
+a|
+No
+a|
+serverURIs
+a|
+A comma-separated list of LDAP or LDAPS server URIs. You can add a custom port to the end of an LDAP or LDAPS URI by using a colon followed by the port number. For example, the URI "ldap://1.2.3.4" uses the default port and the URI "ldaps://1.2.3.4:123" uses the custom port 123.
+a|
+string array
+a|
+None
+a|
+Yes
+a|
+userSearchBaseDN
+a|
+The base DN of the tree to start the subtree search. This parameter is required when using an authType of SearchAndBind.
+a|
+string
+a|
+None
+a|
+No
+a|
+searchBindDN
+a|
+A fully qualified DN to log in with to perform an LDAP search for the user. The DN requires read access to the LDAP directory. This parameter is required when using an authType of SearchAndBind.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+searchBindPassword
+a|
+The password for the searchBindDN account used for searching. This parameter is required when using an authType of SearchAndBind.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+userSearchFilter
+a|
+The LDAP search filter to use when querying the LDAP server. The string should have the placeholder text "%USERNAME%" which is replaced with the username of the authenticating user. For example, (&(objectClass=person)(sAMAccountName=%USERNAME%)) will use the sAMAccountName field in Active Directory to match the username entered at cluster login. This parameter is required when using an authType of SearchAndBind.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+userDNTemplate
+a|
+A string template used to define a pattern for constructing a full user distinguished name (DN). The string should have the placeholder text "%USERNAME%" which is replaced with the username of the authenticating user. This parameter is required when using an authType of DirectBind.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+groupSearchCustomFilter
+a|
+For use with the CustomFilter search type, an LDAP filter to use to return the DNs of a user's groups. The string can have placeholder text of %USERNAME% and %USERDN% to be replaced with their username and full userDN as needed.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "EnableLdapAuthentication",
+  "params": {
+     "authType": "SearchAndBind",
+     "groupSearchBaseDN": "dc=prodtest,dc=solidfire,dc=net",
+     "groupSearchType": "ActiveDirectory",
+     "searchBindDN": "SFReadOnly@prodtest.solidfire.net",
+     "searchBindPassword": "zsw@#edcASD12",
+     "sslCert": "",
+     "userSearchBaseDN": "dc=prodtest,dc=solidfire,dc=net",
+     "userSearchFilter": "(&(objectClass=person)(sAMAccountName=%USERNAME%))",
+     "serverURIs":[
+           "ldaps://111.22.333.444",
+           "ldap://555.66.777.888"
+           ]
+       },
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+"id": 1,
+"result": {
+  }
+}
+----
+
+== New since version
+
+9.6

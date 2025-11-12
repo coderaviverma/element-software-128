@@ -1,0 +1,115 @@
+---
+permalink: api/reference_element_api_listdeletedvolumes.html
+sidebar: sidebar
+keywords: volume,volumes,marked,delete,deleted,deletion,list,listing,listdeletedvolumes
+summary: 'You can use the ListDeletedVolumes method to retrieve the list of volumes that have been marked for deletion and purged from the system.'
+---
+
+= ListDeletedVolumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListDeletedVolumes` method to retrieve the list of volumes that have been marked for deletion and purged from the system.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+includeVirtualVolumes
+a|
+Virtual volumes are included in the response, by default. To exclude virtual volumes, set to false.
+a|
+boolean
+a|
+true
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+volumes
+a|
+List of deleted volumes.
+a|
+xref:reference_element_api_volume.adoc[volume] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListDeletedVolumes",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+Responses for this method are similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "volumes": [
+            {
+                "access": "readWrite",
+                "accountID": 2,
+                "attributes": {},
+                "blockSize": 4096,
+                "createTime": "2018-06-24T03:13:13Z",
+                "deleteTime": "2018-07-22T16:12:39Z",
+                "enable512e": true,
+                "iqn": "iqn.2010-01.com.solidfire:0oto.deletethis.23",
+                "name": "deleteThis",
+                "purgeTime": "2016-07-23T00:12:39Z",
+                "qos": {
+                    "burstIOPS": 15000,
+                    "burstTime": 60,
+                    "curve": {
+                        "4096": 100,
+                        "8192": 160,
+                        "16384": 270,
+                        "32768": 500,
+                        "65536": 1000,
+                        "131072": 1950,
+                        "262144": 3900,
+                        "524288": 7600,
+                        "1048576": 15000
+                    },
+                    "maxIOPS": 15000,
+                    "minIOPS": 50
+                },
+                "scsiEUIDeviceID": "306f746f00000017f47acc0100000000",
+                "scsiNAADeviceID": "6f47acc100000000306f746f00000017",
+                "sliceCount": 1,
+                "status": "deleted",
+                "totalSize": 1396703232,
+                "virtualVolumeID": null,
+                "volumeAccessGroups": [],
+                "volumeID": 23,
+                "volumePairs": []
+            }
+        ]
+    }
+}
+----
+
+== New since version
+
+9.6

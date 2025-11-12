@@ -1,0 +1,21 @@
+---
+permalink: api/concept_element_api_virtual_network_naming_conventions.html
+sidebar: sidebar
+keywords: storage,system,naming,convention,virtual,network
+summary: 'NetApp Element storage systems use monotonically increasing numbers as unique identifiers for all objects in the system.'
+---
+
+= Virtual network naming conventions
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+NetApp Element storage systems use monotonically increasing numbers as unique identifiers for all objects in the system.
+
+When you create a new volume, the new volumeID is an increment of exactly 1. This convention holds true with virtual networks in storage clusters running Element software. The first virtual network you create in an Element cluster has a VirtualNetworkID of 1. This ID is not the same thing as a VLAN tag number.
+
+You can use VirtualNetworkID and the VirtualNetworkTag (VLAN tag) interchangeably where noted in the API methods.
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

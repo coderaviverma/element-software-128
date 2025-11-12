@@ -1,0 +1,29 @@
+---
+permalink: storage/task_intro_sort_lists.html
+sidebar: sidebar
+keywords: sort lists, sorting on a single column, sorting on multiple columns, sort button, column selections, using sort criteria
+summary: 'You can sort list information by one or more criteria on certain pages in the Element UI. This helps you arrange the information you need on the screen.'
+---
+
+= Sort lists
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can sort list information by one or more criteria on certain pages in the Element UI. This helps you arrange the information you need on the screen.
+
+. To sort on a single column, click the column heading until the information is sorted in the desired order.
+. To sort using multiple columns, click the column heading for each column you want to sort by until the information in each column is sorted in the desired order.
++
+The Sort button appears when you sort using multiple columns.
+
+. To reorder the sort criteria, perform the following steps:
+ .. Click *Sort*.
++
+The system populates the Sort By field with your column selections.
+
+ .. Arrange the columns in the Sort By field in the order you want the list to be sorted.
++
+The system sorts the list information.
+. To remove a single sort criterion, click the *Remove* icon next to the name of a sort criteria.
+. To remove all sort criteria, click *Clear All*.

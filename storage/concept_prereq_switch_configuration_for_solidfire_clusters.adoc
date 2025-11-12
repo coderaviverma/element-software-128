@@ -1,0 +1,61 @@
+---
+permalink: storage/concept_prereq_switch_configuration_for_solidfire_clusters.html
+sidebar: sidebar
+keywords: cluster switch configuration, best practices for switch configuration, optimal storage performance, node hardware, traffic, cluster, Element software, best practices, switches, switch requirements, storage, performance, storage performance
+summary: 'The NetApp Element software system has certain switch requirements and best practices for optimal storage performance.'
+---
+
+= Switch configuration for clusters running Element software
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The NetApp Element software system has certain switch requirements and best practices for optimal storage performance.
+
+Storage nodes require 10 or 25GbE Ethernet switches, depending on specific node hardware, for iSCSI storage services and node intra-cluster services communication. 1GbE switches can be used for these types of traffic:
+
+* Management of the cluster and the nodes
+* Intra-cluster management traffic between the nodes
+* Traffic between the cluster nodes and the management node virtual machine
+
+|===
+a|
+*Best Practice:* You should implement the following best practices when configuring Ethernet switches for cluster traffic:
+
+* For non-storage traffic in the cluster, deploy a pair of 1GbE switches to provide high availability and load sharing.
+* On the storage network switches, deploy switches in pairs and configure and utilize jumbo frames (an MTU size of 9216 bytes). This ensures a successful installation and eliminates storage network errors due to fragmented packets.
+|===
+
+Element deployment requires at least two network segments, one for each of the following types of traffic:
+
+* Management
+* Storage/Data
+
+Depending on the NetApp H-Series storage node models and the planned cabling configuration, you can physically separate these networks using separate switches or logically separate them using VLANs. For most deployments, however, you need to logically separate these networks using VLANs.
+
+Storage nodes need to be able to communicate before, during, and after deployment.
+
+If you are implementing separate management networks for storage nodes, ensure that these management networks have network routes between them. These networks must have gateways assigned, and there must be a route between the gateways. Ensure that each new node has a gateway assigned to facilitate communication between nodes and management networks.
+
+NetApp Element requires the following:
+
+* All switch ports connected to NetApp H-Series storage nodes must be configured as spanning tree edge ports.
+** On Cisco switches, depending on the switch model, software version and port type, you can do this with one of the following commands:
+
+*** `spanning-tree port type edge`
+*** `spanning-tree port type edge trunk`
+*** `spanning-tree portfast`
+*** `spanning-tree portfast trunk`
+
+** On Mellanox switches, you can do this with the `spanning-tree port type edge` command.
+* The switches handling storage traffic must support speeds of at least 10GbE per port (up to 25GbE per port is supported).
+* The switches handling management traffic must support speeds of at least 1GbE per port.
+* You must configure jumbo frames on the switch ports handling storage traffic. Hosts must be able to send 9000 byte packets end-to-end for a successful installation.
+* Round-trip network latency between all storage nodes should not exceed 2ms.
+
+Some nodes provide additional out-of-band management capabilities via a dedicated management port. NetApp H300S, H500S, and H700S nodes also allow for IPMI access via Port A. As a best practice, you should ease remote management by configuring out-of-band management for all nodes in your environment.
+
+== For more information
+* https://docs.netapp.com/us-en/hci/docs/hci_prereqs_network_switch.html[NetApp HCI network and switch requirements^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

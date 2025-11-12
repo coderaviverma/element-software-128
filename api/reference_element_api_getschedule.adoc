@@ -1,0 +1,103 @@
+---
+permalink: api/reference_element_api_getschedule.html
+sidebar: sidebar
+keywords: snapshot,schedule,get,getting,getschedule
+summary: 'You can use GetSchedule to get information about a scheduled snapshot.'
+---
+
+= GetSchedule
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `GetSchedule` to get information about a scheduled snapshot.
+
+You can see information about a specific schedule if there are many snapshot schedules in the system. You also retrieve information about more than one schedule with this method by specifying additional IDs in the scheduleID parameter.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+scheduleID
+a|
+Unique ID of the schedule or multiple schedules to display.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+schedule
+a|
+An array of schedule attributes.
+a|
+xref:reference_element_api_schedule.adoc[schedule] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+"method": "GetSchedule",
+  "params": {
+              "scheduleID" : 2
+      },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "schedule": {
+      "attributes": {
+        "frequency": "Time Interval"
+      },
+       "hasError": false,
+       "hours": 0,
+       "lastRunStatus": "Success",
+       "lastRunTimeStarted": "2015-03-23T21:25:00Z",
+       "minutes": 2,
+       "monthdays": [],
+       "paused": false,
+       "recurring": true,
+       "runNextInterval": false,
+       "scheduleID": 2,
+       "scheduleInfo": {
+          "name": "MCA2",
+          "volumeID": "3"
+       },
+       "scheduleName": "MCAsnapshot2",
+       "scheduleType": "Snapshot",
+       "startingDate": "2015-03-23T19:28:57Z",
+       "toBeDeleted": false,
+       "weekdays": []
+      }
+   }
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,116 @@
+---
+permalink: api/reference_element_api_testaddressavailability.html
+sidebar: sidebar
+keywords: ip,address,availability,test,testing,ensemble,cluster,testaddressavailability
+summary: 'You can use the TestAddressAvailability method to check to see if a certain IP address is in use on an interface within the storage cluster.'
+---
+
+= TestAddressAvailability
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `TestAddressAvailability` method to check to see if a certain IP address is in use on an interface within the storage cluster.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+interface
+a|
+The target network interface (such as eth0, Bond10G, etc).
+a|
+string
+a|
+None
+a|
+Yes
+a|
+address
+a|
+The IP address to scan for on the target interface.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+virtualNetworkTag
+a|
+The target VLAN ID.
+a|
+integer
+a|
+None
+a|
+No
+a|
+timeout
+a|
+The timeout in seconds for testing the target address.
+a|
+integer
+a|
+5
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+address
+a|
+The IP address tested.
+a|
+string
+a|
+available
+a|
+True if the requested IP address is in use, and false if it is not.
+a|
+boolean
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+	"method": "TestAddressAvailability",
+	"params": {
+		"interface": "Bond10G",
+		"address": "10.0.0.1",
+		"virtualNetworkTag": 1234
+	}
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": 1,
+	"result": {
+		"address":"10.0.0.1",
+		"available": true
+	}
+}
+----
+
+== New since version
+
+11.0
+// 2022 DEC 12, DOC-4643 

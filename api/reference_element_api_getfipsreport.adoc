@@ -1,0 +1,81 @@
+---
+permalink: api/reference_element_api_getfipsreport.html
+sidebar: sidebar
+keywords: fips,report,get,getting,getfipsreport,feature,support
+summary: 'You can use the GetFipsReport method to check the FIPS 140-2 encryption feature support status of all nodes in the storage cluster.'
+---
+
+= GetFipsReport
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetFipsReport` method to check the FIPS 140-2 encryption feature support status of all nodes in the storage cluster.
+
+== Parameter
+
+This method has no input parameter.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+result
+a|
+A JSON object containing the status of FIPS 140-2 feature support for every node, and error information for each node that did not respond to the query.
+a|
+xref:reference_element_api_fipsreport.adoc[fipsReport]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetFipsReport",
+  "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+    "nodes": [
+        {
+           "nodeID": 1,
+		   "fipsDrives": "None",
+           "httpsEnabled": true
+        },
+        {
+           "nodeID": 3,
+		   "fipsDrives": "None",
+           "httpsEnabled": true
+        }
+    ],
+    "errorNodes": [
+        {
+           "nodeID": 2,
+           "error": {
+               "message": "The RPC timed out.",
+               "name": "xRpcTimeout"
+               }
+        }
+    ]
+    }
+}
+----
+
+== New since version
+
+10.3

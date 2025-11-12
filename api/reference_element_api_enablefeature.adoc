@@ -1,0 +1,71 @@
+---
+permalink: api/reference_element_api_enablefeature.html
+sidebar: sidebar
+keywords: SNMP,enable,enabling,EnableFeature,vvols,virtual volumes,FIPS,140-2,SnapMirror
+summary: 'You can use the EnableFeature method to enable cluster features such as VVols that are disabled by default.'
+---
+= EnableFeature
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `EnableFeature` method to enable cluster features such as VVols that are disabled by default.
+
+== Parameter
+
+This method has the following input parameter.
+
+NOTE: For systems running Element software 11.x, enabling virtual volumes before or after setting protection domain monitoring causes the cluster protection domains feature to function only at node level.
+
+[cols="1a,3a,1a,1a,1a" options="header"]
+|===
+| Name | Description | Type | Default value | Required
+| feature
+a|
+Enable a cluster feature. Possible values:
+
+* `fips`: Enable FIPS 140-2 certified encryption for HTTPS communications.
+* `FipsDrives`: Enable FIPS 140-2 drive support for the storage cluster.
+* `SnapMirror`: Enable the SnapMirror replication cluster feature.
+* `VolumeLoadBalanceOnActualIOPS`: Enable slice balancing on actual IOPS rather than Min IOPS. Available beginning with Element 12.8.
+* `vvols`: Enable the Element software VVols cluster feature.
+
+| string
+| None
+| Yes
+|===
+
+== Return value
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "EnableFeature",
+    "params": {
+        "feature" : "vvols"
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {}
+}
+----
+
+== New since version
+
+9.6
+
+// 2023 JAN 9, DOC-4726

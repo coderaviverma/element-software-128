@@ -1,0 +1,57 @@
+---
+permalink: storage/concept_system_manage_cluster_terms_manage_the_terms_of_use_banner.html
+sidebar: sidebar
+keywords: element, terms of use, banner, config, edit, terms of use, disable, enable
+summary: 'You can enable, edit, or configure a banner that contains a message for the user.'
+---
+
+= Manage the Terms of Use banner
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can enable, edit, or configure a banner that contains a message for the user.
+
+.Options
+<<Enable the Terms of Use banner>>
+<<Edit the Terms of Use banner>>
+<<Disable the Terms of Use banner>>
+
+== Enable the Terms of Use banner
+
+You can enable a Terms of Use banner that appears when a user logs in to the Element UI. When the user clicks on the banner, a text dialog box appears containing the message you have configured for the cluster. The banner can be dismissed at any time.
+
+You must have cluster administrator privileges to enable Terms of Use functionality.
+
+. Click *Users* > *Terms of Use*.
+. In the *Terms of Use* form, enter the text to be displayed for the Terms of Use dialog box.
++
+NOTE: Do not exceed 4096 characters.
+
+. Click *Enable*.
+
+== Edit the Terms of Use banner
+You can edit the text that a user sees when they select the Terms of Use login banner.
+
+.What you'll need
+* You must have cluster administrator privileges to configure Terms of Use.
+* Ensure that the Terms of Use feature is enabled.
+
+.Steps
+. Click *Users* > *Terms of Use*.
+. In the *Terms of Use* dialog box, edit the text that you want to appear.
++
+NOTE: Do not exceed 4096 characters.
+
+. Click *Save Changes*.
+
+== Disable the Terms of Use banner
+You can disable the Terms of Use banner. With the banner disabled, the user is no longer requested to accept the terms of use when using the Element UI.
+
+.What you'll need
+* You must have cluster administrator privileges to configure Terms of Use.
+* Ensure that Terms of Use is enabled.
+
+.Steps
+. Click *Users* > *Terms of Use*.
+. Click *Disable*.

@@ -1,0 +1,76 @@
+---
+sidebar: sidebar
+permalink: hccstorage/task-hcc-manage-vol-access-groups.html
+summary: Learn how to add new a volume access groups to work with SolidFire all-flash storage volumes, remove volume access groups from the system, edit existing volume access groups, and view details of volume access groups.
+keywords: netapp, element, cluster, volume, access
+---
+
+= Create and manage volume access groups
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+You can create new volume access groups, make changes to the name, associated initiators, or associated volumes of access groups, or delete existing volume access groups using NetApp Hybrid Cloud Control.
+
+.What you'll need
+
+* You have administrator credentials for this SolidFire all-flash storage system.
+* You have upgraded your management services to at least version 2.15.28. NetApp Hybrid Cloud Control storage management is not available in earlier service bundle versions.
+* Ensure you have a logical naming scheme for volume access groups.
+
+== Add a volume access group
+You can add a volume access group to a storage cluster by using NetApp Hybrid Cloud Control.
+
+.Steps
+
+. Log in to NetApp Hybrid Cloud Control by providing the Element storage cluster administrator credentials.
+. From the Dashboard, expand the name of your storage cluster on the left navigation menu.
+. Select *Volumes*.
+. Select the *Access Groups* tab.
+. Select the *Create Access Group* button.
+. In the resulting dialog, enter a name for the new volume access group.
+. (Optional) In the *Initiators* section, select one or more initiators to associate with the new volume access group.
++
+If you associate an initiator with the volume access group, that initiator can access each volume in the group without the need for authentication.
+. (Optional) In the *Volumes* section, select one or more volumes to include in this volume access group.
+. Select *Create Access Group*.
+
+== Edit a volume access group
+You can edit the properties of an existing volume access group by using NetApp Hybrid Cloud Control. You can make changes to the name, associated initiators, or associated volumes of an access group.
+
+.Steps
+
+. Log in to NetApp Hybrid Cloud Control by providing the Element storage cluster administrator credentials.
+. From the Dashboard, expand the name of your storage cluster on the left navigation menu.
+. Select *Volumes*.
+. Select the *Access Groups* tab.
+. In the *Actions* column of the table of access groups, expand the options menu for the access group you need to edit.
+. In the options menu, select *Edit*.
+. Make any needed changes to the name, associated initiators, or associated volumes.
+. Confirm your changes by selecting *Save*.
+. In the *Access Groups* table, verify that the access group reflects your changes.
+
+== Delete a volume access group
+You can remove a volume access group by using NetApp Hybrid Cloud Control, and at the same time remove the initiators associated with this access group from the system.
+
+.Steps
+
+. Log in to NetApp Hybrid Cloud Control by providing the Element storage cluster administrator credentials.
+. From the Dashboard, expand the name of your storage cluster on the left navigation menu.
+. Select *Volumes*.
+. Select the *Access Groups* tab.
+. In the *Actions* column of the table of access groups, expand the options menu for the access group you need to delete.
+. In the options menu, select *Delete*.
+. If you do not wish to delete the initiators that are associated with the access group, deselect the *Delete initiators in this access group* checkbox.
+. Confirm the delete operation by selecting *Yes*.
+
+
+[discrete]
+== Find more information
+* link:../concepts/concept_solidfire_concepts_volume_access_groups.html[Learn about volume access groups]
+* link:task-hcc-manage-initiators.html#add-initiators-to-a-volume-access-group[Add initiator to a volume access group]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

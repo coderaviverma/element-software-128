@@ -1,0 +1,33 @@
+---
+permalink: storage/task_data_protection_create_a_group_snapshot.html
+sidebar: sidebar
+keywords: group snapshot, create, volumes, schedule, automate group snapshots
+summary: 'You can create a snapshot of a group of volumes, and you can also create a group snapshot schedule to automate group snapshots. A single group snapshot can consistently snapshot up to 32 volumes at one time.'
+---
+
+= Creating a group snapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can create a snapshot of a group of volumes, and you can also create a group snapshot schedule to automate group snapshots. A single group snapshot can consistently snapshot up to 32 volumes at one time.
+
+.Steps
+. Click *Management* > *Volumes*.
+. Use the check boxes to select multiple volumes for a group of volumes.
+. Click *Bulk Actions*.
+. Click *Group Snapshot*.
+. Enter a new group snapshot name in the Create Group Snapshot of Volumes dialog box.
+. *Optional:* Select the *Include Each Group Snapshot Member in Replication When Paired* check box to ensure that each snapshot is captured in replication when the parent volume is paired.
+. Select a retention option for the group snapshot:
+ ** Click *Keep Forever* to retain the snapshot on the system indefinitely.
+ ** Click *Set Retention Period* and use the date spin boxes to choose a length of time for the system to retain the snapshot.
+. To take a single, immediate snapshot, perform the following steps:
+ .. Click *Take Group Snapshot Now*.
+ .. Click *Create Group Snapshot*.
+. To schedule the snapshot to run at a future time, perform the following steps:
+ .. Click *Create Group Snapshot Schedule*.
+ .. Enter a *New Schedule Name*.
+ .. Select a *Schedule Type* from the list.
+ .. *Optional:* Select the *Recurring Schedule* check box to repeat the scheduled snapshot periodically.
+ .. Click *Create Schedule*.

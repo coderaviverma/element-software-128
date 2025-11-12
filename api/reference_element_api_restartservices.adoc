@@ -1,0 +1,116 @@
+---
+permalink: api/reference_element_api_restartservices.html
+sidebar: sidebar
+keywords: restart,service,services,restartservices,restarting,node
+summary: 'You can use the RestartServices method to restart the services on a node.'
+---
+
+= RestartServices
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RestartServices` method to restart the services on a node.
+
+== Parameters
+
+CAUTION:
+
+This method causes temporary node services interruption.
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+force
+a|
+Set to true to restart services on a node.
+a|
+boolean
+a|
+None
+a|
+Yes
+a|
+service
+a|
+Service name to be restarted.
+a|
+string
+a|
+None
+a|
+No
+a|
+action
+a|
+Action to perform on the service (start, stop, restart).
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+details
+a|
+The output of the service restart procedure, including errors (if any).
+a|
+JSON object
+a|
+duration
+a|
+The time, in seconds, it took to restart services to the node.
+a|
+string
+a|
+result
+a|
+Results of the restart.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "RestartServices",
+   "params": {
+              "force" : true
+              "action" : restart,
+             }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "details": "solidfire stop/waiting\nsolidfire start/running, process 7284\n",
+    "duration": "00:00:02.541594",
+    "result": "Passed"
+  }
+}
+----
+
+== New since version
+
+9.6

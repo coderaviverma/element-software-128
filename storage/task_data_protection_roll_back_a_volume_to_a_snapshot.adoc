@@ -1,0 +1,23 @@
+---
+permalink: storage/task_data_protection_roll_back_a_volume_to_a_snapshot.html
+sidebar: sidebar
+keywords: volume to snapshot roll back, snapshot roll back, revert changes
+summary: 'You can roll back a volume to a previous snapshot at any time. This reverts any changes made to the volume since the snapshot was created.'
+---
+
+= Roll back a volume to a snapshot
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can roll back a volume to a previous snapshot at any time. This reverts any changes made to the volume since the snapshot was created.
+
+.Steps
+
+. Click *Data Protection* > *Snapshots*.
+. Click the *Actions* icon for the snapshot you want to use for the volume rollback.
+. In the resulting menu, select *Rollback Volume To Snapshot*.
+. *Optional:* To save the current state of the volume before rolling back to the snapshot:
+ .. In the *Rollback To Snapshot* dialog box, select *Save volume's current state as a snapshot*.
+ .. Enter a name for the new snapshot.
+. Click *Rollback Snapshot*.

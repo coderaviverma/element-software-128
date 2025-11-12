@@ -1,0 +1,243 @@
+---
+permalink: api/reference_element_api_clonevolume.html
+sidebar: sidebar
+keywords: volumes,volume,cloning,clone,CloneVolume
+summary: 'You can use the CloneVolume method to create a copy of a volume. This method is asynchronous and might take a variable amount of time to complete.'
+---
+
+= CloneVolume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CloneVolume` method to create a copy of a volume. This method is asynchronous and might take a variable amount of time to complete.
+
+The cloning process begins immediately when you make the `CloneVolume` request and is representative of the state of the volume when the API method is issued. You can use the xref:reference_element_api_getasyncresult.adoc[GetAsyncResult] method to determine when the cloning process is complete and the new volume is available for connections. You can use xref:reference_element_api_listsyncjobs.adoc[ListSyncJobs] to see the progress of creating the clone. The initial attributes and quality of service settings for the volume are inherited from the volume being cloned. You can change these settings with xref:reference_element_api_modifyvolume.adoc[ModifyVolume].
+
+NOTE: Cloned volumes do not inherit volume access group membership from the source volume.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+access
+a|
+Access allowed for the new volume. If a value is not specified, the access value does not change. Possible values:
+
+* `readOnly`: (Optional) Only read operations are allowed.
+* `readWrite`: (Optional) Reads and writes are allowed.
+* `locked`: (Optional) No reads or writes are allowed. If not specified, the access value of the volume being cloned is used.
+* `replicationTarget`: (Optional) Identify a volume as the target volume for a paired set of volumes. If the volume is not paired, the access status is locked.
+
+a|
+string
+a|
+None
+a|
+No
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+enable512e
+a|
+Specifies whether the new volume should use 512-byte sector emulation. If unspecified, the setting of the volume being cloned is used.
+a|
+boolean
+a|
+Setting of original volume
+a|
+No
+a|
+enableSnapMirrorReplication
+a|
+Determines whether the volume can be used for replication with SnapMirror endpoints. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+false
+a|
+No
+a|
+name
+a|
+Name of the new cloned volume; must be 1 to 64 characters in length.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+newAccountID
+a|
+AccountID for the owner of the new volume. If unspecified, the accountID of the owner of the volume being cloned is used.
+a|
+integer
+a|
+AccountID of the owner of original volume
+a|
+No
+a|
+newSize
+a|
+New size of the volume, in bytes. Might be greater or less than the size of the volume being cloned. If not specified, the volume size is not changed. Size is rounded up to the nearest 1MB in size.
+a|
+integer
+a|
+None
+a|
+No
+a|
+snapshotID
+a|
+ID of the snapshot that is used as the source of the clone. If no ID is provided, the current active volume is used.
+a|
+integer
+a|
+None
+a|
+No
+a|
+volumeID
+a|
+VolumeID for the volume to be cloned.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+asyncHandle
+a|
+The handle value used to obtain the operation result.
+a|
+integer
+a|
+cloneID
+a|
+The cloneID for the newly cloned volume.
+a|
+integer
+a|
+curve
+a|
+The QoS curve values applied to the clone.
+a|
+JSON object
+a|
+volume
+a|
+An object containing information about the newly cloned volume.
+a|
+xref:reference_element_api_volume.adoc[volume]
+a|
+volumeID
+a|
+VolumeID for the newly cloned volume.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "CloneVolume",
+   "params": {
+      "volumeID" : 5,
+      "name"  : "mysqldata-snapshot1",
+      "access" : "readOnly"
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+      "asyncHandle": 42,
+      "cloneID": 37,
+      "volume": {
+          "access": "readOnly",
+          "accountID": 1,
+          "attributes": {},
+          "blockSize": 4096,
+          "createTime": "2016-03-31T22:26:03Z",
+          "deleteTime": "",
+          "enable512e": true,
+          "iqn": "iqn.2010-01.com.solidfire:jyay.mysqldata-snapshot1.680",
+          "name": "mysqldata-snapshot1",
+          "purgeTime": "",
+          "qos": {
+              "burstIOPS": 100,
+              "burstTime": 60,
+              "curve": {
+                  "4096": 100,
+                  "8192": 160,
+                  "16384": 270,
+                  "32768": 500,
+                  "65536": 1000,
+                  "131072": 1950,
+                  "262144": 3900,
+                  "524288": 7600,
+                  "1048576": 15000
+              },
+              "maxIOPS": 100,
+              "minIOPS": 50
+          },
+          "scsiEUIDeviceID": "6a796179000002a8f47acc0100000000",
+          "scsiNAADeviceID": "6f47acc1000000006a796179000002a8",
+          "sliceCount": 0,
+          "status": "init",
+          "totalSize": 1000341504,
+          "virtualVolumeID": null,
+          "volumeAccessGroups": [],
+          "volumeID": 680,
+          "volumePairs": []
+      },
+      "volumeID": 680
+  }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+* xref:reference_element_api_getasyncresult.adoc[GetAsyncResult]
+* xref:reference_element_api_listsyncjobs.adoc[ListSyncJobs]
+* xref:reference_element_api_modifyvolume.adoc[ModifyVolume]

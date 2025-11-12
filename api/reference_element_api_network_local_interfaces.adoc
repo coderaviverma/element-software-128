@@ -1,0 +1,130 @@
+---
+permalink: api/reference_element_api_network_local_interfaces.html
+sidebar: sidebar
+keywords: object,objects,network
+summary: 'The network \(local interfaces\) object contains configuration information for local network interfaces, such as the loopback interface, on a storage node. You can use the GetConfig and GetNetworkConfig methods to obtain this information for a storage node.'
+---
+
+= network (local interfaces)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The network (local interfaces) object contains configuration information for local network interfaces, such as the loopback interface, on a storage node. You can use the `GetConfig` and `GetNetworkConfig` methods to obtain this information for a storage node.
+
+== Object members
+
+This object contains the following members:
+
+|===
+|Name |Description |Type
+a|
+family
+a|
+Address family that the interface is configured to use. Currently "inet" for IPv4 is supported.
+a|
+string
+a|
+macAddress
+a|
+The actual MAC address assigned to the interface and observed by the network.
+a|
+string
+a|
+macAddressPermanent
+a|
+The immutable MAC address assigned by the manufacturer to the interface.
+a|
+string
+a|
+method
+a|
+The method used to configure the interface. Possible values:
+
+* loopback: Used to define the IPv4 loopback interface.
+* manual: Used to define interfaces that are not configured automatically.
+* dhcp: Can be used to obtain an IP address via DHCP.
+* static: Used to define Ethernet interfaces with statically allocated IPv4 addresses.
+
+a|
+string
+a|
+status
+a|
+The state of the interface. Possible values:
+
+* Down: The interface is inactive.
+* Up: The interface is ready, but has no link.
+* UpAndRunning: The interface is ready and a link is established.
+
+a|
+string
+a|
+upAndRunning
+a|
+Indicates if the interface is ready and has a link.
+a|
+boolean
+|===
+
+== Member modifiability and node states
+
+This table indicates whether or not the object parameters can be modified at each possible node state.
+
+|===
+| Parameter name| Available state| Pending state| Active state
+a|
+family
+a|
+No
+a|
+No
+a|
+No
+a|
+macAddress
+a|
+Configured by system
+a|
+N/A
+a|
+N/A
+a|
+macAddressPermanent
+a|
+Configured by system
+a|
+N/A
+a|
+N/A
+a|
+method
+a|
+No
+a|
+No
+a|
+No
+a|
+status
+a|
+Yes
+a|
+Yes
+a|
+Yes
+a|
+upAndRunning
+a|
+Configured by system
+a|
+N/A
+a|
+N/A
+|===
+
+
+== Find more information
+
+* xref:reference_element_api_getconfig.adoc[GetConfig]
+* xref:reference_element_api_getnetworkconfig.adoc[GetNetworkConfig]

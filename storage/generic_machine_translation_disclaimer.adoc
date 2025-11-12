@@ -1,0 +1,10 @@
+---
+permalink: storage/generic_machine_translation_disclaimer.html
+sidebar: sidebar
+keywords:
+summary: ''
+---
+
+= Machine translation
+:icons: font
+:imagesdir: ../media/

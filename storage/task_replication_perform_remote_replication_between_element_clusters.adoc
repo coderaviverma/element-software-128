@@ -1,0 +1,24 @@
+---
+permalink: storage/task_replication_perform_remote_replication_between_element_clusters.html
+sidebar: sidebar
+keywords: remote replication, clusters, Element software, failover, failback
+summary: 'For clusters running Element software, real-time replication enables the quick creation of remote copies of volume data. You can pair a storage cluster with up to four other storage clusters. You can replicate volume data synchronously or asynchronously from either cluster in a cluster pair for failover and failback scenarios.'
+---
+
+= Perform remote replication between clusters running NetApp Element software
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+For clusters running Element software, real-time replication enables the quick creation of remote copies of volume data. You can pair a storage cluster with up to four other storage clusters. You can replicate volume data synchronously or asynchronously from either cluster in a cluster pair for failover and failback scenarios.
+
+The replication process includes these steps:
+
+image::../media/replication_element_clusters_workflow.gif[Replication workflor diagram]
+
+* link:task_replication_plan_cluster_and_volume_pairing.html[Plan cluster and volume pairing for real-time replication]
+* link:task_replication_pair_clusters.html[Pair clusters for replication]
+* link:task_replication_pair_volumes.html[Pair volumes]
+* link:task_replication_validate_volume_replication.html[Validate volume replication]
+* link:task_replication_delete_volume_relationship_after_replication.html[Delete a volume relationship after replication]
+* link:task_replication_manage_volume_relationships.html[Manage volume relationships]

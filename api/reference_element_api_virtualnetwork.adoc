@@ -1,0 +1,79 @@
+---
+permalink: api/reference_element_api_virtualnetwork.html
+sidebar: sidebar
+keywords: object,objects,virtualNetwork
+summary: 'The virtualNetwork object contains information about a specific virtual network. You can use the ListVirtualNetworks API method to retrieve a list of this information for all virtual networks in the system.'
+---
+
+= virtualNetwork
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The virtualNetwork object contains information about a specific virtual network. You can use the `ListVirtualNetworks` API method to retrieve a list of this information for all virtual networks in the system.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+addressBlocks
+a|
+The range of address blocks currently assigned to the virtual network. Members:
+
+* available: Binary string in "1"s and "0"s. "1" denotes that the IP address is available, and "0" denotes that the IP is not available. The string is read from right to left with the digit to the far right being the first IP address in the list of address blocks.
+* size: The size of this block of addresses.
+* start: The first IP address in the block.
+
+a|
+JSON object array
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+name
+a|
+The name assigned to the virtual network.
+a|
+string
+a|
+netmask
+a|
+The IP address of the netmask for the virtual network.
+a|
+string
+a|
+svip
+a|
+The storage IP address for the virtual network.
+a|
+string
+a|
+gateway
+a|
+The gateway used for the virtual network.
+a|
+string
+a|
+virtualNetworkID
+a|
+The unique identifier for a virtual network.
+a|
+integer
+a|
+virtualNetworkTag
+a|
+The VLAN tag identifier.
+a|
+integer
+|===
+
+== Find more information
+
+xref:reference_element_api_listvirtualnetworks.adoc[ListVirtualNetworks]

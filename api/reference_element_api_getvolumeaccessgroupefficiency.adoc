@@ -1,0 +1,105 @@
+---
+permalink: api/reference_element_api_getvolumeaccessgroupefficiency.html
+sidebar: sidebar
+keywords: volume,volumes,get,getting,access,group,efficiency,GetVolumeAccessGroupEfficiency
+summary: 'You can use the GetVolumeAccessGroupEfficiency method to get efficiency information about a volume access group. Only the volume access group you provide as the parameter in this API method is used to compute the capacity.'
+---
+
+= GetVolumeAccessGroupEfficiency
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetVolumeAccessGroupEfficiency` method to get efficiency information about a volume access group. Only the volume access group you provide as the parameter in this API method is used to compute the capacity.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeAccessGroupID
+a|
+Specifies the volume access group for which capacity is computed.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+compression
+a|
+The amount of space saved by data compression for all volumes in the volume access group. Stated as a ratio where a value of 1 means data has been stored with no compression.
+a|
+float
+a|
+deduplication
+a|
+The amount of space saved by not duplicating data for all volumes in the volume access group. Stated as a ratio.
+a|
+float
+a|
+thinProvisioning
+a|
+The ratio of space used to the amount of space allocated for storing data. Stated as a ratio.
+a|
+float
+a|
+timestamp
+a|
+The last time efficiency data was collected after garbage collection.
+a|
+ISO 8601 data string
+a|
+missingVolumes
+a|
+The volumes that could not be queried for efficiency data. Missing volumes can be caused by a recent garbage collection, temporary network loss or restarted services since the garbage collection cycle.
+a|
+integer array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetVolumeAccessGroupEfficiency",
+   "params": {
+      "volumeAccessGroupID": 1
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+       "compression": 2.006012925331075,
+       "deduplication": 1,
+       "missingVolumes": [],
+       "thinProvisioning": 1.009861932938856,
+       "timestamp": "2014-03-10T17:05:27Z"
+   }
+}
+----
+
+== New since version
+
+9.6

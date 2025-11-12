@@ -1,0 +1,182 @@
+---
+permalink: api/reference_element_api_createcluster.html
+sidebar: sidebar
+keywords: CreateCluster,cluster,create,creating,initialize,initializing
+summary: 'You can use the CreateCluster method to initialize the node in a cluster that has ownership of the "mvip" and "svip" addresses. Each new cluster is initialized using the management IP \(MIP\) of the first node in the cluster. This method also automatically adds all the nodes being configured into the cluster. You only need to use this method once each time a new cluster is initialized.'
+---
+
+= CreateCluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CreateCluster` method to initialize the node in a cluster that has ownership of the "mvip" and "svip" addresses. Each new cluster is initialized using the management IP (MIP) of the first node in the cluster. This method also automatically adds all the nodes being configured into the cluster. You only need to use this method once each time a new cluster is initialized.
+
+NOTE: After you log in to the master node for the cluster and run the xref:reference_element_api_getbootstrapconfig.adoc[GetBootStrapConfig] method to get the IP addresses for the rest of the nodes that you want to include in the cluster, you can run the CreateCluster method against the master node for the cluster.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+acceptEula
+a|
+Indicate your acceptance of the End User License Agreement when creating this cluster. To accept the EULA, set this parameter to true.
+a|
+boolean
+a|
+None
+a|
+Yes
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+enableSoftwareEncryptionAtRest
+a|
+Enable this parameter to use software-based encryption at rest. Defaults to false on all clusters. After software encryption at rest is enabled, it cannot be disabled on the cluster.
+a|
+boolean
+a|
+true
+a|
+No
+a|
+mvip
+a|
+Floating (virtual) IP address for the cluster on the management network.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+nodes
+a|
+CIP/SIP addresses of the initial set of nodes making up the cluster. This node's IP must be in the list.
+a|
+string array
+a|
+None
+a|
+Yes
+a|
+orderNumber
+a|
+Alphanumeric sales order number. Required on software-based platforms.
+a|
+string
+a|
+None
+a|
+No (hardware-based platforms)
+
+Yes (software-based platforms)
+
+a|
+password
+a|
+Initial password for the cluster admin account.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+serialNumber
+a|
+Nine-digit alphanumeric Serial Number. May be required on software-based platforms.
+a|
+string
+a|
+None
+a|
+No (hardware-based platforms)
+
+Yes (software-based platforms)
+
+a|
+svip
+a|
+Floating (virtual) IP address for the cluster on the storage (iSCSI) network.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+username
+a|
+User name for the cluster admin.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "CreateCluster",
+  "params": {
+    "acceptEula": true,
+    "mvip": "10.0.3.1",
+    "svip": "10.0.4.1",
+    "username": "Admin1",
+    "password": "9R7ka4rEPa2uREtE",
+    "attributes": {
+      "clusteraccountnumber": "axdf323456"
+    },
+    "nodes": [
+      "10.0.2.1",
+      "10.0.2.2",
+      "10.0.2.3",
+      "10.0.2.4"
+    ]
+  },
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+"id" : 1,
+"result" : {}
+}
+----
+
+== New since version
+
+9.6
+
+[discrete]
+== Find more information
+* link:reference_element_api_getbootstrapconfig.html[GetBootstrapConfig]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

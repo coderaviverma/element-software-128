@@ -1,0 +1,22 @@
+---
+permalink: storage/task_replication_pair_clusters_using_mvip_or_a_pairing_key.html
+sidebar: sidebar
+keywords: pair cluster, mvip, pairing key, cluster pairing
+summary: 'You can pair a source and target cluster using the MVIP of the target cluster if there is cluster administrator access to both clusters. If cluster administrator access is only available on one cluster in a cluster pair, a pairing key can be used on the target cluster to complete the cluster pairing.'
+---
+
+= Pair clusters using MVIP or a pairing key
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can pair a source and target cluster using the MVIP of the target cluster if there is cluster administrator access to both clusters. If cluster administrator access is only available on one cluster in a cluster pair, a pairing key can be used on the target cluster to complete the cluster pairing.
+
+. Select one of the following methods to pair clusters:
+ ** Pair clusters using MVIP: Use this method if there is cluster administrator access to both clusters. This method uses the MVIP of the remote cluster to pair two clusters.
+ ** Pair clusters using a pairing key: Use this method if there is cluster administrator access to only one of the clusters. This method generates a pairing key that can be used on the target cluster to complete the cluster pairing.
+
+== Find more information
+
+* xref:task_replication_pair_cluster_using_mvip.adoc[Pair clusters using MVIP]
+* xref:task_replication_pair_cluster_using_pairing_key.adoc[Pair clusters using a pairing key]

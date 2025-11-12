@@ -1,0 +1,128 @@
+---
+permalink: api/reference_element_api_event.html
+sidebar: sidebar
+keywords: object,objects,event
+summary: 'The event object contains details of events that occur during an API method call or while the system is performing an operation.'
+---
+
+= event
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The event object contains details of events that occur during an API method call or while the system is performing an operation.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+details
+a|
+Extra information about the event.
+a|
+JSON object
+a|
+driveID
+a|
+The driveID of the drive reporting the failure. 0 if not applicable.
+a|
+integer
+a|
+driveIDs
+a|
+A list of the driveIDs of the drives reporting the failure. An empty list if not applicable.
+a|
+integer array
+a|
+eventID
+a|
+Unique ID associated with each event.
+a|
+integer
+a|
+eventInfoType
+a|
+The type of fault.
+a|
+string
+a|
+message
+a|
+A string description of the event that occurred.
+a|
+string
+a|
+nodeID
+a|
+The nodeID of the node reporting the failure. 0 if not applicable.
+a|
+integer
+a|
+serviceID
+a|
+The serviceID of the service reporting the failure. 0 if not applicable.
+a|
+integer
+a|
+severity
+a|
+Severity the event is reporting.
+a|
+integer
+a|
+timeOfPublish
+a|
+The time at which the cluster's event log received the event, in UTC+0 format.
+a|
+ISO 8601 date string
+a|
+timeOfReport
+a|
+The time at which the event occurred on the cluster, in UTC+0 format.
+a|
+ISO 8601 date string
+|===
+*Note:* There might be a slight difference between timeOfReport and timeOfPublish if the event occurred and was not able to be immediately published.
+
+== Event types
+
+The following list describes the possible event types that the eventInfoType member can contain:
+
+* apiEvent: Events initiated through the API or web UI that modify settings.
+* binAssignmentsEvent: Events related to the assignment of data to internal containers.
+* binSyncEvent: Events related to a reassignment of data among block services.
+* bsCheckEvent: Events related to block service checks.
+* bsKillEvent: Events related to block service terminations.
+* bulkOpEvent: Events that operate on an entire volume, such as a volume backup, restore, snapshot, or clone.
+* cloneEvent: Events related to volume cloning.
+* clusterMasterEvent: Cluster configuration change events such as adding or removing nodes.
+* dataEvent: Events related to reading and writing data.
+* dbEvent: Events related to the ensemble node database.
+* driveEvent: Events related to drive operations.
+* encryptionAtRestEvent: Events related to stored data encryption.
+* ensembleEvent: Events related to ensemble size increase or decrease.
+* fibreChannelEvent: Events related to Fibre Channel node configuration or connections.
+* gcEvent: Events related to garbage collection. These processes run every 60 minutes to reclaim storage on block drives.
+* ieEvent: Events related to internal system errors.
+* installEvent: Eevnts related to automatic software installation on pending storage nodes.
+* iSCSIEvent: Events related to iSCSI connection or configuration issues.
+* limitEvent: Events related to the number of volumes or virtual volumes in an account or in the cluster nearing the maximum allowed.
+* networkEvent: Events related to virtual networking.
+* platformHardwareEvent: Events related to issues detected on hardware devices.
+* remoteClusterEvent: Events related to remote cluster pairing.
+* schedulerEvent: Events related to scheduled snapshots.
+* serviceEvent: Events related to system service status.
+* statEvent: Events related to system statistics.
+* sliceEvent: Events related to metadata storage.
+* snmpTrapEvent: Events related to SNMP traps.
+* tsEvent: System transport service events.
+* unexpectedException: Events related to unexpected errors.
+* vasaProviderEvent: Events related to a VMware VASA provider.
+
+== Find more information
+
+xref:reference_element_api_listevents.adoc[ListEvents]

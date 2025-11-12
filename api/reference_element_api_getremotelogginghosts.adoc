@@ -1,0 +1,73 @@
+---
+permalink: api/reference_element_api_getremotelogginghosts.html
+sidebar: sidebar
+keywords: remote,logging,hosts,host,get,getting,getremotelogginghosts
+summary: 'You can use the GetRemoteLoggingHosts method to get the current list of log servers.'
+---
+
+= GetRemoteLoggingHosts
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetRemoteLoggingHosts` method to get the current list of log servers.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+remoteHosts
+a|
+List of IP address and port information about hosts configured to receive forwarded logging information.
+a|
+xref:reference_element_api_loggingserver.adoc[loggingServer] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "id": 3386609,
+   "method": "GetRemoteLoggingHosts",
+   "params": {}
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 3386609,
+   "result": {
+      "remoteHosts": [
+         {
+           "host": "172.16.1.20",
+           "port": 10514
+         },
+         {
+           "host": "172.16.1.25"
+         }
+      ]
+   }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_setremotelogginghosts.adoc[SetRemoteLoggingHosts]

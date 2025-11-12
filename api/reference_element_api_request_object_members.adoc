@@ -1,0 +1,48 @@
+---
+permalink: api/reference_element_api_request_object_members.html
+sidebar: sidebar
+keywords: request,object,members
+summary: 'Each Element software API request has the following basic parts:'
+---
+
+= Request object members
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Each Element software API request has the following basic parts:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+method
+a|
+Name of the method to be invoked.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+parameters
+a|
+Object containing the parameters to the method being invoked. Named parameters are required. Positional parameters (passed as an array) are not allowed.
+a|
+JSON object
+a|
+{}
+a|
+No
+a|
+id
+a|
+Identifier used to match the request to response, returned in the result.
+a|
+string or integer
+a|
+{}
+a|
+No
+|===

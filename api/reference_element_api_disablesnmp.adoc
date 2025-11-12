@@ -1,0 +1,48 @@
+---
+permalink: api/reference_element_api_disablesnmp.html
+sidebar: sidebar
+keywords: SNMP,disable,disabling,DisableSnmp
+summary: 'You can use the DisableSnmp method to disable SNMP on the cluster nodes.'
+---
+
+= DisableSnmp
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DisableSnmp` method to disable SNMP on the cluster nodes.
+
+== Parameter
+
+This method has no input parameter.
+
+== Return value
+
+This method has no return value.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "DisableSnmp",
+  "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "result" : {},
+  "id" : 1
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,29 @@
+---
+permalink: setup/index.html
+sidebar: sidebar
+keywords: set up storage, storage system, set up, configure node, configuring storage node, add drives, fibre channel, create cluster
+summary: Learn how to set up set up the storage system for your environment.
+---
+= Set up storage
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Learn how to set up set up the storage system for your environment.
+
+* xref:concept_setup_overview.adoc[Set up storage]
+** xref:task_setup_cluster_with_storage_nodes.adoc[Set up a cluster with storage nodes]
+*** xref:concept_setup_configure_a_storage_node.adoc[Configure a storage node]
+*** xref:task_setup_create_a_storage_cluster.adoc[Create a storage cluster]
+*** xref:task_post_deploy_access_the_element_software_user_interface.adoc[Log in to the Element software user interface]
+*** xref:task_setup_add_drives_to_a_cluster.adoc[Add drives to the cluster]
+** xref:task_setup_cluster_with_fibre_channel_nodes.adoc[Set up a cluster with Fibre Channel nodes]
+    entries:
+*** xref:concept_setup_fc_configure_a_fibre_channel_node.adoc[Configure a Fibre Channel node]
+*** xref:task_setup_fc_add_fibre_channel_nodes_to_a_cluster.adoc[Add Fibre Channel nodes to a cluster]
+*** xref:task_setup_fc_create_a_new_cluster_with_fibre_channel_nodes.adoc[Create a new cluster with Fibre Channel nodes]
+*** xref:concept_setup_fc_set_up_zones_for_fibre_channel_nodes.adoc[Set up zones for Fibre Channel nodes]
+*** xref:task_setup_create_a_volume_access_group_for_fibre_channel_clients.adoc[Create a volume access group for Fibre Channel clients]
+** xref:task_setup_determine_which_solidfire_components_to_install.adoc[Determine which SolidFire components to install]
+** xref:task_setup_gh_redirect_set_up_a_management_node.adoc[Set up a management node]
+** xref:concept_setup_whats_next.adoc[What's next?]

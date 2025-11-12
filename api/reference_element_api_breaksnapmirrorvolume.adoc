@@ -1,0 +1,84 @@
+---
+permalink: api/reference_element_api_breaksnapmirrorvolume.html
+sidebar: sidebar
+keywords: SnapMirror,volume,volumes,break,breaking,relationship,ONTAP,source,snapshot
+summary: 'The Element web UI uses the BreakSnapMirrorVolume method to break the SnapMirror relationship between an ONTAP source container and Element target volume. Breaking an Element SnapMirror volume is useful if an ONTAP system becomes unavailable while replicating data to an Element volume. This feature enables a storage administrator to take control of an Element SnapMirror volume, break its relationship with the remote ONTAP system, and revert the volume to a previous snapshot.'
+---
+
+= BreakSnapMirrorVolume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element web UI uses the `BreakSnapMirrorVolume` method to break the SnapMirror relationship between an ONTAP source container and Element target volume. Breaking an Element SnapMirror volume is useful if an ONTAP system becomes unavailable while replicating data to an Element volume. This feature enables a storage administrator to take control of an Element SnapMirror volume, break its relationship with the remote ONTAP system, and revert the volume to a previous snapshot.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeID
+a|
+The volume on which to perform the break operation. The volume access mode must be snapMirrorTarget.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+snapshotID
+a|
+Roll back the volume to the snapshot identified by this ID. The default behavior is to roll back to the most recent snapshot.
+a|
+integer
+a|
+None
+a|
+No
+a|
+preserve
+a|
+Preserve any snapshots newer than the snapshot identified by snapshotID. Possible values:
+
+* true: Preserve snapshots newer than snapshotID.
+* false: Do not preserve snapshots newer than snapshotID.
+
+If false, any snapshots newer than snapshotID are deleted.
+a|
+boolean
+a|
+false
+a|
+No
+a|
+access
+a|
+Resulting volume access mode. Possible values:
+
+* readWrite
+* readOnly
+* locked
+
+a|
+string
+a|
+readWrite
+a|
+No
+|===
+
+== Return values
+
+This method has no return values.
+
+== New since version
+
+10.0
+
+== Find more information
+
+xref:reference_element_api_breaksnapmirrorrelationship.adoc[BreakSnapMirrorRelationship]

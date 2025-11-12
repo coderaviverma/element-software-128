@@ -1,0 +1,54 @@
+---
+permalink: storage/task_system_manage_virtual_add_a_virtual_network.html
+sidebar: sidebar
+keywords: virtual network, add, cluster configuration, cluster nodes, svip, vlans, vrf, view, network details,
+summary: 'You can add a new virtual network to a cluster configuration to enable a multi-tenant environment connection to a cluster running Element software.'
+---
+
+= Add a virtual network
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can add a new virtual network to a cluster configuration to enable a multi-tenant environment connection to a cluster running Element software.
+
+.What you'll need
+* Identify the block of IP addresses that will be assigned to the virtual networks on the cluster nodes.
+* Identify a storage network IP (SVIP) address that will be used as an endpoint for all NetApp Element storage traffic.
+
+IMPORTANT: You must consider the following criteria for this configuration:
+
+* VLANs that are not VRF-enabled require initiators to be in the same subnet as the SVIP.
+* VLANs that are VRF-enabled do not require initiators to be in the same subnet as the SVIP, and routing is supported.
+* The default SVIP does not require initiators to be in the same subnet as the SVIP, and routing is supported.
+
+When a virtual network is added, an interface for each node is created and each requires a virtual network IP address. The number of IP addresses you specify when creating a new virtual network must be equal to or greater than the number of nodes in the cluster. Virtual network addresses are bulk provisioned by and assigned to individual nodes automatically. You do not need to manually assign virtual network addresses to the nodes in the cluster.
+
+.Steps
+. Click *Cluster* > *Network*.
+. Click *Create VLAN*.
+. In the *Create a New VLAN* dialog box, enter values in the following fields:
+ ** *VLAN Name*
+ ** *VLAN Tag*
+ ** *SVIP*
+ ** *Netmask*
+ ** (Optional) *Description*
+. Enter the *Starting IP* address for the range of IP addresses in *IP Address Blocks*.
+. Enter the *Size* of the IP range as the number of IP addresses to include in the block.
+. Click *Add a Block* to add a non-continuous block of IP addresses for this VLAN.
+. Click *Create VLAN*.
+
+== View virtual network details
+
+.Steps
+. Click *Cluster* > *Network*.
+. Review the details.
++
+* *ID*: Unique ID of the VLAN network, which is assigned by the system.
+* *Name*: Unique user-assigned name for the VLAN network.
+* *VLAN Tag*: VLAN tag assigned when the virtual network was created.
+* *SVIP*: Storage virtual IP address assigned to the virtual network.
+* *Netmask*: Netmask for this virtual network.
+* *Gateway*: Unique IP address of a virtual network gateway. VRF must be enabled.
+* *VRF Enabled*: Indication of whether virtual routing and forwarding is enabled or not.
+* *IPs Used*: The range of virtual network IP addresses used for the virtual network.

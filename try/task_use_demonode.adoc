@@ -1,0 +1,100 @@
+---
+permalink: try/task_use_demonode.html
+sidebar: sidebar
+keywords: element demo node, virtual machine, element software, element api, vmware deployment
+summary: Element Demo Node is a VMware virtual machine version of Element software, which provides an easy way to demonstrate many of the key storage features of NetApp HCI and SolidFire products.
+---
+
+= Try storage features using Element Demo Node
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+https://mysupport.netapp.com/site/tools/tool-eula/element-demonode/download[Element Demo Node^] is a VMware virtual machine (VM) version of Element software, which provides an easy way to demonstrate many of the key storage features of NetApp HCI and SolidFire products. The demo node enables developers to code against the Element API without the need for physical hardware. It is packaged as an OVA file for easy VMware deployment.
+
+== Supported functionality:
+Element Demo Node is only intended for use as a demonstration and development tool. Be aware of the following functional limitations before using the demo node:
+
+* Element Demo Node does not support clustering. It functions as a single-node cluster only.
+* It does not support Element upgrades. To demo a newer version of Element, you should install a new demo node VM.
+* It is not intended to demonstrate storage performance. Performance observed on the demo node is in no way indicative of the performance on the physical clusters.
+* You cannot add demo nodes to NetApp HCI or SolidFire clusters.
+* VRF VLANs are not supported (standard tagged VLANs are supported).
+* Multi-drive slice service (MDSS) is not supported.
+* Element Demo Node is only supported with VMFS datastores. VVols are not supported.
+* Hardware-based configuration and monitoring functionality does not work with the demo node.
+* It supports a maximum of 10 snapshots per volume.
+* It supports a maximum 20 accounts per node/cluster.
+* It supports a maximum of 100 volumes per account.
+* It supports a maximum of 200 vVols per account.
+* It supports a maximum volume size of 100 GiB.
+* It supports a sustained cluster limit of 3000 IOPS.
+
+NOTE: All other Element software limitations apply. See the latest Element software Release Notes for details.
+
+== VM requirements
+
+* 240-GB total capacity (The size and number of virtual disks for the VM cannot be changed. Any additional storage presented via the hypervisor is ignored by the guest OS.)
+* 60 GB root disk
+* Thick provisioned/eager zeroed (one 30-GB metadata drive or three 50-GB block drives) or  thin provisioned/eager zeroed (*recommended*) (one 30-GB metadata drive or three 50-GB block drives)
+* Two vCPU (fully reserved)
+* 16-GB RAM (fully reserved)
+* Single HBA for all disks, LSI Logic parallel
+* Two vNICs, both vmxnet3 (one management, one storage)
+
+== Host requirements
+
+* ESXI 6.0 or 6.5 for Element Demo Node 11.7 VM
+* ESXi 6.5 for Element Demo Node 12.0 and 12.2 VMs
+* ESXi 6.7 and 7.0 for Element Demo Node 12.3 and 12.5 VMs
+* Multi core 64-bit Intel® architecture
+
+== Download Element Demo Node
+The Element Demo Node software is a set of VMware files that have been packaged in an .ova file.
+
+== Install Element Demo Node on VMware ESXi
+Installing Element Demo Node on VMware ESXi involves the following tasks:
+
+* <<Configure network interfaces>>
+* <<Register the demo node on an ESXi server>>
+* <<Start the demo node on an ESXi server>>
+
+=== Configure network interfaces
+The Element Demo Node requires two separate virtual machine networks. One is for storage traffic and the other is for management traffic.
+You should configure the storage network to support jumbo frames.
+
+=== Register the demo node on an ESXi server
+To register Element Demo Node on an ESXi server, you should deploy the demo node .ova file using the vSphere Client.
+
+.Steps
+. Log in to the vSphere Client, and select the ESXi host from the inventory panel.
+. Select *File* > *Deploy OVF Template*.
++
+The Deploy OVF Template Wizard is launched.
+. On the *Select template* page, browse to the OVA file you downloaded, and select *Open*.
+. Select *Next*.
+. On the *Name and Location* page, specify a name and location for the deployed template, and then select *Next*.
+. On the *Select a resource* page, browse to the location where you want to run the template, and select *Next*.
+. Verify the details, and select *Next*.
+. On the Select storage page, select where you want to store the virtual machine files and
+then select *Next*.
+. On the *Select networks* page, map the network used in the OVA file to the two separate virtual machine networks in your inventory, and select *Next*.
+. On the *Ready to complete* page, verify the details about the virtual machine you are creating, and then select *Finish*.
+
+NOTE: The demo node deployment might take a few minutes to complete.
+
+=== Start the demo node on an ESXi server
+You should start the demo node VM to access Element through the VMware ESXi console.
+
+.Steps
+. In the vSphere Client, select the demo node VM that you created.
+. Select the *Summary* tab to view the details about this VM.
+. Select *Power On* to start the VM.
+. Select *Launch Web Console*.
+. Use the TUI to configure the demo node. For more information, see link:../setup/concept_setup_configure_a_storage_node.html[Configure a storage node^].
+
+== How to get support
+Element Demo Node is available on a best-effort volunteer basis. For support, post your questions to the https://community.netapp.com/t5/Simulator-Discussions/bd-p/simulator-discussions[Element Demo Node Forum^].
+
+== Find more information
+https://mysupport.netapp.com/site/tools/tool-eula/element-demonode/download[Element Demo Node download page (login required)^]

@@ -1,0 +1,48 @@
+---
+permalink: storage/concept_troubleshoot_basic_mdss_drive_troubleshooting.html
+sidebar: sidebar
+keywords: mdss drives, troubleshoot, multi-drive slice service
+summary: 'You can recover metadata \(or slice\) drives by adding them back to the cluster in the event that one or both metadata drives fail. You can perform the recovery operation in the NetApp Element UI if the MDSS feature is already enabled on the node.'
+---
+
+= Basic MDSS drive troubleshooting
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can recover metadata (or slice) drives by adding them back to the cluster in the event that one or both metadata drives fail. You can perform the recovery operation in the NetApp Element UI if the MDSS feature is already enabled on the node.
+
+If either or both of the metadata drives in a node experiences a failure, the slice service will shut down and data from both drives will be backed up to different drives in the node.
+
+The following scenarios outline possible failure scenarios, and provide basic recommendations to correct the issue:
+
+== System slice drive fails
+
+* In this scenario, the slot 2 is verified and returned to an available state.
+* The system slice drive must be repopulated before the slice service can be brought back online.
+* You should replace the system slice drive, when the system slice drive becomes available, add the drive and the slot 2 drive at the same time.
+
+NOTE: You cannot add the drive in slot 2 by itself as a metadata drive. You must add both drives back to the node at the same time.
+
+== Slot 2 fails
+
+* In this scenario, the system slice drive is verified and returned to an available state.
+* You should replace slot 2 with a spare, when slot 2 becomes available, add the system slice drive and the slot 2 drive at the same time.
+
+== System slice drive and slot 2 fails
+
+* You should replace both system slice drive and slot 2 with a spare drive. When both drives become available, add the system slice drive and the slot 2 drive at the same time.
+
+== Order of operations
+
+* Replace the failed hardware drive with a spare drive (replace both drives if both have failed).
+* Add drives back to the cluster when they have been repopulated and are in an available state.
+
+== Verify operations
+
+* Verify that the drives in slot 0 (or internal) and slot 2 are identified as metadata drives in the Active Drives list.
+* Verify that all slice balancing has completed (there are no further moving slices messages in the event log for at least 30 minutes).
+
+== For more information
+
+xref:task_troubleshoot_add_mdss_drives.adoc[Add MDSS drives]

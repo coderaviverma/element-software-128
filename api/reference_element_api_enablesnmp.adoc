@@ -1,0 +1,65 @@
+---
+permalink: api/reference_element_api_enablesnmp.html
+sidebar: sidebar
+keywords: SNMP,enable,enabling,EnableSNMP
+summary: 'You can use the EnableSnmp method to enable SNMP on cluster nodes. When you enable SNMP, the action applies to all nodes in the cluster, and the values that are passed replace all values set in any previous call to EnableSnmp.'
+---
+
+= EnableSnmp
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `EnableSnmp` method to enable SNMP on cluster nodes. When you enable SNMP, the action applies to all nodes in the cluster, and the values that are passed replace all values set in any previous call to `EnableSnmp`.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+snmpV3Enabled
+a|
+If set to true, then SNMP v3 is enabled on each node in the cluster. If set to false, then SNMP v2 is enabled.
+a|
+boolean
+a|
+false
+a|
+No
+|===
+
+== Return value
+
+This method has no return value.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "EnableSnmp",
+  "params": {
+      "snmpV3Enabled"  : "true"
+  },
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {}
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,35 @@
+---
+permalink: concepts/concept_intro_product_overview.html
+sidebar: sidebar
+keywords:
+summary: 'A SolidFire all-flash storage system is comprised of discrete hardware components \(drive and nodes\) that are combined into a single pool of storage resources. This unified cluster presents as a single storage system for use by external clients and is managed with NetApp Element software.'
+---
+
+= Product overview
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+A SolidFire all-flash storage system is comprised of discrete hardware components (drive and nodes) that are combined into a single pool of storage resources. This unified cluster presents as a single storage system for use by external clients and is managed with NetApp Element software.
+
+Using the Element interface, API, or other management tools, you can monitor SolidFire cluster storage capacity and performance, and manage storage activity across a multi-tenant infrastructure.
+
+== SolidFire features
+A Solidfire system provides the following features:
+
+* Offers high performance storage for your large scale, private cloud infrastructure
+* Provides a flexible scale that lets you meet changing storage needs
+* Uses an API-driven storage management Element software interface
+* Guarantees performance using Quality of Service policies
+* Includes automatic load balancing across all nodes in the cluster
+* Rebalances clusters automatically when nodes are added or subtracted
+
+== SolidFire deployment
+
+Use storage nodes provided by NetApp and integrated with NetApp Element software.
+
+link:../concepts/concept_solidfire_concepts_solidfire_architecture_overview.html[SolidFire all-flash storage architecture overview]
+
+== Find more information
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+// 2022 DEC 12, DOC-4643 

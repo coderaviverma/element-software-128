@@ -1,0 +1,74 @@
+---
+permalink: api/reference_element_api_disablefeature.html
+sidebar: sidebar
+keywords: SNMP,disable,disabling,DisableFeature,vvols,virtual volumes
+summary: 'You can use the DisableFeature method to disable the VolumeLoadBalanceOnActualIOPS.'
+---
+= DisableFeature
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DisableFeature` method to disable the `VolumeLoadBalanceOnActualIOPS` feature. `VolumeLoadBalanceOnActualIOPS` is disabled by default. 
+
+[NOTE]
+====
+If you try to disable another feature, such as VVols, the following error message appears:
+
+----
+{"error":{"code":500,"message":"VolumeLoadBalanceOnActualIOPS is the only feature that can be disabled","name":"xAPINotPermitted"},"id":null} 
+----
+====
+
+== Parameter
+
+This method has the following input parameter.
+
+[cols="1a,3a,1a,1a,1a" options="header"]
+|===
+| Name | Description | Type | Default value | Required
+| feature
+a|
+Disable a cluster feature. Possible value:
+
+* `VolumeLoadBalanceOnActualIOPS`: Disable slice balancing on actual IOPS rather than Min IOPS. 
+
+| string
+| None
+| Yes
+|===
+
+== Return value
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "DisableFeature",
+    "params": {
+        "feature" : "VolumeLoadBalanceOnActualIOPS"
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {}
+}
+----
+
+== New since version
+
+12.8
+
+// 2023 JAN 9, DOC-4726

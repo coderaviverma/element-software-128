@@ -1,0 +1,106 @@
+---
+permalink: api/reference_element_api_listsyncjobs.html
+sidebar: sidebar
+keywords: sync,synchronization,job,jobs,list,get,listing,getting,listsyncjobs
+summary: 'You can use the ListSyncJobs method to get information about synchronization jobs that are running on an Element storage cluster. This method returns information about slice, clone, block, and remote synchronization jobs.'
+---
+
+= ListSyncJobs
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListSyncJobs` method to get information about synchronization jobs that are running on an Element storage cluster. This method returns information about slice, clone, block, and remote synchronization jobs.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+syncJobs
+a|
+List of objects describing synchronization processes that are currently running in the system.
+a|
+xref:reference_element_api_syncjob.adoc[syncJob] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListSyncJobs",
+   "params": { },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id":1,
+    "result":{
+      "syncJobs":[
+        {
+           "bytesPerSecond":275314.8834458956,
+           "currentBytes":178257920,
+           "dstServiceID":36,
+           "elapsedTime":289.4568382049871,
+           "percentComplete":8.900523560209423,
+           "remainingTime":2962.675921065957,
+           "sliceID":5,
+           "srcServiceID":16,
+           "stage":"whole",
+           "totalBytes":2002780160,
+           "type":"slice"
+       },
+       {
+           "bytesPerSecond":305461.3198607744,
+           "cloneID":1,
+           "currentBytes":81788928,
+           "dstServiceID":16,
+           "dstVolumeID":6,
+           "elapsedTime":291.7847648200743,
+           "nodeID":1,
+           "percentComplete":8.167539267015707,
+           "remainingTime":3280.708270981153,
+           "sliceID":6,
+           "srcServiceID":16,
+           "srcVolumeID":5,
+           "stage":"whole",
+           "totalBytes":1001390080,
+           "type":"clone"
+        },
+        {
+           "blocksPerSecond":0,
+           "branchType": "snapshot",
+           "dstServiceID":8,
+           "dstVolumeID":2,
+           "elapsedTime":0,
+           "percentComplete":0,
+           "remainingTime":0,
+           "sliceID":2,
+           "stage":"metadata",
+           "type":"remote"
+       }
+     ]
+   }
+}
+----
+
+== New since version
+
+9.6
+
+// 2023 OCT 4, DOC-4706

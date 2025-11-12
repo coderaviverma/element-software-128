@@ -1,0 +1,26 @@
+---
+permalink: storage/task_replication_pair_volumes.html
+sidebar: sidebar
+keywords: volume pairings, replication, cluster, cluster pair
+summary: 'After you have established a connection between clusters in a cluster pair, you can pair a volume on one cluster with a volume on the other cluster in the pair. When a volume pairing relationship is established, you must identify which volume is the replication target.'
+---
+
+= Pair volumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After you have established a connection between clusters in a cluster pair, you can pair a volume on one cluster with a volume on the other cluster in the pair. When a volume pairing relationship is established, you must identify which volume is the replication target.
+
+You can pair two volumes for real-time replication that are stored on different storage clusters in a connected cluster pair. After you pair two clusters, you can configure active volumes on one cluster to be continuously replicated to a second cluster, providing continuous data protection (CDP). You can also assign either volume to be the source or target of the replication.
+
+Volume pairings are always one-to-one. After a volume is part of a pairing with a volume on another cluster, you cannot pair it again with any other volume.
+
+.What you'll need
+* You have established a connection between clusters in a cluster pair.
+* You have cluster administrator privileges to one or both clusters being paired.
+
+.Steps
+. xref:task_replication_create_a_target_volume_with_read_write_access.adoc[Create a target volume with read or write access]
+. xref:task_replication_pair_volumes_using_volume_id_or_pairing_key.adoc[Pair volumes using a volume ID or pairing key]
+. xref:task_replication_assign_replication_source_and_target_to_paired_volumes.adoc[Assign a replication source and target to paired volumes]

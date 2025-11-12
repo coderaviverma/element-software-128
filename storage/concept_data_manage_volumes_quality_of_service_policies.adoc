@@ -1,0 +1,68 @@
+---
+permalink: storage/concept_data_manage_volumes_quality_of_service_policies.html
+sidebar: sidebar
+keywords: qos policies, manage, volumes, create, edit, delete
+summary: 'A Quality of Service \(QoS\) policy enables you to create and save a standardized quality of service setting that can be applied to many volumes. You can create, edit, and delete QoS policies from the QoS Policies page on the Management tab.'
+---
+
+= Manage Quality of Service policies
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+A Quality of Service (QoS) policy enables you to create and save a standardized quality of service setting that can be applied to many volumes. You can create, edit, and delete QoS policies from the QoS Policies page on the Management tab.
+
+NOTE: If you are using QoS policies, do not use custom QoS on a volume. Custom QoS will override and adjust QoS policy values for volume QoS settings.
+
+https://www.youtube.com/embed/q9VCBRDtrnI?rel=0[NetApp video: SolidFire Quality of Service Policies]
+
+See link:../concepts/concept_data_manage_volumes_solidfire_quality_of_service.html[Performance and quality of service].
+
+* Create a QoS policy
+* Edit a QoS policy
+* Delete a QoS policy
+
+== Create a QoS policy
+
+You can create QoS policies and apply them when creating volumes.
+
+. Select *Management* > *QoS Policies*.
+. Click *Create QoS Policy*.
+. Enter the *Policy Name*.
+. Enter the**Min IOPS**, *Max IOPS*, and *Burst IOPS* values.
+. Click *Create QoS Policy*.
+
+
+
+== Edit a QoS policy
+
+You can change the name of an existing QoS policy or edit the values associated with the policy. Changing a QoS policy affects all volumes associated with the policy.
+
+. Select *Management* > *QoS Policies*.
+. Click the Actions icon for the QoS policy you want to edit.
+. In the resulting menu, select**Edit**.
+. In the *Edit QoS Policy* dialog box, modify the following properties as required:
+ ** Policy Name
+ ** Min IOPS
+ ** Max IOPS
+ ** Burst IOPS
+. Click *Save Changes*.
+
+
+== Delete a QoS policy
+
+You can delete a QoS policy if it is no longer needed. When you delete a QoS policy, all volumes associated with the policy maintain the QoS settings but become unassociated with a policy.
+
+NOTE: If you are trying instead to disassociate a volume from a QoS policy, you can change the QoS settings for that volume to custom.
+
+. Select *Management* > *QoS Policies*.
+. Click the Actions icon for the QoS policy you want to delete.
+. In the resulting menu, select *Delete*.
+. Confirm the action.
+
+
+
+== Find more information
+* link:task_data_manage_volumes_remove_a_qos_policy_association_of_a_volume.html[Remove the QoS policy association of a volume]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

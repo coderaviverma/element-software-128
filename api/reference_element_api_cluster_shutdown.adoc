@@ -1,0 +1,13 @@
+---
+permalink: api/reference_element_api_cluster_shutdown.html
+sidebar: sidebar
+keywords: cluster,shutdown,node,shutting,down,shut,restart
+summary: 'You can use the Shutdown method to restart or shutdown the nodes in a cluster. You can shut down a single node, multiple nodes, or all of the nodes in the cluster using this method.'
+---
+
+= Shutdown
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+include::../_include/api_shutdown.adoc[]

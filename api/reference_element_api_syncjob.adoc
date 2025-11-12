@@ -1,0 +1,159 @@
+---
+permalink: api/reference_element_api_syncjob.html
+sidebar: sidebar
+keywords: object,objects,syncjob
+summary: 'The syncJob object contains information about clone, remote replication, or slice synchronization jobs that are running on a cluster.'
+---
+
+= syncJob
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The syncJob object contains information about clone, remote replication, or slice synchronization jobs that are running on a cluster.
+
+You can retrieve synchronization information with the `ListSyncJobs` API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+blocksPerSecond
+a|
+The number of data blocks being transferred per second from the source cluster to the target cluster. Present only if the type member is set to remote.
+a|
+integer
+a|
+branchType
+a|
+Returned for remote replication sync jobs only. Possible values:
+
+* snapshot
+* volume
+
+a|
+string
+a|
+bytesPerSecond
+a|
+The number of bytes the clone is processing per second. Present only if the type member is set to clone or slice.
+a|
+float
+a|
+cloneID
+a|
+The identifier of the clone operation that is in progress. Present only if the type member is set to clone.
+a|
+integer
+a|
+currentBytes
+a|
+The number of bytes the clone has processed in the source volume. Present only if the type member is set to clone or slice.
+a|
+integer
+a|
+dstServiceID
+a|
+The service identifier hosting the primary replica for the volume. Present only if the type member is set to remote.
+a|
+integer
+a|
+dstVolumeID
+a|
+The destination volume ID. Present only if the type member is set to clone or remote.
+a|
+integer
+a|
+elapsedTime
+a|
+The time elapsed, in seconds, since the sync job started.
+a|
+float or integer depending on the type of sync operation
+a|
+groupCloneID
+a|
+The ID of the group clone operation that is in progress.
+a|
+integer
+a|
+nodeID
+a|
+Specifies the node the clone is occurring on. Present only if the type member is set to clone.
+a|
+integer
+a|
+percentComplete
+a|
+The percentage of sync job completion.
+a|
+float or integer depending on the type of sync operation
+a|
+remainingTime
+a|
+The estimated time, in seconds, to complete the operation.
+a|
+float
+a|
+sliceID
+a|
+The ID of the slice drive being synced.
+a|
+integer
+a|
+stage
+a|
+Present only if the type member is set to remote or clone. Possible values:
+
+* metadata: Replication is in the process of determining what data needs to be transferred to the remote cluster. Status is not reported for this stage of the replication process.
+* data: Replication is in the process of transferring the bulk of the data to the remote cluster.
+* whole: Indicates backward compatibility of the slice for slice sync jobs.
+
+a|
+string
+a|
+snapshotID
+a|
+The ID of the snapshot the clone was created from. Present only if the type member is set to clone.
+a|
+integer
+a|
+srcServiceID
+a|
+The source service ID.
+a|
+integer
+a|
+srcVolumeID
+a|
+The source volume ID.
+a|
+integer
+a|
+totalBytes
+a|
+The total number of bytes of the clone. Present only if the type member is set to clone or slice.
+a|
+integer
+a|
+type
+a|
+The type of sync operation. Possible values:
+
+* clone
+* slice
+* block
+* remote
+
+a|
+string
+|===
+
+== Find more information
+
+xref:reference_element_api_listsyncjobs.adoc[ListSyncJobs]
+
+// 2025 JAN 28, DOC-4778

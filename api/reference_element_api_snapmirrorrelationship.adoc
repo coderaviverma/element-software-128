@@ -1,0 +1,175 @@
+---
+permalink: api/reference_element_api_snapmirrorrelationship.html
+sidebar: sidebar
+keywords: object,objects,snapMirrorRelationship
+summary: 'The snapMirrorRelationship object contains information about a SnapMirror relationship between a Element volume and an ONTAP volume.'
+---
+
+= snapMirrorRelationship
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The snapMirrorRelationship object contains information about a SnapMirror relationship between a Element volume and an ONTAP volume.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+snapMirrorEndpointID
+a|
+The ID of the destination ONTAP system.
+a|
+integer
+a|
+snapMirrorRelationshipID
+a|
+The unique identifier for each snapMirrorRelationship object in an array as would be returned in ListSnapMirrorRelationships. This UUID is created and returned from the ONTAP system.
+a|
+string
+a|
+sourceVolume
+a|
+An object describing the source volume.
+a|
+xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeInfo]
+a|
+destinationVolume
+a|
+An object describing the destination volume.
+a|
+xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeInfo]
+a|
+currentMaxTransferRate
+a|
+The current maximum transfer rate between the source and destination volumes, in kilobytes per second.
+a|
+integer
+a|
+isHealthy
+a|
+Whether the relationship is healthy or not. Possible values:
+
+* true: The relationship is healthy.
+* false: The relationship is not healthy. This can be caused by a manual or scheduled update failing or being aborted, or by the last scheduled update being delayed.
+
+a|
+boolean
+a|
+lagtime
+a|
+The amount of time in seconds by which the data on the destination volume lags behind the data on the source volume.
+a|
+integer
+a|
+lastTransferDuration
+a|
+The amount of time in seconds it took for the last transfer to complete.
+a|
+integer
+a|
+lastTransferError
+a|
+A message describing the cause of the last transfer failure.
+a|
+string
+a|
+lastTransferSize
+a|
+The total number of bytes transferred during the last transfer.
+a|
+integer
+a|
+lastTransferEndTimestamp
+a|
+The timestamp of the end of the last transfer.
+a|
+ISO 8601 date string
+a|
+lastTransferType
+a|
+The type of the previous transfer in the relationship.
+a|
+string
+a|
+maxTransferRate
+a|
+Specifies the maximum data transfer rate between the volumes in kilobytes per second. The default value, 0, is unlimited and permits the SnapMirror relationship to fully utilize the available network bandwidth.
+a|
+integer
+a|
+mirrorState
+a|
+The mirror state of the SnapMirror relationship. Possible values:
+
+* uninitialized: The destination volume has not been initialized.
+* snapmirrored: The destination volume has been initialized and is ready to receive SnapMirror updates.
+* broken-off: The destination volume is read-write and snapshots are present.
+
+a|
+string
+a|
+newestSnapshot
+a|
+The name of the newest Snapshot copy on the destination volume.
+a|
+string
+a|
+policyName
+a|
+Specifies the name of the ONTAP SnapMirror policy for the relationship. A list of available policies can be retrieved with ListSnapMirrorPolicies. Example values are "`MirrorLatest`" and "`MirrorAndVault`".
+a|
+string
+a|
+policyType
+a|
+The type of the ONTAP SnapMirror policy for the relationship. See ListSnapMirrorPolicies. Examples are: "`async_mirror`" or "`mirror_vault`".
+a|
+string
+a|
+relationshipProgress
+a|
+The total number of bytes that have been processed so far for the current activity of the relationship as returned in the relationship-status. This is set only when the "relationshipStatus" member indicates that an activity is in progress.
+a|
+integer
+a|
+relationshipStatus
+a|
+The status of the SnapMirror relationship. Possible values:
+
+* idle
+* transferring
+* checking
+* quiescing
+* quiesced
+* queued
+* preparing
+* finalizing
+* aborting
+* breaking
+
+a|
+string
+a|
+relationshipType
+a|
+The type of the SnapMirror relationship. On storage clusters running Element software, this value is always "`extended_data_protection`".
+a|
+string
+a|
+scheduleName
+a|
+The name of the pre-existing cron schedule on the ONTAP system that is used to update the SnapMirror relationship. A list of available schedules can be retrieved with ListSnapMirrorSchedules.
+a|
+string
+a|
+unhealthyReason
+a|
+The reason the relationship is not healthy.
+a|
+string
+|===

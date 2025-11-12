@@ -1,0 +1,69 @@
+---
+permalink: api/reference_element_api_restartnetworking.html
+sidebar: sidebar
+keywords: node,restarting,restart,networking,network,service,services,restartnetworking
+summary: 'You can use the RestartNetworking method to restart the networking services on a node.'
+---
+
+= RestartNetworking
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RestartNetworking` method to restart the networking services on a node.
+
+CAUTION:
+
+This method restarts all networking services on a node, causing temporary loss of networking connectivity.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+force
+a|
+Set to true to restart networking services on a node.
+a|
+boolean
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "RestartNetworking",
+   "params": {
+              "force" : true
+             },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{ "id" : 1,
+  "result" : {}
+}
+----
+
+== New since version
+
+9.6
+// 2022 DEC 12, DOC-4643 

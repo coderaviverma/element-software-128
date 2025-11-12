@@ -1,0 +1,130 @@
+---
+permalink: api/reference_element_api_testconnectmvip.html
+sidebar: sidebar
+keywords: management,connection,test,testing,mvip,testconnectmvip
+summary: 'You can use the TestConnectMvip method to test the management connection to the storage cluster. The test pings the MVIP and executes a simple API method to verify connectivity.'
+---
+
+= TestConnectMvip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `TestConnectMvip` method to test the management connection to the storage cluster. The test pings the MVIP and executes a simple API method to verify connectivity.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+|mvip
+|You can pass this value to test the management connection of a different MVIP. You do not need to use this value when testing the connection to the target cluster.
+|string
+|None
+|No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+|details
+a|Information about the test operation (JSON object):
+
+* `connected`: Indicates if the test could connect to the MVIP (boolean)
+* `mvip`: The MVIP tested against (string)
+* `pingBytes`: Details of the ping tests with 56 bytes and 1500 bytes (object)
+ ** `56`: Results of the 56 Byte ping test (JSON object):
+  *** `individualResponseTimes`: List of response times from each ensemble node (string array)
+  *** `individualStatus`: List of ping status from each ensemble node (boolean array)
+  *** `responseTime`: Average ping response time (string)
+  *** `successful`: Indicates if the ping test was successful (boolean)
+ ** `1500`: Results of the 1500 byte ping test (JSON object):
+  *** `individualResponseTimes`: List of response times from each ensemble node (string array)
+  *** `individualStatus`: List of ping status from each ensemble node (boolean array)
+  *** `responseTime`: Average ping response time (string)
+  *** `successful`: Whether the ping test was successful (boolean)
+ ** `duration`: Length of time required to run the test (string)
+ ** `result`: Result of the test as a whole (string)
+
+|JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "TestConnectMvip",
+   "params": {
+       "mvip" : "172.27.62.50"
+       },
+    "id":1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "details": {
+      "connected": true,
+      "mvip": "172.27.62.50",
+      "pingBytes": {
+        "1500": {
+          "individualResponseTimes": [
+            "00:00:00.000250",
+            "00:00:00.000206",
+            "00:00:00.000200",
+            "00:00:00.000199",
+            "00:00:00.000199"
+         ],
+          "individualStatus": [
+             true,
+             true,
+             true,
+             true,
+             true
+         ],
+         "responseTime": "00:00:00.000211",
+         "successful": true
+       },
+       "56": {
+          "individualResponseTimes": [
+            "00:00:00.000217",
+            "00:00:00.000122",
+            "00:00:00.000117",
+            "00:00:00.000119",
+            "00:00:00.000121"
+         ],
+         "individualStatus": [
+            true,
+            true,
+            true,
+            true,
+            true
+         ],
+         "responseTime": "00:00:00.000139",
+         "successful": true
+        }
+      }
+    },
+    "duration": "00:00:00.271244",
+    "result": "Passed"
+  }
+}
+----
+
+== New since version
+
+9.6

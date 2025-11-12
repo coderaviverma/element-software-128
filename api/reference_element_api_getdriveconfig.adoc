@@ -1,0 +1,90 @@
+---
+permalink: api/reference_element_api_getdriveconfig.html
+sidebar: sidebar
+keywords: drive,config,configuration,get,getting,getdriveconfig
+summary: 'You can use the GetDriveConfig method to get drive information for expected slice and block drive counts as well as the number of slices and block drives that are currently connected to the node.'
+---
+
+= GetDriveConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetDriveConfig` method to get drive information for expected slice and block drive counts as well as the number of slices and block drives that are currently connected to the node.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+driveConfig
+a|
+Information on the drives that are connected to the node.
+a|
+xref:reference_element_api_drive.adoc[drive]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetDriveConfig",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+Responses for this method are similar to the following example. Due to length, the response contains information for one drive of one storage node only.
+
+----
+{
+	"id": 1,
+	"result": {
+			"driveConfig": {
+					"drives": [
+						{
+							"canonicalName": "sda",
+							"connected": true,
+							"dev": 2052,
+							"devPath": "/dev/sdimm0p4",
+							"driveType": "Slice",
+							"name": "scsi-SATA_VRFSD3400GNCVMT205581853-part4",
+							"path": "/dev/sda4",
+							"pathLink": "/dev/sdimm0p4",
+							"product": "VRFSD3400GNCVMTKS1",
+							"scsiCompatId": "scsi-SATA_VRFSD3400GNCVMT205581853-part4",
+							"scsiState": "Running",
+							"securityAtMaximum": false,
+							"securityEnabled": false,
+							"securityFrozen": true,
+							"securityLocked": false,
+							"securitySupported": true,
+							"serial": "205581853",
+							"size": 299988156416,
+							"slot": -1,
+							"uuid": "9d4b198b-5ff9-4f7c-04fc-3bc4e2f38974",
+							"vendor": "Viking",
+							"version": "612ABBF0"
+						}
+					],
+					"numBlockActual": 10,
+					"numBlockExpected": 10,
+					"numSliceActual": 1,
+					"numSliceExpected": 1,
+					"numTotalActual": 11,
+					"numTotalExpected": 11
+			}
+	}
+}
+----

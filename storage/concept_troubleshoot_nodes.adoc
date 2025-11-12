@@ -1,0 +1,39 @@
+---
+permalink: storage/concept_troubleshoot_nodes.html
+sidebar: sidebar
+keywords: troubleshoot, nodes removing
+summary: 'You can remove nodes from a cluster for maintenance or replacement. You should use the NetApp Element UI or API to remove nodes before taking them offline.'
+---
+
+= Troubleshoot nodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can remove nodes from a cluster for maintenance or replacement. You should use the NetApp Element UI or API to remove nodes before taking them offline.
+
+An overview of the procedure to remove storage nodes is as follows:
+
+* Ensure that there is sufficient capacity in the cluster to create a copy of the data on the node.
+* Remove drives from the cluster by using the UI or the RemoveDrives API method.
++
+This results in the system migrating data from the node's drives to other drives in the cluster. The time this process takes is dependent on how much data must be migrated.
+
+* Remove the node from the cluster.
+
+Keep the following considerations in mind before you power down or power up a node:
+
+* Powering down nodes and clusters involves risks if not performed properly.
++
+Powering down a node should be done under the direction of NetApp Support.
+
+* If a node has been down longer than 5.5 minutes under any type of shutdown condition, Double Helix data protection begins the task of writing single replicated blocks to another node to replicate the data. In this case, contact NetApp Support for help with analyzing the failed node.
+* To safely reboot or power down a node, you can use the Shutdown API command.
+* If a node is in a down, or in an off state, you must contact NetApp Support before bringing it back online.
+* After a node is brought back online, you must add the drives back to the cluster, depending on how long it has been out of service.
+
+== For more information
+
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2844772[Replacing a failed SolidFire chassis]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2846861[Replacing a failed H600S series node]

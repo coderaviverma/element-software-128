@@ -1,0 +1,106 @@
+---
+permalink: api/reference_element_api_task_virtual_volumes.html
+sidebar: sidebar
+keywords: object,objects,task
+summary: 'The task object contains information about a currently running or finished virtual volume task in the system. You can use the ListVirtualVolumeTasks method to retrieve this information for all virtual volume tasks.'
+---
+
+= task (virtual volumes)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The task object contains information about a currently running or finished virtual volume task in the system. You can use the `ListVirtualVolumeTasks` method to retrieve this information for all virtual volume tasks.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+cancelled
+a|
+Indicates whether or not the task was cancelled. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+cloneVirtualVolumeID
+a|
+The unique virtual volume ID of the virtual volume being cloned (for clone tasks).
+a|
+UUID
+a|
+parentMetadata
+a|
+An object containing metadata of the parent for tasks which clone or create snapshots of a virtual volume.
+a|
+JSON object
+a|
+parentTotalSize
+a|
+The total space available (in bytes) on the parent for clone or snapshot tasks.
+a|
+integer
+a|
+parentUsedSize
+a|
+The used space of the parent (in bytes) for clone or snapshot tasks.
+a|
+integer
+a|
+operation
+a|
+The type of operation the task is performing. Possible values:
+
+* unknown: The task operation is unknown.
+* prepare: The task is preparing a virtual volume.
+* snapshot: The task is creating a snapshot of a virtual volume.
+* rollback: The task is rolling back a virtual volume to a snapshot.
+* clone: The task is creating a clone of the virtual volume.
+* fastClone: The task is creating a fast clone of a virtual volume.
+* copyDiffs: The task is copying differing blocks to a virtual volume.
+
+a|
+string
+a|
+status
+a|
+The current status of the virtual volume task. Possible values:
+
+* Error: The task has failed and returned an error.
+* Queued: The task is waiting to be run.
+* Running: The task is currently running.
+* Success: The task has completed successfully.
+
+a|
+string
+a|
+virtualVolumeHostID
+a|
+The unique ID of the host that started the task.
+a|
+UUID
+a|
+virtualVolumeID
+a|
+The new, unique virtual volume ID (for tasks that create a new virtual volume).
+a|
+UUID
+a|
+virtualVolumeTaskID
+a|
+The unique ID of the task.
+a|
+UUID
+|===
+
+
+== Find more information
+
+xref:reference_element_api_listvirtualvolumetasks.adoc[ListVirtualVolumeTasks]

@@ -1,0 +1,17 @@
+---
+permalink: api/reference_element_api_supported_modes_of_replication.html
+sidebar: sidebar
+keywords: supported,replication,modes,clusters,paired,pair,pairs
+summary: 'The following modes of replication are supported on the paired clusters:'
+---
+
+= Supported modes of replication for paired clusters
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The following modes of replication are supported on the paired clusters:
+
+* Asynchronous replication of data: The data sent to the replication target volume is sent asynchronously. The system does not wait for an acknowledgment to be sent before writing data.
+* Synchronous replication of data: The data sent to the replication target volume is sent synchronously. When the I/O operations sent from the host are acknowledged by the system, the system acknowledgment is sent back to the host and the data is sent to the replication target volume.
+* Snapshots-only replication of data: Only volume snapshots are replicated to the target cluster.

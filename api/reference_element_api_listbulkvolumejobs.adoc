@@ -1,0 +1,86 @@
+---
+permalink: api/reference_element_api_listbulkvolumejobs.html
+sidebar: sidebar
+keywords: bulk,volume,job,jobs,volumes,read,write,operation,list,listing,listbulkvolumejobs
+summary: 'You can use the ListBulkVolumeJobs method to get information about each bulk volume read or write operation that is occurring in the system.'
+---
+
+= ListBulkVolumeJobs
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListBulkVolumeJobs` method to get information about each bulk volume read or write operation that is occurring in the system.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+bulkVolumeJobs
+a|
+An array of information for each bulk volume job.
+a|
+xref:reference_element_api_bulkvolumejob.adoc[bulkVolumeJob] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListBulkVolumeJobs",
+   "params": {
+      },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "bulkVolumeJobs": [
+        {
+          "attributes": {
+            "blocksPerTransfer": 1024,
+            "firstPendingLba": 216064,
+            "nLbas": 2441472,
+            "nextLba": 226304,
+            "pendingLbas": "[220160, 223232, 221184, 224256, 217088, 225280, 222208, 218112, 219136, 216064]",
+            "percentComplete": 8,
+            "startLba": 0
+          },
+          "bulkVolumeID": 2,
+          "createTime": "2015-05-07T14:52:17Z",
+          "elapsedTime": 44,
+          "format": "native",
+          "key": "eaffb0526d4fb47107061f09bfc9a806",
+          "percentComplete": 8,
+          "remainingTime": 506,
+          "script": "bv_internal.py",
+          "snapshotID": 509,
+          "srcVolumeID": 3,
+          "status": "running",
+          "type": "read"
+       }
+     ]
+   }
+}
+----
+
+== New since version
+
+9.6

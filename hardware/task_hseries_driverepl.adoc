@@ -1,0 +1,13 @@
+---
+permalink: hardware/task_hseries_driverepl.html
+sidebar: sidebar
+keywords: drives, replace drives, SSDs, replacement, h610s, h410s, maintenance
+summary: If a drive is faulty or if the drive wear level falls below a threshold, you should replace it. Alarms in the Element software UI notify you when a drive has failed or is going to fail. You can hot-swap a failed drive.
+---
+
+= Replace drives
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+include::../_include/task_hseries_driverepl.adoc[]

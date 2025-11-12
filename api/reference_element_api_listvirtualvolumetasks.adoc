@@ -1,0 +1,100 @@
+---
+permalink: api/reference_element_api_listvirtualvolumetasks.html
+sidebar: sidebar
+keywords: virtual,volume,hosts,host,cluster,list,listing,listvirtualvolumetasks
+summary: 'You can use the ListVirtualVolumeTasks method to get a list of virtual volume tasks in the system.'
+---
+
+= ListVirtualVolumeTasks
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListVirtualVolumeTasks` method to get a list of virtual volume tasks in the system.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+virtualVolumeTaskIDs
+a|
+A list of virtual volume task IDs for which to retrieve information. If you omit this parameter, the method returns information about all virtual volume tasks.
+a|
+UUID array
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+tasks
+a|
+A list of objects describing the virtual volume tasks in the cluster.
+a|
+xref:reference_element_api_task_virtual_volumes.adoc[task] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ListVirtualVolumeTasks",
+    "params": {
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "tasks": [
+      {
+        "cancelled": false,
+        "cloneVirtualVolumeID": "fafeb3a0-7dd9-4c9f-8a07-80e0bbf6f4d0",
+        "operation": "clone",
+        "parentMetadata": {
+          "SFProfileId": "f4e5bade-15a2-4805-bf8e-52318c4ce443",
+          "SFgenerationId": "0",
+          "VMW_ContainerId": "abaab415-bedc-44cd-98b8-f37495884db0",
+          "VMW_GosType": "windows7Server64Guest",
+          "VMW_VVolName": "asdf.vmdk",
+          "VMW_VVolNamespace": "/vmfs/volumes/vvol:abaab415bedc44cd-98b8f37495884db0/rfc4122.269d3378-1ca6-4175-a18f-6d4839e5c746",
+          "VMW_VVolType": "Data",
+          "VMW_VmID": "502e0676-e510-ccdd-394c-667f6867fcdf",
+          "VMW_VvolAllocationType": "4",
+          "VMW_VvolProfile": "f4e5bade-15a2-4805-bf8e-52318c4ce443:0"
+        },
+        "parentTotalSize": 42949672960,
+        "parentUsedSize": 0,
+        "status": "success",
+        "virtualVolumeHostID": "564de1a4-9a99-da0f-8b7c-3a41dfd64bf1",
+        "virtualVolumeTaskID": "a1b72df7-66a6-489a-86e4-538d0dbe05bf",
+        "virtualvolumeID": "fafeb3a0-7dd9-4c9f-8a07-80e0bbf6f4d0"
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,20 @@
+---
+permalink: storage/task_replication_validate_volume_replication.html
+sidebar: sidebar
+keywords: volume pairings, replication, validate volume replication
+summary: 'After a volume is replicated, you should ensure that the source and target volumes are active. When in an active state, volumes are paired, data is being sent from the source to the target volume, and the data is in sync.'
+---
+
+= Validate volume replication
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+After a volume is replicated, you should ensure that the source and target volumes are active. When in an active state, volumes are paired, data is being sent from the source to the target volume, and the data is in sync.
+
+. From both clusters, select *Data Protection* > *Volume Pairs*.
+. Verify that the volume status is Active.
+
+== Find more information
+
+xref:reference_replication_volume_pairing_warnings.adoc[Volume pairing warnings]

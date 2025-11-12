@@ -1,0 +1,17 @@
+---
+permalink: storage/reference_monitor_status_of_running_tasks.html
+sidebar: sidebar
+keywords: running tasks, view progress of
+summary: 'You can view the progress and completion status of running tasks in the web UI that are being reported by the ListSyncJobs and ListBulkVolumeJobs API methods. You can access the Running Tasks page from the Reporting tab of the Element UI.'
+---
+
+= View status of running tasks
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can view the progress and completion status of running tasks in the web UI that are being reported by the ListSyncJobs and ListBulkVolumeJobs API methods. You can access the Running Tasks page from the Reporting tab of the Element UI.
+
+If there are a large number of tasks, the system might queue them and run them in batches. The Running Tasks page displays the services currently being synchronized. When a task is complete, it is replaced by the next queued synchronizing task. Synchronizing tasks might continue to appear on the Running Tasks page until there are no more tasks to complete.
+
+NOTE: You can see replication synchronizations data for volumes undergoing replication on the Running Tasks page of the cluster containing the target volume.

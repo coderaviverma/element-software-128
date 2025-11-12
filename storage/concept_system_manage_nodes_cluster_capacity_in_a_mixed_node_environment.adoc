@@ -1,0 +1,44 @@
+---
+permalink: storage/concept_system_manage_nodes_cluster_capacity_in_a_mixed_node_environment.html
+sidebar: sidebar
+keywords: nodes, mixed environment, capacity, cluster capacity, mixed nodes, encrypted, non-encrypted, threshold
+summary: 'You can mix different types of nodes in a cluster. The SF-Series 2405, 3010, 4805, 6010, 9605, 9010, 19210, 38410 and the H-Series can coexist in a cluster.'
+---
+
+= Cluster capacity in a mixed node environment
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can mix different types of nodes in a cluster. The SF-Series 2405, 3010, 4805, 6010, 9605, 9010, 19210, 38410 and the H-Series can coexist in a cluster.
+
+The H-Series consists of H610S-1, H610S-2, H610S-4, and H410S nodes. These nodes are both 10GbE and 25GbE capable.
+
+It is best to not intermix non-encrypted and encrypted nodes. In a mixed node cluster, no node can be larger than 33 percent of the total cluster capacity. For instance, in a cluster with four SF-Series 4805 nodes, the largest node that can be added alone is an SF-Series 9605. The cluster capacity threshold is calculated based on the potential loss of the largest node in this situation.
+
+Depending on your Element software version, the following SF-series storage nodes are not supported:
+
+[cols=2*,options="header",cols="40,40"]
+|===
+|Beginning with... |Storage node not supported...
+
+|Element 12.8
+a|* SF4805
+* SF9605
+* SF19210
+* SF38410
+
+|Element 12.7
+a|
+* SF2405
+* SF9608
+|Element 12.0
+a|
+* SF3010
+* SF6010
+* SF9010
+|===
+
+If you attempt to upgrade one of these nodes to an unsupported Element version, you will see an error stating that the node is not supported by Element 12.x.
+
+// 2024 DEC 19, DOC-4759

@@ -1,0 +1,138 @@
+---
+permalink: api/reference_element_api_testconnectsvip.html
+sidebar: sidebar
+keywords: storage,connection,svip,test,testing,testconnectsvip
+summary: 'You can use the TestConnectSvip method to test the storage connection to the storage cluster. The test pings the SVIP using ICMP packets, and when successful, connects as an iSCSI initiator.'
+---
+
+= TestConnectSvip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `TestConnectSvip` method to test the storage connection to the storage cluster. The test pings the SVIP using ICMP packets, and when successful, connects as an iSCSI initiator.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+svip
+a|
+You can pass this value to test the management connection of a different SVIP. You do not need to use this value when testing the connection to the target cluster.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+details
+a|
+Information about the test operation (JSON object):
+
+* `connected`: Indicates if the test could connect to the SVIP (boolean)
+* `svip`: The SVIP tested against (string)
+* `pingBytes`: Details of the ping tests with 56 bytes and 9000 bytes (object)
+ ** `56`: Results of the 56 byte ping test (JSON object):
+  *** `individualResponseTimes`: List of response times from each ensemble node (string array)
+  *** `individualStatus`: List of ping status from each ensemble node (boolean array)
+  *** `responseTime`: Average ping response time (string)
+  *** `successful`: Indicates if the ping test was successful (boolean)
+ ** `9000`: Results of the 9000 Byte ping test (JSON object):
+  *** `individualResponseTimes`: List of response times from each ensemble node (string array)
+  *** `individualStatus`: List of ping status from each ensemble node (boolean array)
+  *** `responseTime`: Average ping response time (string)
+  *** `successful`: Indicates if the ping test was successful (boolean)
+ ** `duration`: Length of time required to run the test (string)
+ ** `result`: Result of the test as a whole (string)
+
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "TestConnectSvip",
+   "params": {
+      "svip" : "172.27.62.50"
+      },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "details": {
+      "connected": true,
+      "pingBytes": {
+           "56": {
+               "individualResponseTimes": [
+                   "00:00:00.000152",
+                   "00:00:00.000132",
+                   "00:00:00.000119",
+                   "00:00:00.000114",
+                   "00:00:00.000112"
+              ],
+              "individualStatus": [
+                  true,
+                  true,
+                  true,
+                  true,
+                  true
+              ],
+              "responseTime": "00:00:00.000126",
+              "successful": true
+           },
+          "9000": {
+                "individualResponseTimes": [
+                    "00:00:00.000295",
+                    "00:00:00.000257",
+                    "00:00:00.000172",
+                    "00:00:00.000172",
+                    "00:00:00.000267"
+              ],
+              "individualStatus": [
+                  true,
+                  true,
+                  true,
+                  true,
+                  true
+             ],
+             "responseTime": "00:00:00.000233",
+             "successful": true
+           }
+        },
+        "svip": "172.27.62.50"
+      },
+      "duration": "00:00:00.421907",
+      "result": "Passed"
+   }
+}
+----
+
+== New since version
+
+9.6

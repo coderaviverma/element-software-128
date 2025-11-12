@@ -1,0 +1,53 @@
+---
+permalink: api/reference_element_api_attributes.html
+sidebar: sidebar
+keywords: QoS,object,Quality,Service
+summary: 'Many of the API requests and responses use objects as well as simple types. Objects are a collection of key-value pairs, where the value is a simple type or possibly another object. Attributes are custom name-value pairs that can be set by the user in JSON objects. Some methods enable you to add attributes when creating or modifying objects.'
+---
+
+= Attributes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Many of the API requests and responses use objects as well as simple types. Objects are a collection of key-value pairs, where the value is a simple type or possibly another object. Attributes are custom name-value pairs that can be set by the user in JSON objects. Some methods enable you to add attributes when creating or modifying objects.
+
+There is a 1000-byte limit on encoded attribute objects.
+
+== Object member
+
+This object contains the following member:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+|===
+
+== Request example
+
+The following request example uses the AddClusterAdmin method:
+
+----
+{
+   "method": "AddClusterAdmin",
+   "params": {
+      "username": "joeadmin",
+      "password": "68!5Aru268)$",
+      "access": [
+         "volume",
+         "reporting"
+      ],
+      "attributes": {
+         "name1": "value1",
+         "name2": "value2",
+         "name3": "value3"
+      }
+   }
+}
+----

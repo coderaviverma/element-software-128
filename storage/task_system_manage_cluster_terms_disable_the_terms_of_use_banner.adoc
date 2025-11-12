@@ -1,0 +1,19 @@
+---
+permalink: storage/task_system_manage_cluster_terms_disable_the_terms_of_use_banner.html
+sidebar: sidebar
+keywords: terms of use banner, disable
+summary: 'You can disable the Terms of Use banner. With the banner disabled, the user is no longer requested to accept the terms of use when using the Element UI.'
+---
+
+= Disable the Terms of Use banner
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can disable the Terms of Use banner. With the banner disabled, the user is no longer requested to accept the terms of use when using the Element UI.
+
+* You must have cluster administrator privileges to configure Terms of Use.
+* Ensure that Terms of Use is enabled.
+
+. Click *Users* > *Terms of Use*.
+. Click *Disable*.

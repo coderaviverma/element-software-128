@@ -1,0 +1,315 @@
+---
+permalink: api/reference_element_api_modifyvolume.html
+sidebar: sidebar
+keywords: volumes,volume,modifying,modify,change,changing,edit,editing,modifyvolume,settings
+summary: 'You can use the ModifyVolume method to modify settings on an existing volume. You can make modifications to one volume at a time and changes take place immediately.'
+---
+
+= ModifyVolume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyVolume` method to modify settings on an existing volume. You can make modifications to one volume at a time and changes take place immediately.
+
+If you do not specify QoS values when you modify a volume, they remain the same as before the modification. You can retrieve default QoS values for a newly created volume by running the `GetDefaultQoS` method.
+
+When you need to increase the size of a volume that is being replicated, do so in the following order to prevent replication errors:
+
+. Increase the size of the volume with replicationTarget access.
+. Increase the size of the source or the volume with readWrite access.
+
+Ensure that both the target and source volumes are the same size.
+
+NOTE: If you change the access status to locked or replicationTarget, all existing iSCSI connections are terminated.
+
+== Parameters
+
+This method has the following input parameters:
+
+|===
+|Name |Description |Type |Default value |Required
+
+a|
+volumeID
+a|
+The volumeID for the volume to be modified.
+a|
+integer
+a|
+None
+a|
+Yes
+
+a|
+access
+a|
+Access allowed for the volume. Possible values:
+
+* `readOnly`: Only read operations are allowed.
+* `readWrite`: Reads and writes are allowed.
+* `locked`: No reads or writes are allowed. If not specified, the access value does not change.
+* `replicationTarget`: Identify a volume as the target volume for a paired set of volumes. If the volume is not paired, the access status is locked. If a value is not specified, the access value does not change.
+* `snapMirrorTarget`: Identify a volume as the target volume for SnapMirror replication.
+
+a|
+string
+a|
+None
+a|
+No
+
+a|
+accountID
+a|
+The accountID to which the volume is reassigned. If none is specified, the previous account name is used.
+a|
+integer
+a|
+None
+a|
+No
+
+a|
+associateWithQoSPolicy
+a|
+Associate the volume with the specified QoS policy. Possible values:
+
+* `true`: Associate the volume with the QoS policy specified in the QoSPolicyID parameter.
+* `false`: Do not associate the volume with the QoS policy specified in the QoSPolicyID parameter. When false, any existing policy association is removed, regardless of whether you specify a QoS policy in the QoSPolicy parameter.
+
+a|
+boolean
+a|
+None
+a|
+No
+
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+
+a|
+createTime
+a|
+An ISO 8601 date string to set as the new volume creation date. Required if setCreateTime is set to true.
+a|
+ISO 8601 string
+a|
+None
+a|
+No
+a|
+dontMoveforIopsRebalance
+a|
+Prevent a volume from moving when load balancing with actual IOPS. This setting is available beginning with Element 12.8 and is only effective when link:reference_element_api_enablefeature.html[VolumeLoadBalanceOnActualIOPS] is enabled. Possible values:
+
+* `true`: Volume does not load balance based on actual IOPS.
+* `false`: Volume does load balance based on actual IOPS.
+
+*Note*: Balancing for high availability (node failure) takes precedence over `VolumeLoadBalanceOnActualIOPS` and `dontMoveforIopsRebalance`.
+|boolean
+|false
+|No
+a|
+enableSnapMirrorReplication
+a|
+Determines whether the volume can be used for replication with SnapMirror endpoints. Possible values:
+
+* `true`
+* `false`
+
+a|
+boolean
+a|
+false
+a|
+No
+
+|fifoSize
+|Specifies the maximum number of First-In-First-Out (FIFO) snapshots supported by the volume. Note that FIFO and non-FIFO snapshots both use the same pool of available snapshot slots on a volume. Use this option to limit FIFO snapshot consumption of the available snapshot slots. Note that you cannot modify this value to be less than the current FIFO snapshot count.
+|integer
+|None
+|No
+
+|minFifoSize
+|Specifies the number of snapshot slots that are reserved for only First-In-First-Out (FIFO) snapshots. Since FIFO and non-FIFO snapshots share the same pool, the minFifoSize parameter reduces the total number of possible non-FIFO snapshots by the same amount. Note that you cannot modify this value so that it conflicts with the current non-FIFO snapshot count.
+|integer
+|None
+|No
+
+a|
+mode
+a|
+Volume replication mode. Possible values:
+
+* `asynch`: Waits for system to acknowledge that data is stored on source before writing to the target.
+* `sync`: Does not wait for data transmission acknowledgment from source to begin writing data to the target.
+
+a|
+string
+a|
+None
+a|
+No
+
+a|
+qos
+a|
+The new quality of service settings for this volume. If not specified, the QoS settings are not changed. Possible values:
+
+* `minIOPS`
+* `maxIOPS`
+* `burstIOPS`
+
+a|
+xref:reference_element_api_qos.adoc[QoS]
+a|
+None
+a|
+No
+
+a|
+qosPolicyID
+a|
+The ID for the policy whose QoS settings should be applied to the specified volumes. This parameter is mutually exclusive with the qos parameter.
+a|
+integer
+a|
+None
+a|
+No
+
+a|
+setCreateTime
+a|
+Set to true to change the recorded date of volume creation.
+a|
+boolean
+a|
+None
+a|
+No
+
+a|
+totalSize
+a|
+The new size of the volume in bytes. 1000000000 is equal to 1GB. Size is rounded up to the nearest megabyte in size. This parameter can only be used to increase the size of a volume.
+a|
+integer
+a|
+None
+a|
+No
+
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+
+a|
+volume
+a|
+Object containing information about the newly modified volume.
+a|
+xref:reference_element_api_volume.adoc[volume]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ModifyVolume",
+  "params": {
+     "volumeID": 319, 
+     "access": "readWrite", 
+     "dontMoveForIopsRebalance": false
+     },
+     "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+      "volume": {
+          "access": "readWrite",
+          "accountID":22,
+          "attributes": {},
+          "blockSize": 4096,
+          "createTime": "2024-04-01T19:39:40Z",
+          "currentProtectionScheme": "doubleHelix",
+          "deleteTime": "",
+          "dontMoveForIopsRebalance": false,
+          "enable512e": false,
+          "enableSnapMirrorReplication": false,
+          "fifoSize": 24,
+          "iqn": "iqn.2010-01.com.solidfire:3eeu.suite40.319",
+          "lastAccessTime": "2024-04-02T12:41:34Z",
+          "lastAccessTimeIO": "2024-04-01T20:41:19Z",
+          "minFifoSize": 0,
+          "name": "suite40",
+          "previousProtectionScheme": null,
+          "purgeTime": "",
+          "qos": {
+              "burstIOPS": 27000,
+              "burstTime": 60,
+              "curve": {
+                  "1048576": 15000, 
+                  "131072": 1950, 
+                  "16384": 270, 
+                  "262144": 3900, 
+                  "32768": 500, "4096": 100, 
+                  "524288": 7600, 
+                  "65536": 1000, 
+                  "8192": 160 
+              },
+              "maxIOPS": 27000,
+              "minIOPS": 500
+          },
+          "qosPolicyID": null,
+          "scsiEUIDeviceID": "336565750000013ff47acc0100000000",
+          "scsiNAADeviceID": "6f47acc100000000336565750000013f",
+          "sliceCount": 1,
+          "status": "active",
+          "totalSize": 1000000716800,
+          "virtualVolumeID": null,
+          "volumeAccessGroups": [
+          22
+          ],
+          "volumeConsistencyGroupUUID": "3003109e-6e75-444c-8cee-470d641a09c3",
+          "volumeID": 319,
+          "volumePairs": [],
+          "volumeUUID": "78203136-b0eb-454b-9f67-2c867ec7d7bb"
+      }
+  }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_getdefaultqos.adoc[GetDefaultQoS]
+
+// 2024 APR 4, DOC-4742

@@ -1,0 +1,70 @@
+---
+permalink: api/reference_element_api_createsnapmirrorendpoint.html
+sidebar: sidebar
+keywords: SnapMirror,endpoints,endpoint,creating,create,CreateSnapMirrorEndpoint
+summary: 'The Element web UI uses the CreateSnapMirrorEndpoint method to create a relationship with a remote SnapMirror endpoint.'
+---
+
+= CreateSnapMirrorEndpoint
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element web UI uses the `CreateSnapMirrorEndpoint` method to create a relationship with a remote SnapMirror endpoint.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+managementIP
+a|
+The management IP address of the remote SnapMirror endpoint.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+username
+a|
+The management user name for the ONTAP system.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+password
+a|
+The management password for the ONTAP system.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+snapMirrorEndpoint
+a|
+The newly created SnapMirror endpoint.
+a|
+xref:reference_element_api_snapmirrorendpoint.adoc[snapMirrorEndpoint]
+|===
+
+== New since version
+
+10.0

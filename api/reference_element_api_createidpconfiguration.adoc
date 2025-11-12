@@ -1,0 +1,108 @@
+---
+permalink: api/reference_element_api_createidpconfiguration.html
+sidebar: sidebar
+keywords: IdP,idp,configuration,create,creating
+summary: 'You can use the CreateIpdConfiguration method to create a potential trust relationship for authentication using a third-party Identity Provider \(IdP\) for the cluster. A SAML Service Provider certificate is required for IdP communication. This certificate is generated as required, and returned by this API call.'
+---
+
+= CreateIdpConfiguration
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CreateIpdConfiguration` method to create a potential trust relationship for authentication using a third-party Identity Provider (IdP) for the cluster. A SAML Service Provider certificate is required for IdP communication. This certificate is generated as required, and returned by this API call.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+idpMetadata
+a|
+IdP metadata to store.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+idpName
+a|
+Name used to identify an IdP provider for SAML 2.0 single sign-on.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+idpConfigInfo
+a|
+Information about the third-party Identity Provider (IdP) configuration.
+a|
+link:reference_element_api_idpconfiginfo.html[idpConfigInfo]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+    "method": "CreateIdpConfiguration",
+    "params": {
+        "idpMetadata": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+             <EntityDescriptor
+               xmlns=\"urn:oasis:names:tc:SAML:2.0:metadata\"
+               xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"
+               xmlns:shibmd=\"urn:mace:shibboleth:metadata:1.0\"
+               xmlns:xml=\"http://www.w3.org/XML/1998/namespace\"
+               ...</Organization>
+             </EntityDescriptor>",
+        "idpName": "https://provider.name.url.com"
+    },
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "result": {
+        "idpConfigInfo": {
+        "enabled": false,
+        "idpConfigurationID": "f983c602-12f9-4c67-b214-bf505185cfed",
+        "idpMetadata": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n
+        <EntityDescriptor xmlns=\"urn:oasis:names:tc:SAML:2.0:metadata\"\r\n
+        xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"\r\n
+        xmlns:shibmd=\"urn:mace:shibboleth:metadata:1.0\"\r\n
+        xmlns:xml=\"http://www.w3.org/XML/1998/namespace\"\r\n
+        ... </Organization>\r\n
+        </EntityDescriptor>",
+        "idpName": "https://privider.name.url.com",
+        "serviceProviderCertificate": "-----BEGIN CERTIFICATE-----\n
+        MIID...SlBHi\n
+        -----END CERTIFICATE-----\n",
+        "spMetadataUrl": "https://10.193.100.100/auth/ui/saml2"
+        }
+    }
+}
+----
+
+== New since version
+
+12.0

@@ -1,0 +1,70 @@
+---
+permalink: api/reference_element_api_removeaccount.html
+sidebar: sidebar
+keywords: account,accounts,remove,removing,deleting,delete,purge,volume,volumes,removeaccount
+summary: 'You can use the RemoveAccount method to remove an existing account. You must delete and purge all volumes associated with the account using DeleteVolume before you can remove the account. If volumes on the account are still pending deletion, you cannot use RemoveAccount to remove the account.'
+---
+
+= RemoveAccount
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RemoveAccount` method to remove an existing account. You must delete and purge all volumes associated with the account using `DeleteVolume` before you can remove the account. If volumes on the account are still pending deletion, you cannot use `RemoveAccount` to remove the account.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+accountID
+a|
+The ID of the account to remove.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has no return value.
+
+== Request example
+
+Requests for this method are similar to the following example.
+
+----
+{
+   "method": "RemoveAccount",
+   "params": {
+     "accountID"  : 25
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+
+{
+ "id" : 1,
+ "result" : { }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_deletevolume.adoc[DeleteVolume]

@@ -1,0 +1,4 @@
+---
+permalink: api/concept_element_api_vvols_api_methods.html
+redirect: element-software/api/concept_element_api_about_the_api.html
+---

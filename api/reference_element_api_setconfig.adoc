@@ -1,0 +1,100 @@
+---
+permalink: api/reference_element_api_setconfig.html
+sidebar: sidebar
+keywords: config,configuration,set,setting,node,setconfig,network,cluster
+summary: 'You can use the SetConfig method to set the network and cluster information for the node. This method includes the same settings in a single API method that are available using both SetClusterConfig and SetNetworkConfig methods. Only the fields you want changed need to be included with this method.'
+---
+
+= SetConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `SetConfig` method to set the network and cluster information for the node. This method includes the same settings in a single API method that are available using both `SetClusterConfig` and `SetNetworkConfig` methods. Only the fields you want changed need to be included with this method.
+
+== Parameter
+
+CAUTION:
+
+Changing the bond-mode on a node can cause a temporary loss of network connectivity.
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+cluster
+a|
+Cluster information that identifies how the storage node communicates with the storage cluster it is associated with.
+a|
+xref:reference_element_api_cluster.adoc[cluster]
+a|
+None
+a|
+No
+a|
+network
+a|
+Network connection types and current settings for each network interface of the node.
+a|
+xref:reference_element_api_network_all_interfaces.adoc[network (all interfaces)]
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+config
+a|
+The new and current configuration for the node. This object contains:
+
+* xref:reference_element_api_cluster.adoc[cluster]: Cluster information that identifies how the storage node communicates with the storage cluster it is associated with.
+* xref:reference_element_api_network_all_interfaces.adoc[network (all interfaces)]: Network connection types and current settings for each network interface of the node.
+
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+	"method": "SetConfig",
+	"params": {
+		"cluster": {
+			"name": "MyHostname"
+		},
+		"network": {
+			"Bond10G": {
+				"bond-mode": "ALB"
+			}
+		}
+	}
+}
+----
+
+== Response example
+
+The response from this method is the same as the return for the GetConfig method. All fields for the object display and updated values are seen when SetConfig is used.
+
+== New since version
+
+9.6
+
+== Find more information
+
+* xref:reference_element_api_setclusterconfig.adoc[SetClusterConfig]
+* xref:reference_element_api_setnetworkconfig.adoc[SetNetworkConfig]
+* xref:reference_element_api_response_example_getconfig.adoc[GetConfig]
+// 2022 DEC 12, DOC-4643 

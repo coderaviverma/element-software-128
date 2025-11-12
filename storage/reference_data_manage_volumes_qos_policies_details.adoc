@@ -1,0 +1,37 @@
+---
+permalink: storage/reference_data_manage_volumes_qos_policies_details.html
+sidebar: sidebar
+keywords: qos policies
+summary: 'You can view details of QoS policies from the Management tab.'
+---
+
+= QoS policies details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can view details of QoS policies from the Management tab.
+
+* *ID*
++
+The system-generated ID for the QoS policy.
+
+* *Name*
++
+The user-defined name for the QoS policy.
+
+* *Min IOPS*
++
+The minimum number of IOPS guaranteed for the volume.
+
+* *Max IOPS*
++
+The maximum number of IOPS allowed for the volume.
+
+* *Burst IOPS*
++
+The maximum number of IOPS allowed over a short period of time for the volume. Default = 15,000.
+
+* *Volumes*
++
+Shows the number of volumes using the policy. This number links to a table of volumes that have the policy applied.

@@ -1,0 +1,29 @@
+---
+permalink: storage/concept_intro_solidfire_system_overview.html
+sidebar: sidebar
+keywords: drives, nodes, unified cluster, nodes, storage nodes, Fibre Channel nodes, FC, cluster, management, Active IQ, system components, components, hardware, storage resources, storage, Element UI, Element software, Element
+summary: 'A SolidFire all-flash storage system is comprised of discrete hardware components \(drive and nodes\) that are combined into a single pool of storage resources through NetApp Element software running independently on each node. This unified cluster presents as a single storage system for use by external clients and is managed as a single entity through the Element software UI, API and other management tools.'
+---
+
+= SolidFire storage system
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+A SolidFire all-flash storage system is comprised of discrete hardware components (drive and nodes) that are combined into a single pool of storage resources through NetApp Element software running independently on each node. This unified cluster presents as a single storage system for use by external clients and is managed as a single entity through the Element software UI, API and other management tools.
+
+Using the NetApp Element software user interface, you can set up and monitor SolidFire cluster storage capacity and performance, and manage storage activity across a multi-tenant infrastructure.
+
+image::../media/solidfire_concepts_architecture_image.gif[Element Software architectural diagram]
+
+A SolidFire all-flash storage system includes the following components:
+
+* Nodes: Physical hardware that provides the storage resources for a cluster. There are two types of nodes:
+ ** Storage nodes: Servers containing a collection of drives.
+ ** Fibre Channel (FC) nodes: Used to connect FC clients via a Fibre Channel switch.
+* Cluster: The hub of the SolidFire storage system comprised of a least four nodes.
+* Management node: Enables you to upgrade and provide system services including monitoring and telemetry, manage cluster assets and settings, run system tests and utilities, and provide NetApp Support access for troubleshooting. The management node (mNode) is a virtual machine that runs in tandem with an Element software-based storage cluster.
+* Active IQ: A web-based tool that provides continually updated historical views of cluster-wide data. You can set up alerts for specific events, thresholds, or metrics. Active IQ enables you to monitor system performance and capacity, as well as stay informed about cluster health.
+* Drives are used in storage nodes and store data for the cluster. A storage node contains two types of drives:
+ ** Volume metadata drives store information that defines the volumes and other objects within a cluster.
+ ** Block drives store data blocks for application volumes.

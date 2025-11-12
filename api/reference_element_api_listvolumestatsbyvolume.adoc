@@ -1,0 +1,142 @@
+---
+permalink: api/reference_element_api_listvolumestatsbyvolume.html
+sidebar: sidebar
+keywords: volumes,volume,stats,list,listing,listvolumestatsbyvolume,activity
+summary: 'You can use the ListVolumeStatsByVolume method to list high-level activity measurements for every volume, by volume. Values are cumulative from the creation of the volume.'
+---
+
+= ListVolumeStatsByVolume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListVolumeStatsByVolume` method to list high-level activity measurements for every volume, by volume. Values are cumulative from the creation of the volume.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+includeVirtualVolumes
+a|
+Virtual volumes are included in the response by default. To exclude virtual volumes, set to false.
+a|
+boolean
+a|
+true
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+volumeStats
+a|
+List of volume activity information.
+a|
+xref:reference_element_api_volumestats.adoc[volumeStats] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListVolumeStatsByVolume",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "volumeStats": [
+        {
+            "accountID": 1,
+            "actualIOPS": 4,
+            "asyncDelay": null,
+            "averageIOPSize": 5970,
+            "burstIOPSCredit": 0,
+            "clientQueueDepth": 0,
+            "desiredMetadataHosts": null,
+            "latencyUSec": 474,
+            "metadataHosts": {
+                "deadSecondaries": [],
+                "liveSecondaries": [
+                    13
+                ],
+                "primary": 25
+            },
+            "nonZeroBlocks": 34931222,
+            "normalizedIOPS": 4,
+            "readBytes": 1282491003392,
+            "readBytesLastSample": 0,
+            "readLatencyUSec": 0,
+            "readLatencyUSecTotal": 4581669750,
+            "readOps": 15592933,
+            "readOpsLastSample": 0,
+            "samplePeriodMSec": 500,
+            "sliceIopsStats": {
+                "largeStatistics": {
+                    "averageReadIops": 17,
+                    "averageTotalIops": 43,
+                    "averageWriteIops": 26,
+                    "nSamples": 24,
+                    "peakReadIops": 19,
+                    "peakTotalIops": 47,
+                    "peakWriteIops": 30,
+                    "sliceID": 1
+                },
+                "smallStatistics": {
+                    "averageReadIops": 17,
+                    "averageTotalIops": 42,
+                    "averageWriteIops": 25,
+                    "nSamples": 120,
+                    "peakReadIops": 173,
+                    "peakTotalIops": 249,
+                    "peakWriteIops": 77,
+                    "sliceID": 1
+            }
+        },
+        "throttle": 0,
+        "timestamp": "2025-02-03T21:18:38.880100Z",
+        "unalignedReads": 167319,
+        "unalignedWrites": 90836,
+        "volumeAccessGroups": [
+            1
+        ],
+        "volumeID": 1,
+        "volumeSize": 2147483648000,
+        "volumeUtilization": 0.0002666666666666667,
+        "writeBytes": 1385173585408,
+        "writeBytesLastSample": 12288,
+        "writeLatencyUSec": 474,
+        "writeLatencyUSecTotal": 11233350905,
+        "writeOps": 157060458,
+        "writeOpsLastSample": 2,
+        "zeroBlocks": 489356778
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

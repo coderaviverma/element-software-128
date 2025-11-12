@@ -1,0 +1,57 @@
+---
+permalink: api/reference_element_api_qos.html
+sidebar: sidebar
+keywords: object,objects,QoS
+summary: 'The QoS object contains information about Quality of Service \(QoS\) settings for volumes. Volumes created without specified QoS values are created using the default values. You can find default values using the GetDefaultQoS method.'
+---
+
+= QoS
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The QoS object contains information about Quality of Service (QoS) settings for volumes. Volumes created without specified QoS values are created using the default values. You can find default values using the `GetDefaultQoS` method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+burstIOPS
+a|
+Maximum "peak" 4KB IOPS allowed for short periods of time. Allows for bursts of I/O activity over the normal maxIOPS value.
+a|
+integer
+a|
+burstTime
+a|
+The length of time burstIOPS is allowed. The value returned is represented in seconds. This value is calculated by the system based on IOPS set for QoS.
+a|
+integer
+a|
+curve
+a|
+The curve is a set of key-value pairs. The keys are I/O sizes in bytes. The values represent the cost of performing one IOP at a specific I/O size. The curve is calculated relative to a 4096 byte operation set at 100 IOPS.
+a|
+JSON object
+a|
+maxIOPS
+a|
+The desired maximum 4KB IOPS allowed over an extended period of time.
+a|
+integer
+a|
+minIOPS
+a|
+The desired minimum 4KB IOPS to guarantee. The allowed IOPS will only drop below this level if all volumes have been capped at their minIOPS value and there is still insufficient performance capacity.
+a|
+integer
+|===
+
+
+== Find more information
+
+xref:reference_element_api_getdefaultqos.adoc[GetDefaultQoS]

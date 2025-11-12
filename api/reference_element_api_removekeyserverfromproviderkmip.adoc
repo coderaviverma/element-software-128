@@ -1,0 +1,67 @@
+---
+permalink: api/reference_element_api_removekeyserverfromproviderkmip.html
+sidebar: sidebar
+keywords: KMIP,key server,unassigning,removing,remove,unassign,removekeyserverfromproviderkmip
+summary: 'You can use the RemoveKeyServerFromProviderKmip method to unassign the specified Key Management Interoperability Protocol \(KMIP\) key server from the provider it was assigned to. You can unassign a key server from its provider unless it is the last one and its provider is active \(providing keys which are currently in use\). If the specified key server is not assigned to a provider, no action is taken and no error is returned.'
+---
+
+= RemoveKeyServerFromProviderKmip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RemoveKeyServerFromProviderKmip` method to unassign the specified Key Management Interoperability Protocol (KMIP) key server from the provider it was assigned to. You can unassign a key server from its provider unless it is the last one and its provider is active (providing keys which are currently in use). If the specified key server is not assigned to a provider, no action is taken and no error is returned.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+keyServerID
+a|
+The ID of the KMIP key server to unassign.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values. The removal is considered successful as long as no error is returned.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "RemoveKeyServerFromProviderKmip",
+  "params": {
+    "keyServerID": 1
+   },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result":
+      {}
+    }
+}
+----
+
+== New since version
+
+11.7

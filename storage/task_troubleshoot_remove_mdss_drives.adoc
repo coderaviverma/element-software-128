@@ -1,0 +1,21 @@
+---
+permalink: storage/task_troubleshoot_remove_mdss_drives.html
+sidebar: sidebar
+keywords: mdss, remove, multi-drive slice service
+summary: 'You can remove the multi-drive slice service \(MDSS\) drives. This procedure applies only if the node has multiple slice drives.'
+---
+
+= Remove MDSS drives
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can remove the multi-drive slice service (MDSS) drives. This procedure applies only if the node has multiple slice drives.
+
+NOTE: If the system slice drive and the slot 2 drive fail, the system will shutdown slice services and remove the drives. If there is no failure and you remove the drives, both drives must be removed at the same time.
+
+. Click *Cluster* > *Drives*.
+. From the *Available* drives tab, click the check box for the slice drives being removed.
+. Click *Bulk Actions*.
+. Click *Remove*.
+. Confirm the action.

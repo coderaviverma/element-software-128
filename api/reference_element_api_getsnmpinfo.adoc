@@ -1,0 +1,103 @@
+---
+permalink: api/reference_element_api_getsnmpinfo.html
+sidebar: sidebar
+keywords: snmp,information,info,get,getting
+summary: 'You can use the GetSnmpInfo method to get the current simple network management protocol \(SNMP\) configuration information.'
+---
+
+= GetSnmpInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetSnmpInfo` method to get the current simple network management protocol (SNMP) configuration information.
+
+== Parameters
+
+NOTE: GetSnmpInfo is deprecated for versions later than Element version 8.0. The xref:reference_element_api_getsnmpstate.adoc[GetSnmpState] and xref:reference_element_api_setsnmpacl.adoc[SetSnmpACL] methods replace the GetSnmpInfo method.
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+networks
+a|
+List of networks and access types enabled for SNMP. *Note:* networks is only displayed if SNMP v3 is disabled.
+
+a|
+xref:reference_element_api_network_snmp.adoc[network]
+a|
+enabled
+a|
+Indicates if the nodes in the cluster are configured for SNMP. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+snmpV3Enabled
+a|
+If the node in the cluster is configured for SNMP v3. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+usmUsers
+a|
+If SNMP v3 is enabled, a list of user access parameters for SNMP is returned from the cluster. This is returned instead of the networks parameter.
+a|
+xref:reference_element_api_usmuser.adoc[usmUser]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetSnmpInfo",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result" : {
+      "enabled" : true,
+      "networks" : [
+         {
+            "access" : "rosys",
+            "cidr" : 0,
+            "community" : "public",
+            "network" : "localhost"
+         }
+      ]
+   }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+* xref:reference_element_api_getsnmpstate.adoc[GetSnmpState]
+* xref:reference_element_api_setsnmpacl.adoc[SetSnmpACL]

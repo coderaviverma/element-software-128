@@ -1,0 +1,77 @@
+You can use the `Shutdown` method to restart or shutdown the nodes in a cluster. You can shut down a single node, multiple nodes, or all of the nodes in the cluster using this method.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+nodes
+a|
+List of NodeIDs for the nodes to be restarted or shut down.
+a|
+integer array
+a|
+None
+a|
+Yes
+a|
+option
+a|
+Action to take for the cluster. Possible values:
+
+* restart: Restarts the cluster.
+* halt: Performs a full power-off.
+
+a|
+string
+a|
+restart
+a|
+No
+|===
+
+== Return value
+
+This method has no return value.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "Shutdown",
+   "params": {
+     "nodes": [
+       2,
+       3,
+       4
+     ],
+     "option": "halt"
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {
+     "failed": [],
+     "successful": [
+          6
+      [
+   }
+}
+----
+
+== New since version
+
+9.6

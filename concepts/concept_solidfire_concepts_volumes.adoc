@@ -1,0 +1,25 @@
+---
+permalink: concepts/concept_solidfire_concepts_volumes.html
+sidebar: sidebar
+keywords: what is, element, volume, storage volume, persistent volume
+summary: 'The NetApp SolidFire storage system provisions storage using volumes. Volumes are block devices accessed over the network by iSCSI or Fibre Channel clients.'
+---
+
+= Volumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The NetApp Element storage system provisions storage using volumes. Volumes are block devices accessed over the network by iSCSI or Fibre Channel clients.
+
+Element storage enables you to create, view, edit, delete, clone, backup or restore volumes for user accounts. You can also manage each volume on a cluster, and add or remove volumes in volume access groups.
+
+== Persistent volumes
+
+Persistent volumes allow management node configuration data to be stored on a specified storage cluster, rather than locally with a VM, so that data can be preserved in the event of management node loss or removal. Persistent volumes are an optional yet recommended management node configuration.
+
+An option to enable persistent volumes is included in the installation and upgrade scripts when link:../mnode/task_mnode_install.html[deploying a new management node]. Persistent volumes are volumes on an Element software-based storage cluster that contain management node configuration information for the host management node VM that persists beyond the life of the VM. If the management node is lost, a replacement management node VM can reconnect to and recover configuration data for the lost VM.
+
+Persistent volumes functionality, if enabled during installation or upgrade, automatically creates multiple volumes. These volumes, like any Element software-based volume, can be viewed using the Element software web UI, NetApp Element Plug-in for vCenter Server, or API, depending on your preference and installation. Persistent volumes must be up and running with an iSCSI connection to the management node to maintain current configuration data that can be used for recovery.
+
+NOTE: Persistent volumes that are associated with management services are created and assigned to a new account during installation or upgrade. If you are using persistent volumes, do not modify or delete the volumes or their associated account

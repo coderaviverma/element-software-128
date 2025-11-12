@@ -1,0 +1,82 @@
+---
+permalink: api/reference_element_api_getclusterhardwareinfo.html
+sidebar: sidebar
+keywords: get,getting,cluster,hardware,getclusterhardwareinfo
+summary: 'You can use the GetClusterHardwareInfo method to retrieve the hardware status and information for all Fibre Channel nodes, iSCSI nodes and drives in the cluster. This generally includes manufacturers, vendors, versions, and other associated hardware identification information.'
+---
+
+= GetClusterHardwareInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetClusterHardwareInfo` method to retrieve the hardware status and information for all Fibre Channel nodes, iSCSI nodes and drives in the cluster. This generally includes manufacturers, vendors, versions, and other associated hardware identification information.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+type
+a|
+Include only one of the following types of hardware information in the response. Possible values:
+
+* drives:
++
+Lists only drive information in the response.
+
+* nodes: Lists only node information in the response.
+* all: Includes both drive and node information in the response.
+
+If this parameter is omitted, a type of all is assumed.
+
+a|
+string
+a|
+all
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+clusterHardwareInfo
+a|
+Hardware information for all nodes and drives in the cluster. Each object in this output is labeled with the nodeID of the given node.
+a|
+xref:reference_element_api_hardwareinfo.adoc[hardwareInfo]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetClusterHardwareInfo",
+    "params": {
+        "type": "all"
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+Due to the length of this response example, it is documented in a supplementary topic.
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_response_example_getclusterhardwareinfo.adoc[GetClusterHardwareInfo]

@@ -1,0 +1,18 @@
+---
+permalink: storage/task_replication_delete_volume_pairs.html
+sidebar: sidebar
+keywords: volume pairs, delete
+summary: 'You can delete a volume pair if want to remove a pair association between two volumes.'
+---
+
+= Delete volume pairs
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can delete a volume pair if want to remove a pair association between two volumes.
+
+. Select *Data Protection* > *Volume Pairs*.
+. Click the Actions icon for the volume pair you want to delete.
+. Click *Delete*.
+. Confirm the message.

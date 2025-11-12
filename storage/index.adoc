@@ -1,0 +1,32 @@
+---
+permalink: storage/index.html
+sidebar: sidebar
+keywords:
+summary: ''
+---
+
+= Manage storage with Element software
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Use Element software to set up SolidFire storage, monitor cluster capacity and performance, and manage storage activity across a multi-tenant infrastructure.
+
+Element is the storage operating system at the heart of a SolidFire cluster. Element software runs independently on all nodes in the cluster and enables the nodes of the cluster to combine resources and present as a single storage system to external clients. Element software is responsible for all cluster coordination, scale and management of the system as a whole.
+
+The software interface is built upon the Element API.
+
+* link:task_post_deploy_access_the_element_software_user_interface.html[Access the Element software user interface]
+* link:task_post_deploy_configure_system_options.html[Configure SolidFire system options after deployment]
+* link:../upgrade/concept_element_upgrade_overview.html[Upgrade storage system components]
+* link:task_intro_use_basic_options_in_the_element_software_ui.html[Use basic options in the Element software UI]
+* link:concept_system_manage_accounts_overview.html[Manage accounts]
+* link:concept_system_manage_system_management.html[Manage your system]
+* link:concept_data_manage_data_management.html[Manage volumes and virtual volumes]
+* link:concept_data_protection.html[Protect your data]
+* link:concept_system_monitoring_and_troubleshooting.html[Troubleshoot your system]
+
+== Find more information
+
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

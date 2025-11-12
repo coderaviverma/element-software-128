@@ -1,0 +1,26 @@
+---
+permalink: hardware/concept_sfseries_info.html
+sidebar: sidebar
+keywords: sf-series nodes, hardware installation, hardware maintenance
+summary: You can find information about installing and maintaining SF-series storage nodes.
+---
+
+= SF-series hardware information
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can find information about installing and maintaining SF-series storage nodes.
+
+Here are the links to the installation and maintenance content:
+
+* link:../media/c-series-isi.pdf[Install and setup SolidFire C-series nodes^]
+* link:../media/fc-getting-started-guide.pdf[Install and setup Fibre Channel nodes^]
+* link:../media/solidfire-10-getting-started-guide.pdf[Install and setup SF-series storage nodes^]
+* link:task_sfseries_chassisrepl.html[Replace a chassis^]
+* link:task_sfseries_driverepl.html[Replace drives^]
+* link:task_sfseries_psurepl.html[Replace a power supply unit^]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

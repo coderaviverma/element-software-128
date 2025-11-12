@@ -1,0 +1,143 @@
+---
+permalink: api/reference_element_api_enablemaintenancemode.html
+sidebar: sidebar
+keywords: maintenance,enable,mode
+summary: 'You can use the EnableMaintenanceMode method to prepare a storage node for maintenance. Maintenance scenarios include any task that requires the node to be powered off or restarted.'
+---
+
+= EnableMaintenanceMode
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `EnableMaintenanceMode` method to prepare a storage node for maintenance. Maintenance scenarios include any task that requires the node to be powered off or restarted.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+forceWithUnresolvedFaults
+a|
+Force maintenance mode to be enabled for this node even with blocking cluster faults present.
+a|
+boolean
+a|
+False
+a|
+No
+a|
+nodes
+a|
+The list of node IDs to put in maintenance mode. Only one node at a time is supported.
+a|
+integer array
+a|
+None
+a|
+Yes
+a|
+perMinutePrimarySwapLimit
+a|
+The number of primary slices to swap per minute. If not specified, all primary slices will be swapped at once.
+a|
+integer
+a|
+None
+a|
+No
+a|
+timeout
+a|
+Specifies how long maintenance mode should remain enabled before it is automatically disabled. Formatted as a time string (for example, HH:mm:ss). If not specified, maintenance mode will remain enabled until explicitly disabled.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+asyncHandle
+a|
+You can use the GetAsyncResult method to retrieve this asyncHandle and determine when the maintenance mode transition is complete.
+a|
+integer
+a|
+currentMode
+a|
+The current maintenance mode state of the node. Possible values:
+
+* Disabled: No maintenance has been requested.
+* FailedToRecover: The node failed to recover from maintenance mode.
+* RecoveringFromMaintenance: The node is in the process of recovering from maintenance mode.
+* PreparingForMaintenance: Actions are being taken to prepare a node to have maintenance performed.
+* ReadyForMaintenance: The node is ready for maintenance to be performed.
+
+a|
+MaintenanceMode (string)
+a|
+requestedMode
+a|
+The requested maintenance mode state of the node. Possible values:
+
+* Disabled: No maintenance has been requested.
+* FailedToRecover: The node failed to recover from maintenance mode.
+* RecoveringFromMaintenance: The node is in the process of recovering from maintenance mode.
+* PreparingForMaintenance: Actions are being taken to prepare a node to have maintenance performed.
+* ReadyForMaintenance: The node is ready for maintenance to be performed.
+
+a|
+MaintenanceMode (string)
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "EnableMaintenanceMode",
+  "params": {
+    "forceWithUnresolvedFaults": False,
+    "nodes": [6],
+    "perMinutePrimarySwapLimit" : 40,
+    "timeout" : "01:00:05"
+  },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result":
+      {
+        "requestedMode": "ReadyForMaintenance",
+        "asyncHandle": 1,
+        "currentMode": "Disabled"
+    }
+}
+----
+
+== New since version
+
+12.2
+
+== Find more information
+
+http://docs.netapp.com/us-en/hci/docs/concept_hci_storage_maintenance_mode.html[NetApp HCI storage maintenance mode concepts^]

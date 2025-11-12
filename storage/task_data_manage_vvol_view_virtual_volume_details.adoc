@@ -1,0 +1,108 @@
+---
+permalink: storage/task_data_manage_vvol_view_virtual_volume_details.html
+sidebar: sidebar
+keywords: virtual volumes, view details vvols, vvols performance activity, vSphere
+summary: 'You can review virtual volume information for all active virtual volumes on the cluster in the Element UI. You can also view performance activity for each virtual volume, including input, output, throughput, latency, queue depth, and volume information.'
+---
+
+= View virtual volume details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can review virtual volume information for all active virtual volumes on the cluster in the Element UI. You can also view performance activity for each virtual volume, including input, output, throughput, latency, queue depth, and volume information.
+
+.What you'll need
+* You should have enabled VVols functionality in the Element UI for the cluster.
+* You should have created an associated storage container.
+* You should have configured your vSphere cluster to use Element software VVols functionality.
+* You should have created at least one VM in vSphere.
+
+.Steps
+. Click *VVols* > *Virtual Volumes*.
++
+The information for all active virtual volumes is displayed.
+
+. Click the *Actions* icon for the virtual volume you want to review.
+. In the resulting menu, select *View Details*.
+
+== Details
+The Virtual Volumes page of the VVols tab provides information about each active virtual volume on the cluster, such as volume ID, snapshot ID, parent virtual volume ID, and virtual volume ID.
+
+* *Volume ID*: The ID of the underlying volume.
+
+* *Snapshot ID*: The ID of the underlying volume snapshot. The value is 0 if the virtual volume does not represent a SolidFire snapshot.
+
+* *Parent Virtual Volume ID*: The virtual volume ID of the parent virtual volume. If the ID is all zeros, the virtual volume is independent with no link to a parent.
+
+* *Virtual Volume ID*: The UUID of the virtual volume.
+
+* *Name*: The name assigned to the virtual volume.
+
+* *Storage Container*: The storage container that owns the virtual volume.
+
+* *Guest OS Type*: Operating system associated with the virtual volume.
+
+* *Virtual Volume Type*: The virtual volume type: Config, Data, Memory, Swap, or Other.
+
+* *Access*: The read-write permissions assigned to the virtual volume.
+
+* *Size*: The size of the virtual volume in GB or GiB.
+
+* *Snapshots*: The number of associated snapshots. Click the number to link to snapshot details.
+
+* *Min IOPS*: The minimum IOPS QoS setting of the virtual volume.
+
+* *Max IOPS*: The maximum IOPS QoS setting of the virtual volume.
+
+* *Burst IOPS*: The maximum burst QoS setting of the virtual volume.
+
+* *VMW_VmID*: Information in fields prefaced with "VMW_" are defined by VMware.
+
+* *Create Time*: The time the virtual volume creation task was completed.
+
+== Individual virtual volume details
+
+The Virtual Volumes page on the VVols tab provides the following virtual volume information when you select an individual virtual volume and view its details.
+
+* *VMW_XXX*: Information in fields prefaced with "VMW_" are defined by VMware.
+* *Parent Virtual Volume ID*: The virtual volume ID of the parent virtual volume. If the ID is all zeros, the virtual volume is independent with no link to a parent.
+* *Virtual Volume ID*: The UUID of the virtual volume.
+* *Virtual Volume Type*: The virtual volume type: Config, Data, Memory, Swap, or Other.
+* *Volume ID*: The ID of the underlying volume.
+* *Access*: The read-write permissions assigned to the virtual volume.
+* *Account Name*: Name of the account containing the volume.
+
+* *Access Groups*: Associated volume access groups.
+
+* *Total Volume Size*: Total provisioned capacity in bytes.
+
+* *Non-Zero Blocks*: Total number of 4KiB blocks with data after the last garbage collection operation has completed.
+
+* *Zero Blocks*: Total number of 4KiB blocks without data after the last round of garbage collection operation has completed.
+
+* *Snapshots*: The number of associated snapshots. Click the number to link to snapshot details.
+
+* *Min IOPS*: The minimum IOPS QoS setting of the virtual volume.
+
+* *Max IOPS*: The maximum IOPS QoS setting of the virtual volume.
+
+* *Burst IOPS*: The maximum burst QoS setting of the virtual volume.
+
+* *Enable 512*: Because virtual volumes always use 512-byte block size emulation, the value is always yes.
+
+* *Volumes Paired*: Indicates if a volume is paired.
+
+* *Create Time*: The time the virtual volume creation task was completed.
+
+* *Blocks Size*: Size of the blocks on the volume.
+
+* *Unaligned Writes*: For 512e volumes, the number of write operations that were not on a 4k sector boundary. High numbers of unaligned writes might indicate improper partition alignment.
+
+* *Unaligned Reads*: For 512e volumes, the number of read operations that were not on a 4k sector boundary. High numbers of unaligned reads might indicate improper partition alignment.
+
+* *scsiEUIDeviceID*: Globally unique SCSI device identifier for the volume in EUI-64 based 16-byte format.
+
+* *scsiNAADeviceID*: Globally unique SCSI device identifier for the volume in NAA IEEE Registered Extended format.
+
+* *Attributes*: List of name-value pairs in JSON object format.

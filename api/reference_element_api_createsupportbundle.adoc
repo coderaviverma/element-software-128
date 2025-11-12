@@ -1,0 +1,130 @@
+---
+permalink: api/reference_element_api_createsupportbundle.html
+sidebar: sidebar
+keywords: create,creating,support,bundle,CreateSupportBundle
+summary: 'You can use the CreateSupportBundle to create a support bundle file under the node’s directory. After creation, the bundle is stored on the node as a tar.gz file.'
+---
+
+= CreateSupportBundle
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `CreateSupportBundle` to create a support bundle file under the node's directory. After creation, the bundle is stored on the node as a tar file (gz compression option is available via the extraArgs parameter.)
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+bundleName
+a|
+Unique name for the support bundle. If no name is provided, then "supportbundle" and the node name are used as the file name.
+a|
+string
+a|
+None
+a|
+No
+a|
+extraArgs
+a|
+Use '--compress gz' to create the support bundle as a tar.gz file.
+a|
+string
+a|
+None
+a|
+No
+a|
+timeoutSec
+a|
+The number of seconds the support bundle script runs.
+a|
+integer
+a|
+1500
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+details
+a|
+The details of the support bundle. Possible values:
+
+* bundleName: The name specified in the CreateSupportBundleAPI method. If no name was specified, "supportbundle" is used.
+* extraArgs: The arguments passed with this method.
+* files: A list of the support bundle files that the system created.
+* output: The command line output from the script that created the support bundle.
+* timeoutSec: The number of seconds the support bundle script runs before stopping.
+* url: URL to the support bundle created.
+
+a|
+JSON object
+a|
+duration
+a|
+The time used to create the support bundle in the format: HH:MM:SS.ssssss.
+a|
+string
+a|
+result
+a|
+The success or failure of the support bundle operation.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+ "method": "CreateSupportBundle",
+"params": {
+  "extraArgs": "--compress gz"
+ },
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+"id": 1,
+"result": {
+  "details": {
+    "bundleName": "supportbundle",
+    "extraArgs": "--compress gz",
+    "files": [
+         "supportbundle.nodehostname.tar.gz"
+     ],
+     "output": "timeout -s KILL 1500s /sf/scripts/sfsupportbundle --quiet --compress gz /tmp/solidfire-dtemp.1L6bdX/supportbundle<br><br>Moved '/tmp/solidfire-dtemp.1L6bdX/supportbundle.nodehostname.tar.gz' to /tmp/supportbundles",
+      "timeoutSec": 1500,
+      "url": [
+          "https://nodeIP:442/config/supportbundles/supportbundle.nodehostname.tar.gz"
+      ]
+    },
+    "duration": "00:00:43.101627",
+    "result": "Passed"
+  }
+}
+----
+
+== New since version
+
+9.6

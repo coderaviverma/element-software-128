@@ -1,0 +1,132 @@
+---
+permalink: storage/concept_system_manage_manage_cluster_administrator_users.html
+sidebar: sidebar
+keywords: element, solidfire, cluster admin, account, create, change, configure, administrator access, edit permissions, change passwords
+summary: 'You can manage cluster administrator accounts for a SolidFire storage system. Available cluster administrator management functions include creating, deleting, and editing cluster administrator accounts, changing the cluster administrator password, and configuring LDAP settings to manage system access for users.'
+---
+
+= Manage cluster administrator user accounts
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can manage cluster administrator accounts for a SolidFire storage system by creating, deleting, and editing cluster administrator accounts, changing the cluster administrator password, and configuring LDAP settings to manage system access for users.
+
+
+== Storage cluster administrator account types
+
+There are two types of administrator accounts that can exist in a storage cluster running NetApp Element software: the primary cluster administrator account and a cluster administrator account.
+
+* *Primary cluster administrator account*
++
+This administrator account is created when the cluster is created. This account is the primary administrative account with the highest level of access to the cluster. This account is analogous to a root user in a Linux system. You can change the password for this administrator account.
+
+* *Cluster administrator account*
++
+You can give a cluster administrator account a limited range of administrative access to perform specific tasks within a cluster. The credentials assigned to each cluster administrator account are used to authenticate API and Element UI requests within the storage system.
+
+NOTE: A local (non-LDAP) cluster administrator account is required to access active nodes in a cluster via the per-node UI. Account credentials are not required to access a node that is not yet part of a cluster.
+
+== View cluster admin details
+
+. To create a cluster-wide (non-LDAP) cluster administrator account, perform the following actions:
+ .. Click *Users* > *Cluster Admins*.
+. On the Cluster Admins page of the Users tab, you can view the following information.
++
+* *ID*: Sequential number assigned to the cluster administrator account.
+* *Username*: The name given to the cluster administrator account when it was created.
+* *Access*: The user permissions assigned to the user account. Possible values:
+ ** read
+ ** reporting
+ ** nodes
+ ** drives
+ ** volumes
+ ** accounts
+ ** clusterAdmins
+ ** administrator
+ ** supportAdmin
+
++
+[NOTE]
+====
+All permissions are available to the administrator access type.
+
+There are access types available through the API that aren't available in the Element UI.
+====
+
+* *Type*: The type of cluster administrator. Possible values:
+ ** Cluster
+ ** Ldap
+* *Attributes*: If the cluster administrator account was created using the Element API, this column shows any name-value pairs that were set using that method.
++
+See link:../api/concept_element_api_about_the_api.html[NetApp Element Software API Reference].
+
+[[create_cluster_admin_account]]
+== Create a cluster administrator account
+
+You can create new cluster administrator accounts with permissions to allow or restrict access to specific areas of the storage system. When you set cluster administrator account permissions, the system grants read-only rights for any permissions you do not assign to the cluster administrator.
+
+If you want to create an LDAP cluster administrator account, ensure that LDAP is configured on the cluster before you begin.
+
+link:concept_system_manage_manage_ldap.html[Enable LDAP authentication with the Element user interface]
+
+
+You can later change cluster administrator account privileges for reporting, nodes, drives, volumes, accounts, and cluster-level access. When you enable a permission, the system assigns write access for that level. The system grants the administrator user read-only access for the levels that you do not select.
+
+You can also later remove any cluster administrator user account created by a system administrator. You cannot remove the primary cluster administrator account that was created when the cluster was created.
+
+. To create a cluster-wide (non-LDAP) cluster administrator account, perform the following actions:
+ .. Click *Users* > *Cluster Admins*.
+ .. Click *Create Cluster Admin*.
+ .. Select the *Cluster* user type.
+ .. Enter a user name and password for the account and confirm password.
+ .. Select user permissions to apply to the account.
+ .. Select the check box to agree to the End User License Agreement.
+ .. Click *Create Cluster Admin*.
+. To create a cluster administrator account in the LDAP directory, perform the following actions:
+ .. Click *Cluster* > *LDAP*.
+ .. Ensure that LDAP Authentication is enabled.
+ .. Click *Test User Authentication* and copy the distinguished name that appears for the user or one of the groups of which the user is a member so that you can paste it later.
+ .. Click *Users* > *Cluster Admins*.
+ .. Click *Create Cluster Admin*.
+ .. Select the LDAP user type.
+ .. In the Distinguished Name field, follow the example in the text box to enter a full distinguished name for the user or group. Alternatively, paste it from the distinguished name you copied earlier.
++
+If the distinguished name is part of a group, then any user that is a member of that group on the LDAP server will have permissions of this admin account.
++
+To add LDAP Cluster Admin users or groups the general format of the username is "`LDAP:<Full Distinguished Name>`".
+
+ .. Select user permissions to apply to the account.
+ .. Select the check box to agree to the End User License Agreement.
+ .. Click *Create Cluster Admin*.
+
+
+== Edit cluster administrator permissions
+
+You can change cluster administrator account privileges for reporting, nodes, drives, volumes, accounts, and cluster-level access. When you enable a permission, the system assigns write access for that level. The system grants the administrator user read-only access for the levels that you do not select.
+
+. Click *Users* > *Cluster Admins*.
+. Click the Actions icon for the cluster administrator you want to edit.
+. Click *Edit*.
+. Select user permissions to apply to the account.
+. Click *Save Changes*.
+
+
+== Change passwords for cluster administrator accounts
+
+You can use the Element UI to change cluster administrator passwords.
+
+. Click *Users* > *Cluster Admins*.
+. Click the Actions icon for the cluster administrator you want to edit.
+. Click *Edit*.
+. In the Change Password field, enter a new password and confirm it.
+. Click *Save Changes*.
+
+
+.Related information
+* link:../api/reference_element_api_app_b_access_control.html[Learn about the access types available for Element APIs]
+* link:concept_system_manage_manage_ldap.html[Enable LDAP authentication with the Element user interface]
+* link:concept_system_manage_manage_ldap.html[Disable LDAP]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+
+// 2025 APR 10, DOC-4783

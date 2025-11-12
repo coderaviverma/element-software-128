@@ -1,0 +1,4 @@
+---
+permalink: setup/task_setup_cluster_with_fibre_channel_nodes.html
+redirect: element-software/setup/concept_setup_fc_configure_a_fibre_channel_node.html
+---

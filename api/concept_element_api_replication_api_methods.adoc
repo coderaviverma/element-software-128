@@ -1,0 +1,30 @@
+---
+permalink: api/concept_element_api_replication_api_methods.html
+sidebar: sidebar
+keywords: replication,api,methods
+summary: 'Replication API methods enable you to connect two clusters for continuous data protection \(CDP\). When you connect two clusters, active volumes within a cluster can be continuously replicated to a second cluster to provide data recovery. By pairing volumes for replication, you can protect your data from events that might render it inaccessible.'
+---
+
+= Replication API methods
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Replication API methods enable you to connect two clusters for continuous data protection (CDP). When you connect two clusters, active volumes within a cluster can be continuously replicated to a second cluster to provide data recovery. By pairing volumes for replication, you can protect your data from events that might render it inaccessible.
+
+* xref:reference_element_api_cluster_pairing_order_of_operations.adoc[Cluster pairing order of operations]
+* xref:reference_element_api_volume_pairing_order_of_operations.adoc[Volume pairing order of operations]
+* xref:reference_element_api_supported_modes_of_replication.adoc[Supported modes of replication for paired clusters]
+* xref:reference_element_api_completeclusterpairing.adoc[CompleteClusterPairing]
+* xref:reference_element_api_completevolumepairing.adoc[CompleteVolumePairing]
+* xref:reference_element_api_listclusterpairs.adoc[ListClusterPairs]
+* xref:reference_element_api_listactivepairedvolumes.adoc[ListActivePairedVolumes]
+* xref:reference_element_api_modifyvolumepair.adoc[ModifyVolumePair]
+* xref:reference_element_api_removeclusterpair.adoc[RemoveClusterPair]
+* xref:reference_element_api_removevolumepair.adoc[RemoveVolumePair]
+* xref:reference_element_api_startclusterpairing.adoc[StartClusterPairing]
+* xref:reference_element_api_startvolumepairing.adoc[StartVolumePairing]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

@@ -1,0 +1,6 @@
+---
+permalink: concepts/reference_solidfire_element_ug_where_to_find_additional_information.html
+redirect: element-software/index.html
+---
+
+// 2024 APR 15, element-software-internal-issue-283

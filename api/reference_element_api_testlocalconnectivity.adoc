@@ -1,0 +1,135 @@
+---
+permalink: api/reference_element_api_testlocalconnectivity.html
+sidebar: sidebar
+keywords: test,testing,local,connectivity,TestLocalConnectivity
+summary: 'You can use the TestLocalConnectivity method to ping the Cluster IP \(CIP\) of each node in an active cluster.'
+---
+
+= TestLocalConnectivity
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `TestLocalConnectivity` method to ping the Cluster IP (CIP) of each node in an active cluster.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+details
+a|
+Individual ping response times for each node in the local, active cluster.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+    "method": "TestLocalConnectivity",
+    "params": {},
+    "id": 1
+}
+----
+
+== Response example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "id": null,
+   "result": {
+      "details": {
+                 "10.26.86.17": {
+                    individualResponseTimes: [
+                         "00:00:00.006868",
+                         "00:00:00.005933",
+                         "00:00:00.006655",
+                         "00:00:00.006584",
+                         "00:00:00.006334"
+                    ],
+                    individualStatus: [
+                          true,
+                          true,
+                          true,
+                          true,
+                          true
+                    ],
+                    responseTime: "00:00:00.006475",
+                    successful: true
+                       },
+                       "10.26.86.18": {
+                    individualResponseTimes: [
+                         "00:00:00.006201",
+                         "00:00:00.006187",
+                         "00:00:00.005990",
+                         "00:00:00.006029",
+                         "00:00:00.005917"],
+                    individualStatus: [
+                          true,
+                          true,
+                          true,
+                          true,
+                          true
+                     ],
+                     "responseTime": "00:00:00.006065",
+                     "successful": true
+     },
+                       "10.26.86.19": {
+                     individualResponseTimes: [
+                         "00:00:00.005988",
+                         "00:00:00.006948",
+                         "00:00:00.005981",
+                         "00:00:00.005964",
+                         "00:00:00.005942"
+                      ],
+                    individualStatus: [
+                                "true",
+                                "true",
+                          true,
+                          true,
+                          true
+                      ],
+                      responseTime: "00:00:00.006165",
+                      successful: true,
+               },
+                          "10.26.86.20": {
+                    individualResponseTimes: [
+                         "00:00:00.005926",
+                         "00:00:00.006072",
+                         "00:00:00.005675",
+                         "00:00:00.009904",
+                         "00:00:00.006225"
+                      ],
+                              "individualStatus": [
+                          true,
+                          true,
+                          true,
+                          true,
+                          true
+                     ],
+                      responseTime: "00:00:00.006760",
+                      successful: true
+                   }
+             },
+     "duration": "00:00:00.595982",
+     "result": "Passed"
+  }
+}
+----
+
+== New since version
+
+9.6

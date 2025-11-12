@@ -1,0 +1,27 @@
+---
+permalink: storage/task_data_protection_back_up_volume_to_openstack_swift.html
+sidebar: sidebar
+keywords: volume backup, openstack swift object store
+summary: 'You can back up volumes to external object stores that are compatible with OpenStack Swift.'
+---
+
+= Back up a volume to an OpenStack Swift object store
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can back up volumes to external object stores that are compatible with OpenStack Swift.
+
+. Click *Management* > *Volumes*.
+. Click the Actions icon for the volume to back up.
+. In the resulting menu, click *Backup to*.
+. In the *Integrated Backup* dialog box under *Backup to*, select *Swift*.
+. Select a data format under *Data Format*:
+ ** *Native*: A compressed format readable only by SolidFire storage systems.
+ ** *Uncompressed*: An uncompressed format compatible with other systems.
+. Enter a URL to use to access the object store in the *URL* field.
+. Enter a user name for the account in the *Username* field.
+. Enter the authentication key for the account in the *Authentication Key* field.
+. Enter the container in which to store the backup in the *Container* field.
+. *Optional*: Enter a name tag to append to the prefix in the *Nametag* field.
+. Click *Start Read*.

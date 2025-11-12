@@ -1,0 +1,22 @@
+---
+permalink: storage/task_system_manage_virtual_delete_a_virtual_network.html
+sidebar: sidebar
+keywords: virtual network delete, remove, object, address blocks, vlan
+summary: 'You can remove a virtual network object. You must add the address blocks to another virtual network before you remove a virtual network.'
+---
+
+= Delete a virtual network
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can remove a virtual network object. You must add the address blocks to another virtual network before you remove a virtual network.
+
+. Click *Cluster* > *Network*.
+. Click the Actions icon for the VLAN you want to delete.
+. Click *Delete*.
+. Confirm the message.
+
+== Find more information
+
+xref:task_system_manage_virtual_edit_a_virtual_network.adoc[Edit a virtual network]

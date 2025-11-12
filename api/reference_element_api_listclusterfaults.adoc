@@ -1,0 +1,135 @@
+---
+permalink: api/reference_element_api_listclusterfaults.html
+sidebar: sidebar
+keywords: cluster,list,listing,fault,faults,listclusterfaults,error,errors
+summary: 'You can use the ListClusterFaults method to list information about any faults detected on the cluster. With this method, you can list both current faults as well as faults that have been resolved. The system caches faults every 30 seconds.'
+---
+
+= ListClusterFaults
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListClusterFaults` method to list information about any faults detected on the cluster. With this method, you can list both current faults as well as faults that have been resolved. The system caches faults every 30 seconds.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+bestPractices
+a|
+Include faults triggered by sub-optimal system configuration. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+None
+a|
+No
+a|
+faultTypes
+a|
+Determines the types of faults returned. Possible values:
+
+* current: List active, unresolved faults.
+* resolved: List faults that were previously detected and resolved.
+* all: List both current and resolved faults. You can see the fault status in the "`resolved`" member of the fault object.
+
+a|
+string
+a|
+all
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+faults
+a|
+An object describing the requested cluster faults.
+a|
+xref:reference_element_api_fault.adoc[fault]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ListClusterFaults",
+    "params": {
+      "faultTypes": "current",
+      "bestPractices": true
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "faults": [
+      {
+        "blocksUpgrade": false,
+        "clusterFaultID": 3,
+        "code": "driveAvailable",
+        "data": null,
+        "date": "2024-04-03T22:22:56.660275Z",
+        "details": "Node ID 1 has 6 available drive(s).",
+        "driveID": 0,
+        "driveIDs": [],
+        "externalSource": "",
+        "networkInterface": "",
+        "nodeHardwareFaultID": 0,
+        "nodeID": 1,
+        "resolved": true,
+        "resolvedDate": "2024-04-03T22:24:54.598693Z",
+        "serviceID": 0,
+        "severity": "warning",
+        "type": "drive"
+      },
+      {
+        "clusterFaultID": 9,
+        "code": "disconnectedClusterPair",
+        "data": null,
+        "date": "2016-04-26T20:40:08.736597Z",
+        "details": "One of the clusters in a pair may have become misconfigured or disconnected.  Remove the local pairing and retry pairing the clusters. Disconnected Cluster Pairs: []. Misconfigured Cluster Pairs: [3]",
+        "driveID": 0,
+        "driveIDs": [],
+        "nodeHardwareFaultID": 0,
+        "nodeID": 0,
+        "resolved": false,
+        "resolvedDate": "",
+        "serviceID": 0,
+        "severity": "warning",
+        "type": "cluster"
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6
+
+// 2024 MAY 1, DOC-4754

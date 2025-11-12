@@ -1,0 +1,111 @@
+---
+permalink: api/reference_element_api_getlimits.html
+sidebar: sidebar
+keywords: system,limits,get,getting,getlimits
+summary: 'You can use the GetLimits method to get the limit values set by the API. These values might change between releases of Element, but do not change without an update to the system. Knowing the limit values set by the API can be useful when writing API scripts for user-facing tools.'
+---
+
+= GetLimits
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetLimits` method to get the limit values set by the API. These values might change between releases of Element, but do not change without an update to the system. Knowing the limit values set by the API can be useful when writing API scripts for user-facing tools.
+
+NOTE: The `GetLimits` method returns the limits for the current software version regardless of the API endpoint version used to pass the method.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method returns a JSON object with name-value pairs containing the API limits.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetLimits",
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "accountCountMax": 5000,
+        "accountNameLengthMax": 64,
+        "accountNameLengthMin": 1,
+        "backupTargetNameLengthMax": 64,
+        "backupTargetNameLengthMin": 1,
+        "bulkVolumeJobsPerNodeMax": 8,
+        "bulkVolumeJobsPerVolumeMax": 2,
+        "chapCredentialsCountMax": 15000,
+        "cloneJobsPerNodeMax": 8,
+        "cloneJobsPerVirtualVolumeMax": 8,
+        "cloneJobsPerVolumeMax": 2,
+        "clusterAdminAccountMax": 5000,
+        "clusterAdminInfoNameLengthMax": 1024,
+        "clusterAdminInfoNameLengthMin": 1,
+        "clusterPairsCountMax": 4,
+        "fibreChannelVolumeAccessMax": 16384,
+        "initiatorAliasLengthMax": 224,
+        "initiatorCountMax": 10000,
+        "initiatorNameLengthMax": 224,
+        "initiatorsPerVolumeAccessGroupCountMax": 128,
+        "iscsiSessionsFromFibreChannelNodesMax": 4096,
+        "maxAuthSessionsForCluster": 1024,
+        "maxAuthSessionsPerUser": 1024,
+        "nodesPerClusterCountMax": 100,
+        "nodesPerClusterCountMin": 3,
+        "qosPolicyCountMax": 500,
+        "qosPolicyNameLengthMax": 64,
+        "qosPolicyNameLengthMin": 1,
+        "scheduleNameLengthMax": 244,
+        "secretLengthMax": 16,
+        "secretLengthMin": 12,
+        "snapMirrorEndpointIPAddressesCountMax": 64,
+        "snapMirrorEndpointsCountMax": 4,
+        "snapMirrorLabelLengthMax": 31,
+        "snapMirrorObjectAttributeValueInfoCountMax": 9900000,
+        "snapshotNameLengthMax": 255,
+        "snapshotsPerVolumeMax": 32,
+        "storageNodesPerClusterCountMin": 2,
+        "virtualVolumeCountMax": 8000,
+        "virtualVolumesPerAccountCountMax": 10000,
+        "volumeAccessGroupCountMax": 1000,
+        "volumeAccessGroupLunMax": 16383,
+        "volumeAccessGroupNameLengthMax": 64,
+        "volumeAccessGroupNameLengthMin": 1,
+        "volumeAccessGroupsPerInitiatorCountMax": 1,
+        "volumeAccessGroupsPerVolumeCountMax": 64,
+        "volumeBurstIOPSMax": 200000,
+        "volumeBurstIOPSMin": 100,
+        "volumeCountMax": 4000,
+        "volumeMaxIOPSMax": 200000,
+        "volumeMaxIOPSMin": 100,
+        "volumeMinIOPSMax": 15000,
+        "volumeMinIOPSMin": 50,
+        "volumeNameLengthMax": 64,
+        "volumeNameLengthMin": 1,
+        "volumeSizeMax": 17592186044416,
+        "volumeSizeMin": 1000000000,
+        "volumesPerAccountCountMax": 2000,
+        "volumesPerGroupSnapshotMax": 32,
+        "volumesPerVolumeAccessGroupCountMax": 2000,
+        "witnessNodesPerClusterCountMax": 4
+    }
+}
+----
+
+== New since version
+
+9.6

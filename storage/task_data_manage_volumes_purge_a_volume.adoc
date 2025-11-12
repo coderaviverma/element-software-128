@@ -1,0 +1,43 @@
+---
+permalink: storage/task_data_manage_volumes_purge_a_volume.html
+sidebar: sidebar
+keywords: volumes, purge a volume
+summary: 'When a volume is purged, it is permanently removed from the system. All data in the volume is lost.'
+---
+
+= Purge a volume
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When a volume is purged, it is permanently removed from the system. All data in the volume is lost.
+
+The system automatically purges deleted volumes eight hours after deletion. However, if you want to purge a volume before the scheduled time, you can do so.
+
+NOTE: If you purge a large number of volumes at one time, or if the volumes you purge each have many associated snapshots, the purge process might fail and return the error "xDBConnectionLoss", which would appear in the API log in the Element web UI. If this happens, retry the purge again with fewer volumes.
+
+. Select *Management* > *Volumes*.
+. Click the *Deleted* button.
+. Perform the steps to purge a single volume or multiple volumes.
++
+|===
+| Option| Steps
+a|
+Purge a single volume
+a|
+
+ .. Click the Actions icon for the volume you want to purge.
+ .. Click *Purge*.
+ .. Confirm the action.
+
+a|
+Purge multiple volumes
+a|
+
+ .. Select the volumes you want to purge.
+ .. Click *Bulk Actions*.
+ .. In the resulting menu, select *Purge*.
+ .. Confirm the action.
+
++
+|===

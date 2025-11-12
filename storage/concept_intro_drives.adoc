@@ -1,0 +1,25 @@
+---
+permalink: storage/concept_intro_drives.html
+sidebar: sidebar
+keywords: drives, physical drives, cluster data, storage node, volume metadata, block drives, clusters
+summary: 'A storage node contains one or more physical drives that are used to store a portion of the data for the cluster. The cluster utilizes the capacity and performance of the drive after the drive has been successfully added to a cluster.'
+---
+
+= Drives
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+A storage node contains one or more physical drives that are used to store a portion of the data for the cluster. The cluster utilizes the capacity and performance of the drive after the drive has been successfully added to a cluster.
+
+A storage node contains two types of drives:
+
+* *Volume metadata drives*
++
+These drives store compressed information that defines each volume, clone, or snapshot within a cluster. The total metadata drive capacity in the system determines the maximum amount of storage that can be provisioned as volumes. The maximum amount of storage that can be provisioned is independent from how much data is actually stored on the block drives of the cluster. Volume metadata drives store data redundantly across a cluster using Double Helix data protection.
++
+NOTE: Some system event log and error messages refer to volume metadata drives as slice drives.
+
+* *Block drives*
++
+These drives store the compressed, de-duplicated data blocks for server application volumes. Block drives make up a majority of the storage capacity of the system. The majority of read requests for data already stored on the SolidFire cluster, as well as requests to write data, occur on the block drives. The total block drive capacity in the system determines the maximum amount of data that can be stored, taking into account the effects of compression, thin provisioning, and de-duplication.

@@ -1,0 +1,154 @@
+---
+permalink: api/reference_element_api_modifyaccount.html
+sidebar: sidebar
+keywords: modify,modifying,edit,editing,change,changing,accounts,settings,modifyaccount
+summary: 'You can use the ModifyAccount method to modify an existing account.'
+---
+
+= ModifyAccount
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyAccount` method to modify an existing account.
+
+When you lock an account, any existing connections from that account are immediately terminated. When you change an account's CHAP settings, any existing connections remain active, and the new CHAP settings are used on subsequent connections or reconnections. To clear an account's attributes, specify {} for the attributes parameter.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+accountID
+a|
+AccountID for the account to modify.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+enableChap
+a|
+Specifies whether CHAP account credentials can be used by an initiator to access volumes.
+a|
+boolean
+a|
+None
+a|
+No
+a|
+initiatorSecret
+a|
+The CHAP secret to use for the initiator. This secret must be 12-16 characters in length and should be impenetrable. The initiator CHAP secret must be unique and cannot be the same as the target CHAP secret.
+a|
+string
+a|
+None
+a|
+No
+a|
+status
+a|
+Status for the account. Possible values:
+
+* active: Account is active and connections are allowed.
+* locked: Account is locked and connections are refused.
+
+a|
+string
+a|
+None
+a|
+No
+a|
+targetSecret
+a|
+The CHAP secret to use for the target (mutual CHAP authentication). This secret must be 12-16 characters in length and should be impenetrable. The target CHAP secret must be unique and cannot be the same as the initiator CHAP secret.
+a|
+string
+a|
+None
+a|
+No
+a|
+username
+a|
+Used to change the username associated with the account. (Must be 1 to 64 characters in length).
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+account
+a|
+An object containing information about the modified account.
+a|
+xref:reference_element_api_account.adoc[account]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example. In this example, the attributes are cleared by specifying {} for them:
+
+----
+{
+   "method": "ModifyAccount",
+   "params": {
+     "accountID"  : 25,
+     "status"   : "locked",
+     "attributes" : {}
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "account": {
+        "storageContainerID": "abcdef01-1234-5678-90ab-cdef01234567",
+        "username": "user1",
+        "accountID": 1,
+        "volumes": [
+        ],
+        "enableChap": true,
+        "initiatorSecret": "txz123456q890",
+        "attributes": {
+        },
+        "status": active",
+        "targetSecret": "rxe123b567890"
+    }
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,113 @@
+---
+permalink: api/reference_element_api_modifyvolumeaccessgrouplunassignments.html
+sidebar: sidebar
+keywords: volumes,volume,defining,define,modify,modifying,edit,editing,change,changing,modifyvolumeaccessgrouplunassignments,access,group,lun,assignment
+summary: 'You can use the ModifyVolumeAccessGroupLunAssignments method to define custom LUN assignments for specific volumes.'
+---
+
+= ModifyVolumeAccessGroupLunAssignments
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyVolumeAccessGroupLunAssignments` method to define custom LUN assignments for specific volumes.
+
+This method changes only LUN values set on the lunAssignments parameter in the volume access group. All other LUN assignments remain unchanged.
+
+LUN assignment values must be unique for volumes in a volume access group. You cannot define duplicate LUN values within a volume access group. However, you can use the same LUN values again in different volume access groups.
+
+NOTE: Valid LUN values are 0 through 16383. The system generates an exception if you pass a LUN value outside of this range. None of the specified LUN assignments are modified if there is an exception.
+
+CAUTION:
+
+If you change a LUN assignment for a volume with active I/O, the I/O can be disrupted. You should change the server configuration before changing volume LUN assignments.
+
+== Parameters
+
+This method has the following input parameters:
+
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeAccessGroupID
+a|
+Unique volume access group ID for which the LUN assignments will be modified.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+lunAssignments
+a|
+The volume IDs with new assigned LUN values.
+a|
+integer array
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+volumeAccessGroupLunAssignments
+a|
+An object containing details of the modified volume access group LUN assignments.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ModifyVolumeAccessGroupLunAssignments",
+   "params": {
+       "volumeAccessGroupID" : 218,
+       "lunAssignments" : [
+           {"volumeID" : 832, "lun" : 0},
+           {"volumeID" : 834, "lun" : 1}
+        ]
+    },
+    "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "volumeAccessGroupLunAssignments": {
+      "deletedLunAssignments": [],
+      "lunAssignments": [
+        {
+          "lun": 0,
+          "volumeID": 832
+        },
+        {
+          "lun": 1,
+          "volumeID": 834
+        }
+      ],
+      "volumeAccessGroupID": 218
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,105 @@
+---
+permalink: api/reference_element_api_getstoragecontainerefficiency.html
+sidebar: sidebar
+keywords: volume,virtual,container,volumes,get,getting,efficiency,vvol,GetStorageContainerEfficiency
+summary: 'You can use the GetStorageContainerEfficiency method to retrieve efficiency information about a virtual volume storage container.'
+---
+
+= GetStorageContainerEfficiency
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetStorageContainerEfficiency` method to retrieve efficiency information about a virtual volume storage container.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+storageContainerID
+a|
+The ID of the storage container for which to retrieve efficiency information.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+compression
+a|
+The amount of space saved by data compression for all virtual volumes in the storage container. Stated as a ratio where a value of 1 means data has been stored with no compression.
+a|
+float
+a|
+deduplication
+a|
+The amount of space saved by not duplicating data for all virtual volumes in the storage container. Stated as a ratio.
+a|
+float
+a|
+missingVolumes
+a|
+The virtual volumes that could not be queried for efficiency data. Missing volumes can be caused by the Garbage Collection (GC) cycle being less than an hour old, temporary loss of network connectivity, or restarted services since the GC cycle.
+a|
+integer array
+a|
+thinProvisioning
+a|
+The ratio of space used to the amount of space allocated for storing data. Stated as a ratio.
+a|
+float
+a|
+timestamp
+a|
+The last time efficiency data was collected after GC.
+a|
+ISO 8601 data string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetStorageContainerEfficiency",
+  "params": {
+    "storageContainerID" : "6c95e24f-9f0b-4793-affb-5a4bc6c3d7e1"
+  },
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "compression": 1,
+    "deduplication": 1,
+    "missingVolumes": [],
+    "thinProvisioning": 1,
+    "timestamp": "2016-04-12T15:39:49Z"
+  }
+}
+----
+
+== New since version
+
+9.6

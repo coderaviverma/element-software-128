@@ -1,0 +1,15 @@
+// This include file is used in the element-software and element-software-123 repos.
+// You must assess updates to this content for impact on all Element software documentation versions.
+The Return To Factory Image (RTFI) process uses a bootable, installable media with a completely self-contained, minimalistic Linux OS to deploy Element software on a node. You can download the RTFI ISO image specific to your Element software version from the https://mysupport.netapp.com/site/products/all/details/element-software/downloads-tab[NetApp support site^].
+
+After you download the RTFI ISO image, you can deploy it according to one of the following commonly used methods:
+
+* *Physical USB key*: You can write a bootable Element software ISO to a USB key. For instructions, see the Knowledge Base article https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_create_an_RTFI_key_to_re-image_a_SolidFire_storage_node[How to create an RTFI key to re-image a SolidFire storage node^]. Insert the USB key with the ISO into the node and boot from the USB key.
+* *Virtual media using the baseboard management controller (BMC) management port*: You can use the BMC to dynamically attach to the ISO located on your client system. The ISO is made available to the host OS as a virtual drive (CD or DVD).  For more information, see the Knowledge Base article https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_RTFI_a_node_via_BMC[How to RTFI a node via BMC^].
+* *Network boot using a Preboot Execution Environment (PXE), Trivial File Transfer Protocol (TFTP), or FTP*: Instead of manually unpacking an ISO image, you can use `autofs` to automatically extract an image when the RTFI process requests it. This deployment mechanism requires more initial setup but allows for correct automation and scalability of installation.
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]
+
+// 2022 FEB 2, DOC-4281

@@ -1,0 +1,46 @@
+---
+permalink: api/reference_element_api_disableidpauthentication.html
+sidebar: sidebar
+keywords: IdP,idp,authentication,disable
+summary: 'You can use the DisableIdpAuthentication method to disable support for authentication using third-party IdPs for the cluster. Once disabled, users authenticated by third party IdPs are no longer able to access the cluster and any active authenticated sessions are invalidated/disconnected. LDAP and cluster admins are able to access the cluster via supported UIs.'
+---
+
+= DisableIdpAuthentication
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DisableIdpAuthentication` method to disable support for authentication using third-party IdPs for the cluster. Once disabled, users authenticated by third party IdPs are no longer able to access the cluster and any active authenticated sessions are invalidated/disconnected. LDAP and cluster admins are able to access the cluster via supported UIs.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "DisableIdpAuthentication",
+  "params": {}
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+"result": {}
+}
+----
+
+== New since version
+
+12.0

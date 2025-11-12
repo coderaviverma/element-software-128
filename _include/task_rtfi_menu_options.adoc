@@ -1,0 +1,40 @@
+// This include file is used in the element-software and element-software-123 repos.
+// You must assess updates to this content for impact on all Element software documentation versions.
+The following options menu appears if the RTFI process is unsuccessful or if you elect not to proceed at the initial RTFI process prompt.
+
+image::../media/rtfi_menu_options.PNG[SolidFire RTFI menu options]
+
+NOTE: Contact NetApp Support before using any of the following command options.
+
+[cols=2*,options="header",cols="25,75"]
+|===
+|Option |Description
+|Reboot |Exits the RTFI process and reboots the node in its current state. No cleanup is performed.
+|PowerOff |Gracefully powers off the node in its current state. No cleanup is performed.
+|Exit |Exits the RTFI process and opens a command prompt. 
+|UploadLogs |Collects all logs on the system and uploads a single consolidated log archive to a specified URL.
+|===
+
+== Upload logs
+Collect all logs on the system and upload them to a specified URL according to the following procedure.
+
+.Steps
+. At the RTFI options menu prompt, enter *UploadLogs*.
+. Enter the remote directory information:
+.. Type a URL that includes the protocol. For example: `\ftp://,scp://,http://,orhttps://`.
+.. (Optional) Add an embedded user name and password. For example: `scp://user:password@URLaddress.com`.
++
+NOTE: For a full range of syntax options, see the https://curl.se/docs/manpage.html[cURL^] user manual.
++
+The log file is uploaded and saved to the specified directory as a `.tbz2` archive.
+
+== Use the support tunnel
+If you require technical support for your NetApp HCI system or SolidFire all-flash storage system, NetApp Support can connect remotely with your system. To start a session and gain remote access, NetApp Support can open a reverse Secure Shell (SSH) connection to your environment.
+
+include::../_include/enable_remote_ssh_session.adoc[]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]
+
+// 2022 FEB 2, DOC-4281

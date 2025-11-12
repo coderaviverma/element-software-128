@@ -1,0 +1,69 @@
+---
+permalink: api/reference_element_api_session_fibre_channel.html
+sidebar: sidebar
+keywords: object,objects,session
+summary: 'The session object contains information about each Fibre Channel session that is visible to the cluster and what target ports it is visible on. You can retrieve this information with the ListFibreChannelSessions API method.'
+---
+
+= session (Fibre Channel)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The session object contains information about each Fibre Channel session that is visible to the cluster and what target ports it is visible on. You can retrieve this information with the `ListFibreChannelSessions` API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+initiatorWWPN
+a|
+The World Wide Port Name (WWPN) of the initiator that is logged into the target port.
+a|
+string
+a|
+nodeID
+a|
+The node that owns the Fibre Channel session.
+a|
+integer
+a|
+initiator
+a|
+Information about this Fibre Channel session's server initiator. Members:
+
+* alias: The friendly name assigned to the initiator.
+* attributes: The attributes of this initiator.
+* initiatorID: The ID of this initiator.
+* initiatorName: The name of this initiator.
+* volumeAccessGroups: A list of volume access groups associated with this initiator.
+
+a|
+JSON object
+a|
+serviceID
+a|
+The service ID of the target port involved in this session.
+a|
+integer
+a|
+targetWWPN
+a|
+The WWPN of the target port involved in this session.
+a|
+string
+a|
+volumeAccessGroupID
+a|
+The ID of the volume access group to which the initiatorWWPN belongs. If not in a volume access group, this value is null.
+a|
+integer
+|===
+
+== Find more information
+
+xref:reference_element_api_listfibrechannelsessions.adoc[ListFibreChannelSessions]

@@ -1,0 +1,89 @@
+---
+permalink: api/reference_element_api_modifysnapmirrorrelationship.html
+sidebar: sidebar
+keywords: modify,modifying,edit,editing,change,changing,snapmirror,relationship,modifysnapmirrorrelationship
+summary: 'You can use ModifySnapMirrorRelationship to change the intervals at which a scheduled snapshot occurs. You can also delete or pause a schedule by using this method.'
+---
+
+= ModifySnapMirrorRelationship
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `ModifySnapMirrorRelationship` to change the intervals at which a scheduled snapshot occurs. You can also delete or pause a schedule by using this method.
+
+== Parameters
+
+This method has the following input parameters:
+
+|===
+|Name |Description |Type |Default value |Required
+a|
+destinationVolume
+a|
+The destination volume in the SnapMirror relationship.
+a|
+xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeinfo]
+a|
+None
+a|
+Yes
+a|
+maxTransferRate
+a|
+Specifies the maximum data transfer rate between the volumes in kilobytes per second. The default value, 0, is unlimited and permits the SnapMirror relationship to fully utilize the available network bandwidth.
+a|
+integer
+a|
+None
+a|
+No
+a|
+policyName
+a|
+Specifies the name of the ONTAP SnapMirror policy for the relationship.
+a|
+string
+a|
+None
+a|
+No
+a|
+scheduleName
+a|
+The name of the pre-existing cron schedule on the ONTAP system that is used to update the SnapMirror relationship.
+a|
+string
+a|
+None
+a|
+No
+a|
+snapMirrorEndpointID
+a|
+The endpoint ID of the remote ONTAP storage system communicating with the Element storage cluster.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+snapMirrorRelationship
+a|
+An object containing the modified SnapMirror relationship attributes.
+a|
+xref:reference_element_api_snapmirrorrelationship.adoc[snapMirrorRelationship]
+|===
+
+== New since version
+
+10.1

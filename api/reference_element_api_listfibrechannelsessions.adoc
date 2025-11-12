@@ -1,0 +1,76 @@
+---
+permalink: api/reference_element_api_listfibrechannelsessions.html
+sidebar: sidebar
+keywords: list,listing,fibre,channel,session,sessions,listfibrechannelsessions
+summary: 'You can use the ListFibreChannelSessions method to list information about the Fibre Channel sessions on a cluster.'
+---
+
+= ListFibreChannelSessions
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListFibreChannelSessions` method to list information about the Fibre Channel sessions on a cluster.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+sessions
+a|
+A list of objects describing active Fibre Channel sessions on the cluster.
+a|
+xref:reference_element_api_session_fibre_channel.adoc[session] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListFibreChannelSessions",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {
+     "sessions" : [
+    {
+       "initiatorWWPN" : "21:00:00:0e:1e:14:af:40",
+       "nodeID" : 5,
+       "serviceID" : 21,
+       "targetWWPN": "5f:47:ac:c0:00:00:00:10",
+       "volumeAccessGroupID": 7
+    },
+    {
+       "initiatorWWPN" : "21:00:00:0e:1e:14:af:40",
+       "nodeID" : 1,
+       "serviceID" : 22,
+       "targetWWPN": "5f:47:ac:c0:00:00:00:11",
+       "volumeAccessGroupID": 7
+    }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

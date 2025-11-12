@@ -1,0 +1,94 @@
+---
+permalink: api/reference_element_api_getclusterinfo.html
+sidebar: sidebar
+keywords: cluster,get,info,getting,getclusterinfo
+summary: 'You can use the GetClusterInfo method to return configuration information about the cluster.'
+---
+
+= GetClusterInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetClusterInfo` method to return configuration information about the cluster.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+clusterInfo
+a|
+Cluster information.
+a|
+xref:reference_element_api_clusterinfo.adoc[clusterInfo]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetClusterInfo",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": null,
+    "result": {
+        "clusterInfo": {
+            "attributes": {},
+            "defaultProtectionScheme": "doubleHelix",
+            "enabledProtectionSchemes": [
+                "doubleHelix"
+            ],
+            "encryptionAtRestState": "disabled",
+            "ensemble": [
+                "10.10.10.32",
+                "10.10.10.33",
+                "10.10.10.34",
+                "10.10.10.35",
+                "10.10.10.36"
+            ],
+            "mvip": "10.10.11.225",
+            "mvipInterface": "Bond1G",
+            "mvipNodeID": 1,
+            "mvipVlanTag": "0",
+            "name": "ClusterName",
+            "repCount": 2,
+            "softwareEncryptionAtRestState": "disabled",
+            "supportedProtectionSchemes": [
+                "doubleHelix"
+            ],
+            "svip": "10.10.10.111",
+            "svipInterface": "Bond10G",
+            "svipNodeID": 1,
+            "svipVlanTag": "0",
+            "uniqueID": "ahf7",
+            "uuid": "bcfd04b6-9151-4b3a-a6fa-bca22dd145cd",
+            "volumeLoadBalanceOnActualIopsState": "enabled"
+        }
+    } 
+}
+----
+
+== New since version
+
+9.6
+
+// 2024 FEB 28, DOC-4743

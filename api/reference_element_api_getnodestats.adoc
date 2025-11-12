@@ -1,0 +1,112 @@
+---
+permalink: api/reference_element_api_getnodestats.html
+sidebar: sidebar
+keywords: node,get,getting,stats,getnodestats
+summary: 'You can use the GetNodeStats method to retrieve the high-level activity measurements for a single node.'
+---
+
+= GetNodeStats
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetNodeStats` method to retrieve the high-level activity measurements for a single node.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+nodeID
+a|
+Specifies the ID of the node for which statistics will be returned.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+nodeStats
+a|
+Node activity information.
+a|
+xref:reference_element_api_nodestats.adoc[nodeStats]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetNodeStats",
+   "params": {
+     "nodeID": 5
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result" : {
+     "nodeStats": {
+       "cBytesIn": 1579657943924,
+       "cBytesOut": 1683056745816,
+       "count": 119529,
+       "cpu": 0,
+       "cpuTotal": 56289,
+       "mBytesIn": 475476878,
+       "mBytesOut": 269270423,
+       "networkUtilizationCluster": 0,
+       "networkUtilizationStorage": 0,
+       "nodeHeat": {
+         "primaryTotalHeat": 0.00098,
+         "recentPrimaryTotalHeat": 0.00099,
+         "recentTotalHeat": 0.00099,
+         "totalHeat": 0.00098
+       },
+       "readLatencyUSecTotal": 10125300382,
+       "readOps": 15640075,
+       "sBytesIn": 1579657943924,
+       "sBytesOut": 1683056745816,
+       "ssLoadHistogram": {
+         "Bucket0": 4873,
+         "Bucket1To19": 6301620,
+         "Bucket20To39": 396452,
+         "Bucket40To59": 142,
+         "Bucket60To79": 0,
+         "Bucket80To100": 0
+       },
+       "timestamp": "2024-03-04T20:13:22.105428Z",
+       "usedMemory": 106335510528,
+       "writeLatencyUSecTotal": 7314512535,
+       "writeOps": 59154830
+     }
+   }
+}
+----
+
+== New since version
+
+9.6
+
+// 2024 MAR 5, DOC-4741

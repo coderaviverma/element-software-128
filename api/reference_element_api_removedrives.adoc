@@ -1,0 +1,91 @@
+---
+permalink: api/reference_element_api_removedrives.html
+sidebar: sidebar
+keywords: cluster,drive,drives,remove,removing,removedrives
+summary: 'You can use the RemoveDrives method to proactively remove drives that are part of the cluster. You might use this method when reducing cluster capacity or preparing to replace drives nearing the end of their service life. Any data on the drives is removed and migrated to other drives in the cluster before the drive is removed from the cluster.'
+---
+
+= RemoveDrives
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RemoveDrives` method to proactively remove drives that are part of the cluster. You might use this method when reducing cluster capacity or preparing to replace drives nearing the end of their service life. `RemoveDrives` creates a third copy of the block data on the other nodes in the cluster and waits for syncing to complete before moving the drives to the "Available" list. Drives in the "Available" list are completely removed from the system and have no running services or active data.
+
+`RemoveDrives` is an asynchronous method. Depending on the total capacity of the drives being removed, it might take several minutes to migrate all of the data.
+
+When removing multiple drives, use a single `RemoveDrives` method call rather than multiple individual methods with a single drive each. This reduces the amount of data balancing that must occur to evenly stabilize the storage load on the cluster.
+
+You can also remove drives with a "failed" status using `RemoveDrives`. When you remove a drive with a "failed" status, the drive is not returned to an "available" or "`active`" status. The drive is unavailable for use in the cluster.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+drives
+a|
+List of driveIDs to remove from the cluster.
+a|
+integer array
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+asyncHandle
+a|
+Handle value used to obtain the operation result.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "RemoveDrives",
+   "params": {
+      "drives"  : [3, 4, 5]
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result" : {
+     "asyncHandle": 1
+   }
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+* xref:reference_element_api_getasyncresult.adoc[GetAsyncResult]
+* xref:reference_element_api_listdrives.adoc[ListDrives]
+
+// 2024 JAN 11, DOC-4717

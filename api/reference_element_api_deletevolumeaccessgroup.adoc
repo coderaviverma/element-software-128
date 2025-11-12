@@ -1,0 +1,94 @@
+---
+permalink: api/reference_element_api_deletevolumeaccessgroup.html
+sidebar: sidebar
+keywords: volume,access,group,groups,delete,deleting,DeleteVolumeAccessGroup
+summary: 'You can use DeleteVolumeAccessGroup to delete a volume access group.'
+---
+
+= DeleteVolumeAccessGroup
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `DeleteVolumeAccessGroup` to delete a volume access group.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeAccessGroupID
+a|
+The ID of the volume access group to be deleted.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+deleteOrphanInitiators
+a|
+Specifies whether to delete initiator objects or not. Possible values:
+
+* true: Delete initiator objects after they are removed from a volume access group.
+* false: Do not delete initiator objects after they are removed from a volume access group. This is the default.
+
+a|
+boolean
+a|
+false
+a|
+No
+a|
+force
+a|
+Adding this flag will force the volume access group to be deleted even though it has a Virtual Network ID or Tag. Possible values:
+
+* true: Volume access group will be deleted.
+* false: Default. Do not delete the volume access group if it has a Virtual Network ID or Tag.
+
+a|
+boolean
+a|
+false
+a|
+No
+|===
+
+== Return values
+
+This method does not have return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "DeleteVolumeAccessGroup",
+   "params": {
+          "force": true,
+	  "volumeAccessGroupID"  : 3
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result": {}
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,45 @@
+---
+permalink: storage/reference_data_manage_vvol_protocol_endpoints_details.html
+sidebar: sidebar
+keywords: protocol endpoints, details, vvols, state, type, id
+summary: 'The Protocol Endpoints page on the VVols tab provides protocol endpoint information.'
+---
+
+= Protocol endpoints details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Protocol Endpoints page on the VVols tab provides protocol endpoint information.
+
+* *Primary Provider ID*
++
+The ID of the primary protocol endpoint provider.
+
+* *Secondary Provider ID*
++
+The ID of the secondary protocol endpoint provider.
+
+* *Protocol Endpoint ID*
++
+The UUID of the protocol endpoint.
+
+* *Protocol Endpoint State*
++
+The status of the protocol endpoint. Possible values are as follows:
+
+ ** Active: The protocol endpoint is in use.
+ ** Start: The protocol endpoint is starting.
+ ** Failover: The protocol endpoint has failed over.
+ ** Reserved: The protocol endpoint is reserved.
+
+* *Provider Type*
++
+The type of the protocol endpoint's provider. Possible values are as follows:
+
+ ** Primary
+ ** Secondary
+
+* *SCSI NAA Device ID*
++
+The globally unique SCSI device identifier for the protocol endpoint in NAA IEEE Registered Extended Format.

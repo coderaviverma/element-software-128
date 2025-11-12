@@ -1,0 +1,61 @@
+---
+permalink: api/reference_element_api_snmpsendtesttraps.html
+sidebar: sidebar
+keywords: snmp,test,send,trap,testing,sending,snmpsendtesttraps
+summary: 'SnmpSendTestTraps enables you to test SNMP functionality for a cluster. This method instructs the cluster to send test SNMP traps to the currently configured SNMP manager.'
+---
+
+= SnmpSendTestTraps
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+`SnmpSendTestTraps` enables you to test SNMP functionality for a cluster. This method instructs the cluster to send test SNMP traps to the currently configured SNMP manager.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+status
+a|
+Status of the test.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+	"method": "SnmpSendTestTraps",
+    "params": {},
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "status": "complete"
+    }
+}
+----
+
+== New since version
+
+9.6

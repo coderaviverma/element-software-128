@@ -1,0 +1,81 @@
+---
+permalink: api/reference_element_api_authsessioninfo.html
+sidebar: sidebar
+keywords: objects,object,authSessionInfo
+summary: 'The authSessionInfo object contains information about an auth session.'
+---
+
+= authSessionInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `authSessionInfo` object contains information about an auth session.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+`accessGroupList`
+a|
+List of access groups for the user.
+a|
+string array
+a|
+`authMethod`
+a|
+The type of authorization the cluster admin user has. Possible values:
+
+* LDAP - authenticated via LDAP.
+* Cluster - authenticated via a username and password stored in the cluster database.
+* IdP - authenticated via a third-party Identity Provider.
+
+a|
+string
+a|
+`clusterAdminIDs`
+a|
+List of cluster AdminID(s) associated with this session. For sessions related to LDAP or a third-party Identity Provider (IdP), this will be an aggregate list of matching Cluster AdminIDs associated with this session.
+a|
+integer array
+a|
+`finalTimeout`
+a|
+Time at which the session becomes invalid.This is set when the session is created and cannot be changed.
+a|
+string
+a|
+`idpConfigVersion`
+a|
+IdP configuration version when the session was created.
+a|
+integer
+a|
+`lastAccessTimeout`
+a|
+Time at which the session becomes invalid due to inactivity.It is set to a new value when the session is accessed for use, up to the time where the session becomes invalid due to finalTimeout being reached.
+a|
+string
+a|
+`sessionCreationTime`
+a|
+Time at which the session is created.
+a|
+string
+a|
+`sessionID`
+a|
+UUID for this session.
+a|
+UUID
+a|
+`username`
+a|
+Username associated with this session. For sessions related to LDAP, this will be the user's LDAP DN. For sessions related to a third-party IdP, this will be an arbitrary name-value pair that will be used for auditing operations within the session. It will not necessarily match a cluster admin name on the cluster. For example, a SAML Subject NameID,but this will be dictated by the configuration of the IdP and the resultant content of the SAML assertion.
+a|
+string
+|===

@@ -1,0 +1,68 @@
+---
+permalink: api/reference_element_api_getloginsessioninfo.html
+sidebar: sidebar
+keywords: cluster,get,getting,login,session,info,getloginsessioninfo
+summary: 'You can use the GetLoginSessionInfo method to return the period of time a login authentication session is valid for both login shells and the TUI.'
+---
+
+= GetLoginSessionInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetLoginSessionInfo` method to return the period of time a login authentication session is valid for both login shells and the TUI.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+loginSessionInfo
+a|
+An object containing the authentication expiration period. Possible objects returned:
+
+* timeout:
++
+The time, in minutes, when this session will timeout and expire. Formatted in H:mm:ss. For example: 1:30:00, 20:00, 5:00. All leading zeros and colons are removed regardless of the format the timeout was entered.
+
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetLoginSessionInfo",
+    "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+"id": 1,
+  "result" : {
+    "loginSessionInfo" : {
+      "timeout" : "30:00"
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

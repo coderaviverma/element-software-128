@@ -1,0 +1,91 @@
+---
+permalink: api/reference_element_api_listvirtualvolumehosts.html
+sidebar: sidebar
+keywords: virtual,volume,vvol,host,hosts,list,listing,known,listvirtualvolumehosts
+summary: 'You can use the ListVirtualVolumeHosts method to get a list of all virtual volume hosts known to the cluster. A virtual volume host is a VMware ESX host that has initiated a session with the VASA API provider.'
+---
+
+= ListVirtualVolumeHosts
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListVirtualVolumeHosts` method to get a list of all virtual volume hosts known to the cluster. A virtual volume host is a VMware ESX host that has initiated a session with the VASA API provider.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+virtualVolumeHostIDs
+a|
+A list of virtual volume host IDs for which to retrieve information. If you omit this parameter, the method returns information about all virtual volume hosts.
+a|
+virtualVolumeHostID UUID array
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+hosts
+a|
+A list of objects describing the virtual volume hosts in the cluster.
+a|
+xref:reference_element_api_host.adoc[host] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ListVirtualVolumeHosts",
+    "params": {
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "hosts": [
+      {
+        "bindings": [],
+        "clusterID": "5ebdb4ad-9617-4647-adfd-c1013578483b",
+        "hostAddress": "172.30.89.117",
+        "initiatorNames": [
+          "iqn.1998-01.com.vmware:zdc-dhcp-0-c-29-d6-4b-f1-1a0cd614",
+          "iqn.1998-01.com.vmware:zdc-dhcp-0-c-29-d6-4b-f1-5bcf9254"
+        ],
+        "virtualVolumeHostID": "564de1a4-9a99-da0f-8b7c-3a41dfd64bf1",
+        "visibleProtocolEndpointIDs": [
+          "5dd53da0-b9b7-43f9-9b7e-b41c2558e92b"
+        ]
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

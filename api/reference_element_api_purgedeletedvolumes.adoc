@@ -1,0 +1,83 @@
+---
+permalink: api/reference_element_api_purgedeletedvolumes.html
+sidebar: sidebar
+keywords: volume,volumes,purge,purging,multiple,deleted,purgedeletedvolumes
+summary: 'You can use the PurgeDeletedVolumes method to immediately and permanently purge volumes that have been deleted; you can use this method to purge up to 500 volumes at one time.'
+---
+
+= PurgeDeletedVolumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `PurgeDeletedVolumes` method to immediately and permanently purge volumes that have been deleted; you can use this method to purge up to 500 volumes at one time.
+
+You must delete volumes using `DeleteVolumes` before they can be purged. Volumes are purged automatically after a period of time, so usage of this method is not typically required.
+
+NOTE: If you purge a large number of volumes at one time, or if the volumes you purge each have many associated snapshots, the method might fail and return the error "xDBConnectionLoss". If this happens, retry the method call again with fewer volumes.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+
+|volumeIDs
+|A list of volumeIDs of volumes to be purged from the system.
+|integer array
+|No
+|No
+
+|accountIDs
+|A list of accountIDs. All of the volumes from all of the specified accounts are purged from the system.
+|integer array
+|No
+|No
+
+|volumeAccessGroupIDs
+|A list of volumeAccessGroupIDs. All of the volumes from all of the specified volume access groups are purged from the system.
+|integer array
+|No
+|No
+|===
+
+*Note:* You can specify only one of the above parameters per method call. Specifying more than one, or none, results in an error.
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "PurgeDeletedVolumes",
+   "params": {
+      "accountIDs" : [1, 2, 3]
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result": {}
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_deletevolumes.adoc[DeleteVolumes]

@@ -1,0 +1,163 @@
+---
+sidebar: sidebar
+permalink: hccstorage/task-hcc-manage-accounts.html
+summary: Learn how to create a user account and associate it with a volume.
+keywords: netapp, element, cluster, element, account, user, volume, hybrid cloud control, hcc
+---
+
+= Create and manage user accounts by using NetApp Hybrid Cloud Control
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+In Element-based storage systems, authoritative cluster users can be created to enable login access to NetApp Hybrid Cloud Control depending on the permissions you want to grant "Administrator" or "Read-only" users. In addition to cluster users, there are also volume accounts, which enable clients to connect to volumes on a storage node. 
+
+Manage the following types of accounts:
+
+* <<Manage authoritative cluster accounts>>
+* <<Manage volume accounts>>
+
+== Enable LDAP
+
+To use LDAP for any user account, you must first enable LDAP.
+
+.Steps
+. Log in to NetApp Hybrid Cloud Control by providing the Element storage cluster administrator credentials.
+. From the Dashboard, select on the top right Options icon and select *User Management*.
+. From the Users page, select *Configure LDAP*.
+. Define your LDAP configuration.
+. Select the authentication type of Search and Bind or Direct Bind.
+. Before you save the changes, select *Test LDAP Log In* at the top of the page, enter the user name and password of a user you know exists, and select *Test*.
+. Select *Save*.
+
+== Manage authoritative cluster accounts
+
+link:../concepts/concept_solidfire_concepts_accounts_and_permissions.html#authoritative-cluster-user-accounts[Authoritative user accounts] are managed from the top right menu User Management option in NetApp Hybrid Cloud Control. These types of accounts enable you to authenticate against any storage asset associated with a NetApp Hybrid Cloud Control instance of nodes and clusters. With this account, you can manage volumes, accounts, access groups, and more across all clusters.
+
+=== Create an authoritative cluster account
+You can create an account by using NetApp Hybrid Cloud Control.
+
+This account can be used to log in to the Hybrid Cloud Control, the per-node UI for the cluster, and the storage cluster in NetApp Element software.
+
+.Steps
+. Log in to NetApp Hybrid Cloud Control by providing the Element storage cluster administrator credentials.
+. From the Dashboard, select on the top right Options icon and select *User Management*.
+. Select *Create User*.
+. Select the authentication type of cluster or LDAP.
+. Complete one of the following:
++
+** If you selected LDAP, enter the DN.
++
+TIP: To use LDAP, you must first enable LDAP or LDAPS. See <<Enable LDAP>>.
+
+** If you selected Cluster as the Auth Type, enter a name and password for the new account.
+//. In the CHAP Settings section, enter the following information:
+//+
+//* Initiator Secret for CHAP node session authentication
+//* Target Secret for CHAP node session authentication
+//+
+//NOTE: To auto-generate either password, leave the credential fields blank.
+
+. Select either Administrator or Read-only permissions.
++
+TIP: To view the permissions from NetApp Element software, select *Show legacy permissions*. If you select a subset of these permissions, the account is assigned Read-only permissions. If you select all legacy permissions, the account is assigned Administrator permissions.
+
++
+TIP: To ensure that all children of a group inherit permissions, create a DN organization admin group in the LDAP server. All the children accounts of that group will inherit those permissions.
+
+. Check the box indicating that "I have read and accept the NetApp End User License Agreement."
+. Select *Create User*.
+
+=== Edit an authoritative cluster account
+You can change the permissions or password on a user account by using NetApp Hybrid Cloud Control.
+
+//You can edit volume attributes such as QoS values, volume size, and the unit of measurement by which byte values are calculated. You can also modify account access for replication usage or to restrict access to the volume.
+
+.Steps
+. Log in to NetApp Hybrid Cloud Control by providing the Element storage cluster administrator credentials.
+. From the Dashboard, select on the icon in the top right and select *User Management*.
+. Optionally filter the list of user accounts by selecting *Cluster*, *LDAP*, or *Idp*.
++
+If you configured users on the storage cluster with LDAP, those accounts show a User Type of "LDAP." If you configured users on the storage cluster with Idp, those accounts show a User Type of "Idp."
+
+. In the *Actions* column in the table, expand the  menu for the account and select *Edit*.
+. Make changes as needed.
+. Select *Save*.
+. Log out of NetApp Hybrid Cloud Control.
++
+NOTE: It might take the NetApp Hybrid Cloud Control UI up to 2 minutes to refresh the inventory. To manually refresh inventory, access the REST API UI inventory service `https://[management node IP]/inventory/1/` and run `GET /installations​/{id}` for the cluster.
+
+. Log into NetApp Hybrid Cloud Control.
+
+=== Delete an authoritative user account
+You can delete one or more accounts when it is no longer needed. You can delete an LDAP user account.
+
+You cannot delete the primary administrator user account for the authoritative cluster.
+
+.Steps
+. Log in to NetApp Hybrid Cloud Control by providing the Element storage cluster administrator credentials.
+. From the Dashboard, select on the icon in the top right and select *User Management*.
+. In the *Actions* column in the Users table, expand the menu for the account and select *Delete*.
+. Confirm the deletion by selecting *Yes*.
+
+== Manage volume accounts
+link:../concepts/concept_solidfire_concepts_accounts_and_permissions.html#volume-accounts[Volume accounts] are managed within the NetApp Hybrid Cloud Control Volumes table. These accounts are specific only to the storage cluster on which they were created. These types of accounts enable you to set permissions on volumes across the network, but have no effect outside of those volumes.
+
+A volume account contains the CHAP authentication required to access the volumes assigned to it.
+
+=== Create a volume account
+Create an account specific to this volume.
+
+.Steps
+. Log in to NetApp Hybrid Cloud Control by providing the Element storage cluster administrator credentials.
+. From the Dashboard, select *Storage* > *Volumes*.
+. Select the *Accounts* tab.
+. Select the *Create Account* button.
+. Enter a name for the new account.
+. In the CHAP Settings section, enter the following information:
++
+* Initiator Secret for CHAP node session authentication
+* Target Secret for CHAP node session authentication
++
+NOTE: To auto-generate either password, leave the credential fields blank.
+
+. Select *Create Account*.
+
+=== Edit a volume account
+You can change the CHAP info and change whether an account is active or locked.
+
+IMPORTANT: Deleting or locking an account associated with the management node results in an inaccessible management node.
+
+.Steps
+. Log in to NetApp Hybrid Cloud Control by providing the Element storage cluster administrator credentials.
+. From the Dashboard, select *Storage* > *Volumes*.
+. Select the *Accounts* tab.
+. In the *Actions* column in the table, expand the menu for the account and select *Edit*.
+. Make changes as needed.
+. Confirm the changes by selecting *Yes*.
+
+=== Delete a volume account
+Delete an account that you no longer need.
+
+Before you delete a volume account, delete and purge any volumes associated with the account first.
+
+IMPORTANT: Deleting or locking an account associated with the management node results in an inaccessible management node.
+
+NOTE: Persistent volumes that are associated with management services are assigned to a new account during installation or upgrade. If you are using persistent volumes, do not modify or delete the volumes or their associated account. If you do delete these accounts, you could render your management node unusable.
+
+.Steps
+. Log in to NetApp Hybrid Cloud Control by providing the Element storage cluster administrator credentials.
+. From the Dashboard, select *Storage* > *Volumes*.
+. Select the *Accounts* tab.
+. In the *Actions* column in the table, expand the menu for the account and select *Delete*.
+. Confirm the deletion by selecting *Yes*.
+
+[discrete]
+== Find more information
+* link:../concepts/concept_solidfire_concepts_accounts_and_permissions.html[Learn about accounts]
+* link:../storage/task_data_manage_accounts_work_with_accounts_task.html[Work with accounts using CHAP]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

@@ -1,0 +1,106 @@
+---
+permalink: api/reference_element_api_listkeyproviderskmip.html
+sidebar: sidebar
+keywords: KMIP,key providers,key,provider,retrieving,listing,list,retrieve,listkeyproviderskmip
+summary: 'You can use the ListKeyProvidersKmip method to retrieve a list of all existing Key Management Interoperability Protocol \(KMIP\) key providers. You can filter the list by specifying additional parameters.'
+---
+
+= ListKeyProvidersKmip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListKeyProvidersKmip` method to retrieve a list of all existing Key Management Interoperability Protocol (KMIP) key providers. You can filter the list by specifying additional parameters.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+keyProviderIsActive
+a|
+Filters returned KMIP key server objects based on whether they are active. Possible values:
+
+* true: Returns only KMIP key providers which are active (providing keys which are currently in use).
+* false: Returns only KMIP key providers which are inactive (not providing any keys and able to be deleted).
+
+If omitted, returned KMIP key providers are not filtered based on whether they are active.
+a|
+boolean
+a|
+None
+a|
+No
+a|
+kmipKeyProviderHasServerAssigned
+a|
+Filters returned KMIP key providers based on whether they have a KMIP key server assigned. Possible values:
+
+* true: Returns only KMIP key providers which have a KMIP key server assigned.
+* false: Returns only KMIP key providers which do not have a KMIP key server assigned.
+
+If omitted, returned KMIP key providers are not filtered based on whether they have a KMIP key server assigned.
+a|
+boolean
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+kmipKeyProviders
+a|
+A list of KMIP key providers that have been created.
+a|
+link:reference_element_api_keyproviderkmip.html[KeyProviderKmip] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ListKeyProvidersKmip",
+  "params": {},
+"id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result":
+    {
+    "kmipKeyProviders": [
+        {
+            "keyProviderID": 15,
+            "kmipCapabilities": "SSL",
+            "keyProviderIsActive": true,
+            "keyServerIDs": [
+                1
+            ],
+            "keyProviderName": "KeyProvider1"
+        }
+    ]
+}
+}
+----
+
+== New since version
+
+11.7

@@ -1,0 +1,91 @@
+---
+permalink: api/reference_element_api_setnetworkconfig.html
+sidebar: sidebar
+keywords: network,config,configuration,set,setting,node,setnetworkconfig
+summary: 'You can use the SetNetworkConfig method to set the network configuration for a node. To display the current network settings for a node, run the GetNetworkConfig API method.'
+---
+
+= SetNetworkConfig
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `SetNetworkConfig` method to set the network configuration for a node. To display the current network settings for a node, run the `GetNetworkConfig` API method.
+
+== Parameter
+
+CAUTION:
+
+Changing the bond-mode on a node can cause a temporary loss of network connectivity.
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+network
+a|
+An object containing node network settings to modify. You only need to add the fields you want changed to this method as attributes in this parameter.
+a|
+xref:reference_element_api_network_all_interfaces.adoc[network (all interfaces)]
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+network
+a|
+The new and current network configuration for the node.
+a|
+xref:reference_element_api_network_all_interfaces.adoc[network (all interfaces)]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+	"method": "SetNetworkConfig",
+		"params": {
+			"network": {
+				"Bond10G": {
+					"bond-mode": "ALB"
+				},
+				"Bond1G": {
+					"netmask": "255.255.224.0"
+				},
+				"eth0": {
+					"method": "bond"
+				},
+				"lo": {
+					"method": "loopback"
+				}
+			}
+		}
+}
+----
+
+== Response example
+
+The response from this method is the same as the response from the GetNetworkConfig method. The method displays all members for each object and includes the new values for any changed members.
+
+== New since version
+
+9.6
+
+== Find more information
+
+* xref:reference_element_api_getnetworkconfig.adoc[GetNetworkConfig]
+* xref:reference_element_api_response_example_getnetworkconfig.adoc[GetNetworkConfig]
+// 2022 DEC 12, DOC-4643 

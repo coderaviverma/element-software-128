@@ -1,0 +1,41 @@
+---
+permalink: api/reference_element_api_clusterstructure.html
+sidebar: sidebar
+keywords: objects,cluster,structure,clusterStructure,object
+summary: 'The clusterStructure object holds cluster configuration backup information created by the GetClusterStructure method. You can use the SetClusterStructure method to restore this information to a storage cluster you are rebuilding.'
+---
+
+= clusterStructure
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The clusterStructure object holds cluster configuration backup information created by the GetClusterStructure method. You can use the SetClusterStructure method to restore this information to a storage cluster you are rebuilding.
+
+== Object members
+
+This object contains the combined return information from the following methods:
+
+* xref:reference_element_api_getclusterinfo.adoc[GetClusterInfo]
+* xref:reference_element_api_listaccounts.adoc[ListAccounts]
+* xref:reference_element_api_listinitiators.adoc[ListInitiators]
+* xref:reference_element_api_listvolumes.adoc[ListVolumes] (with includeVirtualVolumes=false)
+* xref:reference_element_api_listvolumeaccessgroups.adoc[ListVolumeAccessGroups]
+* xref:reference_element_api_liststoragecontainers.adoc[ListStorageContainers]
+* xref:reference_element_api_listqospolicies.adoc[ListQoSPolicies]
+* xref:reference_element_api_getsnmpinfo.adoc[GetSnmpInfo]
+* xref:reference_element_api_getntpinfo.adoc[GetNtpInfo]
+* xref:reference_element_api_listvirtualnetworks.adoc[ListVirtualNetworks]
+* xref:reference_element_api_listclusteradmins.adoc[ListClusterAdmins]
+* xref:reference_element_api_listschedules.adoc[ListSchedules]
+* xref:reference_element_api_listsnapmirrorendpoints.adoc[ListSnapMirrorEndpoints]
+* xref:reference_element_api_getfeaturestatus.adoc[GetFeatureStatus]
+* xref:reference_element_api_getldapconfiguration.adoc[GetLdapConfiguration]
+* xref:reference_element_api_getremotelogginghosts.adoc[GetRemoteLoggingHosts]
+* xref:reference_element_api_getdefaultqos.adoc[GetDefaultQoS]
+* xref:reference_element_api_getvolumeaccessgrouplunassignments.adoc[GetVolumeAccessGroupLunAssignments]
+
+== Find more information
+
+* xref:reference_element_api_getclusterstructure.adoc[GetClusterStructure]
+* xref:reference_element_api_setclusterstructure.adoc[SetClusterStructure]

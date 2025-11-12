@@ -1,0 +1,344 @@
+---
+permalink: api/reference_element_api_response_example_getnodehardwareinfo_fibre_channel.html
+sidebar: sidebar
+keywords: response,example,getnodehardwareinfo
+summary: 'The GetNodeHardwareInfo method for Fibre Channel nodes returns a response similar to the following example.'
+---
+
+= GetNodeHardwareInfo (output for Fibre Channel nodes)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `GetNodeHardwareInfo` method for Fibre Channel nodes returns a response similar to the following example.
+
+----
+{
+"id": null,
+"result": {
+"nodeHardwareInfo": {
+"bus": {
+"core_DMI:0200": {
+"description": "Motherboard",
+"physid": "0",
+"product": "0H47HH",
+"serial": "..CN747513AA0541.",
+"version": "A07"
+},
+"fiber:0_PCI:0000:04:00.0": {
+"businfo": "pci@0000:04:00.0",
+"clock": "33000000",
+"description": "Fibre Channel",
+"physid": "0",
+"product": "ISP8324-based 16Gb Fibre Channel to PCI Express Adapter",
+"vendor": "QLogic Corp.",
+"version": "02",
+"width": "64"
+},
+"fiber:0_PCI:0000:42:00.0": {
+"businfo": "pci@0000:42:00.0",
+"clock": "33000000",
+"description": "Fibre Channel",
+"physid": "0",
+"product": "ISP8324-based 16Gb Fibre Channel to PCI Express Adapter",
+"vendor": "QLogic Corp.",
+"version": "02",
+"width": "64"
+},
+"fiber:1_PCI:0000:04:00.1": {
+"businfo": "pci@0000:04:00.1",
+"clock": "33000000",
+"description": "Fibre Channel",
+"physid": "0.1",
+"product": "ISP8324-based 16Gb Fibre Channel to PCI Express Adapter",
+"vendor": "QLogic Corp.",
+"version": "02",
+"width": "64"
+},
+"fiber:1_PCI:0000:42:00.1": {
+"businfo": "pci@0000:42:00.1",
+"clock": "33000000",
+"description": "Fibre Channel",
+"physid": "0.1",
+"product": "ISP8324-based 16Gb Fibre Channel to PCI Express Adapter",
+"vendor": "QLogic Corp.",
+"version": "02",
+"width": "64"
+}
+},
+"fans": {
+"Fan1A RPM": {
+"baseUnit": "RPM",
+"threshold": 840,
+"value": 3360
+},
+"Fan1B RPM": {
+"baseUnit": "RPM",
+"threshold": 840,
+"value": 3120
+}
+},
+"fibreChannelPorts": [
+{
+"firmware": "7.04.00 (d0d5)",
+"hbaPort": 1,
+"internalPortID": 2,
+"model": "QLE2672",
+"nPortID": "0x060019",
+"nodeID": 6,
+"pciSlot": 3,
+"serial": "BFE1335E04217",
+"speed": "8 Gbit",
+"state": "Online",
+"switchWwn": "20:01:00:2a:6a:9c:71:01",
+"wwnn": "5f:47:ac:c8:30:26:c9:00",
+"wwpn": "5f:47:ac:c0:30:26:c9:0a"
+},
+{
+"firmware": "7.04.00 (d0d5)",
+"hbaPort": 2,
+"internalPortID": 3,
+"model": "QLE2672",
+"nPortID": "0xc70019",
+"nodeID": 6,
+"pciSlot": 3,
+"serial": "BFE1335E04217",
+"speed": "8 Gbit",
+"state": "Online",
+"switchWwn": "20:01:00:2a:6a:98:a3:41",
+"wwnn": "5f:47:ac:c8:30:26:c9:00",
+"wwpn": "5f:47:ac:c0:30:26:c9:0b"
+},
+{
+"firmware": "7.04.00 (d0d5)",
+"hbaPort": 1,
+"internalPortID": 0,
+"model": "QLE2672",
+"nPortID": "0xc70017",
+"nodeID": 6,
+"pciSlot": 2,
+"serial": "BFE1341E09515",
+"speed": "8 Gbit",
+"state": "Online",
+"switchWwn": "20:01:00:2a:6a:98:a3:41",
+"wwnn": "5f:47:ac:c8:30:26:c9:00",
+"wwpn": "5f:47:ac:c0:30:26:c9:08"
+},
+{
+"firmware": "7.04.00 (d0d5)",
+"hbaPort": 2,
+"internalPortID": 1,
+"model": "QLE2672",
+"nPortID": "0x060017",
+"nodeID": 6,
+"pciSlot": 2,
+"serial": "BFE1341E09515",
+"speed": "8 Gbit",
+"state": "Online",
+"switchWwn": "20:01:00:2a:6a:9c:71:01",
+"wwnn": "5f:47:ac:c8:30:26:c9:00",
+"wwpn": "5f:47:ac:c0:30:26:c9:09"
+}
+],
+"memory": {
+"firmware_": {
+"capacity": "8323072",
+"date": "08/29/2013",
+"description": "BIOS",
+"physid": "0",
+"size": "65536",
+"version": "2.0.19"
+},
+"memory_DMI:1000": {
+"description": "System Memory",
+"physid": "1000",
+"size": "34359738368",
+"slot": "System board or motherboard"
+}
+},
+"network": {
+"network:0_": {
+"description": "Ethernet interface",
+"logicalname": "Bond1G",
+"physid": "1",
+"serial": "c8:1f:66:df:04:da"
+},
+"network:0_PCI:0000:01:00.0": {
+"businfo": "pci@0000:01:00.0",
+"capacity": "1000000000",
+"clock": "33000000",
+"description": "Ethernet interface",
+"logicalname": "eth0",
+"physid": "0",
+"product": "NetXtreme II BCM57800 1/10 Gigabit Ethernet",
+"serial": "c8:1f:66:df:04:d6",
+"vendor": "Broadcom Corporation",
+"version": "10",
+"width": "64"
+},
+"network:0_PCI:0000:41:00.0": {
+"businfo": "pci@0000:41:00.0",
+"capacity": "1000000000",
+"clock": "33000000",
+"description": "Ethernet interface",
+"logicalname": "eth4",
+"physid": "0",
+"product": "NetXtreme II BCM57810 10 Gigabit Ethernet",
+"serial": "00:0a:f7:41:7a:30",
+"vendor": "Broadcom Corporation",
+"version": "10",
+"width": "64"
+},
+"network:1_": {
+"description": "Ethernet interface",
+"logicalname": "Bond10G",
+"physid": "2",
+"serial": "c8:1f:66:df:04:d6"
+},
+"network:1_PCI:0000:01:00.1": {
+"businfo": "pci@0000:01:00.1",
+"capacity": "1000000000",
+"clock": "33000000",
+"description": "Ethernet interface",
+"logicalname": "eth1",
+"physid": "0.1",
+"product": "NetXtreme II BCM57800 1/10 Gigabit Ethernet",
+"serial": "c8:1f:66:df:04:d8",
+"vendor": "Broadcom Corporation",
+"version": "10",
+"width": "64"
+},
+"network:1_PCI:0000:41:00.1": {
+"businfo": "pci@0000:41:00.1",
+"capacity": "1000000000",
+"clock": "33000000",
+"description": "Ethernet interface",
+"logicalname": "eth5",
+"physid": "0.1",
+"product": "NetXtreme II BCM57810 10 Gigabit Ethernet",
+"serial": "00:0a:f7:41:7a:32",
+"vendor": "Broadcom Corporation",
+"version": "10",
+"width": "64"
+},
+"network:2_PCI:0000:01:00.2": {
+"businfo": "pci@0000:01:00.2",
+"capacity": "1000000000",
+"clock": "33000000",
+"description": "Ethernet interface",
+"logicalname": "eth2",
+"physid": "0.2",
+"product": "NetXtreme II BCM57800 1/10 Gigabit Ethernet",
+"serial": "c8:1f:66:df:04:da",
+"size": "1000000000",
+"vendor": "Broadcom Corporation",
+"version": "10",
+"width": "64"
+},
+"network:3_PCI:0000:01:00.3": {
+"businfo": "pci@0000:01:00.3",
+"capacity": "1000000000",
+"clock": "33000000",
+"description": "Ethernet interface",
+"logicalname": "eth3",
+"physid": "0.3",
+"product": "NetXtreme II BCM57800 1/10 Gigabit Ethernet",
+"serial": "c8:1f:66:df:04:dc",
+"size": "1000000000",
+"vendor": "Broadcom Corporation",
+"version": "10",
+"width": "64"
+}
+},
+"networkInterfaces": {
+"Bond10G": {
+"isConfigured": true,
+"isUp": true
+},
+"Bond1G": {
+"isConfigured": true,
+"isUp": true
+},
+"eth0": {
+"isConfigured": true,
+"isUp": true
+},
+"eth1": {
+"isConfigured": true,
+"isUp": true
+},
+"eth2": {
+"isConfigured": true,
+"isUp": true
+},
+"eth3": {
+"isConfigured": true,
+"isUp": true
+},
+"eth4": {
+"isConfigured": true,
+"isUp": true
+},
+"eth5": {
+"isConfigured": true,
+"isUp": true
+}
+},
+"platform": {
+"chassisType": "R620",
+"cpuModel": "Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz",
+"nodeMemoryGB": 32,
+"nodeType": "SFFC"
+},
+"powerSupplies": {
+"PS1 status": {
+"powerSupplyFailureDetected": false,
+"powerSupplyHasAC": true,
+"powerSupplyPredictiveFailureDetected": false,
+"powerSupplyPresent": true
+},
+"PS2 status": {
+"powerSupplyFailureDetected": false,
+"powerSupplyHasAC": true,
+"powerSupplyPredictiveFailureDetected": false,
+"powerSupplyPresent": true
+}
+},
+"storage": {
+"storage_PCI:0000:00:1f.2": {
+"businfo": "pci@0000:00:1f.2",
+"clock": "66000000",
+"description": "SATA controller",
+"physid": "1f.2",
+"product": "C600/X79 series chipset 6-Port SATA AHCI Controller",
+"vendor": "Intel Corporation",
+"version": "05",
+"width": "32"
+}
+},
+"system": {
+"fcn-2_DMI:0100": {
+"description": "Rack Mount Chassis",
+"product": "(SKU=NotProvided;ModelName=)",
+"serial": "HTX1DZ1",
+"width": "64"
+}
+},
+"temperatures": {
+"Exhaust Temp": {
+"baseUnit": "C",
+"threshold": 70,
+"value": 38
+},
+"Inlet Temp": {
+"baseUnit": "C",
+"threshold": 42,
+"value": 13
+  },
+"uuid": "4C4C4544-004D-5310-8052-C4C04F335431"
+    }
+   }
+  }
+ }
+}
+----

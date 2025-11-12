@@ -1,0 +1,110 @@
+---
+permalink: api/reference_element_api_listvolumestatsbyvolumeaccessgroup.html
+sidebar: sidebar
+keywords: volumes,volume,stats,list,listing,access,group,listvolumestatsbyvolumeaccessgroup,activity
+summary: 'You can use the ListVolumeStatsByVolumeAccessGroup method to list total activity measurements for all of the volumes that are members of the specified volume access groups.'
+---
+
+= ListVolumeStatsByVolumeAccessGroup
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListVolumeStatsByVolumeAccessGroup` method to list total activity measurements for all of the volumes that are members of the specified volume access groups.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+includeVirtualVolumes
+a|
+Virtual volumes are included in the response by default. To exclude virtual volumes, set to false.
+a|
+boolean
+a|
+true
+a|
+No
+a|
+volumeAccessGroups
+a|
+An array of VolumeAccessGroupIDs for which volume activity is returned. If omitted, statistics for all volume access groups are returned.
+a|
+integer array
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+volumeStats
+a|
+List of volume activity information for all volumes in the specified volume access group.*Note:* The volumeID member is 0 for each entry, because the values represent the summation of all volumes owned by the account.
+
+a|
+xref:reference_element_api_volumestats.adoc[volumeStats]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ListVolumeStatsByVolumeAccessGroup",
+    "params": {"volumeAccessGroups": [1]},
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "volumeStats": [
+      {
+        "accountID": 0,
+        "nonZeroBlocks": 149366393,
+        "readBytes": 3156273328128,
+        "readBytesLastSample": 0,
+        "readOps": 770574543,
+        "readOpsLastSample": 0,
+        "samplePeriodMSec": 500,
+        "timestamp": "2016-10-17T21:04:10.712370Z",
+        "unalignedReads": 0,
+        "unalignedWrites": 0,
+        "volumeAccessGroups": [
+            1
+        ],
+        "volumeID": 0,
+        "volumeSize": 1073741824000,
+        "writeBytes": 1051988406272,
+        "writeBytesLastSample": 0,
+        "writeOps": 256833107,
+        "writeOpsLastSample": 0,
+        "zeroBlocks": 112777607
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

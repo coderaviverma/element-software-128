@@ -1,0 +1,140 @@
+---
+permalink: api/reference_element_api_startbulkvolumewrite.html
+sidebar: sidebar
+keywords: volume,bulk,start,starting,write,session,startbulkvolumewrite
+summary: 'You can use the StartBulkVolumeWrite method to start a bulk volume write session on a specified volume.'
+---
+
+= StartBulkVolumeWrite
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `StartBulkVolumeWrite` method to start a bulk volume write session on a specified volume.
+
+Only two bulk volume processes can run simultaneously on a volume. When you initialize the session, data is written to an Element storage volume from an external backup source. The external data is accessed by a web server running on an Element storage node. Server interaction information for external data access is passed by a script running on the storage system.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+format
+a|
+The format of the volume data. Can be either:
+
+* `uncompressed`: Every byte of the volume is returned without any compression.
+* `native`: Opaque data is returned that is smaller and more efficiently stored and written on a subsequent bulk volume write.
+
+a|
+string
+a|
+None
+a|
+Yes
+a|
+volumeID
+a|
+The ID of the volume to be written to.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+script
+a|
+The name of an executable script. If no script name is given, the key and URL are necessary to access Element storage nodes. The script is run on the primary node, and the key and URL are returned to the script so the local web server can be contacted.
+a|
+string
+a|
+None
+a|
+No
+a|
+scriptParameters
+a|
+JSON parameters to pass to the script.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+attributes
+a|
+List of name-value pairs in the JSON object format. link:reference_element_api_attributes.html[Learn more].
+a|
+JSON object
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+asyncHandle
+a|
+The ID of the asynchronous process to be checked for completion.
+a|
+integer
+a|
+key
+a|
+Opaque key uniquely identifying the session.
+a|
+string
+a|
+url
+a|
+URL to access the node's web server.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "StartBulkVolumeWrite",
+   "params": {
+      "volumeID" : 5,
+      "format"  : "native",
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result" : {
+      "asyncHandle" : 1,
+      "key" : "11eed8f086539205beeaadd981aad130",
+      "url" : "https://127.0.0.1:44000/"
+   }
+}
+----
+
+== New since version
+
+9.6
+
+// 2024 APR 26, DOC-4756

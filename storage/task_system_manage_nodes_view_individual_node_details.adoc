@@ -1,0 +1,42 @@
+---
+permalink: storage/task_system_manage_nodes_view_individual_node_details.html
+sidebar: sidebar
+keywords: nodes, view, details, vlan, mip, cip, sip, virtual id
+summary: 'You can view details for individual nodes such as service tags, drive details, and graphics for utilization and drive statistics. The Nodes page of the Cluster tab provides the Version column where you can view the software version of each node.'
+---
+
+= View node details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can view details for individual nodes such as service tags, drive details, and graphics for utilization and drive statistics. The Nodes page of the Cluster tab provides the Version column where you can view the software version of each node.
+
+.Steps
+. Click *Cluster* > *Nodes*.
+. To view the details for a specific node, click the *Actions* icon for a node.
+. Click *View Details*.
+. Review the node details:
++
+* *Node ID*: The system-generated ID for the node.
+* *Node Name*: The host name for the node.
+* *Node Role*: The role that the node has in the cluster. Possible values:
++
+ ** Cluster Master: The node that performs cluster-wide administrative tasks and contains the MVIP and SVIP.
+ ** Ensemble Node: A node that participates in the cluster. There are either 3 or 5 ensemble nodes depending on cluster size.
+ ** Fibre Channel: A node in the cluster.
+
+* *Node Type*: The model type of the node.
+* *Active Drives*: The number of active drives in the node.
+* *Node Utilization*: The percentage of node utilization based on nodeHeat. The value displayed is recentPrimaryTotalHeat as a percentage. Available beginning with Element 12.8.
+* *Management IP*: The management IP (MIP) address assigned to node for 1GbE or 10GbE network admin tasks.
+* *Cluster IP*: The cluster IP (CIP) address assigned to the node used for the communication between nodes in the same cluster.
+* *Storage IP*: The storage IP (SIP) address assigned to the node used for iSCSI network discovery and all data network traffic.
+* *Management VLAN ID*: The virtual ID for the management local area network.
+* *Storage VLAN ID*: The virtual ID for the storage local area network.
+* *Version*: The version of software running on each node.
+* *Replication Port*: The port used on nodes for remote replication.
+* *Service Tag*: The unique service tag number assigned to the node.
+* *Custom Protection Domain*: The custom Protection Domain assigned to the node.
+
+// 2024 FEB 28, DOC-4740

@@ -1,0 +1,87 @@
+---
+permalink: api/reference_element_api_setsnmpacl.html
+sidebar: sidebar
+keywords: setsnmpACL,set,setting,snmp,acl,permissions,access,control,list
+summary: 'You can use the SetSnmpACL method to configure SNMP access permissions on the cluster nodes. The values you set with this interface apply to all nodes in the cluster, and the values that are passed replace all values set in any previous call to SetSnmpACL. Also note that the values set with this interface replace all network or usmUsers values set with the SetSnmpInfo.'
+---
+
+= SetSnmpACL
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `SetSnmpACL` method to configure SNMP access permissions on the cluster nodes. The values you set with this interface apply to all nodes in the cluster, and the values that are passed replace all values set in any previous call to `SetSnmpACL`. Also note that the values set with this interface replace all network or usmUsers values set with the `SetSnmpInfo` method.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+networks
+a|
+List of networks and what type of access they have to the SNMP servers running on the cluster nodes. See SNMP network object for possible networks values. This parameter is required if SNMP v3 is disabled.
+a|
+xref:reference_element_api_network_snmp.adoc[network]
+a|
+None
+a|
+No
+a|
+usmUsers
+a|
+List of users and the type of access they have to the SNMP servers running on the cluster nodes. This parameter is required if SNMP v3 is enabled.
+a|
+xref:reference_element_api_usmuser.adoc[usmUser]
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "SetSnmpACL",
+  "params": {
+    "usmUsers"  : [
+      {
+         "name": "jdoe",
+         "access": "rouser",
+         "secLevel": "priv",
+         "password": "mypassword",
+         "passphrase": "mypassphrase",
+      }
+    ]
+  },
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {}
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_setsnmpinfo.adoc[SetSnmpInfo]

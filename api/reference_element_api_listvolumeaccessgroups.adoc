@@ -1,0 +1,114 @@
+---
+permalink: api/reference_element_api_listvolumeaccessgroups.html
+sidebar: sidebar
+keywords: volume,access,group,groups,list,listing,listvolumeaccessgroups
+summary: 'You can use the ListVolumeAccessGroups method to get information about the volume access groups that are currently in the system.'
+---
+
+= ListVolumeAccessGroups
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListVolumeAccessGroups` method to get information about the volume access groups that are currently in the system.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+limit
+a|
+Maximum number of volumeAccessGroup objects to return. Mutually exclusive with the volumeAccessGroups parameter.
+a|
+integer
+a|
+Unlimited
+a|
+No
+a|
+startVolumeAccessGroupID
+a|
+The volume access group ID at which to begin the listing. Mutually exclusive with the volumeAccessGroups parameter.
+a|
+integer
+a|
+0
+a|
+No
+a|
+volumeAccessGroups
+a|
+List of volumeAccessGroupID values to retrieve. Mutually exclusive with the startVolumeAccessGroupID and limit parameters.
+a|
+integer array
+a|
+[]
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+volumeAccessGroups
+a|
+A list of objects describing each volume access group.
+a|
+xref:reference_element_api_volumeaccessgroup.adoc[volumeAccessGroup] array
+a|
+volumeAccessGroupsNotFound
+a|
+A list of volume access groups not found by the system. Present if you used the volumeAccessGroups parameter and the system was unable to find one or more volume access groups that you specified.
+a|
+integer array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListVolumeAccessGroups",
+   "params": {
+      "startVolumeAccessGroupID": 3,
+      "limit"   : 1
+   },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "volumeAccessGroups": [
+      {
+        "attributes": {},
+        "deletedVolumes": [],
+        "initiatorIDs": [],
+        "initiators": [],
+        "name": "example1",
+        "volumeAccessGroupID": 3,
+        "volumes": []
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

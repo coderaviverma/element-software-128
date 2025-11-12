@@ -1,0 +1,61 @@
+---
+permalink: api/reference_element_api_resumesnapmirrorrelationship.html
+sidebar: sidebar
+keywords: ResumeSnapMirrorRelationship,resume,SnapMirror,relationship,resuming
+summary: 'The Element software web UI uses the ResumeSnapMirrorRelationship method to enable future transfers for a quiesced SnapMirror relationship.'
+---
+
+= ResumeSnapMirrorRelationship
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element software web UI uses the `ResumeSnapMirrorRelationship` method to enable future transfers for a quiesced SnapMirror relationship.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+snapMirrorEndpointID
+a|
+The endpoint ID of the remote ONTAP storage system communicating with the Element storage cluster.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+destinationVolume
+a|
+The destination volume in the SnapMirror relationship.
+a|
+xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeinfo]
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+snapMirrorRelationship
+a|
+An object containing information about the resumed SnapMirror relationship.
+a|
+xref:reference_element_api_snapmirrorrelationship.adoc[snapMirrorRelationship]
+|===
+
+== New since version
+
+10.1

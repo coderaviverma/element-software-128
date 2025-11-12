@@ -1,0 +1,96 @@
+---
+permalink: api/reference_element_api_response_example_getnodehardwareinfo.html
+sidebar: sidebar
+keywords: response,example,getnodehardwareinfo
+summary: 'The GetNodeHardwareInfo method for iSCSI returns a response similar to the following example.'
+---
+
+= GetNodeHardwareInfo (output for iSCSI)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `GetNodeHardwareInfo` method for iSCSI returns a response similar to the following example.
+
+----
+{
+    "id": 1,
+    "result": {
+        "nodeHardwareInfo": {
+            "bus": {
+                "core_DMI:0200": {
+                    "description": "Motherboard",
+                    "physid": "0",
+                    "product": "0H47HH",
+                    "serial": "..CN7475141I0271.",
+                    "vendor": "SolidFire",
+                    "version": "A07"
+                }
+            },
+            "driveHardware": [
+                {
+                "canonicalName": "sda",
+                "connected": true,
+                "dev": 2048,
+                "devPath": "/dev/slot0",
+                "driveEncryptionCapability": "fips",
+                "driveType": "Slice",
+                "lifeRemainingPercent": 98,
+                "lifetimeReadBytes": 0,
+                "lifetimeWriteBytes": 14012129342144,
+                "name": "scsi-SATA_SAMSUNG_MZ7GE24S1M9NWAG501251",
+                "path": "/dev/sda",
+                "pathLink": "/dev/slot0",
+                "powerOnHours": 15489,
+                "product": "SAMSUNG MZ7GE240HMGR-00003",
+                "reallocatedSectors": 0,
+                "reserveCapacityPercent": 100,
+                "scsiCompatId": "scsi-SATA_SAMSUNG_MZ7GE24S1M9NWAG501251",
+                "scsiState": "Running",
+                "securityAtMaximum": false,
+                "securityEnabled": true,
+                "securityFrozen": false,
+                "securityLocked": false,
+                "securitySupported": true,
+                "serial": "S1M9NWAG501251",
+                "size": 240057409536,
+                "slot": 0,
+                "uncorrectableErrors": 0,
+                "uuid": "789aa05d-e49b-ff4f-f821-f60eed8e43bd",
+                "vendor": "Samsung",
+                "version": "EXT1303Q"
+                },
+                {
+                "canonicalName": "sda",
+                "connected": true,
+                "dev": 2048,
+                "devPath": "/dev/slot1",
+                "driveEncryptionCapability": "fips",
+                "driveType": "Slice",
+                "lifeRemainingPercent": 98,
+                "lifetimeReadBytes": 0,
+                "lifetimeWriteBytes": 14112129567184,
+                "name": "scsi-SATA_SAMSUNG_MZ7GE24S1M9NWAG501251",
+                "path": "/dev/sda",
+                "pathLink": "/dev/slot0",
+                "powerOnHours": 15489,
+                "product": "SAMSUNG MZ7GE240HMGR-00003",
+                "reallocatedSectors": 0,
+                "reserveCapacityPercent": 100,
+                "scsiCompatId": "scsi-SATA_SAMSUNG_MZ7GE24S1M9NWAG501251",
+                "scsiState": "Running",
+                "securityAtMaximum": false,
+                "securityEnabled": true,
+                "securityFrozen": false,
+                "securityLocked": false,
+                "securitySupported": true,
+                "serial": "S1M9NWAG501252",
+                "size": 240057409536,
+                "slot": 0,
+                "uncorrectableErrors": 0,
+                "uuid": "789aa05d-e49b-ff4f-f821-f60eed8e43bd",
+                "vendor": "Samsung",
+                "version": "EXT1303Q"
+                }
+    }
+----

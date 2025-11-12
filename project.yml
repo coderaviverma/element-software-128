@@ -1,12 +1,55 @@
+---
 settings:
-  name: "Product Name"
+  name: Element Software
   internal:
     pdf_enabled: true
   prod:
     pdf_enabled: true
     harmony_enabled: true
-
-sidebar: 
+  versions:
+   # Current repo stanza comes first
+    - version-number: "12.8"
+      url: /element-software
+   # Additional releases newest to oldest
+    - version-number: "12.7"
+      url: /element-software-127
+    - version-number: "12.5"
+      url: /element-software-125
+    - version-number: "12.3"
+      url: /element-software-123
+sidebar:
   entries:
-  - title: Legal notices
-    url: /legal-notices.html
+    - title: SolidFire and Element Software Documentation 12.8
+      url: /index.html
+    - title: Release notes
+      entries:
+        - title: Current and previous release notes
+          url: /concepts/concept_rn_relatedrn_element.html
+        - title: What's new
+          url: /concepts/concept_rn_whats_new_element.html
+    - section: concepts
+    - title: Requirements
+      entries:
+      - title: Networking requirements
+        url: /storage/concept_prereq_networking.html
+      - title: Switch configuration for clusters running Element software
+        url: /storage/concept_prereq_switch_configuration_for_solidfire_clusters.html
+      - title: Network port requirements
+        url: /storage/reference_prereq_network_port_requirements.html
+    - section: try
+    - section: hardware
+  # - section: esds
+    - section: setup
+    - section: storage
+    - section: hccstorage
+    - section: api
+    - title: Manage storage with the Element Plug-in for vCenter Server
+      url: /element-plug-in-index.html
+    - title: Monitor storage with NetApp SolidFire Active IQ
+      url: /monitor-storage-active-iq.html
+    - section: mnode
+    - section: upgrade
+    - title: Earlier versions
+      url: /element-earlierversions.html
+    - title: Legal notices
+      url: /legal-notices.html

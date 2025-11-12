@@ -1,0 +1,135 @@
+---
+permalink: api/reference_element_api_createclustersupportbundle.html
+sidebar: sidebar
+keywords: CreateClusterSupportBundle,create,cluster,support,bundle,creating
+summary: 'You can use the CreateClusterSupportBundle on the management node to gather support bundles from all nodes in a cluster. When a bundle is created, it is stored on the node as a .tar.gz file. You can only run this method on a management node; it does not work when run on a storage node.'
+---
+
+= CreateClusterSupportBundle
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CreateClusterSupportBundle` on the management node to gather support bundles from all nodes in a cluster. The individual node support bundles are compressed as tar.gz files. The cluster support bundle is a tar file containing the node support bundles. You can only run this method on a management node; it does not work when run on a storage node.
+
+== Parameters
+
+NOTE: You must call this method against the management node. For example:
+
+----
+https://<management node IP>:442/json-rpc/10.0
+----
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+allowIncomplete
+a|
+Allows the script to continue to run if bundles cannot be gathered from one or more of the nodes.
+a|
+boolean
+a|
+None
+a|
+No
+a|
+bundleName
+a|
+Unique name for each support bundle created. If no name is provided, then "supportbundle" and the node name are used as the file name
+a|
+string
+a|
+None
+a|
+No
+a|
+mvip
+a|
+The MVIP of the cluster. Bundles are gathered from all nodes in the cluster. This parameter is required if the nodes parameter is not specified.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+nodes
+a|
+The IP addresses of the nodes from which to gather bundles. Use either nodes or mvip, but not both, to specify the nodes from which to gather bundles. This parameter is required if mvip is not specified.
+a|
+string array
+a|
+None
+a|
+Yes
+a|
+password
+a|
+The cluster admin password. *Note:* This password is visible as text when entered.
+
+a|
+string
+a|
+None
+a|
+Yes
+a|
+username
+a|
+The cluster admin user name.
+a|
+string
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+"method": "CreateClusterSupportBundle",
+"params": {
+          "bundlename": "clusterbundle",
+          "mvip": "132.119.120.100"
+     }
+   },
+ "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id":1,
+  "result":{
+   "details":{
+      "bundleName":"clusterbundle",
+      "extraArgs":"",
+      "files":[
+          "/tmp/supportbundles/clusterbundle.cl-4SD5.tar"
+      ],
+      "output":"timeout -s KILL 1790s /usr/local/bin/sfclustersupportbundle --quiet --name=\"clusterbundle\" --target-directory=\"/tmp/solidfire-dtemp.MM7f0m\" --user=\"admin\" --pass=\"admin\" --mvip=132.119.120.100"
+       },
+       "duration":"00:00:24.938127",
+       "result":"Passed"
+    }
+}
+----
+
+== New since version
+
+9.6

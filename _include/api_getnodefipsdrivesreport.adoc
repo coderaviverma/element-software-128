@@ -1,0 +1,54 @@
+You can use the `GetNodeFipsDrivesReport` method to check the FIPS 140-2 drive encryption capability status of a single node in the storage cluster. You must run this method against an individual storage node.
+
+== Parameter
+
+This method has no input parameter.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+fipsDrives
+a|
+A JSON object containing the status of FIPS 140-2 feature support for this node. Possible values:
+
+* None: Node is not FIPS capable.
+* Partial: Node is FIPS capable but not all drives in the node are FIPS drives.
+* Ready: Node is FIPS capable and all drives in the node are FIPS drives (or no drives are present).
+
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetNodeFipsDrivesReport",
+  "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "fipsDrives": "None"
+    }
+}
+----
+
+== New since version
+
+11.5

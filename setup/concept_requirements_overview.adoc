@@ -1,0 +1,20 @@
+---
+permalink: setup/concept_requirements_overview.html
+sidebar: sidebar
+keywords:
+summary: 'Before you get started, you should review the prerequisites.'
+---
+= Requirements
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Before you get started, you should review the prerequisites to deploy NetApp Element software, including networking and port requirements.
+
+* link:../storage/concept_prereq_networking.html[Networking requirements]
+* link:../storage/concept_prereq_switch_configuration_for_solidfire_clusters.html[Switch configuration]
+* link:../storage/reference_prereq_network_port_requirements.html[Network port requirements]
+
+
+== Find more information
+ * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

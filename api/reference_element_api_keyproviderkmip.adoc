@@ -1,0 +1,52 @@
+---
+permalink: api/reference_element_api_keyproviderkmip.html
+sidebar: sidebar
+keywords: key provider,KMIP,keys
+summary: 'The keyProviderKmip object describes a Key Management Interoperability Protocol \(KMIP\) key provider. A key provider is both a mechanism and a location for retrieving authentication keys for use with cluster features such as Encryption at Rest.'
+---
+
+= keyProviderKmip
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The keyProviderKmip object describes a Key Management Interoperability Protocol (KMIP) key provider. A key provider is both a mechanism and a location for retrieving authentication keys for use with cluster features such as Encryption at Rest.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+keyProviderID
+a|
+The ID of the KMIP key provider. This is a unique value assigned by the cluster during key provider creation which cannot be changed.
+a|
+integer
+a|
+keyProviderIsActive
+a|
+True if the KMIP key provider is active. A provider is considered active if there are outstanding keys which were created but not yet deleted and therefore assumed to still be in use.
+a|
+boolean
+a|
+keyProviderName
+a|
+The name of the KMIP key provider.
+a|
+string
+a|
+keyServerIDs
+a|
+A key server ID that is associated with this provider. The server must be added before this provider can become active. The server cannot be removed while this provider is active. Only one server ID is supported for each provider.
+a|
+integer array
+a|
+kmipCapabilities
+a|
+The capabilities of this KMIP key provider including details about the underlying library, FIPS compliance, SSL provider, etc.
+a|
+string
+|===

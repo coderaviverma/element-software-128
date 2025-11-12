@@ -1,0 +1,91 @@
+---
+permalink: api/reference_element_api_deleteauthsession.html
+sidebar: sidebar
+keywords: authentication sessions,delete
+summary: 'You can use the DeleteAuthSession method to delete an individual auth session. If the calling user is not in the ClusterAdmins / Administrator AccessGroup, only auth session belonging to the calling user can be deleted.'
+---
+
+= DeleteAuthSession
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DeleteAuthSession` method to delete an individual user authentication session. If the calling user is not in the ClusterAdmins / Administrator AccessGroup, only the authentication session belonging to the calling user can be deleted.
+
+== Parameters
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+sessionID
+a|
+Unique identifier for the auth session to be deleted.
+a|
+UUID
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+session
+a|
+Session information for the delete auth session.
+a|
+link:reference_element_api_authsessioninfo.html[authSessionInfo]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+    "method": "DeleteAuthSession",
+    "params": {
+        "sessionID": "a862a8bb-2c5b-4774-a592-2148e2304713"
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id": 1,
+    "result": {
+        "session": {
+            "accessGroupList": [
+                "administrator"
+            ],
+            "authMethod": "Cluster",
+            "clusterAdminIDs": [
+                1
+            ],
+            "finalTimeout": "2020-04-09T17:51:30Z",
+            "idpConfigVersion": 0,
+            "lastAccessTimeout": "2020-04-06T18:21:33Z",
+            "sessionCreationTime": "2020-04-06T17:51:30Z",
+            "sessionID": "a862a8bb-2c5b-4774-a592-2148e2304713",
+            "username": "admin"
+        }
+    }
+}
+----
+
+== New since version
+
+12.0

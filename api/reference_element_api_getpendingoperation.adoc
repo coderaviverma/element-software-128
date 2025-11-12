@@ -1,0 +1,76 @@
+---
+permalink: api/reference_element_api_getpendingoperation.html
+sidebar: sidebar
+keywords: get,getting,pending,operation,getpendingoperation
+summary: 'You can use the GetPendingOperation method to detect an operation on a node that is currently in progress. This method can also be used to report back when an operation has completed.'
+---
+
+= GetPendingOperation
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetPendingOperation` method to detect an operation on a node that is currently in progress. This method can also be used to report back when an operation has completed.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+pending
+a|
+Possible values:
+
+* true: The operation is still in progress.
+* false:
++
+The operation is no longer in progress.
+
+a|
+boolean
+a|
+operation
+a|
+Name of operation that is in progress or has completed.
+a|
+string
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetPendingOperation",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id" : 1,
+   "result" : {
+      "pendingOperation" : {
+         "pending" : "true",
+         "operation" : "TestDrivesInternal",
+      }
+   }
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,84 @@
+---
+permalink: api/reference_element_api_snapmirrorpolicy.html
+sidebar: sidebar
+keywords: object,objects,snapMirrorPolicy
+summary: 'The snapMirrorPolicy object contains information about a SnapMirror policy that is stored on an ONTAP system.'
+---
+
+= snapMirrorPolicy
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The snapMirrorPolicy object contains information about a SnapMirror policy that is stored on an ONTAP system.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+snapMirrorEndpointID
+a|
+The ID of the destination ONTAP system.
+a|
+integer
+a|
+policyName
+a|
+The unique name assigned to the policy.
+a|
+string
+a|
+policyType
+a|
+The type of policy. Possible values:
+
+* async_mirror
+* mirror_vault
+
+a|
+string
+a|
+comment
+a|
+A human-readable description associated with the SnapMirror policy.
+a|
+string
+a|
+transferPriority
+a|
+The priority at which a SnapMirror transfer runs. Possible values:
+
+* normal: The default priority. These transfers are scheduled before most low priority transfers.
+* low: These transfers have the lowest priority and are scheduled after most normal priority transfers.
+
+a|
+string
+a|
+policyRules
+a|
+A list of objects describing the policy rules.
+a|
+xref:reference_element_api_snapmirrorpolicyrule.adoc[snapMirrorPolicyRule] array
+a|
+totalKeepCount
+a|
+The total retention count for all rules in the policy.
+a|
+integer
+a|
+totalRules
+a|
+The total number of rules in the policy.
+a|
+integer
+a|
+vserverName
+a|
+The name of the Vserver for the SnapMirror policy.
+a|
+string
+|===

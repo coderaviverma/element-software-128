@@ -1,0 +1,149 @@
+---
+permalink: api/reference_element_api_nodestats.html
+sidebar: sidebar
+keywords: object,objects,nodestats
+summary: 'The nodeStats object contains high-level activity measurements for a node. You can use the GetNodeStats and ListNodeStats API methods to get some or all of the nodeStats objects.'
+---
+
+= nodeStats
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The nodeStats object contains high-level activity measurements for a node. You can use the `GetNodeStats` and `ListNodeStats` API methods to get some or all of the nodeStats objects.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+count
+a|
+The number of total samples in the nodeStats object.
+a|
+integer
+a|
+cpu
+a|
+CPU usage, in %.
+a|
+integer
+a|
+cpuTotal
+a|
+Monotonically increasing value of cpu utilization.
+a|
+integer
+a|
+cBytesIn
+a|
+Bytes in on the cluster interface.
+a|
+integer
+a|
+cBytesOut
+a|
+Bytes out on the cluster interface.
+a|
+integer
+a|
+sBytesIn
+a|
+Bytes in on the storage interface.
+a|
+integer
+a|
+sBytesOut
+a|
+Bytes out on the storage interface.
+a|
+integer
+a|
+mBytesIn
+a|
+Bytes in on the management interface.
+a|
+integer
+a|
+mBytesOut
+a|
+Bytes out on the management interface.
+a|
+integer
+a|
+networkUtilizationCluster
+a|
+Network interface utilization (in %) for the cluster network interface.
+a|
+integer
+a|
+networkUtilizationStorage
+a|
+Network interface utilization (in %) for the storage network interface.
+a|
+integer
+a|
+nodeHeat
+a|
+Node utilization information. Available beginning with Element 12.8. Members: 
+
+* primaryTotalHeat: Node primary total IOPS / node configured IOPS averaged over 24 hours
+* recentPrimaryTotalHeat: Node primary total IOPS / node configured IOPS averaged over one hour
+* recentTotalHeat: Node total IOPS / node configured IOPS averaged over one hour
+* totalHeat: Node total IOPS / node configured IOPS averaged over 24 hours
+a|
+JSON object
+a|
+readLatencyUSecTotal
+a|
+Monotonically increasing value of total time spent performing read operations to the node.
+a|
+integer
+a|
+readOps
+a|
+Monotonically increasing value of total read operations to a node.
+a|
+integer
+a|
+ssLoadHistogram
+a|
+Histogram data illustrating slice service load over time.
+a|
+JSON object
+a|
+timestamp
+a|
+The current time in UTC+0 format.
+a|
+ISO 8601 date string
+a|
+usedMemory
+a|
+Total memory usage in bytes.
+a|
+integer
+a|
+writeLatencyUSecTotal
+a|
+Monotonically increasing value of total time spent performing write operations to the node.
+a|
+integer
+a|
+writeOps
+a|
+Monotonically increasing value of total write operations to a node.
+a|
+integer
+|===
+
+
+== Find more information
+
+* xref:reference_element_api_getnodestats.adoc[GetNodeStats]
+* xref:reference_element_api_listnodestats.adoc[ListNodeStats]
+
+// 2024 FEB 28, DOC-4741

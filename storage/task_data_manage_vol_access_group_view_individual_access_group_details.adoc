@@ -1,0 +1,39 @@
+---
+permalink: storage/task_data_manage_vol_access_group_view_individual_access_group_details.html
+sidebar: sidebar
+keywords: access group details, view, view details, initiators
+summary: 'You can view details for an individual access group, such as attached volumes and initiators, in a graphical format.'
+---
+
+= View individual access group details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can view details for an individual access group, such as attached volumes and initiators, in a graphical format.
+
+. Click *Management* > *Access Groups*.
+. Click the Actions icon for an access group.
+. Click *View Details*.
+
+== Volume access group details
+
+The Access Groups page on the Management tab provides information about volume access groups.
+
+The following information is displayed:
+
+* *ID*: The system-generated ID for the access group.
+
+* *Name*: The name given to the access group when it was created.
+
+* *Active Volumes*: The number of active volumes in the access group.
+
+* *Compression*: The compression efficiency score for the access group.
+
+* *Deduplication*: The deduplication efficiency score for the access group.
+
+* *Thin Provisioning*: The thin provisioning efficiency score for the access group.
+
+* *Overall Efficiency*: The overall efficiency score for the access group.
+
+* *Initiators*: The number of initiators connected to the access group.

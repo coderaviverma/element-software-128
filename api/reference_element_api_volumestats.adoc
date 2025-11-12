@@ -1,0 +1,330 @@
+---
+permalink: api/reference_element_api_volumestats.html
+sidebar: sidebar
+keywords: object,objects,volumeStats
+summary: 'The volumeStats object contains statistical data for an individual volume.'
+---
+= volumeStats
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The volumeStats object contains statistical data for an individual volume.
+
+== Object members
+
+You can use the following methods to get volumeStats objects for some or all volumes:
+
+* xref:reference_element_api_getvolumestats.adoc[GetVolumeStats]
+* xref:reference_element_api_listvolumestatsbyaccount.adoc[ListVolumeStatsByAccount]
+* xref:reference_element_api_listvolumestatsbyvolume.adoc[ListVolumeStatsByVolume]
+* xref:reference_element_api_listvolumestatsbyvolumeaccessgroup.adoc[ListVolumeStatsByVolumeAccessGroup]
+
+This object contains the following members:
+
+[cols=*,options="header",cols="20,50,15,15"]
+|===
+|Name |Description |Calculation |Type
+a|
+accountID
+a|
+The ID of the account of the volume owner.
+a|
+N/A
+a|
+integer
+a|
+actualIOPS
+a|
+The current actual IOPS to the volume in the last 500 milliseconds.
+a|
+Point in time
+a|
+integer
+a|
+asyncDelay
+a|
+The length of time since the volume was last synced with the remote cluster. If the volume is not paired, this is null. *Note:* A target volume in an active replication state always has an asyncDelay of 0 (zero). Target volumes are system-aware during replication and assume asyncDelay is accurate at all times.
+
+a|
+N/A
+a|
+ISO 8601 duration string or null
+a|
+averageIOPSize
+a|
+The average size in bytes of recent I/O to the volume in the last 500 milliseconds.
+a|
+Point in time
+a|
+integer
+a|
+burstIOPSCredit
+a|
+The total number of IOP credits available to the user. When volumes are not using up to the configured maxIOPS, credits are accrued.
+a|
+N/A
+a|
+integer
+a|
+clientQueueDepth
+a|
+The number of outstanding read and write operations to the volume.
+a|
+N/A
+a|
+integer
+a|
+desiredMetadataHosts
+a|
+The metadata (slice) services being migrated to if the volume metadata is being migrated between metadata services. A "null" value means the volume is not migrating.
+a|
+N/A
+a|
+JSON object
+a|
+latencyUSec
+a|
+The average time, in microseconds, to complete operations to the volume in the last 500 milliseconds. A "0" (zero) value means there is no I/O to the volume.
+a|
+Point in time
+a|
+integer
+a|
+metadataHosts
+a|
+The metadata (slice) services on which the volume metadata resides. Possible values:
+
+* primary: The primary metadata services hosting the volume.
+* liveSecondaries: Secondary metadata services that are currently in a "live" state.
+* deadSecondaries: Secondary metadata services that are in a dead state.
+
+a|
+N/A
+a|
+JSON object
+a|
+normalizedIOPS
+a|
+Average number of IOPS for the entire cluster in the last 500 milliseconds.
+a|
+Point in time
+a|
+integer
+a|
+nonZeroBlocks
+a|
+The total number of 4KiB blocks that contain data after the last garbage collection operation has completed.
+a|
+N/A
+a|
+integer
+a|
+readBytes
+a|
+The total cumulative bytes read from the volume since the creation of the volume.
+a|
+Monotonically increasing
+a|
+integer
+a|
+readBytesLastSample
+a|
+The total number of bytes read from the volume during the last sample period.
+a|
+Point in time
+a|
+integer
+a|
+readLatencyUSec
+a|
+The average time, in microseconds, to complete read operations to the volume in the last 500 milliseconds.
+a|
+Point in time
+a|
+integer
+a|
+readLatencyUSecTotal
+a|
+The total time spent performing read operations from the volume.
+a|
+Monotonically increasing
+a|
+integer
+a|
+readOps
+a|
+The total read operations to the volume since the creation of the volume.
+a|
+Monotonically increasing
+a|
+integer
+a|
+readOpsLastSample
+a|
+The total number of read operations during the last sample period.
+a|
+Point in time
+a|
+integer
+a|
+samplePeriodMSec
+a|
+The length of the sample period, in milliseconds.
+a|
+N/A
+a|
+integer
+a|
+sliceIopsStats
+a|
+The I/O usage statistics for a volume. Available beginning with Element 12.8. Possible values for sliceIopsStats:
+
+* largeStatistics: The I/O statistics for the volume measured over a longer time period, typically the last 24 hours.
+* smallStatistics: The I/O statistics for the volume measured over a shorter time period, typically the last hour.
+
+Possible values for largeStatistics and smallStatistics:
+
+* averageReadIops: The average read IOPS for the volume.
+* averageTotalIops: The average total (read + write) IOPS for the volume.
+* averageWriteIops: The average write IOPS for the volume.
+* nSamples: The number of samples included in the statistic calculation.
+* peakReadIops: The maximum read IOPS observed over a statistic interval.
+* peakTotalIops: The maximum total IOPS observed over a statistic interval.
+* peakWriteIops: The maximum write IOPS observed over a statistic interval.
+* sliceID: Volume ID or Slice ID
+
+
+a|
+Point in time
+a|
+JSON object
+a|
+throttle
+a|
+A floating value between 0 and 1 that represents how much the system is throttling clients below their maxIOPS because of re-replication of data, transient errors, and snapshots taken.
+a|
+N/A
+a|
+float
+a|
+timestamp
+a|
+The current time in UTC+0 format.
+a|
+N/A
+a|
+ISO 8601 date string
+a|
+unalignedReads
+a|
+The total cumulative unaligned read operations to a volume since the creation of the volume.
+a|
+Monotonically increasing
+a|
+integer
+a|
+unalignedWrites
+a|
+The total cumulative unaligned write operations to a volume since the creation of the volume.
+a|
+Monotonically increasing
+a|
+integer
+a|
+volumeAccessGroups
+a|
+The list of IDs of volume access group(s) to which a volume belongs.
+a|
+N/A
+a|
+integer array
+a|
+volumeID
+a|
+The ID of the volume.
+a|
+N/A
+a|
+integer
+a|
+volumeSize
+a|
+Total provisioned capacity in bytes.
+a|
+N/A
+a|
+integer
+a|
+volumeUtilization
+a|
+A floating point value that describes how fully the client is using the volume's input / output capabilities in comparison with the maxIOPS QoS setting for that volume. Possible values:
+
+* 0: The client is not using the volume.
+* 0.01 to 0.99: The client is not fully utilizing the volume's IOPS capabilities.
+* 1.00: The client is fully utilizing the volume up to the IOPS limit set by the maxIOPS setting.
+* > 1.00: The client is utilizing more than the limit set by maxIOPS. This is possible when the burstIOPS QoS setting is set higher than maxIOPS. For example, if maxIOPS is set to 1000 and burstIOPS is set to 2000, the `volumeUtilization` value would be 2.00 if the client fully utilizes the volume.
+
+a|
+N/A
+a|
+float
+a|
+writeBytes
+a|
+The total cumulative bytes written to the volume since the creation of the volume.
+a|
+Monotonically increasing
+a|
+integer
+a|
+writeBytesLastSample
+a|
+The total number of bytes written to the volume during the last sample period.
+a|
+Monotonically increasing
+a|
+integer
+a|
+writeLatencyUSec
+a|
+The average time, in microseconds, to complete write operations to a volume in the last 500 milliseconds.
+a|
+Point in time
+a|
+integer
+a|
+writeLatencyUSecTotal
+a|
+The total time spent performing write operations to the volume.
+a|
+Monotonically increasing
+a|
+integer
+a|
+writeOps
+a|
+The total cumulative write operations to the volume since the creation of the volume.
+a|
+Monotonically increasing
+a|
+integer
+a|
+writeOpsLastSample
+a|
+The total number of write operations during the last sample period.
+a|
+Point in time
+a|
+integer
+a|
+zeroBlocks
+a|
+The total number of empty 4KiB blocks without data after the last round of garbage collection operation has completed.
+a|
+Point in time
+a|
+integer
+|===
+
+// 2025 FEB 4, DOC-4778

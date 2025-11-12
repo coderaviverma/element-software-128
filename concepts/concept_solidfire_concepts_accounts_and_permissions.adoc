@@ -1,0 +1,62 @@
+---
+permalink: concepts/concept_solidfire_concepts_accounts_and_permissions.html
+sidebar: sidebar
+keywords: solidfire, element, cluster admin, storage, account, authoritative cluster
+summary: 'To administer and provide access to storage resources on your system, you will need to set up accounts for system resources.'
+---
+
+= Accounts and permissions
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+To administer and provide access to storage resources on your system, you'll need to set up accounts for system resources.
+
+Using Element storage, you can create and manage the following types of accounts:
+
+* <<Storage cluster administrator accounts,Administrator user accounts for the storage cluster>>
+* <<User accounts,User accounts for storage volume access>>
+* <<Authoritative cluster user accounts,Authoritative cluster user accounts for NetApp Hybrid Cloud Control>>
+
+== Storage cluster administrator accounts
+
+There are two types of administrator accounts that can exist in a storage cluster running NetApp Element software:
+
+* *Primary cluster administrator account*: This administrator account is created when the cluster is created. This account is the primary administrative account with the highest level of access to the cluster. This account is analogous to a root user in a Linux system. You can change the password for this administrator account.
+* *Cluster administrator account*: You can give a cluster administrator account a limited range of administrative access to perform specific tasks within a cluster. The credentials assigned to each cluster administrator account are used to authenticate API and Element UI requests within the storage system.
+
+NOTE: A local (non-LDAP) cluster administrator account is required to access active nodes in a cluster via the per-node UI. Account credentials are not required to access a node that is not yet part of a cluster.
+
+You can link:../storage/concept_system_manage_manage_cluster_administrator_users.html[manage cluster administrator accounts] by creating, deleting, and editing cluster administrator accounts, changing the cluster administrator password, and configuring LDAP settings to manage system access for users.
+
+== User accounts
+
+User accounts are used to control access to the storage resources on a NetApp Element software-based network. At least one user account is required before a volume can be created.
+
+When you create a volume, it is assigned to an account. If you have created a virtual volume, the account is the storage container.
+
+Here are some additional considerations:
+
+* The account contains the CHAP authentication required to access the volumes assigned to it.
+* An account can have up to 2000 volumes assigned to it, but a volume can belong to only one account.
+* User accounts can be managed from the NetApp Element Management extension point.
+
+== Authoritative cluster user accounts
+
+Authoritative cluster user accounts can authenticate against any storage asset associated with the NetApp Hybrid Cloud Control instance of nodes and clusters. With this account, you can manage volumes, accounts, access groups, and more across all clusters.
+
+Authoritative user accounts are managed from the top right menu User Management option in NetApp Hybrid Cloud Control.
+
+The link:../concepts/concept_intro_clusters.html#authoritative-storage-clusters[authoritative storage cluster] is the storage cluster that NetApp Hybrid Cloud Control uses to authenticate users.
+
+All users created on the authoritative storage cluster can log into the NetApp Hybrid Cloud Control. Users created on other storage clusters _cannot_ log into Hybrid Cloud Control.
+
+* If your management node only has one storage cluster, then it is the authoritative cluster.
+* If your management node has two or more storage clusters, one of those clusters is assigned as the authoritative cluster and only users from that cluster can log into NetApp Hybrid Cloud Control.
+
+While many NetApp Hybrid Cloud Control features work with multiple storage clusters, authentication and authorization have necessary limitations. The limitation around authentication and authorization is that users from the authoritative cluster can execute actions on other clusters tied to NetApp Hybrid Cloud Control even if they are not a user on the other storage clusters. Before proceeding with managing multiple storage clusters, you should ensure that users defined on the authoritative clusters are defined on all other storage clusters with the same permissions. You can manage users from NetApp Hybrid Cloud Control.
+
+== Volume accounts
+Volume-specific accounts are specific only to the storage cluster on which they were created. These accounts enable you to set permissions on specific volumes across the network, but have no effect outside of those volumes.
+
+Volume accounts are managed within the NetApp Hybrid Cloud Control Volumes table.

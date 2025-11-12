@@ -1,0 +1,65 @@
+---
+permalink: api/reference_element_api_removebackuptarget.html
+sidebar: sidebar
+keywords: backup,target,targets,remove,delete,removing,deleting,removebackuptarget
+summary: 'You can use the RemoveBackupTarget method to remove backup targets.'
+---
+
+= RemoveBackupTarget
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `RemoveBackupTarget` method to remove backup targets.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+backupTargetID
+a|
+Unique target ID of the target to remove.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "RemoveBackupTarget",
+   "params": {
+        "backupTargetID" : 1
+   },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {}
+}
+----
+
+== New since version
+
+9.6

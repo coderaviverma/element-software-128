@@ -1,0 +1,45 @@
+---
+permalink: storage/concept_data_manage_vol_access_group_work_with_volume_access_groups_and_initiators.html
+sidebar: sidebar
+keywords: volume access groups, initiators, working with, chap, fc, iscsi
+summary: 'You can use iSCSI initiators or Fibre Channel initiators to access the volumes defined within volume access groups.'
+---
+
+= Work with volume access groups and initiators
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use iSCSI initiators or Fibre Channel initiators to access the volumes defined within volume access groups.
+
+You can create access groups by mapping iSCSI initiator IQNs or Fibre Channel WWPNs in a collection of volumes. Each IQN that you add to an access group can access each volume in the group without requiring CHAP authentication.
+
+There are two types of CHAP authentication methods:
+
+* Account-level CHAP authentication: You can assign CHAP authentication for the account.
+* Initiator-level CHAP authentication: You can assign unique CHAP target and secrets for specific initiators without being bound to single CHAP across a single account. This Initiator-level CHAP authentication replaces account level credentials.
+
+Optionally, with per-initiator CHAP, you can enforce initiator authorization and per-initiator CHAP authentication. These options can be defined on a per-initiator basis and an access group can contain a mix of initiators with different options.
+
+Each WWPN that you add to an access group enables Fibre Channel network access to the volumes in the access group.
+
+NOTE: Volume access groups have the following limits:
+
+* A maximum of 64 IQNs or WWPNs are allowed in an access group.
+* An access group can be made up of a maximum of 2000 volumes.
+* An IQN or WWPN can belong to only one access group.
+* A single volume can belong to a maximum of four access groups.
+
+
+== Find more information
+
+* xref:task_data_manage_vol_access_group_create_a_volume_access_group.adoc[Create a volume access group]
+* xref:task_data_manage_vol_access_group_add_volumes.adoc[Add volumes to an access group]
+* xref:task_data_manage_vol_access_group_remove_volumes.adoc[Remove volumes from an access group]
+* xref:task_data_manage_vol_access_group_create_an_initiator.adoc[Create an initiator]
+* xref:task_data_manage_vol_access_group_edit_an_initiator.adoc[Edit an initiator]
+* xref:task_data_manage_vol_access_group_add_a_single_initiator.adoc[Add a single initiator to a volume access group]
+* xref:task_data_manage_vol_access_group_add_multiple_initiators.adoc[Add multiple initiators to a volume access group]
+* xref:task_data_manage_vol_access_group_remove_initiators_from_an_access_group.adoc[Remove initiators from an access group]
+* xref:task_data_manage_vol_access_group_delete.adoc[Delete an access group]
+* xref:task_data_manage_vol_access_group_delete_an_initiator.adoc[Delete an initiator]

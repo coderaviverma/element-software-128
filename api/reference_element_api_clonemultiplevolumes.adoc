@@ -1,0 +1,171 @@
+---
+permalink: api/reference_element_api_clonemultiplevolumes.html
+sidebar: sidebar
+keywords: volume,volumes,clone,cloning,multiple,CloneMultipleVolumes
+summary: 'You can use the CloneMultipleVolumes method to create a clone of a group of specified volumes. You can assign a consistent set of characteristics to a group of multiple volumes when they are cloned together.'
+---
+
+= CloneMultipleVolumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `CloneMultipleVolumes` method to create a clone of a group of specified volumes. You can assign a consistent set of characteristics to a group of multiple volumes when they are cloned together.
+
+Before using the groupSnapshotID parameter to clone the volumes in a group snapshot, you must first create the group snapshot using the xref:reference_element_api_creategroupsnapshot.adoc[CreateGroupSnapshot] API method or the web UI. Using groupSnapshotID is optional when cloning multiple volumes.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+access
+a|
+New default access method for the new volumes if not overridden by information passed in the volume's array.
+a|
+string
+a|
+None
+a|
+No
+a|
+enableSnapMirrorReplication
+a|
+Determines whether the volume can be used for replication with SnapMirror endpoints. Possible values:
+
+* true
+* false
+
+a|
+boolean
+a|
+false
+a|
+No
+a|
+groupSnapshotID
+a|
+ID of the group snapshot to use as a basis for the clone.
+a|
+integer
+a|
+None
+a|
+No
+a|
+newAccountID
+a|
+New account ID for the volumes if not overridden by information passed in the volumes array.
+a|
+integer
+a|
+None
+a|
+No
+a|
+volumes
+a|
+Collection of members that you specify for the new volumes. Members:
+
+* volumeID: (Required)
+* access: (Optional) Can be one of readOnly, readWrite, locked, or replicationTarget.
+* attributes: (Optional) List of name-value pairs in JSON object format.
+* name: (Optional) New name for the clone.
+* newAccountID: (Optional) Account ID for the new volumes.
+* newSize: (Optional) Total size of the volume, in bytes. Size is rounded up to the nearest megabyte.
+
+If optional members are not specified, the values are inherited from the source volumes.
+a|
+JSON object array
+a|
+None
+a|
+Yes (volumeID)
+|===
+
+== Return values
+
+This method has the following return values:
+
+|===
+|Name |Description |Type
+a|
+asyncHandle
+a|
+A value returned from an asynchronous method call.
+a|
+integer
+a|
+groupCloneID
+a|
+Unique ID of the new group clone.
+a|
+integer
+a|
+members
+a|
+List of volumeIDs for the source and destination volume pairs.
+a|
+JSON object array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "CloneMultipleVolumes",
+   "params": {
+       "volumes": [
+           {
+              "volumeID": 5
+              "name":"foxhill",
+              "access":"readOnly"
+              },
+           {
+              "volumeID": 18
+              },
+           {
+             "volumeID": 20
+              }
+     ]
+   },
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "asyncHandle": 12,
+    "groupCloneID": 4,
+    "members": [
+     {
+      "srcVolumeID": 5,
+      "volumeID": 29
+     },
+     {
+      "srcVolumeID": 18,
+      "volumeID": 30
+     },
+     {
+      "srcVolumeID": 20,
+      "volumeID": 31
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

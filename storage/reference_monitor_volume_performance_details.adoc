@@ -1,0 +1,85 @@
+---
+permalink: storage/reference_monitor_volume_performance_details.html
+sidebar: sidebar
+keywords: volume performance
+summary: 'You can view performance statistics of volumes from the Volume Performance page of the Reporting tab in the Element UI.'
+---
+
+= Volume performance details
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can view performance statistics of volumes from the Volume Performance page of the Reporting tab in the Element UI.
+
+The following list describes the details that are available to you:
+
+* *ID*
++
+The system-generated ID for the volume.
+
+* *Name*
++
+The name given to the volume when it was created.
+
+* *Account*
++
+The name of the account assigned to the volume.
+
+* *Access Groups*
++
+The name of the volume access group or groups to which the volume belongs.
+
+* *Volume Utilization*
++
+A percentage value that describes how much the client is using the volume.
++
+Possible values:
+
+ ** 0 = Client is not using the volume
+ ** 100 = Client is using the max
+ ** >100 = Client is using the burst
+
+* *Total IOPS*
++
+The total number of IOPS (read and write) currently being executed against the volume.
+
+* *Read IOPS*
++
+The total number of read IOPS currently being executed against the volume.
+
+* *Write IOPS*
++
+The total number of write IOPS currently being executed against the volume.
+
+* *Total Throughput*
++
+The total amount of throughput (read and write) currently being executed against the volume.
+
+* *Read Throughput*
++
+The total amount of read throughput currently being executed against the volume.
+
+* *Write Throughput*
++
+The total amount of write throughput currently being executed against the volume.
+
+* *Total Latency*
++
+The average time, in microseconds, to complete read and write operations to a volume.
+
+* *Read Latency*
++
+The average time, in microseconds, to complete read operations to the volume in the last 500 milliseconds.
+
+* *Write Latency*
++
+The average time, in microseconds, to complete write operations to a volume in the last 500 milliseconds.
+
+* *Queue Depth*
++
+The number of outstanding read and write operations to the volume.
+
+* *Average IO Size*
++
+Average size in bytes of recent I/O to the volume in the last 500 milliseconds.

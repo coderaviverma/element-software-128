@@ -1,0 +1,55 @@
+---
+permalink: api/reference_element_api_network_snmp.html
+sidebar: sidebar
+keywords: object,objects,network
+summary: 'The SNMP network object contains information about SNMP v3 configuration for the cluster nodes.'
+---
+
+= network (SNMP)
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The SNMP network object contains information about SNMP v3 configuration for the cluster nodes.
+
+== Object members
+
+This object contains the following members:
+
+|===
+|Name |Description |Type
+a|
+access
+a|
+The type of access allowed for SNMP information requests. Possible values:
+
+* ro: Read-only access.
+* rw: Read-write access.
+* rosys: Read-only access to a restricted set of system information.
+
+a|
+string
+a|
+cidr
+a|
+A CIDR network mask. This network mask must be an integer greater than or equal to 0, and less than or equal to 32. It must also not be equal to 31.
+a|
+integer
+a|
+community
+a|
+The SNMP community string.
+a|
+string
+a|
+network
+a|
+This member, along with the cidr member, controls which network the access and community string apply to. The special value of "default" is used to specify an entry that applies to all networks. The CIDR mask is ignored when this member is either a host name or "default".
+a|
+string
+|===
+
+
+== Find more information
+
+xref:reference_element_api_getsnmpinfo.adoc[GetSnmpInfo]

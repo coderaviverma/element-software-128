@@ -1,0 +1,33 @@
+---
+permalink: setup/concept_setup_fc_configure_a_fibre_channel_node.html
+sidebar: sidebar
+keywords:
+summary: 'Fibre Channel nodes enable you to connect the cluster to a Fibre Channel network fabric. Fibre Channel nodes are added in pairs, and operate in active-active mode \(all nodes actively process traffic for the cluster\). Clusters running Element software version 9.0 and later support up to four nodes; clusters running previous versions support a maximum of two nodes.'
+---
+
+= Configure a Fibre Channel node
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Fibre Channel nodes enable you to connect the cluster to a Fibre Channel network fabric. Fibre Channel nodes are added in pairs, and operate in active-active mode (all nodes actively process traffic for the cluster). Clusters running Element software version 9.0 and later support up to four nodes; clusters running previous versions support a maximum of two nodes.
+
+You must ensure that the following conditions are met before you configure a Fibre Channel node:
+
+* At least two Fibre Channel nodes are connected to Fibre Channel switches.
+* All SolidFire Fibre Channel ports should be connected to your Fibre Channel fabric. The four SolidFire Bond10G network connections should be connected in one LACP bond group at the switch level. This will enable the best overall performance from the Fibre Channel systems.
+* Review and validate all best practices for Fibre Channel clusters included in this NetApp Knowledge Base article.
++
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/SolidFire_FC_cluster_best_practice[SolidFire FC cluster best practice]
+
+Network and cluster configuration steps are the same for Fibre Channel nodes and storage nodes.
+
+When you create a new cluster with Fibre Channel nodes and SolidFire storage nodes, the worldwide port name (WWPN) addresses for the nodes are available in the Element UI. You can use the WWPN addresses to zone the Fibre Channel switch.
+
+WWPNs are registered in the system when you create a new cluster with nodes. In the Element UI, you can find the WWPN addresses from the WWPN column of the FC Ports tab, which you access from the Cluster tab.
+
+== Find more information
+
+xref:task_setup_fc_add_fibre_channel_nodes_to_a_cluster.adoc[Add Fibre Channel nodes to a cluster]
+
+xref:task_setup_fc_create_a_new_cluster_with_fibre_channel_nodes.adoc[Create a new cluster with Fibre Channel nodes]

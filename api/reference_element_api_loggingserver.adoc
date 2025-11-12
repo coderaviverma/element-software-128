@@ -1,0 +1,34 @@
+---
+permalink: api/reference_element_api_loggingserver.html
+sidebar: sidebar
+keywords: object,objects,loggingServer
+summary: 'The loggingServer object contains information about any logging hosts configured for the storage cluster. You can use GetRemoteLoggingHosts to determine what the current logging hosts are and then use SetRemoteLoggingHosts to set the desired list of current and new logging hosts.'
+---
+
+= loggingServer
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The loggingServer object contains information about any logging hosts configured for the storage cluster. You can use `GetRemoteLoggingHosts` to determine what the current logging hosts are and then use `SetRemoteLoggingHosts` to set the desired list of current and new logging hosts.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+host
+a|
+IP address of the log server.
+a|
+string
+a|
+port
+a|
+Port number used to communicate with the log server.
+a|
+integer
+|===

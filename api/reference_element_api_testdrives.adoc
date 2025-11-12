@@ -1,0 +1,84 @@
+---
+permalink: api/reference_element_api_testdrives.html
+sidebar: sidebar
+keywords: drive,drives,test,testing,validating,hardware,testdrives
+summary: 'You can use the TestDrives method to run a hardware validation on all drives on the node. This method detects hardware failures on the drives and reports any in the results of the validation tests.'
+---
+
+= TestDrives
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `TestDrives` method to run a hardware validation on all drives on the node. This method detects hardware failures on the drives and reports any in the results of the validation tests.
+
+== Parameters
+
+You can only use the `TestDrives` method on nodes that are not "Active" in a cluster.
+
+NOTE: This test takes approximately 10 minutes.
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+force
+a|
+Set to true to test the drives on the node.
+a|
+boolean
+a|
+None
+a|
+Yes
+a|
+minutes
+a|
+Specifies the number of minutes for the test to run.
+a|
+integer
+a|
+10
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+details
+a|
+Information about the test operation success or failure.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "TestDrives",
+   "params": {
+              "force": true,
+              "minutes" : 10
+             },
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a table containing test results for each drive in the node.
+
+== New since version
+
+9.6

@@ -1,0 +1,27 @@
+---
+permalink: storage/task_data_protection_back_up_a_volume_snapshot_to_an_amazon_s3_object_store.html
+sidebar: sidebar
+keywords: volume snapshot, backup, amazon S3 object store
+summary: 'You can back up SolidFire snapshots to external object stores that are compatible with Amazon S3.'
+---
+
+= Back up a volume snapshot to an Amazon S3 object store
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can back up SolidFire snapshots to external object stores that are compatible with Amazon S3.
+
+. Click**Data Protection** > *Snapshots*.
+. Click the *Actions* icon for the snapshot you want to back up.
+. In the resulting menu, click *Backup to*.
+. In the *Integrated Backup* dialog box under *Backup to*, select *S3*.
+. Select an option under *Data Format*:
+ ** *Native*: A compressed format readable only by SolidFire storage systems.
+ ** *Uncompressed*: An uncompressed format compatible with other systems.
+. Enter a hostname to use to access the object store in the *Hostname* field.
+. Enter an access key ID for the account in the *Access Key ID* field.
+. Enter the secret access key for the account in the *Secret Access Key* field.
+. Enter the S3 bucket in which to store the backup in the *S3 Bucket* field.
+. *Optional*: Enter a nametag to append to the prefix in the *Nametag* field.
+. Click *Start Read*.

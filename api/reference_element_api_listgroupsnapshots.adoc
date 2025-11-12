@@ -1,0 +1,133 @@
+---
+permalink: api/reference_element_api_listgroupsnapshots.html
+sidebar: sidebar
+keywords: snapshot,snapshots,group,list,listing,listgroupsnapshots
+summary: 'You can use ListGroupSnapshots method to return information about all group snapshots that have been created.'
+---
+
+= ListGroupSnapshots
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `ListGroupSnapshots` method to return information about all group snapshots that have been created.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+groupSnapshotID
+a|
+Retrieve information for an individual group snapshot ID.
+a|
+integer
+a|
+None
+a|
+No
+a|
+volumes
+a|
+An array of unique volume IDs to query. If you do not specify this parameter, all group snapshots on the cluster are included.
+a|
+volumeID array
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+groupSnapshots
+a|
+A list of objects containing information about each group snapshot.
+a|
+xref:reference_element_api_groupsnapshot.adoc[groupSnapshot] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ListGroupSnapshots",
+  "params": {
+  "volumes": [
+     31,
+     49
+    ]
+  },
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "groupSnapshots": [
+      {
+          "status": "Done",
+          "remoteStatuses": [
+              {
+                "volumePairUUID": "abcdef-1234-5678-90ab-cdef0123",
+                "remoteStatus": "Present"
+              }
+          ],
+          "attributes": {},
+          "groupSnapshotID": 1,
+          "createTime": "2014-06-17T17:35:05Z",
+          "members": [
+              {
+                "snapshotUUID": "abcdef-1234-5678-90ab-cdef0123",
+                "expirationReason": "None",
+                "virtualVolumeID": "abcdef-1234-5678-90ab-cdef0123",
+                "groupID": 1,
+                "createTime": "2014-06-17T17:35:05Z",
+                "totalSize": 1,
+                "snapMirrorLabel": "test1",
+                "volumeName": "test1",
+                "instanceCreateTime": "2014-06-17T17:35:05Z",
+                "volumeID": 1,
+                "checksum": "0x0",
+                "attributes": {},
+                "instanceSnapshotUUID": "abcdef-1234-5678-90ab-cdef0123",
+                "snapshotID": 1,
+                "status": "Done",
+                "groupSnapshotUUID": "abcdef-1234-5678-90ab-cdef0123",
+                "expirationTime": "2014-06-17T17:35:05Z",
+                "enableRemoteReplication": true,
+                "name": "test1",
+                "remoteStatuses": [
+                      {
+                        "volumePairUUID": "abcdef-1234-5678-90ab-cdef0123",
+                        "remoteStatus": "Present"
+                      }
+                  ]
+              }
+          ],
+          "enableRemoteReplication": true,
+          "name": "test1",
+          "groupSnapshotUUID": "abcdef-1234-5678-90ab-cdef0123"
+      }
+	]
+}
+----
+
+== New since version
+
+9.6

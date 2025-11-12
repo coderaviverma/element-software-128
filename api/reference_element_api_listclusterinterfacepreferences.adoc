@@ -1,0 +1,68 @@
+---
+permalink: api/reference_element_api_listclusterinterfacepreferences.html
+sidebar: sidebar
+keywords:
+summary: 'The ListClusterInterfacePreference method enables systems integrated with storage clusters running Element software to list the existing cluster interface preferences stored on the system. This method is for internal use.'
+---
+
+= ListClusterInterfacePreferences
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `ListClusterInterfacePreference` method enables systems integrated with storage clusters running Element software to list the existing cluster interface preferences stored on the system. This method is for internal use.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+preferences
+a|
+A list of cluster interface objects currently stored on the storage cluster, each containing the name and value of the preference.
+a|
+JSON object array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+	"method": "ListClusterInterfacePreferences",
+    "params": {
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": 1,
+	"result": {
+		"preferences": [
+			{
+				"name": "prefname",
+				"value": "testvalue"
+			}
+		]
+	}
+}
+----
+
+== New since version
+
+11.0
+// 2022 DEC 12, DOC-4643 

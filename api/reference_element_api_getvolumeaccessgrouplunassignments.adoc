@@ -1,0 +1,89 @@
+---
+permalink: api/reference_element_api_getvolumeaccessgrouplunassignments.html
+sidebar: sidebar
+keywords: volume,access,group,groups,LUN,mapping,assignment,get,getting,GetVolumeAccessGroupLunAssignments
+summary: 'You can use the GetVolumeAccessGroupLunAssignments method to retrieve details on LUN mappings of a specified volume access group.'
+---
+
+= GetVolumeAccessGroupLunAssignments
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetVolumeAccessGroupLunAssignments` method to retrieve details on LUN mappings of a specified volume access group.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+volumeAccessGroupID
+a|
+A unique volume access group ID used to return information.
+a|
+integer
+a|
+None
+a|
+Yes
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+volumeAccessGroupLunAssignments
+a|
+A list of all physical Fibre Channel ports, or a port for a single node.
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "GetVolumeAccessGroupLunAssignments",
+   "params": {
+      "volumeAccessGroupID": 5
+    },
+  "id" : 1
+   }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {
+    "volumeAccessGroupLunAssignments" : {
+       "volumeAccessGroupID" : 5,
+       "lunAssignments" : [
+          {"volumeID" : 5, "lun" : 0},
+          {"volumeID" : 6, "lun" : 1},
+          {"volumeID" : 7, "lun" : 2},
+          {"volumeID" : 8, "lun" : 3}
+       ],
+       "deletedLunAssignments" : [
+           {"volumeID" : 44, "lun" : 44}
+       ]
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

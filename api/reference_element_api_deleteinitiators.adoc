@@ -1,0 +1,82 @@
+---
+permalink: api/reference_element_api_deleteinitiators.html
+sidebar: sidebar
+keywords: delete,deleting,initiator,initiators,DeleteInitiators
+summary: 'You can use DeleteInitiators to delete one or more initiators from the system \(and from any associated volumes or volume access groups\).'
+---
+
+= DeleteInitiators
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `DeleteInitiators` to delete one or more initiators from the system (and from any associated volumes or volume access groups).
+
+If `DeleteInitiators` fails to delete one of the initiators provided in the parameter, the system returns an error and does not delete any initiators (no partial completion is possible).
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+initiators
+a|
+An array of IDs of initiators to delete.
+a|
+integer array
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Error
+
+This method can return the following error:
+
+|===
+| Name| Description
+a|
+xInitiatorDoesNotExist
+a|
+Returned if the initiator name you choose does not exist.
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "id": 5101,
+  "method": "DeleteInitiators",
+  "params": {
+    "initiators": [
+      145,
+      147
+    ]
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 5101,
+  "result": {}
+}
+----
+
+== New since version
+
+9.6

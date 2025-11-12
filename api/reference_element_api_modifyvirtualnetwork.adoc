@@ -1,0 +1,172 @@
+---
+permalink: api/reference_element_api_modifyvirtualnetwork.html
+sidebar: sidebar
+keywords: virtual,network,modify,modifying,change,changing,edit,editing,modifyvirtualnetwork
+summary: 'You can use the ModifyVirtualNetwork method to change the attributes of an existing virtual network.'
+---
+
+= ModifyVirtualNetwork
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ModifyVirtualNetwork` method to change the attributes of an existing virtual network.
+
+This method enables you to add or remove address blocks, change the netmask, or modify the name or description of the virtual network. You can also use it to enable or disable namespaces, as well as add or remove a gateway if namespaces are enabled on the virtual network.
+
+NOTE: This method requires either the virtualNetworkID or the virtualNetworkTag as a parameter, but not both.
+
+CAUTION:
+
+Enabling or disabling the Routable Storage VLANs functionality for an existing virtual network by changing the namespace parameter disrupts any traffic handled by the virtual network. It is best if you change the namespace parameter during a scheduled maintenance window.
+
+== Parameters
+
+This method has the following input parameters:
+
+|===
+|Name |Description |Type |Default value |Required
+a|
+virtualNetworkID
+a|
+Unique identifier of the virtual network to modify. This is the virtual network ID assigned by the cluster.
+a|
+integer
+a|
+None
+a|
+No
+a|
+virtualNetworkTag
+a|
+The network tag that identifies the virtual network to modify.
+a|
+integer
+a|
+None
+a|
+No
+a|
+addressBlocks
+a|
+The new address block to set for this virtual network. This might include new address blocks to add to the existing object or omit unused address blocks that need to be removed. Alternatively, you can extend or reduce the size of existing address blocks. You can only increase the size of the starting addressBlocks for a Virtual Network object; you can never decrease it. Required members for this object:
+
+* start: The start of the IP address range. (string)
+* size: The number of IP addresses to include in the block. (integer)
+
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+gateway
+a|
+The IP address of a gateway of the virtual network. This parameter is valid only if the namespace parameter is set to true.
+a|
+string
+a|
+None
+a|
+No
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+name
+a|
+The new name for the virtual network.
+a|
+string
+a|
+None
+a|
+No
+a|
+namespace
+a|
+When set to true, enables the Routable Storage VLANs functionality by recreating the virtual network and configuring a namespace to contain it. When set to false, disables the VRF functionality for the virtual network. Changing this value disrupts traffic running through this virtual network.
+a|
+boolean
+a|
+None
+a|
+No
+a|
+netmask
+a|
+New network mask for this virtual network.
+a|
+string
+a|
+None
+a|
+No
+a|
+svip
+a|
+The storage virtual IP address for this virtual network. The SVIP for a virtual network cannot be changed. You must create a new virtual network to use a different SVIP address.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "ModifyVirtualNetwork",
+  "params": {
+    "virtualNetworkID": 2,
+    "name": "ESX-VLAN-3112",
+    "addressBlocks": [
+     {
+      "start": "10.1.112.1",
+      "size": 20
+     },
+     {
+      "start": "10.1.112.100",
+      "size": 20
+     }
+   ],
+    "netmask": "255.255.255.0",
+    "gateway": "10.0.1.254",
+    "svip": "10.1.112.200",
+    "attributes": {}
+  },
+  "id":1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+  }
+}
+----
+
+== New since version
+
+9.6

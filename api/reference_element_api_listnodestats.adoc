@@ -1,0 +1,98 @@
+---
+permalink: api/reference_element_api_listnodestats.html
+sidebar: sidebar
+keywords: node,nodes,stats,list,listing,listnodestats
+summary: 'You can use the ListNodeStats method to view the high-level activity measurements for all storage nodes in a storage cluster.'
+---
+
+= ListNodeStats
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListNodeStats` method to view the high-level activity measurements for all storage nodes in a storage cluster.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+nodeStats
+a|
+Storage node activity information.
+a|
+xref:reference_element_api_nodestats.adoc[nodeStats]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListNodeStats",
+   "params": {},
+   "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+     "nodeStats": {
+       "nodes": [
+         {
+           "cBytesIn": 223022159806,
+           "cBytesOut": 206324217921,
+           "count": 17274,
+           "cpu": 0,
+           "cpuTotal": 9796,
+           "mBytesIn": 608219007,
+           "mBytesOut": 3487659798,
+           "networkUtilizationCluster": 0,
+           "networkUtilizationStorage": 0,
+           "nodeHeat": {
+             "primaryTotalHeat": 0.00028,
+             "recentPrimaryTotalHeat": 0.0,
+             "recentTotalHeat": 0.00097,
+             "totalHeat": 0.00138
+           },
+           "nodeID": 1,
+           "readLatencyUSecTotal": 8964,
+           "readOps": 29544,
+           "sBytesIn": 223022159806,
+           "sBytesOut": 206324217921,
+           "ssLoadHistogram": {
+             "Bucket0": 5083,
+             "Bucket1To19": 5637426,
+             "Bucket20To39": 19389,
+             "Bucket40To59": 156,
+             "Bucket60To79": 0,
+             "Bucket80To100": 0
+           },
+           "timestamp": "2024-02-27T18:21:26.183659Z",
+           "usedMemory": 104828780544,
+           "writeLatencyUSecTotal": 271773335,
+           "writeOps": 23898
+         }
+       ]
+     }
+ }
+----
+
+== New since version
+
+9.6
+// 2022 DEC 12, DOC-4643 

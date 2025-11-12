@@ -1,0 +1,114 @@
+---
+permalink: api/reference_element_api_setdefaultqos.html
+sidebar: sidebar
+keywords: qos,value,configure,configuring,default,set,setting,setdefaultqos
+summary: 'You can use the SetDefaultQoS method to configure the default Quality of Service \(QoS\) values \(measured in inputs and outputs per second, or IOPS\) for a volume.'
+---
+
+= SetDefaultQoS
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `SetDefaultQoS` method to configure the default Quality of Service (QoS) values (measured in inputs and outputs per second, or IOPS) for a volume.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+minIOPS
+a|
+The minimum number of sustained IOPS that are provided by the cluster to a volume.
+a|
+integer
+a|
+None
+a|
+No
+a|
+maxIOPS
+a|
+The maximum number of sustained IOPS that are provided by the cluster to a volume.
+a|
+integer
+a|
+None
+a|
+No
+a|
+burstIOPS
+a|
+The maximum number of IOPS allowed in a short burst scenario.
+a|
+integer
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+minIOPS
+a|
+The minimum number of sustained IOPS that are provided by the cluster to a volume.
+a|
+integer
+a|
+maxIOPS
+a|
+The maximum number of sustained IOPS that are provided by the cluster to a volume.
+a|
+integer
+a|
+burstIOPS
+a|
+The maximum number of IOPS allowed in a short burst scenario.
+a|
+integer
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "SetDefaultQoS",
+    "params": {
+        "burstIOPS":8000,
+        "maxIOPS":1000,
+        "minIOPS":200
+    },
+    "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id":1,
+    "result": {
+        "burstIOPS":8000,
+        "maxIOPS":1000,
+        "minIOPS":200
+    ​}
+}
+----
+
+== New since version
+
+9.6

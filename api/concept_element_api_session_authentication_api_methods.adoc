@@ -1,0 +1,20 @@
+---
+permalink: api/concept_element_api_session_authentication_api_methods.html
+sidebar: sidebar
+keywords: session auth
+summary: 'You can use session-based authentication to manage user sessions.'
+---
+
+= Session authentication API methods
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use session-based authentication to manage user sessions.
+
+* xref:reference_element_api_listauthsessionbyclusteradmin.adoc[ListAuthSessionsByClusterAdmin]
+* xref:reference_element_api_listauthsessionbyusername.adoc[ListAuthSessionsByUsername]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

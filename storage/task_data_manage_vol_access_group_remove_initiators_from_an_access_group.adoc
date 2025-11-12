@@ -1,0 +1,23 @@
+---
+permalink: storage/task_data_manage_vol_access_group_remove_initiators_from_an_access_group.html
+sidebar: sidebar
+keywords: initiator, remove from volume access group, access groups, remove initiator
+summary: 'When you remove an initiator from an access group, it can no longer access the volumes in that volume access group. Normal account access to the volume is not disrupted.'
+---
+
+= Remove initiators from an access group
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you remove an initiator from an access group, it can no longer access the volumes in that volume access group. Normal account access to the volume is not disrupted.
+
+Modifying CHAP settings in an account or removing initiators or volumes from an access group can cause initiators to lose access to volumes unexpectedly. To verify that volume access will not be lost unexpectedly, always logout iSCSI sessions that will be affected by an account or access group change, and verify that initiators can reconnect to volumes after any changes to initiator settings and cluster settings have been completed.
+
+.Steps
+. Click *Management* > *Access Groups*.
+. Click the *Actions* icon for the access group you want to remove.
+. In the resulting menu, select *Edit*.
+. Under Add Initiators in the *Edit Volume Access Group* dialog box, click the arrow on the *Initiators* list.
+. Select the x icon for each initiator you want to remove from the access group.
+. Click *Save Changes*.

@@ -1,0 +1,196 @@
+---
+sidebar: sidebar
+permalink: mnode/task_mnode_recover.html
+summary: You can recover and redeploy a management node for your cluster running NetApp Element software. Depending on your configuration, you might need to reconfigure authentication for the management node.
+keywords: netapp, element, management node, mnode, disaster recovery, redeploy, VM
+---
+
+= Recover a management node
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+You can manually recover and redeploy the management node for your cluster running NetApp Element software if your previous management node used persistent volumes.
+
+You can deploy a new OVA and run a redeploy script to pull configuration data from a previously installed management node running version 11.3 and later.
+
+.What you'll need
+
+* Your previous management node was running NetApp Element software version 11.3 or later with link:../concepts/concept_solidfire_concepts_volumes.html#persistent-volumes[Persistent volumes] functionality engaged.
+* You know the MVIP and SVIP of the cluster containing the persistent volumes.
+* Your cluster version is running NetApp Element software 11.3 or later.
+* Your installation uses IPv4. The management node 11.3 does not support IPv6.
+* You have permission to download software from the NetApp Support Site.
+* You have identified the management node image type that is correct for your platform:
++
+[cols=2*,options="header",cols="30,30"]
+|===
+| Platform
+| Installation image type
+| Microsoft Hyper-V | .iso
+| KVM | .iso
+| VMware vSphere | .iso, .ova
+| Citrix XenServer | .iso
+| OpenStack | .iso
+|===
+
+.Steps
+
+. <<Download ISO or OVA and deploy the VM>>
+. <<Configure the network>>
+. <<Configure time sync>>
+. <<Configure the management node>>
+
+
+== Download ISO or OVA and deploy the VM
+
+. Download the OVA or ISO for your installation from the https://mysupport.netapp.com/site/products/all/details/element-software/downloads-tab[Element software^] page on the NetApp Support Site.
+
+.. Select *Download Latest Release* and accept the EULA.
+.. Select the management node image you want to download.
+. If you downloaded the OVA, follow these steps:
+.. Deploy the OVA.
+.. If your storage cluster is on a separate subnet from your management node (eth0) and you want to use persistent volumes, add a second network interface controller (NIC) to the VM on the storage subnet (for example, eth1) or ensure that the management network can route to the storage network.
+. If you downloaded the ISO, follow these steps:
+.. Create a new 64-bit virtual machine from your hypervisor with the following configuration:
++
+* Six virtual CPUs
+* 24GB RAM
+* 400GB virtual disk, thin provisioned
+* One virtual network interface with internet access and access to the storage MVIP.
+* (Optional for SolidFire all-flash storage) One virtual network interface with management network access to the storage cluster. If your storage cluster is on a separate subnet from your management node (eth0) and you want to use persistent volumes, add a second network interface controller (NIC) to the VM on the storage subnet (eth1) or ensure that the management network can route to the storage network.
++
+IMPORTANT: Do not power on the virtual machine prior to the step indicating to do so later in this procedure.
+
+.. Attach the ISO to the virtual machine and boot to the .iso install image.
++
+NOTE: Installing a management node using the image might result in 30-second delay before the splash screen appears.
+
+. Power on the virtual machine for the management node after the installation completes.
+
+== Configure the network
+
+. Using the terminal user interface (TUI), create a management node admin user.
++
+TIP: To move through the menu options, press the Up or Down arrow keys. To move through the buttons, press Tab. To move from the buttons to the fields, press Tab. To navigate between fields, press the Up or Down arrow keys.
+
+. Configure the management node network (eth0).
++
+NOTE: If you need an additional NIC to isolate storage traffic, see instructions on configuring another NIC: link:task_mnode_install_add_storage_NIC.html[Configure a storage Network Interface Controller (NIC)].
+
+== Configure time sync
+
+. Verify that the time is synced between the management node and the storage cluster using NTP:
+
+NOTE: Beginning with Element 12.3.1, substeps (a) to (e) are performed automatically. For management node 12.3.1 or later, proceed to <<substep_f_recover_config_time_sync,substep (f)>> to complete the time sync configuration.
+
+.. Log in to the management node using SSH or the console provided by your hypervisor.
+.. Stop NTPD:
++
+----
+sudo service ntpd stop
+----
+
+.. Edit the NTP configuration file `/etc/ntp.conf`:
+...	Comment out the default servers (`server 0.gentoo.pool.ntp.org`) by adding a `#` in front of each.
+...	Add a new line for each default time server you want to add. The default time servers must be the same NTP servers used on the storage cluster that you will use in a link:task_mnode_recover.html#configure-the-management-node[later step].
++
+----
+vi /etc/ntp.conf
+
+#server 0.gentoo.pool.ntp.org
+#server 1.gentoo.pool.ntp.org
+#server 2.gentoo.pool.ntp.org
+#server 3.gentoo.pool.ntp.org
+server <insert the hostname or IP address of the default time server>
+----
+
+...	Save the configuration file when complete.
+.. Force an NTP sync with the newly added server.
++
+----
+sudo ntpd -gq
+----
+
+.. Restart NTPD.
++
+----
+sudo service ntpd start
+----
+
+.. [[substep_f_recover_config_time_sync]]Disable time synchronization with host via the hypervisor (the following is a VMware example):
++
+NOTE: If you deploy the mNode in a hypervisor environment other than VMware, for example, from the .iso image in an Openstack environment, refer to the hypervisor documentation for the equivalent commands.
+
+...	Disable periodic time synchronization:
++
+----
+vmware-toolbox-cmd timesync disable
+----
+
+...	Display and confirm the current status of the service:
++
+----
+vmware-toolbox-cmd timesync status
+----
+...	In vSphere, verify that the `Synchronize guest time with host` box is un-checked in the VM options.
++
+NOTE: Do not enable this option if you make future changes to the VM.
+
+NOTE: Do not edit the NTP after you complete the time sync configuration because it affects the NTP when you run the <<step_6_recover_mnode_redeploy,redeploy command>> on the management node.
+
+== Configure the management node
+
+. Create a temporary destination directory for the management services bundle contents:
++
+----
+mkdir -p /sf/etc/mnode/mnode-archive
+----
+. Download the management services bundle (version 2.15.28 or later) that was previously installed on the existing management node and save it in the `/sf/etc/mnode/` directory.
+. Extract the downloaded bundle using the following command, replacing the value in [ ] brackets (including the brackets) with the name of the bundle file:
++
+----
+tar -C /sf/etc/mnode -xvf /sf/etc/mnode/[management services bundle file]
+----
+. Extract the resulting file to the `/sf/etc/mnode-archive` directory:
++
+----
+tar -C /sf/etc/mnode/mnode-archive -xvf /sf/etc/mnode/services_deploy_bundle.tar.gz
+----
+. Create a configuration file for accounts and volumes:
++
+----
+echo '{"trident": true, "mvip": "[mvip IP address]", "account_name": "[persistent volume account name]"}' | sudo tee /sf/etc/mnode/mnode-archive/management-services-metadata.json
+----
+.. Replace the value in [ ] brackets (including the brackets) for each of the following required parameters:
++
+* *[mvip IP address]*: The management virtual IP address of the storage cluster. Configure the management node with the same storage cluster that you used during link:task_mnode_recover.html#configure-time-sync[NTP servers configuration].
+* *[persistent volume account name]*: The name of the account associated with all persistent volumes in this storage cluster.
+
+[[step_6_recover_mnode_redeploy]]
+. Configure and run the management node redeploy command to connect to persistent volumes hosted on the cluster and start services with previous management node configuration data:
++
+NOTE: You will be prompted to enter passwords in a secure prompt. If your cluster is behind a proxy server, you must configure the proxy settings so you can reach a public network.
+
++
+----
+sudo /sf/packages/mnode/redeploy-mnode --mnode_admin_user [username]
+----
+.. Replace the value in [ ] brackets (including the brackets) with the user name for the management node administrator account. This is likely to be the username for the user account you used to log into the management node.
++
+NOTE: You can add the user name or allow the script to prompt you for the information.
+
++
+.. Run the `redeploy-mnode` command. The script displays a success message when the redeployment is complete.
+.. If you access Element web interfaces (such as the management node or NetApp Hybrid Cloud Control) using the Fully Qualified Domain Name (FQDN) of the system, link:../upgrade/task_hcc_upgrade_management_node.html#reconfigure-authentication-using-the-management-node-rest-api[reconfigure authentication for the management node].
+
+IMPORTANT: SSH capability that provides link:task_mnode_enable_remote_support_connections.html[NetApp Support remote support tunnel (RST) session access] is disabled by default on management nodes running management services 2.18 and later. If you had previously enabled SSH functionality on the management node, you might need to link:task_mnode_ssh_management.html[disable SSH again] on the recovered management node.
+
+[discrete]
+== Find more Information
+* link:../concepts/concept_solidfire_concepts_volumes.html#persistent-volumes[Persistent volumes]
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

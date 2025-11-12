@@ -1,0 +1,4 @@
+---
+permalink: storage/task_system_manage_cluster_ntp_set_the_network_time_protocol.html
+redirect: element-software/storage/task_system_manage_cluster_ntp_configure.html
+---

@@ -1,0 +1,29 @@
+---
+permalink: setup/task_setup_add_drives_to_a_cluster.html
+sidebar: sidebar
+keywords:
+summary: 'When you add a node to the cluster or install new drives in an existing node, the drives automatically register as available. You must add the drives to the cluster by using either the Element UI or API before they can participate in the cluster.'
+---
+
+= Add drives to a cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+When you add a node to the cluster or install new drives in an existing node, the drives automatically register as available. You must add the drives to the cluster by using either the Element UI or API before they can participate in the cluster.
+
+Drives are not displayed in the Available Drives list when the following conditions exist:
+
+* Drives are in Active, Removing, Erasing, or Failed state.
+* The node of which the drive is a part of is in Pending state.
+
+.Steps
+. From the Element user interface, select *Cluster* > *Drives*.
+. Click *Available* to view the list of available drives.
+. Do one of the following:
+ ** To add individual drives, click the *Actions* icon for the drive you want to add and click *Add*.
+ ** To add multiple drives, select the check boxes of the drives to add, click *Bulk Actions*, and click *Add*.
+
+ == Find more information
+ * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+ * https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

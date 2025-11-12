@@ -1,0 +1,155 @@
+---
+permalink: api/reference_element_api_clusterinfo.html
+sidebar: sidebar
+keywords: element, api, object, objects, clusterInfo
+summary: 'The clusterInfo object contains information that the node uses to communicate with the cluster. You can get this information with the GetClusterInfo API method.'
+---
+= clusterInfo
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The clusterInfo object contains information that the node uses to communicate with the cluster. You can get this information with the GetClusterInfo API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+attributes
+a|
+List of name-value pairs in JSON object format.
+a|
+JSON object
+a|
+defaultProtectionScheme
+a|
+The protection scheme used by default for new volumes, unless a protection scheme is provided with the xref:reference_element_api_createvolume.adoc[CreateVolume] method call. This protection scheme must always be in the set of enabled protection schemes.
+a|
+string
+a|
+enabledProtectionSchemes
+a|
+A list of all protection schemes that have been enabled on this storage cluster.
+a|
+string array
+a|
+encryptionAtRestState
+a|
+The state of the Encryption at Rest feature. Possible values:
+
+* Enabling: Encryption at rest is being enabled.
+* Enabled: Encryption at rest is enabled.
+* Disabling: Encryption at rest is being disabled.
+* Disabled: Encryption at rest is disabled.
+
+a|
+string
+a|
+ensemble
+a|
+The nodes that are participating in the cluster.
+a|
+string array
+a|
+mvip
+a|
+The floating (virtual) IP address for the cluster on the management network.
+a|
+string
+a|
+mvipInterface
+a|
+The physical interface associated with the MVIP address.
+a|
+string
+a|
+mvipNodeID
+a|
+The node that holds the master MVIP address.
+a|
+integer
+a|
+mvipVlanTag
+a|
+The VLAN identifier for the MVIP address.
+a|
+string
+a|
+name
+a|
+The unique cluster name.
+a|
+string
+a|
+repCount
+a|
+The number of replicas of each piece of data to store in the cluster. The valid value is "2".
+a|
+integer
+a|
+softwareEncryptionAtRestState
+a|
+Software-based encryption-at-rest state.
+a|
+string
+a|
+supportedProtectionSchemes
+a|
+A list of all protection schemes that are supported on this storage cluster.
+a|
+string array
+a|
+svip
+a|
+The floating (virtual) IP address for the cluster on the storage (iSCSI) network.
+a|
+string
+a|
+svipInterface
+a|
+The physical interface associated with the master SVIP address.
+a|
+string
+a|
+svipNodeID
+a|
+The node holding the master SVIP address.
+a|
+integer
+a|
+svipVlanTag
+a|
+The VLAN identifier for the master SVIP address.
+a|
+string
+a|
+uniqueID
+a|
+The unique ID for the cluster.
+a|
+string
+a|
+uuid
+a|
+The unique identifier for the cluster.
+a|
+UUID
+a|
+volumeLoadBalanceOnActualIopsState
+a|
+The status for the slice balancing based on actual IOPS rather than the Min IOPS feature. Available beginning with Element 12.8.
+a|
+string
+|===
+
+[discrete]
+== Find more information
+* link:reference_element_api_getclusterinfo.html[GetClusterInfo]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation^]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]
+
+// 2024 FEB 28, DOC-4743

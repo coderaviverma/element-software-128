@@ -1,0 +1,59 @@
+---
+permalink: api/reference_element_api_getclusterstructure.html
+sidebar: sidebar
+keywords: storage,cluster,structure,config,configuration,info,get,getting,getclusterstructure
+summary: 'You can use the GetClusterStructure method to back up the current storage cluster configuration information. If the storage cluster configuration is changed while this method is running, the contents of the configuration backup will be unpredictable. You can save this data to a text file and restore it on other clusters, or the same cluster in the case of a disaster.'
+---
+
+= GetClusterStructure
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetClusterStructure` method to back up the current storage cluster configuration information. If the storage cluster configuration is changed while this method is running, the contents of the configuration backup will be unpredictable. You can save this data to a text file and restore it on other clusters, or the same cluster in the case of a disaster.
+
+== Parameter
+
+This method has no input parameter.
+
+== Return values
+
+This method has the following return values:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+result
+a|
+A JSON object containing the current storage cluster configuration information.
+a|
+xref:reference_element_api_clusterstructure.adoc[clusterStructure]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetClusterStructure",
+  "params": {},
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+	"id": 1,
+	"result" : <clusterStructure object containing configuration information>
+	}
+----
+
+== New since version
+
+10.3

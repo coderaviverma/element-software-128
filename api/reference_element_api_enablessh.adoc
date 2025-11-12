@@ -1,0 +1,57 @@
+---
+permalink: api/reference_element_api_enablessh.html
+sidebar: sidebar
+keywords: SSH,enable,enabling,single,node,EnableSSH
+summary: 'You can use the EnableSsh method to enable the SSH service for a single node. This method does not affect the cluster-wide SSH timeout duration, and does not exempt the node from having SSH disabled by the global SSH timeout.'
+---
+
+= EnableSsh
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `EnableSsh` method to enable the Secure Shell (SSH) service for a single node. This method does not affect the cluster-wide SSH timeout duration, and does not exempt the node from having SSH disabled by the global SSH timeout.
+
+== Parameter
+
+This method has no input parameter.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+enabled
+a|
+The status of the SSH service for this node.
+a|
+boolean
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "EnableSsh",
+  "params": {
+     },
+  "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id" : 1,
+  "result" : {"enabled": true}
+}
+----
+// 2022 DEC 12, DOC-4643 

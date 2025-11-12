@@ -1,0 +1,30 @@
+---
+permalink: api/reference_element_api_cluster_pairing_order_of_operations.html
+sidebar: sidebar
+keywords: cluster,pairing,pair,order,operations,clusters
+summary: 'You must establish a connection between a pair of storage clusters running Element software before remote replication can be used.'
+---
+
+= Cluster pairing order of operations
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You must establish a connection between a pair of storage clusters running Element software before remote replication can be used.
+
+Use the following set of API methods to establish a cluster connection:
+
+* xref:reference_element_api_startclusterpairing.adoc[StartClusterPairing]:
++
+This API method creates and returns a pairing key that is used to establish a cluster pair. The key is encoded and contains information that is used to establish communications between clusters. A single cluster can be paired with up to four other clusters. However, a new key must be generated for each cluster pairing. The xref:reference_element_api_startclusterpairing.adoc[StartClusterPairing] method generates a new key each time the method is called. Use each unique key with the xref:reference_element_api_completeclusterpairing.adoc[CompleteClusterPairing] method to pair each additional cluster.
++
+NOTE: For security reasons, the pairing key should not be sent to other users via email. The key contains a user name and password.
+
+* xref:reference_element_api_completeclusterpairing.adoc[CompleteClusterPairing]:
++
+This method uses the pairing key created with the xref:reference_element_api_startclusterpairing.adoc[StartClusterPairing] API method to create a cluster pair. Issue the xref:reference_element_api_completeclusterpairing.adoc[CompleteClusterPairing] API method with the clusterPairingKey parameter to the destination. The origination cluster is the cluster that created the key.
+
+== Find more information
+
+* xref:reference_element_api_startclusterpairing.adoc[StartClusterPairing]
+* xref:reference_element_api_completeclusterpairing.adoc[CompleteClusterPairing]

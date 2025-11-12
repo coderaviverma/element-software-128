@@ -1,0 +1,151 @@
+---
+permalink: api/reference_element_api_response_example_listactivenodes.html
+sidebar: sidebar
+keywords: response,example,listactivenodes
+summary: 'The ListActiveNodes method returns a response similar to the following example.'
+---
+
+= ListActiveNodes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The `ListActiveNodes` method returns a response similar to the following example.
+
+----
+ {
+    "id": 1,
+    "result": {
+        "nodes": [
+            {
+                "associatedFServiceID": 0,
+                "associatedMasterServiceID": 1,
+                "attributes": {},
+                "cip": "172.27.21.23",
+                "cipi": "Bond10G",
+                "fibreChannelTargetPortGroup": null,
+                "mip": "172.27.1.23",
+                "mipi": "Bond1G",
+                "name": "PSN-1-23",
+                "nodeID": 1,
+                "platformInfo": {
+                    "chassisType": "R620",
+                    "cpuModel": "Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz",
+                    "nodeMemoryGB": 72,
+                    "nodeType": "SF3010"
+                },
+                "sip": "172.27.21.23",
+                "sipi": "Bond10G",
+                "softwareVersion": "9.0.0.1298",
+                "uuid": "4C4C4544-0056-3810-804E-B5C04F4C5631",
+                "virtualNetworks": [
+                    {
+                        "address": "10.1.2.4",
+                        "virtualNetworkID": 1
+                    },
+                    {
+                        "address": "10.2.2.10",
+                        "virtualNetworkID": 2
+                    }
+                ]
+            },
+            {
+                "associatedFServiceID": 0,
+                "associatedMasterServiceID": 4,
+                "attributes": {},
+                "cip": "172.27.21.24",
+                "cipi": "Bond10G",
+                "fibreChannelTargetPortGroup": null,
+                "mip": "172.27.1.24",
+                "mipi": "Bond1G",
+                "name": "PSN-1-24",
+                "nodeID": 2,
+                "platformInfo": {
+                    "chassisType": "R620",
+                    "cpuModel": "Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz",
+                    "nodeMemoryGB": 72,
+                    "nodeType": "SF3010"
+                },
+                "sip": "172.27.21.24",
+                "sipi": "Bond10G",
+                "softwareVersion": "9.0.0.1298",
+                "uuid": "4C4C4544-0042-4210-804E-C3C04F4C5631",
+                "virtualNetworks": [
+                    {
+                        "address": "10.1.2.5",
+                        "virtualNetworkID": 1
+                    },
+                    {
+                        "address": "10.2.2.11",
+                        "virtualNetworkID": 2
+                    }
+                ]
+            },
+            {
+                "associatedFServiceID": 0,
+                "associatedMasterServiceID": 2,
+                "attributes": {},
+                "cip": "172.27.21.25",
+                "cipi": "Bond10G",
+                "fibreChannelTargetPortGroup": null,
+                "mip": "172.27.1.25",
+                "mipi": "Bond1G",
+                "name": "PSN-1-25",
+                "nodeID": 3,
+                "platformInfo": {
+                    "chassisType": "R620",
+                    "cpuModel": "Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz",
+                    "nodeMemoryGB": 72,
+                    "nodeType": "SF3010"
+                },
+                "sip": "172.27.21.25",
+                "sipi": "Bond10G",
+                "softwareVersion": "9.0.0.1298",
+                "uuid": "4C4C4544-0053-4210-8051-C6C04F515631",
+                "virtualNetworks": [
+                    {
+                        "address": "10.1.2.6",
+                        "virtualNetworkID": 1
+                    },
+                    {
+                        "address": "10.2.2.12",
+                        "virtualNetworkID": 2
+                    }
+                ]
+            },
+            {
+                "associatedFServiceID": 0,
+                "associatedMasterServiceID": 3,
+                "attributes": {},
+                "cip": "172.27.21.26",
+                "cipi": "Bond10G",
+                "fibreChannelTargetPortGroup": null,
+                "mip": "172.27.1.26",
+                "mipi": "Bond1G",
+                "name": "PSN-1-26",
+                "nodeID": 4,
+                "platformInfo": {
+                    "chassisType": "R620",
+                    "cpuModel": "Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz",
+                    "nodeMemoryGB": 72,
+                    "nodeType": "SF3010"
+                },
+                "sip": "172.27.21.26",
+                "sipi": "Bond10G",
+                "softwareVersion": "9.0.0.1298",
+                "uuid": "4C4C4544-0056-3810-804E-B4C04F4C5631",
+                "virtualNetworks": [
+                    {
+                        "address": "10.1.2.7",
+                        "virtualNetworkID": 1
+                    },
+                    {
+                        "address": "10.2.2.13",
+                        "virtualNetworkID": 2
+                    }
+                ]
+            }
+        ]
+    }
+ }
+----

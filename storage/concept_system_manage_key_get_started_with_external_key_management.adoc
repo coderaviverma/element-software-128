@@ -1,0 +1,25 @@
+---
+permalink: storage/concept_system_manage_key_get_started_with_external_key_management.html
+sidebar: sidebar
+keywords: kmip, master key, key management, encryption at rest, software encryption at rest, ekm, ak, eks, seds
+summary: 'External key management \(EKM\) provides secure Authentication Key \(AK\) management in conjunction with an off-cluster external key server \(EKS\). The AKs are used to lock and unlock Self Encrypting Drives (SEDs) when encryption at rest is enabled on the cluster.'
+---
+
+= Get started with external key management
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+External key management (EKM) provides secure Authentication Key (AK) management in conjunction with an off-cluster external key server (EKS). The AKs are used to lock and unlock Self Encrypting Drives (SEDs) when link:../concepts/concept_solidfire_concepts_security.html[encryption at rest] is enabled on the cluster. The EKS provides secure generation and storage of the AKs. The cluster utilizes the Key Management Interoperability Protocol (KMIP), an OASIS defined standard protocol, to communicate with the EKS.
+
+* link:task_system_manage_key_set_up_external_key_management.html[Set up external management]
+* link:task_system_manage_rekey_software_ear_master_key.html[Rekey software encryption at rest master key]
+* link:concept_system_manage_key_recover_inaccessible_or_invalid_authentication_keys[Recover inaccessible or invalid authentication keys]
+* link:concept_system_manage_key_external_key_management_api_commands.html[External key management API commands]
+
+
+[discrete]
+== Find more information
+* link:../api/reference_element_api_createcluster.html[CreateCluster API that can be used to enable software encryption at rest]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

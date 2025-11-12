@@ -1,0 +1,72 @@
+---
+permalink: api/reference_element_api_listbackuptargets.html
+sidebar: sidebar
+keywords: backup,target,targets,info,list,listing,listbackuptargets
+summary: 'You can use the ListBackupTargets method to get information about all backup targets that have been created.'
+---
+
+= ListBackupTargets
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListBackupTargets` method to get information about all backup targets that have been created.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return value
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+backupTargets
+a|
+Objects returned for each backup target. Included objects:
+
+* attributes: List of name-value pairs in JSON object format. (JSON object)
+* backupTargetID: Unique identifier assigned to the backup target. (integer)
+* name: Name of the backup target. (string)
+
+a|
+JSON object
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "method": "ListBackupTargets",
+   "params": {},
+   "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+   "id": 1,
+   "result": {
+     "backupTargets": [
+       {
+        "attributes" : {},
+        "backupTargetID" : 1,
+        "name" : "mytargetbackup"
+       }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

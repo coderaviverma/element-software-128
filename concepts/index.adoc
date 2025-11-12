@@ -1,0 +1,22 @@
+---
+permalink: concepts/index.html
+sidebar: sidebar
+keywords: element, security, clusters, protection, qos
+summary: Learn basic concepts related to Element software.
+---
+= Concepts
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Learn basic concepts related to Element software.
+
+* link:concept_intro_product_overview.html[Product overview]
+* xref:concept_solidfire_concepts_solidfire_architecture_overview.adoc[SolidFire architecture overview]
+* xref:concept_solidfire_concepts_nodes.adoc[Nodes]
+* xref:concept_intro_clusters.adoc[Clusters]
+* link:concept_solidfire_concepts_security.html[Security]
+* xref:concept_solidfire_concepts_accounts_and_permissions.adoc[Accounts and permissions]
+* link:concept_solidfire_concepts_volumes.html[Volumes]
+* xref:concept_solidfire_concepts_data_protection.adoc[Data protection]
+* xref:concept_data_manage_volumes_solidfire_quality_of_service.adoc[Performance and quality of service]

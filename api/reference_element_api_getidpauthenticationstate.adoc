@@ -1,0 +1,56 @@
+---
+permalink: api/reference_element_api_getidpauthenticationstate.html
+sidebar: sidebar
+keywords: IdP,idp,authentication,retrieve get,idp state
+summary: 'You can use the GetIdpAuthenticationState method to return information regarding the state of authentication using third-party IdPs.'
+---
+
+= GetIdpAuthenticationState
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetIdpAuthenticationState` method to return information regarding the state of authentication using third-party IdPs.
+
+== Parameters
+
+This method has no input parameters.
+
+== Return values
+
+This method has the following return value:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+enabled
+a|
+Indicates whether third-party IdP authentication is enabled.
+a|
+boolean
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "GetIdpAuthenticationState"
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "result": {"enabled": true}
+}
+----
+
+== New since version
+
+12.0

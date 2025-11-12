@@ -1,0 +1,290 @@
+---
+permalink: api/reference_element_api_modifyschedule.html
+sidebar: sidebar
+keywords: modify,modifying,edit,editing,change,changing,snapshot,schedule,scheduled,delete,pause,modifyschedule
+summary: 'You can use ModifySchedule to change the intervals at which a scheduled snapshot occurs. You can also delete or pause a schedule by using this method.'
+---
+
+= ModifySchedule
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use `ModifySchedule` to change the intervals at which a scheduled snapshot occurs. You can also delete or pause a schedule by using this method.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+attributes
+a|
+Use to change the frequency of the snapshot occurrence. Possible values:
+
+* `Days of Week`
+* `Days of Month`
+* `Time Interval`
+
+a|
+JSON object
+a|
+None
+a|
+No
+a|
+hours
+a|
+Number of hours between snapshots or hour at which the snapshot will occur in Days of Week or Days of Month mode. Valid values are 0 through 24.
+a|
+string
+a|
+None
+a|
+No
+a|
+name
+a|
+The name of the snapshot. If no name is entered, the date and time the group snapshot was taken is used. The maximum name length allowed is 244 characters.
+a|
+string
+a|
+None
+a|
+No
+a|
+minutes
+a|
+Number of minutes between snapshots or minute at which snapshot will occur in Days of Week or Days of Month mode. Valid values are 0 through 59.
+a|
+integer
+a|
+None
+a|
+No
+
+|lastRunStatus
+|The result or status of the last scheduled snapshot creation.
+|string
+|None
+|No
+
+a|
+paused
+a|
+Indicates if the schedule should be paused or not. Valid values:
+
+* `true`
+* `false`
+
+a|
+boolean
+a|
+None
+a|
+No
+a|
+recurring
+a|
+Indicates if the schedule will be recurring or not. Valid values are:
+
+* `true`
+* `false`
+
+a|
+boolean
+a|
+None
+a|
+No
+a|
+runNextInterval
+a|
+Use to choose whether or not to run the snapshot the next time the scheduler is active. Valid values:
+
+* `true`
+* `false`
+
+When set to true, the scheduled snapshot runs the next time the scheduler is active, and then resets back to false.
+a|
+boolean
+a|
+false
+a|
+No
+a|
+scheduleID
+a|
+Unique ID of the schedule.
+a|
+integer
+a|
+None
+a|
+Yes
+a|
+scheduleName
+a|
+Unique name for the schedule. The maximum schedule name length allowed is 244 characters.
+a|
+string
+a|
+None
+a|
+No
+a|
+scheduleType
+a|
+Indicates the type of schedule to create. The only supported value is `snapshot`.
+a|
+string
+a|
+None
+a|
+Yes
+a|
+`scheduleInfo`
+a|
+The unique name given to the schedule, the retention period for the snapshot that was created, and the volume ID of the volume from which the snapshot was created. Valid values:
+
+* `enableRemoteReplication`: Indicates if the snapshot should be included in remote replication. (boolean)
+* `ensureSerialCreation`: Specifies whether a new snapshot creation should be allowed if a previous snapshot replication is in progress. (boolean)
+* `name`: The snapshot name to be used. (string)
+* `retention`: The amount of time the snapshot is retained. Depending on the time, it displays in one of the following formats:
+** `fifo`: The snapshot is retained on a First-In-First-Out (FIFO) basis. If empty, the snapshot is retained forever. (string)
+** HH:mm:ss 
+* `volumeID`: The ID of the volume to be included in the snapshot. (integer)
+* `volumes`: A list of volume IDs to be included in the group snapshot. (integer array)
+
+a|
+link:reference_element_api_schedule.html[schedule^]
+a|
+None
+a|
+No
+a|
+snapMirrorLabel
+a|
+The label used by SnapMirror software to specify the snapshot retention policy on a SnapMirror endpoint.
+a|
+string
+a|
+None
+a|
+No
+a|
+toBeDeleted
+a|
+Indicates if the schedule is marked for deletion. Valid values:
+
+* `true`
+* `false`
+
+a|
+boolean
+a|
+None
+a|
+No
+a|
+startingDate
+a|
+Indicates the date the first time the schedule began or will begin.
+a|
+ISO 8601 date string
+a|
+None
+a|
+No
+a|
+monthdays
+a|
+The days of the month that a snapshot will be made. Valid values are 1 through 31.
+a|
+integer array
+a|
+None
+a|
+Yes
+a|
+weekdays
+a|
+Day of the week the snapshot is to be created. The day of the week starts at Sunday with the value of 0 and an offset of 1.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+schedule
+a|
+An object containing the modified schedule attributes.
+a|
+xref:reference_element_api_schedule.adoc[schedule]
+|===
+
+== Request example
+
+----
+{
+  "method": "ModifySchedule",
+  "params": {
+    "scheduleName" : "Chicago",
+    "scheduleID" : 3
+    },
+  "id": 1
+}
+----
+
+== Response example
+
+----
+{
+  "id": 1,
+  "result": {
+    "schedule": {
+      "attributes": {
+        "frequency": "Days Of Week"
+            },
+      "hasError": false,
+      "hours": 5,
+      "lastRunStatus": "Success",
+      "lastRunTimeStarted": null,
+      "minutes": 0,
+      "monthdays": [],
+      "paused": false,
+      "recurring": true,
+      "runNextInterval": false,
+      "scheduleID": 3,
+      "scheduleInfo": {
+        "volumeID": "2"
+            },
+      "scheduleName": "Chicago",
+      "scheduleType": "Snapshot",
+      "startingDate": null,
+      "toBeDeleted": false,
+      "weekdays": [
+        {
+          "day": 2,
+          "offset": 1
+      }
+      ]
+    }
+  }
+}
+----
+
+== New since version
+
+9.6

@@ -1,0 +1,44 @@
+---
+permalink: storage/task_data_manage_vvol_enable_virtual_volumes.html
+sidebar: sidebar
+keywords: virtual volumes, enable, functionality on the cluster, vvols
+summary: 'You must manually enable vSphere Virtual Volumes \(VVols\) functionality through the NetApp Element software. The Element software system comes with VVols functionality disabled by default, and it is not automatically enabled as part of a new installation or upgrade. Enabling the VVols feature is a one-time configuration task.'
+---
+
+= Enable virtual volumes
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You must manually enable vSphere Virtual Volumes (VVols) functionality through the NetApp Element software. The Element software system comes with VVols functionality disabled by default, and it is not automatically enabled as part of a new installation or upgrade. Enabling the VVols feature is a one-time configuration task.
+
+.What you'll need
+* The cluster must be running Element 9.0 or later.
+* The cluster must be connected to an ESXi 6.0 or later environment that is compatible with VVols.
+* If you are using Element 11.3 or later, the cluster must be connected to an ESXi 6.0 update 3 or later environment.
+
+IMPORTANT: Enabling vSphere Virtual Volumes functionality permanently changes the Element software configuration. You should only enable VVols functionality if your cluster is connected to a VMware ESXi VVols-compatible environment. You can disable the VVols feature and restore the default settings only by returning the cluster to the factory image, which deletes all data on the system.
+
+.Steps
+. Select *Clusters* > *Settings*.
+. Find the cluster-specific settings for Virtual Volumes.
+. Click *Enable Virtual Volumes*.
+. Click *Yes* to confirm the Virtual Volumes configuration change.
++
+The *VVols* tab appears in the Element UI.
++
+NOTE: When VVols functionality is enabled, the SolidFire cluster starts the VASA Provider, opens port 8444 for VASA traffic, and creates protocol endpoints that can be discovered by vCenter and all ESXi hosts.
+
+. Copy the VASA Provider URL from the Virtual Volumes (VVols) settings in *Clusters* > *Settings*. You will use this URL to register the VASA Provider in vCenter.
+. Create a storage container in *VVols* > *Storage Containers*.
++
+NOTE: You must create at least one storage container so that VMs can be provisioned to a VVol datastore.
+
+. Select *VVols* > *Protocol Endpoints*.
+. Verify that a protocol endpoint has been created for each node in the cluster.
++
+NOTE: Additional configuration tasks are required in vSphere. See the _VMware vSphere Virtual Volumes for SolidFire Storage Configuration Guide_ to register the VASA Provider in vCenter, create and manage VVol datastores, and manage storage based on policies.
+
+== Find more information
+
+https://www.netapp.com/pdf.html?item=/media/10516-tr4642pdf.pdf[VMware vSphere Virtual Volumes for SolidFire Storage Configuration Guide^]

@@ -1,0 +1,77 @@
+---
+permalink: api/reference_element_api_setremotelogginghosts.html
+sidebar: sidebar
+keywords: remote,logging,host,hosts,set,setting,setremotelogginghosts
+summary: 'You can use the SetRemoteLoggingHosts method to configure remote logging from the nodes in the storage cluster to a centralized log server or servers. Remote logging is performed over TCP using the default port 514. This API does not add to the existing logging hosts. Rather, it replaces what currently exists with new values specified by this API method. You can use GetRemoteLoggingHosts to determine what the current logging hosts are and then use SetRemoteLoggingHosts to set the desired list of current and new logging hosts.'
+---
+
+= SetRemoteLoggingHosts
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `SetRemoteLoggingHosts` method to configure remote logging from the nodes in the storage cluster to a centralized log server or servers. Remote logging is performed over TCP using the default port 514. This API does not add to the existing logging hosts. Rather, it replaces what currently exists with new values specified by this API method. You can use `GetRemoteLoggingHosts` to determine what the current logging hosts are and then use `SetRemoteLoggingHosts` to set the desired list of current and new logging hosts.
+
+== Parameter
+
+This method has the following input parameter:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+remoteHosts
+a|
+List of hosts that are log message recipients.
+a|
+xref:reference_element_api_loggingserver.adoc[loggingServer] array
+a|
+None
+a|
+Yes
+|===
+
+== Return values
+
+This method has no return values.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+   "id": 1,
+   "method": "SetRemoteLoggingHosts",
+   "params": {
+     "remoteHosts": [
+        {
+          "host": "172.16.1.20",
+          "port": 10514
+        },
+        {
+          "host": "172.16.1.25"
+        }
+      ]
+   }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+    "id" : 1,
+    "result" : {}
+}
+----
+
+== New since version
+
+9.6
+
+== Find more information
+
+xref:reference_element_api_getremotelogginghosts.adoc[GetRemoteLoggingHosts]

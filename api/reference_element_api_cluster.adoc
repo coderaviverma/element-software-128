@@ -1,0 +1,214 @@
+---
+permalink: api/reference_element_api_cluster.html
+sidebar: sidebar
+keywords: objects,object,cluster
+summary: 'The cluster object contains information that the node uses to communicate with the cluster. You can retrieve this information with the GetClusterConfig API method.'
+---
+
+= cluster
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The cluster object contains information that the node uses to communicate with the cluster. You can retrieve this information with the GetClusterConfig API method.
+
+== Object members
+
+This object contains the following members:
+
+[options="header"]
+|===
+|Name |Description |Type
+a|
+cipi
+a|
+Network interface used for cluster communication.
+a|
+string
+a|
+cluster
+a|
+Unique cluster name.
+a|
+string
+a|
+encryptionCapable
+a|
+Indicates whether the node supports drive encryption.
+a|
+boolean
+a|
+ensemble
+a|
+The nodes that are participating in the cluster.
+a|
+string array
+a|
+fipsDriveConfiguration
+a|
+Indicates whether the node supports FIPS 140-2 certified drives.
+a|
+boolean
+a|
+mipi
+a|
+The network interface used for node management.
+a|
+string
+a|
+name
+a|
+The cluster name.
+a|
+string
+a|
+nodeID
+a|
+The node ID of the node in the cluster.
+a|
+string
+a|
+pendingNodeID
+a|
+The ID of the pending node in the cluster.
+a|
+integer
+a|
+role
+a|
+Identifies the role of the node.
+a|
+integer
+a|
+sipi
+a|
+The network interface used for storage traffic.
+a|
+string
+a|
+state
+a|
+The current state of the node. Possible values:
+
+* Available: The node has not been configured with a cluster name.
+* Pending: The node is pending for a specific named cluster and can be added.
+* Active: The node is an active member of a cluster and cannot be added to another cluster.
+* PendingActive: The node is currently being returned to the factory software image, and is not yet an active member of a cluster. When complete, it will transition to the Active state.
+
+a|
+string
+a|
+version
+a|
+The version of software running on the node.
+a|
+string
+|===
+
+== Member modifiability and node states
+
+This table indicates whether or not the object parameters can be modified at each possible node state.
+
+|===
+| Parameter name| Available state| Pending state| Active state
+a|
+cipi
+a|
+No
+a|
+No
+a|
+No
+a|
+cluster
+a|
+Yes
+a|
+Yes
+a|
+No
+a|
+encryptionCapable
+a|
+No
+a|
+No
+a|
+No
+a|
+ensemble
+a|
+No
+a|
+No
+a|
+No
+a|
+mipi
+a|
+Yes
+a|
+Yes
+a|
+No
+a|
+name
+a|
+Yes
+a|
+Yes
+a|
+Yes
+a|
+nodeID
+a|
+No
+a|
+No
+a|
+No
+a|
+pendingNodeID
+a|
+No
+a|
+No
+a|
+No
+a|
+role
+a|
+No
+a|
+No
+a|
+No
+a|
+sipi
+a|
+No
+a|
+No
+a|
+No
+a|
+state
+a|
+No
+a|
+No
+a|
+No
+a|
+version
+a|
+No
+a|
+No
+a|
+No
+|===
+
+== Find more information
+
+xref:reference_element_api_getclusterconfig.adoc[GetClusterConfig]

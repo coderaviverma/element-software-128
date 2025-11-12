@@ -1,0 +1,22 @@
+---
+permalink: storage/task_data_protection_copy_a_snapshot_schedule.html
+sidebar: sidebar
+keywords: snapshot schedule, copy, maintain, schedule attributes
+summary: 'You can copy a schedule and maintain its current attributes.'
+---
+
+= Copy a snapshot schedule
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can copy a schedule and maintain its current attributes.
+
+. Click *Data Protection* > *Schedules*.
+. Click the Actions icon for the schedule you want to copy.
+. In the resulting menu, click *Make a Copy*.
++
+The *Create Schedule* dialog box appears, populated with the current attributes of the schedule.
+
+. *Optional:* Enter a name and updated attributes for the new schedule.
+. Click *Create Schedule*.

@@ -1,0 +1,158 @@
+---
+permalink: api/concept_element_api_about_the_api.html
+sidebar: sidebar
+keywords: SolidFire,API,overview,about,Element
+summary: 'The Element API is based on the JSON-RPC protocol over HTTPS. JSON-RPC is a simple text-based RPC protocol based on the lightweight JSON data-interchange format. Client libraries are available for all major programming languages.'
+---
+= Learn about managing storage with Element API
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+The Element API is based on the JSON-RPC protocol over HTTPS. JSON-RPC is a simple text-based RPC protocol based on the lightweight JSON data-interchange format. Client libraries are available for all major programming languages.
+
+You can make API requests via HTTPS POST requests to the API endpoint. The body of the POST request is a JSON-RPC request object. The API does not currently support batch requests (multiple request objects in a single POST). When submitting API requests, you must use "application/json-rpc" as the content-type of the request, and ensure that the body is not form-encoded.
+
+NOTE: The Element web UI makes use of the API methods described in this document. You can monitor API operations in the UI by enabling the API Log; this enables you to see the methods that are being issued to the system. You can enable both requests and responses to see how the system replies to the methods that are issued.
+
+Unless stated otherwise, all date strings in the API responses are in UTC+0 format.
+
+NOTE: When the storage cluster is heavily loaded or you submit many consecutive API requests with no intervening delay, a method might fail and return the error "xDBVersionMismatch". If this happens, retry the method call.
+
+== Common objects
+The Element software API uses JSON objects to represent organized data concepts. Many of these API methods make use of these objects for data input and output. This section documents these commonly used objects; objects that are only used within a single method are documented with that method instead of in this section.
+
+link:../api/reference_element_api_account.html[Learn about common objects]
+
+== Common methods
+
+Common methods are methods used to retrieve information about the storage cluster, the API itself, or ongoing API operations.
+
+link:../api/reference_element_api_getapi.html[Learn about common methods]
+
+== Account API methods
+Account methods enable you to add, remove, view, and modify account and security information.
+
+link:../api/reference_element_api_addaccount.html[Learn about account API methods]
+
+== Administrator API methods
+You can use administrator API methods to create, modify, view, and remove storage cluster administrators and assign levels of access and privileges for those with access to a storage cluster.
+
+link:../api/reference_element_api_addclusteradmin.html[Learn about administrator API methods]
+
+== Cluster API methods
+Element software cluster API methods enable you to manage the configuration and topology of the storage cluster and the nodes that belong to a storage cluster.
+
+Some cluster API methods operate on nodes that are part of a cluster, or have been configured to join a cluster. You can add nodes to a new cluster or to an existing cluster. Nodes that are ready to be added to a cluster are in a "pending" state, which means they have been configured but not yet added to the cluster.
+
+link:../api/reference_element_api_addnodes.html[Learn about cluster API methods]
+
+== Cluster creation API Methods
+You can use these API methods to create a storage cluster. All of these methods need to be used against the API endpoint on a single node.
+
+link:../api/reference_element_api_checkproposedcluster.html[Learn about cluster creation API Methods]
+
+== Drive API methods
+You can use drive API methods to add and manage drives that are available to a storage cluster. When you add a storage node to the storage cluster or install new drives in an existing storage node, the drives are available to be added to the storage cluster.
+
+link:../api/reference_element_api_adddrives.html[Learn about drive API methods]
+
+== Fibre Channel API methods
+You can use Fibre Channel API methods to add, modify, or remove Fibre Channel node members of a storage cluster.
+
+link:../api/reference_element_api_getvolumeaccessgrouplunassignments.html[Learn about Fibre Channel API methods]
+
+== Initiator API methods
+Initiator methods enable you to add, remove, view, and modify iSCSI initiator objects, which handle communication between the storage system and external storage clients.
+
+link:../api/reference_element_api_createinitiators.html[Learn about initiator API methods]
+
+== LDAP API methods
+You can use the Lightweight Directory Access Protocol (LDAP) to authenticate access to Element storage. The LDAP API methods described in this section enable you to configure LDAP access to the storage cluster.
+
+link:../api/reference_element_api_addldapclusteradmin.html[Learn about LDAP API methods]
+
+== Multi-factor authentication API methods
+You can use multi-factor authentication (MFA) to manage user sessions using a third-party Identity Provider (IdP) via the Security Assertion Markup Language (SAML).
+
+link:../api/reference_element_api_addidpclusteradmin.html[Learn about multi-factor authentication API methods]
+
+== Session authentication API methods
+You can use session-based authentication to manage user sessions.
+
+link:../api/reference_element_api_listauthsessionbyclusteradmin.html[Learn about session authentication API methods]
+
+== Node API methods
+You can use node API methods to configure individual nodes. These methods operate on single nodes that need to be configured, are configured but not yet participating in a cluster, or are actively participating in a cluster. Node API methods enable you to view and modify settings for individual nodes and the cluster network used to communicate with the node. You must run these methods against individual nodes; you cannot run per-node API methods against the address of the cluster.
+
+link:../api/reference_element_api_checkpingonvlan.html[Learn about node API methods]
+
+== Replication API methods
+Replication API methods enable you to connect two clusters for continuous data protection (CDP). When you connect two clusters, active volumes within a cluster can be continuously replicated to a second cluster to provide data recovery. By pairing volumes for replication, you can protect your data from events that might render it inaccessible.
+
+link:../api/reference_element_api_cluster_pairing_order_of_operations.html[Learn about replication API methods]
+
+== Security API methods
+You can integrate Element software with external security-related services, such as an external key management server. These security-related methods enable you to configure Element security features such as external key management for Encryption at Rest.
+
+link:../api/reference_element_api_addkeyservertoproviderkmip.html[Learn about security API methods]
+
+== SnapMirror API methods
+SnapMirror API methods are used by the Element web UI for managing snapshots mirrored with remote ONTAP systems. These methods are meant for use by the Element web UI only. If you need API access to SnapMirror functionality, use the ONTAP APIs. Request and return examples are not provided for SnapMirror API methods.
+
+link:../api/reference_element_api_abortsnapmirrorrelationship.html[Learn about SnapMirror API methods]
+
+== System configuration API methods
+System configuration API methods enable you to obtain and set configuration values that apply to all nodes in the cluster.
+
+link:../api/reference_element_api_disablebmccoldreset.html[Learn about system configuration API methods]
+
+== Multitenant networking API methods
+Multitenant networking in Element storage clusters allows traffic between multiple clients that are on separate logical networks to be connected to one Element storage cluster without layer 3 routing.
+
+Connections to the storage cluster are segregated in the networking stack through the use of VLAN tagging.
+
+=== Prerequisites for setting up a multitenant virtual network
+
+* You must have identified the block of client network IP addresses to be assigned to the virtual networks on the storage nodes.
+* You must have identified a client storage network IP (SVIP) address to be used as an endpoint for all storage traffic.
+
+=== Virtual networking order of operations
+
+. Use the AddVirtualNetwork method to bulk provision the IP addresses you enter.
++
+After you add a virtual network, the cluster automatically performs the following steps:
+
+* Each storage node creates a virtual network interface.
+* Each storage node is assigned a VLAN address that can be routed to using the virtual SVIP.
+* VLAN IP addresses persist on each node in the event of a node reboot.
+
+. When the virtual network interface and VLAN addresses have been assigned, you can assign client network traffic to the virtual SVIP.
+
+
+link:../api/concept_element_api_virtual_network_naming_conventions.html[Learn about multitenant networking API methods]
+
+== Volume API methods
+
+Element software volume API methods enable you to manage volumes that reside on a storage node. You can create, modify, clone, and delete volumes with these methods. You can also use volume API methods to gather and display data measurements for a volume.
+
+link:../api/reference_element_api_cancelclone.html[Learn about volume API methods]
+
+== Volume access group API methods
+Volume access group methods enable you to add, remove, view, and modify volume access groups, which are collections of volumes that users can access using either iSCSI or Fibre Channel initiators.
+
+link:../api/reference_element_api_addinitiatorstovolumeaccessgroup.html[Learn about volume access group API methods]
+
+== Volume snapshot API methods
+Element software volume snapshot API methods enable you to manage volume snapshots. You can create, modify, clone, and delete volume snapshots using the volume snapshot API methods.
+
+link:../api/concept_element_api_snapshots_overview.html[Learn about volume snapshot API methods]
+
+== Virtual volume API methods
+Element software virtual volume API methods enable you to manage virtual volumes (VVols). You can view existing VVols with these API methods as well as create, modify, and delete virtual volume storage containers. Although you cannot use these methods to operate on normal volumes, you can use the normal volume API methods to list information about VVols.
+
+link:../api/reference_element_api_createstoragecontainer.html[Learn about virtual volume API methods]
+
+== Find more information
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+* https://docs.netapp.com/sfe-122/topic/com.netapp.ndc.sfe-vers/GUID-B1944B0E-B335-4E0B-B9F1-E960BF32AE56.html[Documentation for earlier versions of NetApp SolidFire and Element products^]

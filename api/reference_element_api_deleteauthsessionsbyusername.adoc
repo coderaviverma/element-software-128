@@ -1,0 +1,105 @@
+---
+permalink: api/reference_element_api_deleteauthsessionsbyusername.html
+sidebar: sidebar
+keywords: auth sessions,username,delete,authentication sessions
+summary: 'You can use the DeleteAuthSessionsByUsername method to delete all authentication sessions for a given user\(s\). A caller not in AccessGroup ClusterAdmins/Administrator can only delete their own sessions. A caller with ClusterAdmins/Administrator privileges can delete sessions belonging to any user. To see the list of sessions that could be deleted, use ListAuthSessionsByUsername with the same parameters. To view a list of sessions for possible deletion, use the ListAuthSessionsByUsername method with the same parameter.'
+---
+
+= DeleteAuthSessionsByUsername
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `DeleteAuthSessionsByUsername` method to delete all authentication sessions for a given user(s). A caller not in AccessGroup ClusterAdmins/Administrator can only delete their own sessions. A caller with ClusterAdmins/Administrator privileges can delete sessions belonging to any user. To see the list of sessions that could be deleted, use `ListAuthSessionsByUsername` with the same parameters. To view a list of sessions for possible deletion, use the `ListAuthSessionsByUsername` method with the same parameter.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+authMethod
+a|
+Authentication method of the user sessions to be deleted. Only a caller in the ClusterAdmins/Administrator AccessGroup can provide this parameter. Possible values are:
+
+* *authMethod=Cluster* specifies the ClusterAdmin username.
+* *authMethod=Ldap* specifies the user's LDAP DN.
+* *authMethod=Idp* specifies either the user's IdP UUID or NameID. If the IdP is not configured to return either option, this specifies a random UUID issued when the session was created.
+
+a|
+authMethod
+a|
+None
+a|
+No
+a|
+username
+a|
+Unique identifier for the user.
+a|
+string
+a|
+None
+a|
+No
+|===
+
+== Return values
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+sessions
+a|
+Session information for the deleted authentication sessions.
+a|
+link:reference_element_api_authsessioninfo.html[authSessionInfo]
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+  "method": "DeleteAuthSessionsByUsername",
+  "params": {
+    "authMethod": "Cluster",
+    "username": "admin"
+  }
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+"sessions": [
+      {
+        "accessGroupList": [
+          "administrator"
+        ],
+        "authMethod": "Cluster",
+        "clusterAdminIDs": [
+          1
+        ],
+        "finalTimeout": "2020-03-14T19:21:24Z",
+        "idpConfigVersion": 0,
+        "lastAccessTimeout": "2020-03-11T19:51:24Z",
+        "sessionCreationTime": "2020-03-11T19:21:24Z",
+        "sessionID": "b12bfc64-f233-44df-8b9f-6fb6c011abf7",
+        "username": "admin"
+      }
+    ]
+}
+----
+
+== New since version
+
+12.0

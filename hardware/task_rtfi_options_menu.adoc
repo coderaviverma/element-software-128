@@ -1,0 +1,14 @@
+---
+permalink: hardware/task_rtfi_options_menu.html
+sidebar: sidebar
+keywords: rtfi, return, factory, image, menu, options, upload, logs
+summary: Learn about the RTFI menu options if the RTFI process is unsuccessful or if you elect not to proceed at the initial RTFI process prompt.
+---
+= RTFI options menu
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+include::../_include/task_rtfi_menu_options.adoc[]
+
+// 2022 FEB 2, DOC-4281

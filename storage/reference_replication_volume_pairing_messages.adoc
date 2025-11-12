@@ -1,0 +1,41 @@
+---
+permalink: storage/reference_replication_volume_pairing_messages.html
+sidebar: sidebar
+keywords: volume pairing, messages, replication, data protection
+summary: 'You can view volume pairing messages during the initial pairing process from the Volume Pairs page under the Data Protection tab. These messages can display on both source and target ends of the pair in the Replicating Volumes list view.'
+---
+
+= Volume pairing messages
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can view volume pairing messages during the initial pairing process from the Volume Pairs page under the Data Protection tab. These messages can display on both source and target ends of the pair in the Replicating Volumes list view.
+
+* *PausedDisconnected*
++
+Source replication or sync RPCs timed out. Connection to the remote cluster has been lost. Check network connections to the cluster.
+
+* *ResumingConnected*
++
+The remote replication sync is now active. Beginning the sync process and waiting for data.
+
+* *ResumingRRSync*
++
+A single helix copy of the volume metadata is being made to the paired cluster.
+
+* *ResumingLocalSync*
++
+A double helix copy of the volume metadata is being made to the paired cluster.
+
+* *ResumingDataTransfer*
++
+Data transfer has resumed.
+
+* *Active*
++
+Volumes are paired and data is being sent from the source to the target volume and the data is in sync.
+
+* *Idle*
++
+No replication activity is occurring.

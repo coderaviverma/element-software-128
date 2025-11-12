@@ -1,0 +1,59 @@
+---
+permalink: api/reference_element_api_getorigin.html
+sidebar: sidebar
+keywords: origin,get,getting,getorigin,certificate
+summary: 'You can use the GetOrigin method to get the origination certificate for where the node was built.'
+---
+
+= GetOrigin
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `GetOrigin` method to get the origination certificate for where the node was built.
+
+== Parameters
+
+NOTE: This method returns "null" if there is no origination certification.
+
+This method has no input parameters.
+
+== Return value
+
+This method returns vendor origination certification information.
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+ "method": "GetOrigin",
+ "id" : 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "integrator": "SolidFire",
+  "<signature>": {
+    "pubkey": [public key info],
+    "version": 1,
+    "data": [signature info]
+  },
+   "contract-id": "none",
+   "location": "Boulder, CO",
+   "organization": "Engineering",
+   "type": "element-x"
+  }
+ ]
+}
+----
+
+== New since version
+
+9.6

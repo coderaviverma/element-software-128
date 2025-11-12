@@ -1,0 +1,19 @@
+---
+permalink: storage/task_system_manage_virtual_edit_vrf_vlans.html
+sidebar: sidebar
+keywords: vrf vlans edit, vrf vlan attributes, change
+summary: 'You can change VRF VLAN attributes, such as VLAN name, netmask, gateway, and IP address blocks.'
+---
+
+= Edit VRF VLANs
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can change VRF VLAN attributes, such as VLAN name, netmask, gateway, and IP address blocks.
+
+. Click *Cluster* > *Network*.
+. Click the Actions icon for the VLAN you want to edit.
+. Click *Edit*.
+. Enter the new attributes for the VRF VLAN in the *Edit VLAN* dialog box.
+. Click *Save Changes*.

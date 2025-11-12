@@ -1,0 +1,107 @@
+---
+permalink: api/reference_element_api_listvolumestatsbyaccount.html
+sidebar: sidebar
+keywords: volumes,volume,stats,list,listing,account,listvolumestatsbyaccount,activity
+summary: 'You can use the ListVolumeStatsByAccount method to list high-level volume activity measurements for every account. Values are summed from all volumes owned by the account.'
+---
+
+= ListVolumeStatsByAccount
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+You can use the `ListVolumeStatsByAccount` method to list high-level volume activity measurements for every account. Values are summed from all volumes owned by the account.
+
+== Parameters
+
+This method has the following input parameters:
+
+[options="header"]
+|===
+|Name |Description |Type |Default value |Required
+a|
+includeVirtualVolumes
+a|
+Virtual volumes are included in the response by default. To exclude virtual volumes, set to false.
+a|
+boolean
+a|
+true
+a|
+No
+a|
+accounts
+a|
+A list of account IDs for which to return volume statistics. If omitted, statistics for all accounts are returned.
+a|
+integer array
+a|
+None
+a|
+No
+|===
+
+== Return value
+
+This method has the following return value:
+
+|===
+|Name |Description |Type
+a|
+volumeStats
+a|
+List of volume activity information for each account.*Note:* The volumeID member is 0 for each entry, as the values represent the summation of all volumes owned by the account.
+
+a|
+xref:reference_element_api_volumestats.adoc[volumeStats] array
+|===
+
+== Request example
+
+Requests for this method are similar to the following example:
+
+----
+{
+"method": "ListVolumeStatsByAccount",
+  "params": {"accounts": [3]},
+  "id": 1
+}
+----
+
+== Response example
+
+This method returns a response similar to the following example:
+
+----
+{
+  "id": 1,
+  "result": {
+    "volumeStats": [
+      {
+        "accountID": 3,
+        "nonZeroBlocks": 155040175,
+        "readBytes": 3156273328128,
+        "readBytesLastSample": 0,
+        "readOps": 770574543,
+        "readOpsLastSample": 0,
+        "samplePeriodMSec": 500,
+        "timestamp": "2016-10-17T20:42:26.231661Z",
+        "unalignedReads": 0,
+        "unalignedWrites": 0,
+        "volumeAccessGroups": [],
+        "volumeID": 0,
+        "volumeSize": 1127428915200,
+        "writeBytes": 1051988406272,
+        "writeBytesLastSample": 0,
+        "writeOps": 256833107,
+        "writeOpsLastSample": 0,
+        "zeroBlocks": 120211025
+      }
+    ]
+  }
+}
+----
+
+== New since version
+
+9.6

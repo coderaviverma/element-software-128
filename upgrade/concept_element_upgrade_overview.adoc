@@ -1,0 +1,88 @@
+---
+sidebar: sidebar
+permalink: upgrade/concept_element_upgrade_overview.html
+summary: You can keep your SolidFire Element storage system up-to-date after deployment by upgrading all NetApp storage components.
+keywords: netapp, solidfire upgrade, vcp upgrade, element upgrade, vsphere upgrade
+---
+= Upgrade sequence overview
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+You can keep your SolidFire Element storage system up-to-date after deployment by sequentially upgrading all NetApp storage components.
+
+These components include management services, NetApp Hybrid Cloud Control, Element software, management node, and (depending on your installation) the Element Plug-in for vCenter Server.
+
+[NOTE]
+====
+* Beginning November 2023, you can’t start a component upgrade using the NetApp Hybrid Cloud Control or REST API because the signing key certificates (private and public) expired on November 5, 2023. You can work around this issue by link:task_hcc_upgrade_management_node.html[performing an in-place upgrade of the management node] to version 12.8 before using the NetApp Hybrid Cloud Control or REST API to upgrade the management services, Element software, and storage firmware.
++
+If you’re deploying a new management node with version 12.8, you can use the NetApp Hybrid Cloud Control or REST API to perform component upgrades in the order listed in the <<sys_upgrade,system upgrade sequence>>.
+
+* The following nodes aren't supported. If you attempt to upgrade one of these nodes to an unsupported Element version, you will see an error stating that the node is not supported by Element 12.x: 
+** Beginning with Element 12.8, SF4805, SF9605, SF19210, and SF38410 storage nodes.
+** Beginning with Element 12.7, SF2405 and SF9608 storage nodes and FC0025 and SF-FCN-01 FC nodes.
+* Beginning with Element 12.5, NetApp HealthTools is no longer supported for Element software upgrades. If you are running Element 11.0 or 11.1, you must first https://docs.netapp.com/us-en/element-software-123/upgrade/task_hcc_upgrade_element_software.html#upgrade-element-software-at-connected-sites-using-healthtools[upgrade to Element 12.3 using HealthTools^] and then upgrade to Element 12.5 or later using NetApp Hybrid Cloud Control.
+====
+
+The <<sys_upgrade,system upgrade sequence>> content describes the tasks that are needed to complete a SolidFire all-flash storage system upgrade. Ideally these procedures are performed as part of the larger upgrade sequence and not in isolation. If a component-based upgrade or update is needed, see the procedure prerequisites to ensure additional complexities are addressed.
+
+The link:task_sf_upgrade_all_vsphere.html[vSphere upgrade sequence] including Element Plug-in for vCenter Server content describes additional pre- and post-upgrade steps required to re-install the Element Plug-in for vCenter Server.
+
+.Before you begin
+
+* You are running management node 11.3 or later. Newer versions of the management node have a modular architecture that provides individual services.
++
+TIP: To check the version, log in to your management node and view the Element version number in the login banner. If you do not have 11.3, see link:task_hcc_upgrade_management_node.html[Upgrade your management node].
+
+* You have upgraded your management services to at least version 2.1.326.
++
+Upgrades using NetApp Hybrid Cloud Control are not available in earlier service bundle versions.
+
+* You have ensured that the system time on all nodes is synced and that NTP is correctly configured for the storage cluster and nodes. Each node must be configured with a DNS nameserver in the per-node web UI (`https://[IP address]:442`) with no unresolved cluster faults related to time skew.
+
+* You have scheduled sufficient time for your link:task_hcc_upgrade_element_software.html#element-upgrade-time[Element software] and link:task_hcc_upgrade_storage_firmware.html#storage-firmware-upgrade[storage firmware] upgrades. When you upgrade to Element software 12.5 or later, the upgrade process time varies depending on the Element software version and firmware updates.
+
+== [[sys_upgrade]]System upgrade sequence
+You can use the following sequence to upgrade your NetApp SolidFire all-flash storage system for Element 12.5 or later.
+
+.Steps
+. link:task_hcc_upgrade_element_prechecks.html[Run Element storage health checks before upgrading storage].
+
+. link:task_hcc_upgrade_management_node.html[(Optional) Upgrade your management node].
++
+NOTE: You are no longer required to upgrade the management node operating system to upgrade Element software on the storage cluster. If the management node is version 11.3 or later, you can simply upgrade the management services to the latest version to perform Element upgrades using NetApp Hybrid Cloud Control. Follow the management node upgrade procedure for your scenario if you need to upgrade the management node operating system for other reasons, such as security remediation.
+
+. link:task_hcc_update_management_services.html[Update management services from Hybrid Cloud Control].
++
+[IMPORTANT]
+====
+* The management services 2.27 bundle includes Element Plug-in for vCenter Server 5.5, which is only compatible with management node 12.8. When you update to management services 2.27, you must change the upgrade sequence and update the management services bundle _after_ upgrading to Element 12.8 to have compatibility between the management node and management services. 
+
+* If you're updating to management services 2.21.61 through 2.26.40, you must update the management services bundle _before_ upgrading to Element 12.8.
+====
++
+IMPORTANT: If you are updating management services to version 2.16 or later and you are running a management node 11.3 to 11.8, you will need to increase your management node VM's RAM before updating management services.
+
+. link:task_hcc_upgrade_element_software.html[Upgrade your Element software and storage firmware].
+
+. link:task_hcc_upgrade_storage_firmware.html[(Optional) Upgrade your Element storage firmware only].
++
+NOTE: You might perform this task when a new storage firmware upgrade becomes available outside of a major release.
+
+
+. link:task_vcp_upgrade_plugin.html[Upgrade your Element Plug-in for vCenter Server].
+
+[discrete]
+== Find more information
+* https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
+* https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
+
+// 2025 SEP 24,DOC-4798
+// 2025 APR 4, DOC-4765
+// 2024 DEC 19, DOC-4759
+// 2024 DEC 16, DOC-4721
+// 2023 DEC 5, DOC-4719
