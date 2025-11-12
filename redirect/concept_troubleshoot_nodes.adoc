@@ -1,0 +1,4 @@
+---
+permalink: storage/concept_troubleshoot_nodes.html
+redirect: element-storage/storage/concept_remove_nodes_from_cluster.html
+---

@@ -4,8 +4,7 @@ sidebar: sidebar
 keywords: element, solidfire, install, setup, node, cluster
 summary: 'Before you get started, you might want to understand the sequence of installing and setting up NetApp Element software.'
 ---
-
-= Setup overview
+= Learn about setting up storage
 :icons: font
 :imagesdir: ../media/
 
@@ -18,8 +17,13 @@ image::../media/sf_and_element_workflow_for_setup_shorter_workflow.png[Setup wor
 
 .Steps to set up storage
 . Select one of the following:
-* link:../setup/task_setup_cluster_with_storage_nodes.html[Set up cluster with storage nodes]
-* link:../setup/task_setup_cluster_with_fibre_channel_nodes.html[Set up cluster with Fibre Channel nodes]
+* link:../setup/concept_setup_configure_a_storage_node.html[Set up cluster with storage nodes]
++
+You can set up a cluster with storage nodes and manage it using Element software after you install and cable nodes in a rack unit and power them on. You can then install and configure additional components in your storage system.
+
+* link:../setup/concept_setup_fc_configure_a_fibre_channel_node.html[Set up cluster with Fibre Channel nodes]
++
+You can set up a cluster with Fibre Channel nodes and manage it using Element software after you install and cable nodes in a rack unit and power them on. You can then install and configure additional components in your storage system.
 . link:../setup/task_setup_determine_which_solidfire_components_to_install.html[Determine which SolidFire components to install]
 . link:../setup/task_setup_gh_redirect_set_up_a_management_node.html[Set up a management node and enable Active IQ telemetry]
 

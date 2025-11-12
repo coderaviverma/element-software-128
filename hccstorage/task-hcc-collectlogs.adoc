@@ -57,6 +57,7 @@ NOTE: Depending on the logs you collect, the progress bar might remain at a cert
 +
 The log package is in a compressed UNIX .tgz file format.
 
+[[use-the-rest-api-to-collect-netapp-hci-logs]]
 == Use the REST API to collect logs
 You can use REST API to collect Element logs.
 

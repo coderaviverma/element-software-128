@@ -25,5 +25,5 @@ Learn how to set up set up the storage system for your environment.
 *** xref:concept_setup_fc_set_up_zones_for_fibre_channel_nodes.adoc[Set up zones for Fibre Channel nodes]
 *** xref:task_setup_create_a_volume_access_group_for_fibre_channel_clients.adoc[Create a volume access group for Fibre Channel clients]
 ** xref:task_setup_determine_which_solidfire_components_to_install.adoc[Determine which SolidFire components to install]
-** xref:/task_setup_gh_redirect_set_up_a_management_node.adoc[Set up a management node]
+** xref:task_setup_gh_redirect_set_up_a_management_node.adoc[Set up a management node]
 ** xref:concept_setup_whats_next.adoc[What's next?]

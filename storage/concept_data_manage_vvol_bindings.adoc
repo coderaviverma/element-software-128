@@ -4,8 +4,7 @@ sidebar: sidebar
 keywords: bindings, vvols, bound virtual volumes
 summary: 'To perform I/O operations with a virtual volume, an ESXi host must first bind the virtual volume.'
 ---
-
-= Bindings
+= Learn about bindings
 :icons: font
 :imagesdir: ../media/
 

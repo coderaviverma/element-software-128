@@ -1,0 +1,4 @@
+---
+permalink: storage/concept_data_manage_vol_access_group_work_with_volume_access_groups_and_initiators.html
+redirect: element-software/storage/concept_data_manage_data_management.html
+---

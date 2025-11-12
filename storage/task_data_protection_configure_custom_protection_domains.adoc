@@ -53,4 +53,4 @@ Here are some errors you might see after applying a custom Protection Domain con
 == Find more information
 
 * link:../concepts/concept_solidfire_concepts_data_protection.html#custom_pd[Custom Protection Domains^]
-* link:../api/index.html[Manage storage with the Element API^]
+* link:../api/concept_element_api_about_the_api.html[Manage storage with the Element API^]

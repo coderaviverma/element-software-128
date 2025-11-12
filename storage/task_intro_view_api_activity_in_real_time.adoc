@@ -14,7 +14,7 @@ The Element system uses the NetApp Element API as the foundation for its feature
 
 You can use the API log to identify what API methods are used for certain tasks, and see how to use the API methods and objects to build custom applications.
 
-For information about each method, see link:../api/index.html[Element Software API reference].
+For information about each method, see link:../api/concept_element_api_about_the_api.html[Element Software API reference].
 
 . From the Element UI navigation bar, click *API Log*.
 . To modify the type of API activity displayed in the API Log window, perform the following steps:
@@ -27,6 +27,6 @@ For information about each method, see link:../api/index.html[Element Software A
 
 == Find more information
 
-* link:../api/index.html[Managing storage with the Element API]
+* link:../api/concept_element_api_about_the_api.html[Managing storage with the Element API]
 * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
 * https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

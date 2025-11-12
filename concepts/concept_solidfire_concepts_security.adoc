@@ -45,7 +45,7 @@ You can configure Element to integrate with an existing SAML 2.0 identity provid
 
 You can pair multi-factor authentication with common SAML 2.0 compatible identity providers (IdPs), such as Microsoft Active Directory Federation Services (ADFS) and Shibboleth.
 
-To configure MFA, see link:../storage/concept_system_manage_mfa_enable_multi_factor_authentication.html[the enable multi-factor authentication] documentation.
+To configure MFA, see link:../storage/task_system_manage_mfa_set_up_multi_factor_authentication.html[the enable multi-factor authentication] documentation.
 
 == FIPS 140-2 for HTTPS and data at rest encryption
 

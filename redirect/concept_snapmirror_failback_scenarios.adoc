@@ -1,0 +1,4 @@
+---
+permalink: storage/concept_snapmirror_failback_scenarios.html
+redirect: element-software/storage/task_snapmirror_perform_failback_to_element.html
+---

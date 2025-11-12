@@ -57,7 +57,7 @@ The system might take several minutes to create the cluster depending on the num
 
 == For more information
 
-* link:../api/index.html[Managing storage with the Element API]
+* link:../api/concept_element_api_about_the_api.html[Managing storage with the Element API]
 * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
 * https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]
 // 2022 DEC 12, DOC-4643 

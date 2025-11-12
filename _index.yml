@@ -1,6 +1,6 @@
 indexpage:
   title: SolidFire and Element Software Documentation
-  lead: A SolidFire all-flash storage system is comprised of hardware components such as drives and nodes that are combined into a pool of storage resources. Using the Element interface, API, or other management tools, you can manage these storage resource clusters with NetApp Element software. This site contains the documentation for Element software 12.8.
+  lead: A SolidFire all-flash storage system is comprised of hardware components such as drives and nodes that are combined into a pool of storage resources. Using the Element interface, API, or other management tools, you can manage these storage resource clusters with NetApp Element software. This site contains the documentation for Element software 12.9.
   summary: A SolidFire all-flash storage system is comprised of hardware components such as drives and nodes that are combined into a pool of storage resources. As a single storage system, this unified cluster is managed with NetApp Element software.
   keywords: solidfire, all-flash, storage, hardware, install, maintain, element software, esos, element cli
   tiles:
@@ -13,15 +13,15 @@ indexpage:
         - title: What's new
           url: /concepts/concept_rn_whats_new_element.html
         - title: Requirements
-          url: /setup/concept_requirements_overview.html
+          url: /storage/concept_prereq_networking.html
         - title: Setup overview
           url: /setup/concept_setup_overview.html
     - title: Install & maintain hardware
       links:
         - title: H410S and H610S hardware information
-          url: /hardware/concept_h410s_h610s_info.html
+          url: /hardware/task_h410s_h610s_install.html
         - title: SF-series hardware information
-          url: /hardware/concept_sfseries_info.html
+          url: /hardware/task_sfseries_chassisrepl.html
         - title: Return to Factory Image information
           url: /hardware/concept_rtfi_configure.html
         - title: Supported firmware revisions for NetApp H-Series storage nodes
@@ -31,9 +31,9 @@ indexpage:
         - title: Use Element software UI
           url: /storage/index.html
         - title: Use NetApp Hybrid Cloud Control
-          url: /hccstorage/index.html
+          url: /hccstorage/task-hcc-manage-storage-clusters.html
         - title: Use Element software API
-          url: /api/index.html
+          url: /api/concept_element_api_about_the_api.html
         - title: Use Element Plug-in for vCenter Server
           url: https://docs.netapp.com/us-en/vcp/
         - title: Use NetApp SolidFire Active IQ

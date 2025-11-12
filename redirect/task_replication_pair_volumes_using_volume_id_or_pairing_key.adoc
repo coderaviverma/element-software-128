@@ -1,0 +1,4 @@
+---
+permalink: storage/task_replication_pair_volumes_using_volume_id_or_pairing_key.html
+redirect: element-software/storage/task_replication_pair_volumes_using_a_volume_id.html
+---

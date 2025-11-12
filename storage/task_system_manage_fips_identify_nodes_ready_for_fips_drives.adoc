@@ -28,7 +28,7 @@ The resulting report shows one of the following statuses:
  ** Using the Element API, enter: `GetHardwareList`
  ** Note the value of the *DriveEncryptionCapabilityType*. If it is "fips," the hardware can support the FIPS drives feature.
 +
-See details about `GetFipsReport` or `ListDriveHardware` in the link:../api/index.html[Element API Reference].
+See details about `GetFipsReport` or `ListDriveHardware` in the link:../api/concept_element_api_about_the_api.html[Element API Reference].
 . If the drive cannot support the FIPS drives feature, replace the hardware with FIPS hardware (either node or drives).
 
 

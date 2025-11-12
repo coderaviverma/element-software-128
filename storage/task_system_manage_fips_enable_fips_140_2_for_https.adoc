@@ -35,6 +35,6 @@ After this operating mode is enabled, all HTTPS communication uses the FIPS 140-
 
 == Find more information
 * xref:reference_system_manage_fips_ssl_cipher_changes.adoc[SSL ciphers]
-* link:../api/index.html[Manage storage with the Element API]
+* link:../api/concept_element_api_about_the_api.html[Manage storage with the Element API]
 * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
 * https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

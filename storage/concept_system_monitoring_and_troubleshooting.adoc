@@ -21,7 +21,7 @@ You must monitor the system for diagnostic purposes and to get information about
 * link:task_monitor_iscsi_sessions.html[View iSCSI sessions]
 * link:task_monitor_fibre_channel_sessions.html[View Fibre Channel sessions]
 * link:concept_troubleshoot_drives.html[Troubleshoot drives]
-* link:concept_troubleshoot_nodes.html[Troubleshoot nodes]
+* link:concept_remove_nodes_from_cluster.html[Troubleshoot nodes]
 * link:concept_per_node_work_with_utilities.html[Work with per-node utilities for storage nodes]
 * link:concept_mnode_work_with_the_management_node.html[Work with the management node]
 * link:concept_monitor_understand_cluster_fullness_levels.html[Understand cluster fullness levels]

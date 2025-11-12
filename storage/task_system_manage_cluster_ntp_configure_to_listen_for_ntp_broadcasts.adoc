@@ -12,6 +12,8 @@ summary: 'By using the broadcast mode, you can instruct each node in a cluster t
 [.lead]
 By using the broadcast mode, you can instruct each node in a cluster to listen on the network for Network Time Protocol (NTP) broadcast messages from a particular server.
 
+The NTP is used to synchronize clocks over a network. Connection to an internal or external NTP server should be part of the initial cluster setup.
+
 .What you'll need
 * You must have cluster administrator privileges to configure this setting.
 * You must configure an NTP server on your network as a broadcast server.
@@ -25,5 +27,6 @@ By using the broadcast mode, you can instruct each node in a cluster to listen o
 
 
 == Find more information
+* link:../storage/task_system_manage_cluster_ntp_configure.html[Configure Network Time Protocol servers for the cluster to query]
 * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
 * https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

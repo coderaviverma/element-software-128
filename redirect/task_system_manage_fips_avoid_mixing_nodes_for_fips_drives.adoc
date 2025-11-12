@@ -1,0 +1,5 @@
+---
+permalink: storage/task_system_manage_fips_avoid_mixing_nodes_for_fips_drives.html
+redirect: element-software/storage/task_system_manage_fips_create_a_cluster_supporting_fips_drives.html
+---
+

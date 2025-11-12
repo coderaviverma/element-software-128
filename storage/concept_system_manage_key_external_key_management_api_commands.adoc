@@ -37,4 +37,4 @@ Used for creating and maintaining key providers which manage external key server
 * RekeySoftwareEncryptionAtRestMasterKey
 * TestKeyProviderKmip
 
-For information about the API methods, see link:../api/index.html[API reference information].
+For information about the API methods, see link:../api/concept_element_api_about_the_api.html[API reference information].

@@ -70,4 +70,4 @@ After the system resolves an alert, all information about the alert including th
 == Find more information
 
 * xref:reference_monitor_cluster_fault_codes.adoc[Cluster fault codes]
-* link:../api/index.html[Manage storage with the Element API]
+* link:../api/concept_element_api_about_the_api.html[Manage storage with the Element API]

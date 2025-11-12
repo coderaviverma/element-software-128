@@ -1,9 +1,9 @@
 section: setup
 title: Set up storage
-url: /setup/concept_setup_overview.html
 entries:
+  - title: Learn about setting up storage
+    url: /setup/concept_setup_overview.html
   - title: Set up a cluster with storage nodes
-    url: /setup/task_setup_cluster_with_storage_nodes.html
     entries:
     - title: Configure a storage node
       url: /setup/concept_setup_configure_a_storage_node.html
@@ -14,7 +14,6 @@ entries:
     - title: Add drives to the cluster
       url: /setup/task_setup_add_drives_to_a_cluster.html
   - title: Set up a cluster with Fibre Channel nodes
-    url: /setup/task_setup_cluster_with_fibre_channel_nodes.html
     entries:
     - title: Configure a Fibre Channel node
       url: /setup/concept_setup_fc_configure_a_fibre_channel_node.html

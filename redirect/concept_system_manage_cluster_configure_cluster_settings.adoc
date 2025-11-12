@@ -1,0 +1,4 @@
+---
+permalink: storage/concept_system_manage_cluster_configure_cluster_settings.html
+redirect: element-software/storage/task_system_manage_cluster_enable_and_disable_encryption_for_a_cluster.html
+---

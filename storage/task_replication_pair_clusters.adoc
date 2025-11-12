@@ -4,7 +4,6 @@ sidebar: sidebar
 keywords: pair clusters, replication, connect clusters, data protection
 summary: 'You must pair two clusters as a first step to using real-time replication functionality. After you pair and connect two clusters, you can configure active volumes on one cluster to be continuously replicated to a second cluster, providing continuous data protection \(CDP\).'
 ---
-
 = Pair clusters for replication
 :icons: font
 :imagesdir: ../media/
@@ -22,6 +21,14 @@ You must pair two clusters as a first step to using real-time replication functi
 NOTE: Cluster pairing requires full connectivity between nodes on the management network. Replication requires connectivity between the individual nodes on the storage cluster network.
 
 You can pair one cluster with up to four other clusters for replicating volumes. You can also pair clusters within the cluster group with each other.
+
+== Pair clusters using MVIP or a pairing key
+
+You can pair a source and target cluster using the MVIP of the target cluster if there is cluster administrator access to both clusters. If cluster administrator access is only available on one cluster in a cluster pair, a pairing key can be used on the target cluster to complete the cluster pairing.
+
+. Select one of the following methods to pair clusters:
+ ** link:task_replication_pair_cluster_using_mvip.html[Pair clusters using MVIP]: Use this method if there is cluster administrator access to both clusters. This method uses the MVIP of the remote cluster to pair two clusters.
+ ** link:task_replication_pair_cluster_using_pairing_key.html[Pair clusters using a pairing key]: Use this method if there is cluster administrator access to only one of the clusters. This method generates a pairing key that can be used on the target cluster to complete the cluster pairing.
 
 == Find more information
 

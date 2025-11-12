@@ -4,13 +4,12 @@ sidebar: sidebar
 keywords: volume pairings, volume id, replication
 summary: 'You can pair a volume with another volume on a remote cluster if you have cluster administrator credentials for the remote cluster.'
 ---
-
 = Pair volumes using a volume ID
 :icons: font
 :imagesdir: ../media/
 
 [.lead]
-You can pair a volume with another volume on a remote cluster if you have cluster administrator credentials for the remote cluster.
+You can pair a volume with another volume on a remote cluster if you have cluster administrator access to both clusters on which volumes are to be paired. This method uses the volume ID of the volume on the remote cluster to initiate a connection.
 
 .What you'll need
 * Ensure that the clusters containing the volumes are paired.

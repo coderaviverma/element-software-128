@@ -14,7 +14,7 @@ You can change the alias of an existing initiator or add an alias if one does no
 
 To add a CHAP account name and credentials per initiator, you must use the `ModifyInitiator` API call to remove and add CHAP access and attributes.
 
-See link:../api/index.html[Manage storage with the Element API].
+See link:../api/concept_element_api_about_the_api.html[Manage storage with the Element API].
 
 .Steps
 . Click *Management* > *Initiators*.

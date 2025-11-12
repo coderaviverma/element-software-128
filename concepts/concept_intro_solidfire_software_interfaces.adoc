@@ -28,7 +28,7 @@ link:../storage/index.html[Manage storage with Element software]
 == NetApp Element software API
 Enables you to use a set of objects, methods, and routines to manage Element storage. The Element API is based on the JSON-RPC protocol over HTTPS. You can monitor API operations in the Element UI by enabling the API Log; this enables you to see the methods that are being issued to the system. You can enable both requests and responses to see how the system replies to the methods that are issued.
 
-link:../api/index.html[Manage storage with the Element API]
+link:../api/concept_element_api_about_the_api.html[Manage storage with the Element API]
 
 == NetApp Element Plug-in for vCenter Server
 Enables you to configure and manage storage clusters running Element software using an alternative interface for the Element UI within VMware vSphere.
@@ -38,7 +38,7 @@ https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter 
 == NetApp Hybrid Cloud Control
 Enables you to upgrade Element storage and management services and manage storage assets using the NetApp Hybrid Cloud Control interface.
 
-link:../hccstorage/index.html[Manage and monitor storage with NetApp Hybrid Cloud Control overview]
+link:../hccstorage/task-hcc-manage-storage-clusters.html[Manage and monitor storage with NetApp Hybrid Cloud Control]
 
 == Management node UIs
 The management node contains two UIs: a UI for managing REST-based services and a per-node UI for managing network and cluster settings and operating system tests and utilities. From the REST API UI, you can access a menu of service-related APIs that control service-based system functionality from the management node.

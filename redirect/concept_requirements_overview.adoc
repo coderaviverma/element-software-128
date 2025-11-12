@@ -1,0 +1,4 @@
+---
+permalink: setup/concept_requirements_overview.html
+redirect: element-software/storage/concept_prereq_networking.html
+---

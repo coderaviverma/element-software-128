@@ -14,7 +14,7 @@ You must configure individual nodes before you can add them to a cluster. After 
 
 There are two options for configuring storage nodes:
 
-* <<Configure a storage node using the per-node UI,Per-node UI>>: Use the per-node UI (https://<node_management_IP>:442) to configure node network settings.
+* <<Configure a storage node using the per-node UI,Per-node UI>>: Use the per-node UI (`https://<node_management_IP>:442`) to configure node network settings.
 
 * <<Configure a storage node using the TUI,TUI>>: Use the node terminal user interface (TUI) to configure the node.
 
@@ -36,7 +36,7 @@ IMPORTANT: You should configure the management (Bond1G) and storage (Bond10G) in
 .Steps
 . In a browser window, enter the DHCP IP address of a node.
 +
-You must add the extension `:442` to access the node; for example, https://172.25.103.6:442.
+You must add the extension `:442` to access the node; for example, `https://172.25.103.6:442`.
 +
 The *Network Settings* tab opens with the *Bond1G* section.
 
