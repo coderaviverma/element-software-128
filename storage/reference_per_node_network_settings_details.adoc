@@ -12,7 +12,7 @@ summary: 'You can change the storage node network settings to give the node a ne
 [.lead]
 You can change the storage node network settings to give the node a new set of network attributes.
 
-You can see the network settings for a storage node on the *Network Settings* page when you log in to the node (https://<node IP>:442/hcc/node/network-settings). You can select either *Bond1G* (management) or *Bond10G* (storage) settings. The following list describes the settings that you can modify when a storage node is in Available, Pending, or Active state:
+You can see the network settings for a storage node on the *Network Settings* page when you log in to the node (`https://<node_IP>:442/hcc/node/network-settings`). You can select either *Bond1G* (management) or *Bond10G* (storage) settings. The following list describes the settings that you can modify when a storage node is in Available, Pending, or Active state:
 
 * *Method*
 +

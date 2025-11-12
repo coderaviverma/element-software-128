@@ -10,7 +10,7 @@ summary: 'Understand the sequence of setting up a cluster with storage nodes.'
 :imagesdir: ../media/
 
 [.lead]
-You can set up a cluster with storage nodes and manage it using Element software after you install and cable nodes in a rack unit and power them on. You can then install and configure additional components in your storage system.
+You can set up a cluster with storage nodes and manage it using Element software after you install and cable the nodes in a rack unit and power them on. You can then install and configure additional components in your storage system.
 
 .Steps
 . link:concept_setup_configure_a_storage_node.html[Configure a storage node]

@@ -4,19 +4,57 @@ sidebar: sidebar
 keywords: virtual volumes, volumes, manage
 summary: 'You can manage the data in a cluster running Element software from the Management tab in the Element UI. Available cluster management functions include creating and managing data volumes, user accounts, volume access groups, initiators, and Quality of Service \(QoS\) policies.'
 ---
-
-= Manage volumes and virtual volumes
+= Learn about managing volumes and virtual volumes
 :icons: font
 :imagesdir: ../media/
 
 [.lead]
 You can manage the data in a cluster running Element software from the Management tab in the Element UI. Available cluster management functions include creating and managing data volumes, volume access groups, initiators, and Quality of Service (QoS) policies.
 
-* link:task_data_manage_volumes_work_with_volumes_task.html[Work with volumes]
-* link:concept_data_manage_vvol_work_virtual_volumes.html[Work with virtual volumes]
-* link:concept_data_manage_vol_access_group_work_with_volume_access_groups_and_initiators.html[Work with volume access groups and initiators]
+== Work with volumes
 
+The SolidFire system provisions storage using volumes. Volumes are block devices accessed over the network by iSCSI or Fibre Channel clients. From the Volumes page on the Management tab, you can create, modify, clone, and delete volumes on a node. You can also view statistics about volume bandwidth and I/O usage.
 
+link:../storage/concept_data_manage_volumes_quality_of_service_policies.html[Learn about working with volumes]
+
+== Work with virtual volumes
+
+You can view information and perform tasks for virtual volumes and their associated storage containers, protocol endpoints, bindings, and hosts using the Element UI.
+
+The NetApp Element software storage system ships with the Virtual Volumes (VVols) feature disabled. You must perform a one-time task of manually enabling vSphere VVol functionality through the Element UI.
+
+After you enable the VVol functionality, a VVols tab appears in the user interface that offers VVols-related monitoring and limited management options. Additionally, a storage-side software component known as the VASA Provider acts as a storage awareness service for vSphere. Most VVols commands, such as VVol creation, cloning, and editing, are initiated by a vCenter Server or ESXi host and translated by the VASA Provider to Element APIs for the Element software storage system. Commands to create, delete, and manage storage containers and delete virtual volumes can be initiated using the Element UI.
+
+The majority of configurations necessary for using Virtual Volumes functionality with Element software storage systems are made in vSphere. See the _VMware vSphere Virtual Volumes for SolidFire Storage Configuration Guide_ to register the VASA Provider in vCenter, create and manage VVol datastores, and manage storage based on policies.
+
+NOTE: For Element 12.5 and earlier, do not register more than one NetApp Element VASA provider to a single vCenter instance. Where a second NetApp Element VASA provider is added, this renders all VVOL datastores inaccessible.
+
+NOTE: VASA support for multiple vCenters is available as an upgrade patch if you have already registered a VASA provider with your vCenter. To install, download the VASA39 .tar.gz file from the https://mysupport.netapp.com/products/element_software/VASA39/index.html[NetApp Software Downloads] site and follow the directions in the manifest. The NetApp Element VASA provider uses a NetApp certificate. With this patch, the certificate is used unmodified by vCenter to support multiple vCenters for VASA and VVols use. Do not modify the certificate. Custom SSL certificates are not supported by VASA.
+
+link:../storage/task_data_manage_vvol_enable_virtual_volumes.html[Learn about working with virtual volumes]
+
+== Work with volume access groups and initiators
+You can use iSCSI initiators or Fibre Channel initiators to access the volumes defined within volume access groups.
+
+You can create access groups by mapping iSCSI initiator IQNs or Fibre Channel WWPNs in a collection of volumes. Each IQN that you add to an access group can access each volume in the group without requiring CHAP authentication.
+
+There are two types of CHAP authentication methods:
+
+* Account-level CHAP authentication: You can assign CHAP authentication for the account.
+* Initiator-level CHAP authentication: You can assign unique CHAP target and secrets for specific initiators without being bound to single CHAP across a single account. This Initiator-level CHAP authentication replaces account level credentials.
+
+Optionally, with per-initiator CHAP, you can enforce initiator authorization and per-initiator CHAP authentication. These options can be defined on a per-initiator basis and an access group can contain a mix of initiators with different options.
+
+Each WWPN that you add to an access group enables Fibre Channel network access to the volumes in the access group.
+
+NOTE: Volume access groups have the following limits:
+
+* A maximum of 64 IQNs or WWPNs are allowed in an access group.
+* An access group can be made up of a maximum of 2000 volumes.
+* An IQN or WWPN can belong to only one access group.
+* A single volume can belong to a maximum of four access groups.
+
+link:../storage/task_data_manage_vol_access_group_create_a_volume_access_group.html[Learn about working with volume access groups and initiators]
 
 == For more information
 * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]

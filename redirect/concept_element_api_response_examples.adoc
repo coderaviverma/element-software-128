@@ -1,0 +1,4 @@
+---
+permalink: api/concept_element_api_response_examples.html
+redirect: element-software/api/reference_element_api_response_example_getconfig.html
+---

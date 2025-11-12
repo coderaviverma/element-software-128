@@ -13,15 +13,15 @@ indexpage:
         - title: What's new
           url: /concepts/concept_rn_whats_new_element.html
         - title: Requirements
-          url: /setup/concept_requirements_overview.html
+          url: /storage/concept_prereq_networking.html
         - title: Setup overview
           url: /setup/concept_setup_overview.html
     - title: Install & maintain hardware
       links:
         - title: H410S and H610S hardware information
-          url: /hardware/concept_h410s_h610s_info.html
+          url: /hardware/task_h410s_h610s_install.html
         - title: SF-series hardware information
-          url: /hardware/concept_sfseries_info.html
+          url: /hardware/task_sfseries_chassisrepl.html
         - title: Return to Factory Image information
           url: /hardware/concept_rtfi_configure.html
         - title: Supported firmware revisions for NetApp H-Series storage nodes
@@ -31,9 +31,9 @@ indexpage:
         - title: Use Element software UI
           url: /storage/index.html
         - title: Use NetApp Hybrid Cloud Control
-          url: /hccstorage/index.html
+          url: /hccstorage/task-hcc-manage-storage-clusters.html
         - title: Use Element software API
-          url: /api/index.html
+          url: /api/concept_element_api_about_the_api.html
         - title: Use Element Plug-in for vCenter Server
           url: https://docs.netapp.com/us-en/vcp/
         - title: Use NetApp SolidFire Active IQ

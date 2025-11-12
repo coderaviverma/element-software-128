@@ -25,6 +25,6 @@ You can check whether the FIPS drives feature is enabled on the cluster by using
 ----
 
 == Find more information
-* link:../api/index.html[Manage storage with the Element API]
+* link:../api/concept_element_api_about_the_api.html[Manage storage with the Element API]
 * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
 * https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

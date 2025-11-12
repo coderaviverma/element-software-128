@@ -15,7 +15,7 @@ You can create iSCSI or Fibre Channel initiators and optionally assign them alia
 You can also assign initator-based CHAP attributes by using an API call. To add a CHAP account name and credentials per initiator, you must use the `CreateInitiator` API call to remove and add CHAP access and attributes. Initiator access can be restricted to one or more VLANs by specifying one or more virtualNetworkIDs via the `CreateInitiators` and `ModifyInitiators` API calls. If no virtual networks are specified, the initiator can access all networks.
 
 For details, see the API reference information.
-link:../api/index.html[Manage storage with the Element API]
+link:../api/concept_element_api_about_the_api.html[Manage storage with the Element API]
 
 .Steps
 . Click *Management* > *Initiators*.

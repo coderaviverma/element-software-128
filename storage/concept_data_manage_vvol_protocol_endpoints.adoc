@@ -4,8 +4,7 @@ sidebar: sidebar
 keywords: protocol endpoint, access, cluster, storage node, iscsi supported
 summary: 'Protocol endpoints are access points used by a host to address storage on a cluster running NetApp Element software. Protocol endpoints cannot be deleted or modified by a user, are not associated with an account, and cannot be added to a volume access group.'
 ---
-
-= Protocol endpoints
+= Learn about protocol endpoints
 :icons: font
 :imagesdir: ../media/
 

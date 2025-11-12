@@ -62,7 +62,7 @@ See information about link:../concepts/concept_solidfire_concepts_accounts_and_p
 
 .. *QoS Policies*: You can see the QoS policy applied to the volume. A QoS policy applies standardized settings for minimum IOPS, maximum IOPS, and burst IOPS to multiple volumes.
 +
-See information about link:../concepts/concept_data_manage_volumes_solidfire_quality_of_service.html#qos-performance.html[performance and QoS policies].
+See information about link:../concepts/concept_data_manage_volumes_solidfire_quality_of_service.html#qos-performance[performance and QoS policies].
 
 [discrete]
 == Find more information

@@ -56,7 +56,7 @@ TIP: You can find the initiator IQN for each volume by selecting *View Details* 
 When you modify an initiator, you can toggle the requiredCHAP attribute to True, which enables you to set the target initiator secret. For details, see API information about the ModifyInitiator API method.
 
 
-link:../api/index.html[Manage storage with the Element API]
+link:../api/concept_element_api_about_the_api.html[Manage storage with the Element API]
 
 |===
 

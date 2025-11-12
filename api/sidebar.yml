@@ -1,10 +1,10 @@
 section: api
 title: Manage storage with Element API
-url: "/api/index.html"
 entries:
-  - title: About the Element software API
-    url: "/api/concept_element_api_about_the_api.html"
+  - title: Element API software
     entries:
+    - title: Learn about Element software API
+      url: "/api/concept_element_api_about_the_api.html"
     - title: Request object members
       url: "/api/reference_element_api_request_object_members.html"
     - title: Response object members
@@ -18,7 +18,6 @@ entries:
     - title: Attributes
       url: "/api/reference_element_api_attributes.html"
   - title: Common objects
-    url: "/api/concept_element_api_common_objects.html"
     entries:
     - title: account
       url: "/api/reference_element_api_account.html"
@@ -189,7 +188,6 @@ entries:
     - title: volumeStats
       url: "/api/reference_element_api_volumestats.html"
   - title: Common methods
-    url: "/api/concept_element_api_common_methods.html"
     entries:
     - title: GetAPI
       url: "/api/reference_element_api_getapi.html"
@@ -206,7 +204,6 @@ entries:
     - title: ListAsyncResults
       url: "/api/reference_element_api_listasyncresults.html"
   - title: Account API methods
-    url: "/api/concept_element_api_account_api_methods.html"
     entries:
     - title: AddAccount
       url: "/api/reference_element_api_addaccount.html"
@@ -223,7 +220,6 @@ entries:
     - title: RemoveAccount
       url: "/api/reference_element_api_removeaccount.html"
   - title: Administrator API methods
-    url: "/api/concept_element_api_administrator_api_methods.html"
     entries:
     - title: AddClusterAdmin
       url: "/api/reference_element_api_addclusteradmin.html"
@@ -240,7 +236,6 @@ entries:
     - title: SetLoginBanner
       url: "/api/reference_element_api_setloginbanner.html"
   - title: Cluster API methods
-    url: "/api/concept_element_api_cluster_api_methods.html"
     entries:
     - title: AddNodes
       url: "/api/reference_element_api_addnodes.html"
@@ -309,7 +304,6 @@ entries:
     - title: Shutdown
       url: "/api/reference_element_api_cluster_shutdown.html"
   - title: Cluster creation API Methods
-    url: "/api/concept_element_api_create_cluster_api_methods.html"
     entries:
     - title: CheckProposedCluster
       url: "/api/reference_element_api_checkproposedcluster.html"
@@ -318,7 +312,6 @@ entries:
     - title: GetBootstrapConfig
       url: "/api/reference_element_api_getbootstrapconfig.html"
   - title: Drive API methods
-    url: "/api/concept_element_api_drive_api_methods.html"
     entries:
     - title: AddDrives
       url: "/api/reference_element_api_adddrives.html"
@@ -335,7 +328,6 @@ entries:
     - title: SecureEraseDrives
       url: "/api/reference_element_api_secureerasedrives.html"
   - title: Fibre Channel API methods
-    url: "/api/concept_element_api_fibre_channel_api_methods.html"
     entries:
     - title: GetVolumeAccessGroupLunAssignments
       url: "/api/reference_element_api_getvolumeaccessgrouplunassignments.html"
@@ -348,7 +340,6 @@ entries:
     - title: ModifyVolumeAccessGroupLunAssignments
       url: "/api/reference_element_api_modifyvolumeaccessgrouplunassignments.html"
   - title: Initiator API methods
-    url: "/api/concept_element_api_initiator_api_methods.html"
     entries:
     - title: CreateInitiators
       url: "/api/reference_element_api_createinitiators.html"
@@ -359,7 +350,6 @@ entries:
     - title: ModifyInitiators
       url: "/api/reference_element_api_modifyinitiators.html"
   - title: LDAP API methods
-    url: "/api/concept_element_api_ldap_api_methods.html"
     entries:
     - title: AddLdapClusterAdmin
       url: "/api/reference_element_api_addldapclusteradmin.html"
@@ -372,7 +362,6 @@ entries:
     - title: TestLdapAuthentication
       url: "/api/reference_element_api_testldapauthentication.html"
   - title: Multi-factor authentication API methods
-    url: "/api/concept_element_api_multi_factor_authentication_api_methods.html"
     entries:
     - title: AddIdpClusterAdmin
       url: "/api/reference_element_api_addidpclusteradmin.html"
@@ -399,14 +388,12 @@ entries:
     - title: UpdateIdpConfiguration
       url: "/api/reference_element_api_updateidpconfiguration.html"
   - title: Session authentication API methods
-    url: "/api/concept_element_api_session_authentication_api_methods.html"
     entries:
     - title: ListAuthSessionsByClusterAdmin
       url: "/api/reference_element_api_listauthsessionbyclusteradmin.html"
     - title: ListAuthSessionsByUsername
       url: "/api/reference_element_api_listauthsessionbyusername.html"
   - title: Node API methods
-    url: "/api/concept_element_api_node_api_methods.html"
     entries:
     - title: CheckPingOnVlan
       url: "/api/reference_element_api_checkpingonvlan.html"
@@ -515,7 +502,6 @@ entries:
     - title: TestRemoteConnectivity
       url: "/api/reference_element_api_testremoteconnectivity.html"
   - title: Replication API methods
-    url: "/api/concept_element_api_replication_api_methods.html"
     entries:
     - title: Cluster pairing order of operations
       url: "/api/reference_element_api_cluster_pairing_order_of_operations.html"
@@ -542,7 +528,6 @@ entries:
     - title: StartVolumePairing
       url: "/api/reference_element_api_startvolumepairing.html"
   - title: Security API methods
-    url: "/api/concept_element_api_security_api_methods.html"
     entries:
     - title: AddKeyServerToProviderKmip
       url: "/api/reference_element_api_addkeyservertoproviderkmip.html"
@@ -585,7 +570,6 @@ entries:
     - title: TestKeyServerKmip
       url: "/api/reference_element_api_testkeyserverkmip.html"
   - title: SnapMirror API methods
-    url: "/api/concept_element_api_snapmirror_api_methods.html"
     entries:
     - title: AbortSnapMirrorRelationship
       url: "/api/reference_element_api_abortsnapmirrorrelationship.html"
@@ -646,7 +630,6 @@ entries:
     - title: ResyncSnapMirrorRelationship
       url: "/api/reference_element_api_resyncsnapmirrorrelationship.html"
   - title: System configuration API methods
-    url: "/api/concept_element_api_system_configuration_api_methods.html"
     entries:
     - title: DisableBmcColdReset
       url: "/api/reference_element_api_disablebmccoldreset.html"
@@ -723,7 +706,6 @@ entries:
     - title: TestAddressAvailability
       url: "/api/reference_element_api_testaddressavailability.html"
   - title: Multitenant networking API methods
-    url: "/api/concept_element_api_multitenant_networking_api_methods.html"
     entries:
     - title: Virtual network naming conventions
       url: "/api/concept_element_api_virtual_network_naming_conventions.html"
@@ -736,7 +718,6 @@ entries:
     - title: RemoveVirtualNetwork
       url: "/api/reference_element_api_removevirtualnetwork.html"
   - title: Volume API methods
-    url: "/api/concept_element_api_volume_api_methods.html"
     entries:
     - title: CancelClone
       url: "/api/reference_element_api_cancelclone.html"
@@ -825,7 +806,6 @@ entries:
     - title: UpdateBulkVolumeStatus
       url: "/api/reference_element_api_updatebulkvolumestatus.html"
   - title: Volume access group API methods
-    url: "/api/concept_element_api_volume_access_group_api_methods.html"
     entries:
     - title: AddInitiatorsToVolumeAccessGroup
       url: "/api/reference_element_api_addinitiatorstovolumeaccessgroup.html"
@@ -846,7 +826,6 @@ entries:
     - title: GetVolumeAccessGroupEfficiency
       url: "/api/reference_element_api_getvolumeaccessgroupefficiency.html"
   - title: Volume snapshot API methods
-    url: "/api/concept_element_api_volume_snapshot_api_methods.html"
     entries:
     - title: Snapshots overview
       url: "/api/concept_element_api_snapshots_overview.html"
@@ -879,7 +858,6 @@ entries:
     - title: RollbackToSnapshot
       url: "/api/reference_element_api_rollbacktosnapshot.html"
   - title: Virtual volume API methods
-    url: "/api/concept_element_api_vvols_api_methods.html"
     entries:
     - title: CreateStorageContainer
       url: "/api/reference_element_api_createstoragecontainer.html"
@@ -906,7 +884,6 @@ entries:
   - title: Access control
     url: "/api/reference_element_api_app_b_access_control.html"
   - title: Response examples
-    url: "/api/concept_element_api_response_examples.html"
     entries:
     - title: GetConfig
       url: "/api/reference_element_api_response_example_getconfig.html"

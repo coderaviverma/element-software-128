@@ -1,0 +1,4 @@
+---
+permalink: hardware/concept_h410s_h610s_info.html
+redirect: element-software/hardware/task_h410s_h610s_install.html
+---

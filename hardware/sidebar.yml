@@ -1,9 +1,7 @@
 section: hardware
 title: Install and maintain hardware
-url: /hardware/index.html
 entries:
   - title: H410S and H610S hardware information
-    url: /hardware/concept_h410s_h610s_info.html
     entries:
     - title: Install H410S and H610S nodes
       url: /hardware/task_h410s_h610s_install.html
@@ -16,7 +14,6 @@ entries:
     - title: Replace a power supply unit
       url: /hardware/task_psu_repl.html
   - title: SF-series hardware information
-    url: /hardware/concept_sfseries_info.html
     entries:
     - title: Replace a chassis
       url: /hardware/task_sfseries_chassisrepl.html

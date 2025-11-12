@@ -1,0 +1,4 @@
+---
+permalink: setup/task_setup_cluster_with_storage_nodes.html
+redirect: element-software/setup/concept_setup_configure_a_storage_node.html
+---

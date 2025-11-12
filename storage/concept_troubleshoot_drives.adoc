@@ -33,5 +33,5 @@ IMPORTANT: SolidFire storage systems do not support removal of a drive if it res
 * xref:task_troubleshoot_remove_mdss_drives.adoc[Remove MDSS drives]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2844771[Replacing drives for SolidFire storage nodes]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2846859[Replacing drives for H600S series storage nodes]
-* link:../hardware/concept_h410s_h610s_info.html[H410S and H610S hardware information]
-* link:../hardware/concept_sfseries_info.html[SF-series hardware information]
+* link:../hardware/task_h410s_h610s_install.html[H410S and H610S hardware information]
+* link:../hardware/task_sfseries_chassisrepl.html[SF-series hardware information]

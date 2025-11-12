@@ -4,14 +4,28 @@ sidebar: sidebar
 keywords: failback, perform a failbacl, Element, snapmirror
 summary: 'When the issue on the primary side has been mitigated, you must resynchronize the original source volume and fail back to NetApp Element software. The steps you perform vary depending on whether the original source volume still exists or whether you need to failback to a newly created volume.'
 ---
-
-= Perform a failback to Element
+= Learn about performing a failback to Element
 :icons: font
 :imagesdir: ../media/
 
 [.lead]
 When the issue on the primary side has been mitigated, you must resynchronize the original source volume and fail back to NetApp Element software. The steps you perform vary depending on whether the original source volume still exists or whether you need to failback to a newly created volume.
 
+== SnapMirror failback scenarios
+
+The SnapMirror disaster recovery functionality is illustrated in two failback scenarios. These assume the original relationship has been failed over (broken).
+
+The steps from the corresponding procedures are added for reference.
+
+NOTE: In the examples here, R1 = the original relationship in which the cluster running NetApp Element software is the original source volume (Element) and ONTAP is the original destination volume (ONTAP). R2 and R3 represent the inverse relationships created through the reverse resync operation.
+
+The following image shows the failback scenario when the source volume still exists:
+
+image::../media/snapmirror_element_failback1.gif[Image of the failback scenario when the source volume still exists]
+
+The following image shows the failback scenario when the source volume no longer exists:
+
+image::../media/snapmirror_element_failback2.png[Image of the failback scenario when the source volume no longer exists]
 == Find more information
 
 * xref:task_snapmirror_perform_failback_when_source_volume_exists.adoc[Perform a failback when source volume still exists]

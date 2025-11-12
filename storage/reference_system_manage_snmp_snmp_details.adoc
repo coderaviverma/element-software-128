@@ -4,12 +4,19 @@ sidebar: sidebar
 keywords: snmp, overview, reference, mib, settings, trap
 summary: 'On the SNMP page of the Cluster tab, you can view the following information.'
 ---
-
-= SNMP details
+= Learn about SNMP
 :icons: font
 :imagesdir: ../media/
 
 [.lead]
+You can configure Simple Network Management Protocol (SNMP) in your cluster.
+
+You can select an SNMP requestor, select which version of SNMP to use, identify the SNMP User-based Security Model (USM) user, and configure traps to monitor the SolidFire cluster. You can also view and access management information base files.
+
+NOTE: You can use both IPv4 and IPv6 addresses.
+
+== SNMP details
+
 On the SNMP page of the Cluster tab, you can view the following information.
 
 * *SNMP MIBs*

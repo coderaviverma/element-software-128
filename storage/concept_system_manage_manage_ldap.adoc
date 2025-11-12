@@ -64,7 +64,7 @@ For example, to add a custom port number, enter <host name or ip address>:<port 
 +
 //link:reference_system_manage_ldap_details.md#[LDAP details]
 +
-image::../media/element_new_ldap_servers.jpg[]
+image::../media/element_new_ldap_servers.jpg[Screenshot of the General Settings information]
 
 . Click *Enable LDAP*.
 . Click *Test User Authentication* if you want to test the server access for a user.
@@ -73,7 +73,7 @@ image::../media/element_new_ldap_servers.jpg[]
 . To create a user in this group so that anyone can log in, complete the following:
  .. Click *User* > *View*.
 +
-image::../media/element_new_cluster_admin.jpg[]
+image::../media/element_new_cluster_admin.jpg[Screenshot of the Create a new user page]
 
  .. For the new user, click *LDAP* for the User Type, and paste the group you copied to the Distinguished Name field.
  .. Select the permissions, typically all permissions.

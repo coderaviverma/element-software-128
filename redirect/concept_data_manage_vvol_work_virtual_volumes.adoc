@@ -1,0 +1,4 @@
+---
+permalink: storage/concept_data_manage_vvol_work_virtual_volumes.html
+redirect: element-software/storage/task_data_manage_vvol_enable_virtual_volumes.html
+---

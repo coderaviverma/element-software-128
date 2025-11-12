@@ -1,0 +1,4 @@
+---
+permalink: storage/task_data_manage_volumes_work_with_volumes_task.html
+redirect: element-software/storage/concept_data_manage_volumes_quality_of_service_policies.html
+---

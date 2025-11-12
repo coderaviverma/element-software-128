@@ -4,13 +4,14 @@ sidebar: sidebar
 keywords: ntp, cluster, query, fqdn, dns server
 summary: 'You can instruct each node in a cluster to query a Network Time Protocol \(NTP\) server for updates. The cluster contacts only configured servers and requests NTP information from them.'
 ---
-
 = Configure Network Time Protocol servers for the cluster to query
 :icons: font
 :imagesdir: ../media/
 
 [.lead]
 You can instruct each node in a cluster to query a Network Time Protocol (NTP) server for updates. The cluster contacts only configured servers and requests NTP information from them.
+
+The NTP is used to synchronize clocks over a network. Connection to an internal or external NTP server should be part of the initial cluster setup.
 
 Configure NTP on the cluster to point to a local NTP server. You can use the IP address or the FQDN host name. The default NTP server at cluster creation time is set to us.pool.ntp.org; however, a connection to this site cannot always be made depending on the physical location of the SolidFire cluster.
 
@@ -32,5 +33,6 @@ You must have cluster administrator privileges to configure this setting.
 
 
 == Find more information
+* link:../storage/task_system_manage_cluster_ntp_configure_to_listen_for_ntp_broadcasts.html[Configure the cluster to listen for NTP broadcasts]
 * https://docs.netapp.com/us-en/element-software/index.html[SolidFire and Element Software Documentation]
 * https://docs.netapp.com/us-en/vcp/index.html[NetApp Element Plug-in for vCenter Server^]

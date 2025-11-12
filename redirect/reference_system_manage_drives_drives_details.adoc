@@ -1,0 +1,4 @@
+---
+permalink: storage/reference_system_manage_drives_drives_details.html
+redirect: element-software/storage/concept_system_manage_drives_managing_drives.html
+---

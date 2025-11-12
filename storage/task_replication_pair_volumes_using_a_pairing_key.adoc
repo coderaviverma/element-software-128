@@ -4,13 +4,12 @@ sidebar: sidebar
 keywords: volume pairings, pairing key, replication
 summary: 'If you do not have cluster admin credentials for a remote cluster, you can pair a volume with another volume on a remote cluster using a pairing key.'
 ---
-
 = Pair volumes using a pairing key
 :icons: font
 :imagesdir: ../media/
 
 [.lead]
-If you do not have cluster admin credentials for a remote cluster, you can pair a volume with another volume on a remote cluster using a pairing key.
+If you have cluster administrator access to only the source cluster (you do not have cluster admin credentials for a remote cluster), you can pair a volume with another volume on a remote cluster using a pairing key.
 
 .What you'll need
 * Ensure that the clusters containing the volumes are paired.

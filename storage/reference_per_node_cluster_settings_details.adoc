@@ -12,7 +12,7 @@ summary: 'You can verify cluster settings for a storage node after cluster confi
 [.lead]
 You can verify cluster settings for a storage node after cluster configuration and modify the node hostname.
 
-The following list describes the cluster settings for a storage node indicated from the *Cluster Settings* page of the per-node UI (https://<node IP>:442/hcc/node/cluster-settings).
+The following list describes the cluster settings for a storage node indicated from the *Cluster Settings* page of the per-node UI (`https://<node_IP>:442/hcc/node/cluster-settings`).
 
 * *Role*
 +
