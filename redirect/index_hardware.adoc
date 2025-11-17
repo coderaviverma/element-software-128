@@ -1,0 +1,4 @@
+---
+permalink: hardware/index.html
+redirect: element-software/hardware/task_h410s_h610s_install.html
+---
