@@ -303,7 +303,7 @@ entries:
       url: "/api/reference_element_api_setloginsessioninfo.html"
     - title: Shutdown
       url: "/api/reference_element_api_cluster_shutdown.html"
-  - title: Cluster creation API Methods
+  - title: Cluster creation API methods
     entries:
     - title: CheckProposedCluster
       url: "/api/reference_element_api_checkproposedcluster.html"
