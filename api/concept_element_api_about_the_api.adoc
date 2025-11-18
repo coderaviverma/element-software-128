@@ -47,10 +47,10 @@ Some cluster API methods operate on nodes that are part of a cluster, or have be
 
 link:../api/reference_element_api_addnodes.html[Learn about cluster API methods]
 
-== Cluster creation API Methods
+== Cluster creation API methods
 You can use these API methods to create a storage cluster. All of these methods need to be used against the API endpoint on a single node.
 
-link:../api/reference_element_api_checkproposedcluster.html[Learn about cluster creation API Methods]
+link:../api/reference_element_api_checkproposedcluster.html[Learn about cluster creation API methods]
 
 == Drive API methods
 You can use drive API methods to add and manage drives that are available to a storage cluster. When you add a storage node to the storage cluster or install new drives in an existing storage node, the drives are available to be added to the storage cluster.
