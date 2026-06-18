@@ -14,7 +14,7 @@ You can use the `EnableEncryptionAtRest` method to enable the Advanced Encryptio
 
 [NOTE]
 ====
-* To see the current status of encryption at rest and/or software encryption at rest on the cluster, use the link:../api/reference_element_api_getclusterinfo[get cluster info method^]. You can use the `GetSoftwareEncryptionAtRestInfo` link:../api/reference_element_api_getsoftwareencryptionatrestinfo[method to get information the cluster uses to encrypt data at rest^].
+* To see the current status of encryption at rest and/or software encryption at rest on the cluster, use the link:../api/reference_element_api_getclusterinfo.html[get cluster info method]. You can use the `GetSoftwareEncryptionAtRestInfo` link:../api/reference_element_api_getsoftwareencryptionatrestinfo.html[method to get information the cluster uses to encrypt data at rest].
 
 * This method does not enable software encryption at rest. This can only be done using the link:../api/reference_element_api_createcluster.html[create cluster method^] with `enableSoftwareEncryptionAtRest` set to `true`.
 ====

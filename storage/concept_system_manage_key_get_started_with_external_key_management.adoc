@@ -14,7 +14,7 @@ External key management (EKM) provides secure Authentication Key (AK) management
 
 * link:task_system_manage_key_set_up_external_key_management.html[Set up external management]
 * link:task_system_manage_rekey_software_ear_master_key.html[Rekey software encryption at rest master key]
-* link:concept_system_manage_key_recover_inaccessible_or_invalid_authentication_keys[Recover inaccessible or invalid authentication keys]
+* link:concept_system_manage_key_recover_inaccessible_or_invalid_authentication_keys.html[Recover inaccessible or invalid authentication keys]
 * link:concept_system_manage_key_external_key_management_api_commands.html[External key management API commands]
 
 

@@ -71,7 +71,7 @@ The relationship between the source volume in primary storage and the destinatio
 
 SnapMirror runs natively on the NetApp ONTAP controllers and is integrated into Element, which runs on NetApp HCI and SolidFire clusters. The logic to control SnapMirror resides in ONTAP software; therefore, all SnapMirror relationships must involve at least one ONTAP system to perform the coordination work. Users manage relationships between Element and ONTAP clusters primarily through the Element UI; however, some management tasks reside in NetApp ONTAP System Manager. Users can also manage SnapMirror through the CLI and API, which are both available in ONTAP and Element.
 
-See https://fieldportal.netapp.com/content/616239[TR-4651: NetApp SolidFire SnapMirror Architecture and Configuration^] (login required)
+See https://www.netapp.com/pdf.html?item=/media/19771-tr-4651.pdf[TR-4651: NetApp SolidFire SnapMirror Architecture and Configuration^] 
 
 You must manually enable SnapMirror functionality at the cluster level by using Element software. SnapMirror functionality is disabled by default, and it is not automatically enabled as part of a new installation or upgrade.
 
